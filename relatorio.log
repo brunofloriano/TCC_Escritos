@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.28)  31 OCT 2017 11:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.28)  31 OCT 2017 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -851,25 +851,23 @@ Package pdftex.def Info: Figuras/robo1.png used on input line 27.
 
 
 
-] <Figuras/motor.png, id=195, 208.52907pt x 186.6975pt>
+] [32 <./Figuras/robo1.png (PNG copy)>]
+<Figuras/motor.png, id=199, 208.52907pt x 186.6975pt>
 File: Figuras/motor.png Graphic file (type png)
-
-<use Figuras/motor.png>
-Package pdftex.def Info: Figuras/motor.png used on input line 63.
+ <use Figuras/motor.png>
+Package pdftex.def Info: Figuras/motor.png used on input line 73.
 (pdftex.def)             Requested size: 185.73683pt x 166.29984pt.
 
-<Figuras/modoposicao.png, id=196, 285.31593pt x 207.77625pt>
+<Figuras/modoposicao.png, id=200, 285.31593pt x 207.77625pt>
 File: Figuras/modoposicao.png Graphic file (type png)
 
 <use Figuras/modoposicao.png>
-Package pdftex.def Info: Figuras/modoposicao.png used on input line 70.
+Package pdftex.def Info: Figuras/modoposicao.png used on input line 80.
 (pdftex.def)             Requested size: 232.17459pt x 169.07774pt.
-) [32 <./Figuras/robo1.png (PNG copy)>] [33 <./Figuras/motor.png (PNG copy)> <.
-/Figuras/modoposicao.png (PNG copy)>]
+) [33 <./Figuras/motor.png (PNG copy)> <./Figuras/modoposicao.png (PNG copy)>]
 \openout2 = `cap_Experimentos.aux'.
 
-
-(./cap_Experimentos.tex
+ (./cap_Experimentos.tex
 Cap\'{\i }tulo 4.
 ) [34
 
@@ -917,10 +915,10 @@ p_RevisaoBibliografica.aux) (./cap_Desenvolvimento.aux)
 (./cap_Experimentos.aux) (./cap_Conclusoes.aux) (./anexo_Esquematicos.aux)
 (./anexo_CD.aux)) ) 
 Here is how much of TeX's memory you used:
- 5752 strings out of 493029
- 79007 string characters out of 6136234
+ 5753 strings out of 493029
+ 79019 string characters out of 6136234
  156669 words of memory out of 5000000
- 9015 multiletter control sequences out of 15000+600000
+ 9016 multiletter control sequences out of 15000+600000
  23789 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,14n,43p,988b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -947,7 +945,7 @@ sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 fti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1095.pfb>
-Output written on relatorio.pdf (51 pages, 3021745 bytes).
+Output written on relatorio.pdf (51 pages, 3023113 bytes).
 PDF statistics:
  315 PDF objects out of 1000 (max. 8388607)
  199 compressed objects within 2 object streams

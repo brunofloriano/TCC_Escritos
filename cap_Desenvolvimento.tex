@@ -12,14 +12,14 @@
 %metodologia que foi seguida para o desenvolvimento. A seguir, \'{e} feita a
 %desci\c{c}\~{a}o do sistema desenvolvido. 
 
-Os trabalhos desenvolvidos anteriormente na plataforma quadrúpede do LARA atualizaram-na com componentes adequados para o projeto, como motores, \emph{Raspberry Pi}, Arduino, sensores de força e acelerômetro, e implementaram um movimento balístico que permite ao robô andar com marchas específicas.
+Os trabalhos desenvolvidos anteriormente na plataforma quadrúpede do LARA atualizaram-na com componentes adequados para o projeto, como motores mais robustos, \emph{Raspberry Pi}, Arduino, sensores de força e acelerômetro, e implementaram um movimento balístico que permite ao robô andar com marchas específicas.
 
-Este trabalho consiste, na implementação de um controle de estabilidade na plataforma que permita que esta responda a distúrbios externos, tais como empurrões ou irregularidade no terreno, de modo a manter-se na posição desejada, seja parado ou durante o movimento, sem tombar.
+O presente trabalho consiste na implementação de um controle de estabilidade na plataforma que permita que esta responda a distúrbios externos, tais como empurrões ou irregularidade no terreno, de modo a manter-se na posição desejada, seja parado ou durante o movimento, sem tombar.
 
-O distúrbio é detectado pelo acelerômetro da plataforma. Um controlador, por sua vez, utiliza deste sinal para determinar a resposta desejada de cada pata para a correção do distúrbio e, por fim, esta resposta é acoplada à posição desejada em regime permanente para determinar a posição de cada motor naquele período de amostragem.
+Para tal, o distúrbio é detectado pelo acelerômetro da plataforma. Um controlador, por sua vez, utiliza deste sinal para determinar a resposta desejada de cada pata para a correção do distúrbio e, por fim, esta resposta é acoplada à posição desejada em regime permanente para determinar a posição de cada motor naquele período de amostragem.
 
 \section{Arquitetura do Robô}
-O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode ser obersavdo na Figura \ref{fig:robo1}. O motor mais acima de cada pata tem o objetivo de movimentá-la no sentido transversal, isto é, para a esquerda ou direita. Estes motores serão os responsáveis pela correção do distúrbio de rolagem. Os outros dois motores se movimentam no sentido sagital, ou seja, para frente e para trás e, portanto, irão corrigir o distúrbio que provocaria a arfagem. Um destes motores, o mais abaixo de cada pata, atua como um joelho, divindo a pata em duas partes e adicionando mais um grau de liberdade.
+O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode ser observado na Figura \ref{fig:robo1}. O motor representado mais acima, em cada pata, tem o objetivo de movimentá-la no sentido transversal, isto é, para a esquerda ou direita. Estes motores serão os responsáveis pela correção do distúrbio de rolagem. Os outros dois motores se movimentam no sentido sagital, ou seja, para frente e para trás e, portanto, irão corrigir o distúrbio que provocaria a arfagem. Um destes motores, o mais abaixo de cada pata, atua como um joelho, divindo a pata em duas partes e adicionando mais um grau de liberdade.
 
 
 \begin{figure} [t]
@@ -34,9 +34,11 @@ A identificação numérica (de 1 a 12) de cada motor pode ser organizada conforme 
 \subsection{Motores}
 Os motores utilizados na plataforma são do modelo RX-28 da DYNAMIXEL como o da Figura \ref{fig:motor} \cite{tcc:santos:2016}. Este motor, conforme indicado em seu manual, possui dois modos de operação: o modo posição (\emph{joint mode}) e o modo velocidade (\emph{wheel mode}).
 
-O modo posição possibilita a determinação da posição ângular de cada motor através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 1023 bits para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever uma posição angular desejada com uma resolução de aproximadamente $0.2933^o$.
+O modo posição possibilita a determinação da posição ângular de cada motor através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 9 bits (ou 1024 níveis de quantização) para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever uma posição angular desejada com uma resolução de aproximadamente $0.2933^o$. Portanto, a relação, entre a posição desejada, em graus, e o valor quantizado que deve ser escrito na memória é:
 
 \begin{center}
+	Tabela 1: Identificação dos motores
+	\\
 	\begin{tabular}[b]{ | l | c | r |}
 		\hline
 		Identificação do motor & Perna & Movimento de Correção \\ \hline
@@ -54,9 +56,17 @@ O modo posição possibilita a determinação da posição ângular de cada motor atrav
 		12 & 2 & Arfagem (joelho) \\
 		\hline
 	\end{tabular}
-\\
-Tabela 1: Identificação dos motores
 \end{center}
+
+\newpage
+
+\begin{eqnarray}
+b = \frac{1023}{300}\theta = 3.41\theta ,
+\end{eqnarray}
+
+em que b é o valor quantizado que deve ser enviado em formato binário para a memória e $\theta$ é o ângulo desejado para cada motor, em graus.
+
+O modo velocidade, por outro lado, permite a escrita da velocidade que o motor irá exercer em sua respectiva junta. Neste modo, 10 bits são utilizados para escrever a velocidade sendo o bit mais significativo utilizado para a determinação do sentido de deslocamento (0 para anti-horário e 1 para horário) e os outros 9 para a determinação do módulo da velocidade. Ao contrário do modo posição, o intervalo de valores de velocidade que pode ser quantizado varia conforme a tensão aplicada no motor. Segundo o manual, quando aplicados 16V, a velocidade máxima que pode ser atingida é de 79.4 rpm. Os motores, na configuração atual da plataforma, trabalha com nível de tensão de 13.3 V.
 
 \begin{figure} [t]
 \centering
