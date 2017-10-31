@@ -12,8 +12,64 @@
 %metodologia que foi seguida para o desenvolvimento. A seguir, \'{e} feita a
 %desci\c{c}\~{a}o do sistema desenvolvido. 
 
-%Deve-se ressaltar que equa\c{c}\~{o}es fazem parte do texto, devendo receber pontua\c{c}\~{a}o apropriada e ser numerada. Alguns exemplos s\~{a}o mostrados na se\c{c}\~{a}o \ref
-%{SecClassificador}.
+Os trabalhos desenvolvidos anteriormente na plataforma quadrúpede do LARA atualizaram-na com componentes adequados para o projeto, como motores, \emph{Raspberry Pi}, Arduino, sensores de força e acelerômetro, e implementaram um movimento balístico que permite ao robô andar com marchas específicas.
 
-%Se necessário, use notas de rodapé \footnote{Essa é uma nota de rodapé.}
+Este trabalho consiste, na implementação de um controle de estabilidade na plataforma que permita que esta responda a distúrbios externos, tais como empurrões ou irregularidade no terreno, de modo a manter-se na posição desejada, seja parado ou durante o movimento, sem tombar.
+
+O distúrbio é detectado pelo acelerômetro da plataforma. Um controlador, por sua vez, utiliza deste sinal para determinar a resposta desejada de cada pata para a correção do distúrbio e, por fim, esta resposta é acoplada à posição desejada em regime permanente para determinar a posição de cada motor naquele período de amostragem.
+
+\section{Arquitetura do Robô}
+O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode ser obersavdo na Figura \ref{fig:robo1}. O motor mais acima de cada pata tem o objetivo de movimentá-la no sentido transversal, isto é, para a esquerda ou direita. Estes motores serão os responsáveis pela correção do distúrbio de rolagem. Os outros dois motores se movimentam no sentido sagital, ou seja, para frente e para trás e, portanto, irão corrigir o distúrbio que provocaria a arfagem. Um destes motores, o mais abaixo de cada pata, atua como um joelho, divindo a pata em duas partes e adicionando mais um grau de liberdade.
+
+
+\begin{figure} [t]
+\centering
+\includegraphics[width=0.5\textwidth]{Figuras/robo1}
+\caption{Representação gráfica da plataforma quadrúpede}
+\label{fig:robo1}
+\end{figure}
+
+A identificação numérica (de 1 a 12) de cada motor pode ser organizada conforme a Tabela 1.
+
+\subsection{Motores}
+Os motores utilizados na plataforma são do modelo RX-28 da DYNAMIXEL como o da Figura \ref{fig:motor} \cite{tcc:santos:2016}. Este motor, conforme indicado em seu manual, possui dois modos de operação: o modo posição (\emph{joint mode}) e o modo velocidade (\emph{wheel mode}).
+
+O modo posição possibilita a determinação da posição ângular de cada motor através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 1023 bits para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever uma posição angular desejada com uma resolução de aproximadamente $0.2933^o$.
+
+\begin{center}
+	\begin{tabular}[b]{ | l | c | r |}
+		\hline
+		Identificação do motor & Perna & Movimento de Correção \\ \hline
+		1 & 3 & Rolagem \\ \hline
+		2 & 3 & Arfagem \\ \hline
+		3 & 3 & Arfagem (joelho) \\ \hline
+		4 & 4 & Rolagem \\ \hline
+		5 & 4 & Arfagem \\ \hline
+		6 & 4 & Arfagem (joelho) \\ \hline
+		7 & 1 & Rolagem \\ \hline
+		8 & 1 & Arfagem \\ \hline
+		9 & 1 & Arfagem (joelho) \\ \hline
+		10 & 2 & Rolagem \\ \hline
+		11 & 2 & Arfagem \\ \hline
+		12 & 2 & Arfagem (joelho) \\
+		\hline
+	\end{tabular}
+\\
+Tabela 1: Identificação dos motores
+\end{center}
+
+\begin{figure} [t]
+\centering
+\includegraphics[width=0.4\textwidth]{Figuras/motor}
+\caption{Motor Rx-28 da Dynamixel}
+\label{fig:motor}
+\end{figure}
+
+\begin{figure} [b]
+\centering
+\includegraphics[width=0.5\textwidth]{Figuras/modoposicao}
+\caption{Configurações do Modo Posição}
+\label{fig:modoposicao}
+\end{figure}
+
 
