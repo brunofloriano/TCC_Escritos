@@ -96,4 +96,9 @@ Julho 2007.}
 \emph{The International Journal of Robotics Research}, v.~35, n.~14, p.
   1681--1696, 2016.}
 
+\bibitem{book:realtime}
+\abntrefinfo{Laplante}{LAPLANTE}{1993}
+{LAPLANTE, P.~A. \emph{Real-Time Systems Design and Analysis : an Engineer's
+  Handbook}. New York, United States: iEEE Press, 1993.}
+
 \end{thebibliography}

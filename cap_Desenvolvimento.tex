@@ -1,5 +1,5 @@
 %TCIDATA{LaTeXparent=0,0,relatorio.tex}
-                      
+
 
 \chapter{Desenvolvimento}\label{CapDesenvolvimento}
 
@@ -16,25 +16,25 @@ Os trabalhos desenvolvidos anteriormente na plataforma quadrúpede do LARA atuali
 
 O presente trabalho consiste na implementação de um controle de estabilidade na plataforma que permita que esta responda a distúrbios externos, tais como empurrões ou irregularidade no terreno, de modo a manter-se na posição desejada, seja parado ou durante o movimento, sem tombar.
 
-Para tal, o distúrbio é detectado pelo acelerômetro da plataforma. Um controlador, por sua vez, utiliza deste sinal para determinar a resposta desejada de cada pata para a correção do distúrbio e, por fim, esta resposta é acoplada à posição desejada em regime permanente para determinar a posição de cada motor naquele período de amostragem.
+Para tal, o distúrbio é, primeiramente, detectado pelo acelerômetro da plataforma. Um controlador, por sua vez, utiliza deste sinal para determinar a resposta desejada de cada pata para a correção do distúrbio e, por fim, esta resposta é acoplada à posição desejada em regime permanente para determinar a posição de cada motor naquele período de amostragem.
 
 \section{Arquitetura do Robô}
-O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode ser observado na Figura \ref{fig:robo1}. O motor representado mais acima, em cada pata, tem o objetivo de movimentá-la no sentido transversal, isto é, para a esquerda ou direita. Estes motores serão os responsáveis pela correção do distúrbio de rolagem. Os outros dois motores se movimentam no sentido sagital, ou seja, para frente e para trás e, portanto, irão corrigir o distúrbio que provocaria a arfagem. Um destes motores, o mais abaixo de cada pata, atua como um joelho, divindo a pata em duas partes e adicionando mais um grau de liberdade.
+O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode ser observado na Figura \ref{fig:robo1}. O motor representado mais acima, em cada pata, tem o objetivo de movimentá-la no sentido transversal, isto é, para a esquerda ou direita. Estes motores serão os responsáveis pela correção do distúrbio de rolagem. Os outros dois motores se movimentam no sentido sagital, ou seja, para frente e para trás e, portanto, irão corrigir o distúrbio que provocaria a arfagem. Um destes motores, o mais abaixo de cada pata, atua como um joelho, dividindo-a em duas partes e adicionando mais um grau de liberdade.
 
 
 \begin{figure} [t]
-\centering
-\includegraphics[width=0.5\textwidth]{Figuras/robo1}
-\caption{Representação gráfica da plataforma quadrúpede}
-\label{fig:robo1}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figuras/robo1}
+	\caption{Representação gráfica da plataforma quadrúpede}
+	\label{fig:robo1}
 \end{figure}
 
-A identificação numérica (de 1 a 12) de cada motor pode ser organizada conforme a Tabela 1.
+A identificação numérica (de 1 a 12) de cada motor pode ser organizada de acordo com sua pata e o distúrbio que corrige conforme a Tabela 1.
 
 \subsection{Motores}
 Os motores utilizados na plataforma são do modelo RX-28 da DYNAMIXEL como o da Figura \ref{fig:motor} \cite{tcc:santos:2016}. Este motor, conforme indicado em seu manual, possui dois modos de operação: o modo posição (\emph{joint mode}) e o modo velocidade (\emph{wheel mode}).
 
-O modo posição possibilita a determinação da posição ângular de cada motor através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 9 bits (ou 1024 níveis de quantização) para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever uma posição angular desejada com uma resolução de aproximadamente $0.2933^o$. Portanto, a relação, entre a posição desejada, em graus, e o valor quantizado que deve ser escrito na memória é:
+O modo posição possibilita a determinação da posição ângular de cada junta através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 9 bits (ou 1024 níveis de quantização) para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever a posição angular desejada com uma resolução de aproximadamente $0.2933^o$. Portanto, a relação entre a posição desejada, em graus, e o valor quantizado que deve ser escrito na memória é
 
 \begin{center}
 	Tabela 1: Identificação dos motores
@@ -61,25 +61,61 @@ O modo posição possibilita a determinação da posição ângular de cada motor atrav
 \newpage
 
 \begin{eqnarray}
-b = \frac{1023}{300}\theta = 3.41\theta ,
+B_{\theta} = \frac{1023}{300}\theta_i = 3.41\theta_i ,
 \end{eqnarray}
 
-em que b é o valor quantizado que deve ser enviado em formato binário para a memória e $\theta$ é o ângulo desejado para cada motor, em graus.
-
-O modo velocidade, por outro lado, permite a escrita da velocidade que o motor irá exercer em sua respectiva junta. Neste modo, 10 bits são utilizados para escrever a velocidade sendo o bit mais significativo utilizado para a determinação do sentido de deslocamento (0 para anti-horário e 1 para horário) e os outros 9 para a determinação do módulo da velocidade. Ao contrário do modo posição, o intervalo de valores de velocidade que pode ser quantizado varia conforme a tensão aplicada no motor. Segundo o manual, quando aplicados 16V, a velocidade máxima que pode ser atingida é de 79.4 rpm. Os motores, na configuração atual da plataforma, trabalha com nível de tensão de 13.3 V.
-
 \begin{figure} [t]
-\centering
-\includegraphics[width=0.4\textwidth]{Figuras/motor}
-\caption{Motor Rx-28 da Dynamixel}
-\label{fig:motor}
+	\centering
+	\includegraphics[width=0.4\textwidth]{Figuras/motor}
+	\caption{Motor Rx-28 da Dynamixel}
+	\label{fig:motor}
 \end{figure}
 
 \begin{figure} [b]
-\centering
-\includegraphics[width=0.5\textwidth]{Figuras/modoposicao}
-\caption{Configurações do Modo Posição}
-\label{fig:modoposicao}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figuras/modoposicao}
+	\caption{Configurações do Modo Posição}
+	\label{fig:modoposicao}
 \end{figure}
 
+
+\noindent em que $B_{\theta}$ é o valor quantizado que deve ser enviado em formato binário para a memória e $\theta_i$ é o ângulo desejado para o i-ésimo motor, em graus.
+
+O modo velocidade, por outro lado, permite a escrita da velocidade que o motor irá aplicar à sua respectiva junta. Neste modo, 10 bits são utilizados para escrever a velocidade sendo o bit mais significativo utilizado para a determinação do sentido de deslocamento (0 para anti-horário e 1 para horário) e os outros 9 para a determinação do módulo da velocidade. Ao contrário do modo posição, o valor máximo de velocidade não é fixo, mas varia conforme a tensão aplicada no motor. Segundo o manual, quando aplicados 16V, a velocidade máxima que pode ser atingida é de 79.4 rpm. Portanto, a velocidade máxima pode ser determinada por 
+
+\begin{eqnarray}
+\omega_{max} = V\frac{79.4}{16},
+\end{eqnarray}
+
+\noindent em que $\omega_{max}$ é a velocidade máxima, em rpm,  que pode ser aplicada a cada motor e $V$ é sua respectiva tensão. Os motores, na configuração atual da plataforma, trabalha com nível de tensão de 13.3 V e, portanto, permitem uma velocidade de até 66 rpm, ou 6.91 rad/s. Dessa forma, se $\omega_i$ é a velocidade desejada do i-ésimo motor, em rad/s, o valor quantizado $B_{\omega}$ que deve ser enviado à memória (nos bytes 32 e 33) do motor é
+
+\begin{eqnarray}
+B_{\omega} = \frac{1023}{6.91}|\omega_i| = 148|\omega_i|.
+\end{eqnarray}
+
+Segundo o manual, para definir qual o modo de operação será utilizado, deve-se alterar os ângulos limites de cada motor, permitindo ou não que o movimento seja limitado. Dessa forma, para selecionar o modo velocidade os ângulos mínimo e máximo devem ser ambos iguais a zero, dessa forma o sistema identifica que não deve haver restrição de movimento. Já para selecionar o modo posição, nenhum dos dois pode ser zero, havendo, dessa forma, uma restrição do movimento. Para garantir a maior abrangência do movimento de cada motor no modo posição, definiu-se o ângulo mínimo como 1 (valor quantizado) e o ângulo máximo como 1023. A definição dos ângulos mínimo e máximo pode ser realizada através dos bytes de 6 a 9 da memória.
+
+\subsection{Sistema Embarcado}
+Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o Arduino envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
+
+O \emph{Raspberry Pi}, por sua vez, atua na posição de servo do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as informações para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figuras/Arquitetura}
+	\caption{Arquitetura do Sistema Embarcado}
+	\label{fig:arquitetura}
+\end{figure}
+
+\section{Thread Periódica}
+Segundo \cite{book:realtime}, "um sistema real é um sistema que deve satisfazer restrições explícitas e delimitadas de tempo de resposta ou sofrer consequências graves, incluindo a falha". Ainda pela mesma referência, tempo de resposta é o "tempo entre a apresentação das entradas ao sistema e o aparecimento das suas respectivas respostas". Dessa forma, o sistema real deve conseguir responder de forma satisfatória às entradas, dentro de um período específico de tempo. Portanto, nota-se que o sistema de equilíbrio do robô quadrúpede pode ser considerado como um sistema real, uma vez que este necessita responder dentro de certos limites de tempo, caso contrário haverá falha, neste caso, a queda do robô.
+
+Para lidar com tal sistema como um sistema real, implementou-se o controle de estabilidade como uma thread periódica, com período de amostragem $T_{am}$. Uma thread é um processo que é aberto pelo sistema de processamento (neste caso do \emph{Raspberry Pi}), para ser rodado de forma paralela com outros. Isso permite com que aquele processo não sofra a influência dos demais, especialmente no tempo. Uma thread periódica, por sua vez, é uma thread que é chamada a cada período de tempo, neste caso, a cada $T_{am}$ segundos.
+
+Desta forma, a implementação do controle de estabilidade como uma thread periódica permite que este não seja influenciado por outros processos, de modo que o tempo de resposta para a correção dos distúrbios fique em limiares aceitáveis para que não haja falhas. No código desenvolvido, a função \emph{main}, depois de configurar todos os parâmetros necessários, cria um timer com $T_{am}$ segundos de periodicidade que, por sua vez, chama a função de controle sempre que o tempo de amostragem é atingido. Asssim, dois processos acontecem simultaneamente: a função \emph{main} que determina as condições de parada do código e escreve informações na tela e a função de controle que lê os dados do acelerômetro, calcula as devidas respostas e as envia para os motores.
+
+\section{gDataLogger}
+O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo Borges para que os dados adquiridos durante o processo (como os ângulos de rolagem e arfagem, a posição dos motores e etc) sejam armazenados em um arquivo com extensão .mat para a posterior leitura pelo software \emph{Matlab}.
+
+O \emph{gDataLogger} foi acoplado no código desenvolvido para o recolhimento e análise dos dados de cada experimento do controle de estabilidade. As principais funções para realizar tal recolhimento são: declarar as variáveis, inserir um valor na variável, atualizar o programa e fechá-lo. Além disso, foi desenvolvido um código no próprio \emph{Matlab} para recolher as informações de cada arquivo .mat, organizá-las e, por fim, plotá-las em um gráfico de forma adequada para a análise.
 
