@@ -34,10 +34,12 @@
 \contentsline {figure}{\numberline {2.23}{\ignorespaces Modelo geométrico de uma perna com 4 graus de liberdade}}{28}
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Medições Empíricas e suas Respectivas Respostas}}{29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Representação gráfica da plataforma quadrúpede}}{32}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Motor Rx-28 da Dynamixel}}{33}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Configurações do Modo Posição}}{33}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Arquitetura do Sistema Embarcado}}{35}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Representação gráfica da plataforma quadrúpede (Fonte: \cite {tcc:porphirio:2017})}}{32}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Motor Rx-28 da Dynamixel (Fonte: \cite {tcc:porphirio:2017})}}{33}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Configurações do Modo Posição}}{34}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Arquitetura do Sistema Embarcado (Fonte: \cite {tcc:porphirio:2017})}}{35}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de Blocos do Sistema Básico}}{37}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade}}{38}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

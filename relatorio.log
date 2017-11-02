@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  2 NOV 2017 12:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  2 NOV 2017 19:18
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -589,37 +589,37 @@ verted-to.pdf>] [1
 
  [4
 
-] (relatorio.lot)
+] [5]
+(relatorio.lot)
 \tf@lot=\write7
 \openout7 = `relatorio.lot'.
 
-
-[5
+ [6
 
 ]
 \openout2 = `simbolos.aux'.
 
- (simbolos.tex) [6
+ (simbolos.tex) [7
 
 
-] [7]
+] [8]
 \openout2 = `cap_Introducao.aux'.
 
  (cap_Introducao.tex
 Cap\'{\i }tulo 1.
-<Figuras/BigDog.png, id=58, 294.09875pt x 183.18437pt>
+<Figuras/BigDog.png, id=61, 294.09875pt x 183.18437pt>
 File: Figuras/BigDog.png Graphic file (type png)
 
 <use Figuras/BigDog.png>
 Package pdftex.def Info: Figuras/BigDog.png used on input line 18.
 (pdftex.def)             Requested size: 371.48076pt x 231.38373pt.
- <Figuras/HyQ.png, id=59, 216.30812pt x 259.97125pt>
+ <Figuras/HyQ.png, id=62, 216.30812pt x 259.97125pt>
 File: Figuras/HyQ.png Graphic file (type png)
 
 <use Figuras/HyQ.png>
 Package pdftex.def Info: Figuras/HyQ.png used on input line 28.
 (pdftex.def)             Requested size: 232.17459pt x 279.05109pt.
- <Figuras/AIBO.jpg, id=60, 198.7425pt x 255.95625pt>
+ <Figuras/AIBO.jpg, id=63, 198.7425pt x 255.95625pt>
 File: Figuras/AIBO.jpg Graphic file (type jpg)
 
 <use Figuras/AIBO.jpg>
@@ -640,21 +640,21 @@ Cap\'{\i }tulo 2.
 
 
 
-] <Figuras/Poligono1.png, id=78, 155.07938pt x 81.30376pt>
+] <Figuras/Poligono1.png, id=81, 155.07938pt x 81.30376pt>
 File: Figuras/Poligono1.png Graphic file (type png)
 
 <use Figuras/Poligono1.png>
 Package pdftex.def Info: Figuras/Poligono1.png used on input line 41.
 (pdftex.def)             Requested size: 162.52504pt x 85.20769pt.
 
-<Figuras/Poligono2.png, id=79, 169.13188pt x 74.77937pt>
+<Figuras/Poligono2.png, id=82, 169.13188pt x 74.77937pt>
 File: Figuras/Poligono2.png Graphic file (type png)
 
 <use Figuras/Poligono2.png>
 Package pdftex.def Info: Figuras/Poligono2.png used on input line 41.
 (pdftex.def)             Requested size: 185.73683pt x 82.12405pt.
 
-<Figuras/Poligono3.png, id=80, 208.78pt x 79.29625pt>
+<Figuras/Poligono3.png, id=83, 208.78pt x 79.29625pt>
 File: Figuras/Poligono3.png Graphic file (type png)
 
 <use Figuras/Poligono3.png>
@@ -664,7 +664,7 @@ Package pdftex.def Info: Figuras/Poligono3.png used on input line 43.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figuras/Margemlongitudinal.png, id=81, 419.06563pt x 277.035pt>
+<Figuras/Margemlongitudinal.png, id=84, 419.06563pt x 277.035pt>
 File: Figuras/Margemlongitudinal.png Graphic file (type png)
 
 <use Figuras/Margemlongitudinal.png>
@@ -673,14 +673,14 @@ Package pdftex.def Info: Figuras/Margemlongitudinal.png used on input line 52.
  [6] [7 <./Figuras/Poligono1.png (PNG copy)> <./Figuras/Poligono2.png (PNG copy
 )> <./Figuras/Poligono3.png (PNG copy)>]
 [8 <./Figuras/Margemlongitudinal.png (PNG copy)>]
-<Figuras/Dinamico1.png, id=95, 472.26437pt x 227.34938pt>
+<Figuras/Dinamico1.png, id=98, 472.26437pt x 227.34938pt>
 File: Figuras/Dinamico1.png Graphic file (type png)
 
 <use Figuras/Dinamico1.png>
 Package pdftex.def Info: Figuras/Dinamico1.png used on input line 96.
 (pdftex.def)             Requested size: 325.043pt x 156.47923pt.
  [9 <./Figuras/Dinamico1.png (PNG copy)>]
-<Figuras/Dinamico2.png, id=100, 299.61937pt x 228.855pt>
+<Figuras/Dinamico2.png, id=103, 299.61937pt x 228.855pt>
 File: Figuras/Dinamico2.png Graphic file (type png)
 
 <use Figuras/Dinamico2.png>
@@ -690,14 +690,14 @@ Package pdftex.def Info: Figuras/Dinamico2.png used on input line 135.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figuras/Umaperna.jpg, id=101, 321.2pt x 229.85875pt>
+<Figuras/Umaperna.jpg, id=104, 321.2pt x 229.85875pt>
 File: Figuras/Umaperna.jpg Graphic file (type jpg)
 
 <use Figuras/Umaperna.jpg>
 Package pdftex.def Info: Figuras/Umaperna.jpg used on input line 142.
 (pdftex.def)             Requested size: 325.043pt x 232.61494pt.
  [10]
-<Figuras/CGPrint.png, id=105, 367.3725pt x 185.19188pt>
+<Figuras/CGPrint.png, id=108, 367.3725pt x 185.19188pt>
 File: Figuras/CGPrint.png Graphic file (type png)
 
 <use Figuras/CGPrint.png>
@@ -705,20 +705,20 @@ Package pdftex.def Info: Figuras/CGPrint.png used on input line 170.
 (pdftex.def)             Requested size: 325.043pt x 163.86511pt.
  [11 <./Figuras/Dinamico2.png (PNG copy)>] [12 <./Figuras/Umaperna.jpg> <./Figu
 ras/CGPrint.png (PNG copy)>]
-<Figuras/PernasVirtuais.png, id=112, 341.275pt x 100.87688pt>
+<Figuras/PernasVirtuais.png, id=115, 341.275pt x 100.87688pt>
 File: Figuras/PernasVirtuais.png Graphic file (type png)
 
 <use Figuras/PernasVirtuais.png>
 Package pdftex.def Info: Figuras/PernasVirtuais.png used on input line 189.
 (pdftex.def)             Requested size: 325.043pt x 96.08492pt.
 
-<Figuras/PernasVirtuais2.png, id=113, 284.56313pt x 183.68625pt>
+<Figuras/PernasVirtuais2.png, id=116, 284.56313pt x 183.68625pt>
 File: Figuras/PernasVirtuais2.png Graphic file (type png)
 
 <use Figuras/PernasVirtuais2.png>
 Package pdftex.def Info: Figuras/PernasVirtuais2.png used on input line 198.
 (pdftex.def)             Requested size: 325.043pt x 209.8389pt.
- [13 <./Figuras/PernasVirtuais.png (PNG copy)>] <Figuras/SLIP.png, id=117, 345.
+ [13 <./Figuras/PernasVirtuais.png (PNG copy)>] <Figuras/SLIP.png, id=121, 345.
 29pt x 311.66437pt>
 File: Figuras/SLIP.png Graphic file (type png)
  <use Figuras/SLIP.png>
@@ -726,14 +726,14 @@ Package pdftex.def Info: Figuras/SLIP.png used on input line 227.
 (pdftex.def)             Requested size: 325.043pt x 293.39255pt.
 
 [14 <./Figuras/PernasVirtuais2.png (PNG copy)>]
-<Figuras/SLIP2.png, id=122, 132.495pt x 176.15813pt>
+<Figuras/SLIP2.png, id=125, 132.495pt x 176.15813pt>
 File: Figuras/SLIP2.png Graphic file (type png)
  <use Figuras/SLIP2.png>
 Package pdftex.def Info: Figuras/SLIP2.png used on input line 243.
 (pdftex.def)             Requested size: 139.30617pt x 185.22684pt.
 
 [15 <./Figuras/SLIP.png (PNG copy)>]
-<Figuras/SLIP3.png, id=126, 324.21124pt x 205.76875pt>
+<Figuras/SLIP3.png, id=129, 324.21124pt x 205.76875pt>
 File: Figuras/SLIP3.png Graphic file (type png)
  <use Figuras/SLIP3.png>
 Package pdftex.def Info: Figuras/SLIP3.png used on input line 284.
@@ -743,60 +743,60 @@ Package pdftex.def Info: Figuras/SLIP3.png used on input line 284.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [16 <./Figuras/SLIP2.png (PNG copy)>]
-<Figuras/Balanco1.png, id=130, 301.125pt x 197.23688pt>
+<Figuras/Balanco1.png, id=133, 301.125pt x 197.23688pt>
 File: Figuras/Balanco1.png Graphic file (type png)
 
 <use Figuras/Balanco1.png>
 Package pdftex.def Info: Figuras/Balanco1.png used on input line 297.
 (pdftex.def)             Requested size: 325.043pt x 212.92233pt.
  [17 <./Figuras/SLIP3.png (PNG copy)>]
-<Figuras/Balanco2.png, id=134, 292.09125pt x 214.30063pt>
+<Figuras/Balanco2.png, id=137, 292.09125pt x 214.30063pt>
 File: Figuras/Balanco2.png Graphic file (type png)
 
 <use Figuras/Balanco2.png>
 Package pdftex.def Info: Figuras/Balanco2.png used on input line 331.
 (pdftex.def)             Requested size: 325.043pt x 238.49779pt.
 
-<Figuras/Balanco3.png, id=135, 330.73563pt x 136.00812pt>
+<Figuras/Balanco3.png, id=138, 330.73563pt x 136.00812pt>
 File: Figuras/Balanco3.png Graphic file (type png)
 
 <use Figuras/Balanco3.png>
 Package pdftex.def Info: Figuras/Balanco3.png used on input line 339.
 (pdftex.def)             Requested size: 325.043pt x 133.67305pt.
  [18 <./Figuras/Balanco1.png (PNG copy)> <./Figuras/Balanco2.png (PNG copy)>] <
-Figuras/LAR.png, id=139, 359.3425pt x 88.33pt>
+Figuras/LAR.png, id=142, 359.3425pt x 88.33pt>
 File: Figuras/LAR.png Graphic file (type png)
 
 <use Figuras/LAR.png>
 Package pdftex.def Info: Figuras/LAR.png used on input line 351.
 (pdftex.def)             Requested size: 325.043pt x 79.90463pt.
- <Figuras/LAR2.png, id=140, 365.365pt x 108.405pt>
+ <Figuras/LAR2.png, id=143, 365.365pt x 108.405pt>
 File: Figuras/LAR2.png Graphic file (type png)
 
 <use Figuras/LAR2.png>
 Package pdftex.def Info: Figuras/LAR2.png used on input line 360.
 (pdftex.def)             Requested size: 325.043pt x 96.44539pt.
  [19 <./Figuras/Balanco3.png (PNG copy)>]
-<Figuras/LAR3.png, id=144, 355.82938pt x 116.93687pt>
+<Figuras/LAR3.png, id=148, 355.82938pt x 116.93687pt>
 File: Figuras/LAR3.png Graphic file (type png)
  <use Figuras/LAR3.png>
 Package pdftex.def Info: Figuras/LAR3.png used on input line 386.
 (pdftex.def)             Requested size: 325.043pt x 106.82309pt.
 
-<Figuras/LAR4a.png, id=145, 371.3875pt x 266.9975pt>
+<Figuras/LAR4a.png, id=149, 371.3875pt x 266.9975pt>
 File: Figuras/LAR4a.png Graphic file (type png)
  <use Figuras/LAR4a.png>
 Package pdftex.def Info: Figuras/LAR4a.png used on input line 395.
 (pdftex.def)             Requested size: 162.52504pt x 116.84369pt.
 
-<Figuras/LAR4b.png, id=146, 373.89688pt x 278.03876pt>
+<Figuras/LAR4b.png, id=150, 373.89688pt x 278.03876pt>
 File: Figuras/LAR4b.png Graphic file (type png)
  <use Figuras/LAR4b.png>
 Package pdftex.def Info: Figuras/LAR4b.png used on input line 395.
 (pdftex.def)             Requested size: 148.59514pt x 110.49654pt.
 
 [20 <./Figuras/LAR.png (PNG copy)> <./Figuras/LAR2.png (PNG copy)>]
-<Figuras/LAR5.png, id=151, 265.99374pt x 275.52937pt>
+<Figuras/LAR5.png, id=154, 265.99374pt x 275.52937pt>
 File: Figuras/LAR5.png Graphic file (type png)
  <use Figuras/LAR5.png>
 Package pdftex.def Info: Figuras/LAR5.png used on input line 421.
@@ -804,28 +804,28 @@ Package pdftex.def Info: Figuras/LAR5.png used on input line 421.
 
 [21 <./Figuras/LAR3.png (PNG copy)> <./Figuras/LAR4a.png (PNG copy)> <./Figuras
 /LAR4b.png (PNG copy)>] [22 <./Figuras/LAR5.png (PNG copy)>] [23] [24]
-<Figuras/ganho1.jpg, id=166, 246.9225pt x 243.40938pt>
+<Figuras/ganho1.jpg, id=169, 246.9225pt x 243.40938pt>
 File: Figuras/ganho1.jpg Graphic file (type jpg)
 
 <use Figuras/ganho1.jpg>
 Package pdftex.def Info: Figuras/ganho1.jpg used on input line 556.
 (pdftex.def)             Requested size: 232.17459pt x 228.86797pt.
  [25]
-<Figuras/quadrupededof.jpg, id=170, 314.67563pt x 282.55562pt>
+<Figuras/quadrupededof.jpg, id=174, 314.67563pt x 282.55562pt>
 File: Figuras/quadrupededof.jpg Graphic file (type jpg)
 
 <use Figuras/quadrupededof.jpg>
 Package pdftex.def Info: Figuras/quadrupededof.jpg used on input line 578.
 (pdftex.def)             Requested size: 232.17459pt x 208.47565pt.
 
-<Figuras/realimentacao.jpg, id=171, 277.53688pt x 111.41624pt>
+<Figuras/realimentacao.jpg, id=175, 277.53688pt x 111.41624pt>
 File: Figuras/realimentacao.jpg Graphic file (type jpg)
 
 <use Figuras/realimentacao.jpg>
 Package pdftex.def Info: Figuras/realimentacao.jpg used on input line 587.
 (pdftex.def)             Requested size: 371.48076pt x 149.13208pt.
  [26 <./Figuras/ganho1.jpg>]
-<Figuras/pernaredundante.jpg, id=176, 242.40562pt x 178.16562pt>
+<Figuras/pernaredundante.jpg, id=179, 242.40562pt x 178.16562pt>
 File: Figuras/pernaredundante.jpg Graphic file (type jpg)
 
 <use Figuras/pernaredundante.jpg>
@@ -833,7 +833,7 @@ Package pdftex.def Info: Figuras/pernaredundante.jpg used on input line 596.
 (pdftex.def)             Requested size: 232.17459pt x 170.65372pt.
  [27 <./Figuras/quadrupededof.jpg> <./Figuras/realimentacao.jpg>] [28 <./Figura
 s/pernaredundante.jpg>]
-<Figuras/respostassensoriais.jpg, id=183, 297.11pt x 110.91437pt>
+<Figuras/respostassensoriais.jpg, id=186, 297.11pt x 110.91437pt>
 File: Figuras/respostassensoriais.jpg Graphic file (type jpg)
 
 <use Figuras/respostassensoriais.jpg>
@@ -845,7 +845,7 @@ Package pdftex.def Info: Figuras/respostassensoriais.jpg used on input line 645
 
  (cap_Desenvolvimento.tex
 Cap\'{\i }tulo 3.
-<Figuras/robo1.png, id=190, 300.3722pt x 202.50656pt>
+<Figuras/robo1.png, id=193, 300.3722pt x 202.50656pt>
 File: Figuras/robo1.png Graphic file (type png)
  <use Figuras/robo1.png>
 Package pdftex.def Info: Figuras/robo1.png used on input line 27.
@@ -856,31 +856,50 @@ Package pdftex.def Info: Figuras/robo1.png used on input line 27.
 
 
 ] [32 <./Figuras/robo1.png (PNG copy)>]
-<Figuras/motor.png, id=198, 208.52907pt x 186.6975pt>
+<Figuras/motor.png, id=201, 208.52907pt x 186.6975pt>
 File: Figuras/motor.png Graphic file (type png)
  <use Figuras/motor.png>
 Package pdftex.def Info: Figuras/motor.png used on input line 69.
 (pdftex.def)             Requested size: 185.73683pt x 166.29984pt.
 
-<Figuras/modoposicao.png, id=199, 285.31593pt x 207.77625pt>
+<Figuras/modoposicao.png, id=202, 285.31593pt x 207.77625pt>
 File: Figuras/modoposicao.png Graphic file (type png)
 
 <use Figuras/modoposicao.png>
-Package pdftex.def Info: Figuras/modoposicao.png used on input line 76.
+Package pdftex.def Info: Figuras/modoposicao.png used on input line 87.
 (pdftex.def)             Requested size: 232.17459pt x 169.07774pt.
- [33 <./Figuras/motor.png (PNG copy)> <./Figuras/modoposicao.png (PNG copy)>]
-<Figuras/Arquitetura.png, id=203, 343.78438pt x 328.72812pt>
+ [33 <./Figuras/motor.png (PNG copy)>]
+<Figuras/Arquitetura.png, id=206, 343.78438pt x 328.72812pt>
 File: Figuras/Arquitetura.png Graphic file (type png)
 
 <use Figuras/Arquitetura.png>
-Package pdftex.def Info: Figuras/Arquitetura.png used on input line 105.
+Package pdftex.def Info: Figuras/Arquitetura.png used on input line 107.
 (pdftex.def)             Requested size: 232.17459pt x 222.0073pt.
- [34] [35 <./Figuras/Arquitetura.png (PNG copy)>]) [36]
+ [34 <./Figuras/modoposicao.png (PNG copy)>]
+[35 <./Figuras/Arquitetura.png (PNG copy)>]
+
+LaTeX Warning: Reference `' on page 36 undefined on input line 133.
+
+[36] <Figuras/Diagrama1.png, id=218, 789.95125pt x 276.03125pt>
+File: Figuras/Diagrama1.png Graphic file (type png)
+
+<use Figuras/Diagrama1.png>
+Package pdftex.def Info: Figuras/Diagrama1.png used on input line 151.
+(pdftex.def)             Requested size: 278.61234pt x 97.35367pt.
+ [37 <./Figuras/Diagrama1.png>]
+<Figuras/Diagrama2.png, id=223, 1310.8975pt x 397.485pt>
+File: Figuras/Diagrama2.png Graphic file (type png)
+
+<use Figuras/Diagrama2.png>
+Package pdftex.def Info: Figuras/Diagrama2.png used on input line 180.
+(pdftex.def)             Requested size: 325.043pt x 98.55827pt.
+) [38 <./Figuras/Diagrama2.png>]
 \openout2 = `cap_Experimentos.aux'.
 
- (cap_Experimentos.tex
+
+(cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-) [37
+) [39
 
 
 
@@ -889,23 +908,23 @@ Cap\'{\i }tulo 4.
 
  (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [38
+) [40
 
 
 
-] (relatorio.bbl [39
+] (relatorio.bbl [41
 
 
-]) [40]
+]) [42]
 \c@noAnexo=\count118
- [41
+ [43
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [42
+) [44
 
 
 ]
@@ -913,7 +932,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [43
+) [45
 
 
 
@@ -923,47 +942,53 @@ ANEXO II.
 
  (relatorio.aux (resumos.aux) (simbolos.aux) (cap_Introducao.aux)
 (cap_RevisaoBibliografica.aux) (cap_Desenvolvimento.aux) (cap_Experimentos.aux)
-(cap_Conclusoes.aux) (anexo_Esquematicos.aux) (anexo_CD.aux)) ) 
+(cap_Conclusoes.aux) (anexo_Esquematicos.aux) (anexo_CD.aux))
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5777 strings out of 493334
- 79166 string characters out of 3139252
- 156248 words of memory out of 3000000
- 9037 multiletter control sequences out of 15000+200000
- 23789 words of font info for 59 fonts, out of 3000000 for 9000
+ 5811 strings out of 493334
+ 79647 string characters out of 3139252
+ 156281 words of memory out of 3000000
+ 9063 multiletter control sequences out of 15000+200000
+ 26864 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\bruno
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\U
-sers\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095
+ <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecbx1728.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\tcrm1095.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\bruno\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\bruno\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\bruno\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Us
+ers\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1095.
+pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecbx2488.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
+\ec\dpi600\ecrm1095.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\font
+s\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\bruno\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\bruno\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\bruno
+\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\U
+sers\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095
 .pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecrm0900.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecbx2074.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
-ur\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecxc1095.pk> <C:\Users\bruno\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\bruno\AppData\
-Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\brun
-o\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\
-Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti100
-0.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\ecrm1000.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknapp
-en\ec\dpi600\ecti1200.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fo
-nts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\bruno\AppData\Local\MiK
-TeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\bruno\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\bru
-no\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (54 pages, 3041036 bytes).
+0\ecbx1200.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
+n\ec\dpi600\ecbx1440.pk> <C:\Users\bruno\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
+ur\jknappen\ec\dpi600\ecrm1440.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/symbols/msbm10.pfb>
+Output written on relatorio.pdf (57 pages, 3099257 bytes).
 PDF statistics:
- 956 PDF objects out of 1000 (max. 8388607)
+ 993 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

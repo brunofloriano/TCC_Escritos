@@ -25,7 +25,7 @@ O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/robo1}
-	\caption{Representação gráfica da plataforma quadrúpede}
+	\caption{Representação gráfica da plataforma quadrúpede (Fonte: \cite{tcc:porphirio:2017})}
 	\label{fig:robo1}
 \end{figure}
 
@@ -67,15 +67,8 @@ B_{\theta} = \frac{1023}{300}\theta_i = 3.41\theta_i ,
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Figuras/motor}
-	\caption{Motor Rx-28 da Dynamixel}
+	\caption{Motor Rx-28 da Dynamixel (Fonte: \cite{tcc:porphirio:2017})}
 	\label{fig:motor}
-\end{figure}
-
-\begin{figure} [b]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Figuras/modoposicao}
-	\caption{Configurações do Modo Posição}
-	\label{fig:modoposicao}
 \end{figure}
 
 
@@ -89,6 +82,13 @@ O modo velocidade, por outro lado, permite a escrita da velocidade que o motor i
 
 \noindent em que $\omega_{max}$ é a velocidade máxima, em rpm,  que pode ser aplicada a cada motor e $V$ é sua respectiva tensão. Os motores, na configuração atual da plataforma, trabalha com nível de tensão de 13.3 V e, portanto, permitem uma velocidade de até 66 rpm, ou 6.91 rad/s. Dessa forma, se $\omega_i$ é a velocidade desejada do i-ésimo motor, em rad/s, o valor quantizado $B_{\omega}$ que deve ser enviado à memória (nos bytes 32 e 33) do motor é
 
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figuras/modoposicao}
+	\caption[Configurações do Modo Posição]{Configurações do Modo Posição (Fonte: \footnotemark)}	
+	\label{fig:modoposicao}
+\end{figure}
+
 \begin{eqnarray}
 B_{\omega} = \frac{1023}{6.91}|\omega_i| = 148|\omega_i|.
 \end{eqnarray}
@@ -98,12 +98,14 @@ Segundo o manual, para definir qual o modo de operação será utilizado, deve-se a
 \subsection{Sistema Embarcado}
 Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o Arduino envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
 
+\footnotetext{http://support.robotis.com/en/product/actuator/dynamixel/rx\_series/rx-28.htm\#Actuator\_Address\_06}
+
 O \emph{Raspberry Pi}, por sua vez, atua na posição de servo do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as informações para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/Arquitetura}
-	\caption{Arquitetura do Sistema Embarcado}
+	\caption{Arquitetura do Sistema Embarcado (Fonte: \cite{tcc:porphirio:2017})}
 	\label{fig:arquitetura}
 \end{figure}
 
@@ -119,3 +121,63 @@ O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo
 
 O \emph{gDataLogger} foi acoplado no código desenvolvido para o recolhimento e análise dos dados de cada experimento do controle de estabilidade. As principais funções para realizar tal recolhimento são: declarar as variáveis, inserir um valor na variável, atualizar o programa e fechá-lo. Além disso, foi desenvolvido um código no próprio \emph{Matlab} para recolher as informações de cada arquivo .mat, organizá-las e, por fim, plotá-las em um gráfico de forma adequada para a análise.
 
+\section{Controle de Estabilidade}
+O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle será, portanto, a utilização de sensores, especificamente do acelerômetro, para a detecção de distúrbios no robô que possam gerar os movimentos indesejados de rolagem (queda para direita ou esquerda) ou arfagem (queda para frente ou para trás). Então, a resposta da i-ésima junta para compensar tal movimento será dada por
+
+\begin{eqnarray} \label{eq:des_inicial}
+q_i(t) = K_if_i(d_{roll/pitch}),
+\end{eqnarray}
+
+\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta, $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro (podendo ser posição ou velocidade dos ângulos de rolagem ou arfagem) e $f_i$ é uma função linear da i-ésima junta que determina o sinal da resposta $q_i$ para que o movimento final do robô seja de modo a se opor ao movimento gerado pelo distúrbio. Assim $f_i(d_{roll/pitch}) = \pm d_{roll/pitch}$, sendo o sinal determinado empiricamente para cada junta.
+
+Podemos observar que equação \ref{eq:des_inicial} é muito semelhante com a equação \ref{} de \cite{article:sousa:2010}. Como a abordagem a ser utilizada é empírica na determinação de $K_i$ substituiremos a função $f_i$ pelo próprio $d_{roll/pitch}$ assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
+
+O distúrbio, $d_{roll/pitch}$, será tratado no presente trabalho como a diferença entre o valor de referência desejado para aquela quantidade (posição ou velocidade) e o valor atual da mesma (medida pelo acelerômetro). Isto se representará como
+
+\begin{eqnarray}
+d_{roll/pitch} = r_{roll/pitch} - m_{roll/pitch},
+\end{eqnarray}
+
+\noindent em que $r_{roll/pitch}$ é o valor de referência, no geral será igual a zero, e $m_{roll/pitch}$ é o valor medido a cada instante de amostragem. A equação, portanto, que resume a ideia básica do controle proposto é
+
+\begin{eqnarray}
+q_i(t) = K_i(r_{roll/pitch} - m_{roll/pitch}).
+\end{eqnarray}
+
+\noindent O sistema básico acima descrito pode ser melhor visualizado pela Figura \ref{fig:diagrama1}.
+
+\begin{figure} [b]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Figuras/Diagrama1}
+	\caption{Diagrama de Blocos do Sistema Básico}
+	\label{fig:diagrama1}
+\end{figure}
+
+
+\subsection{Abordagem Inicial}
+A ideia inicial para o controle de estabilidade se baseia na utilização de velocidades ao invés de posições e, consequentemente, do modo velocidade dos motores. Esta abordagem se justifica pela necessidade de uma resposta rápida e não cadenciada das juntas. Com isso, os termos da equação \ref{eq:des_inicial} se tornam velocidades, isto é, $d_{roll/pitch}$ se torna a diferença entre a velocidade angular desejada para a rolagem ou arfagem, $r_{roll/pitch}$, e a velocidade atualmente medida para estas, $\omega_{roll/pitch}$. Da mesma forma, $q_i(t)$ passa ser a velocidade do motor i no instante t, ou seja, $\omega_i(t)$. Remodelando a equação \ref{eq:des_inicial} para as novas definções tem-se
+
+\begin{eqnarray}
+\omega_i(t) = K_i(r_{roll/pitch} - \omega_{roll/pitch}).
+\end{eqnarray}
+
+Como deseja-se a estabilidade do robô, $r_{roll/pitch}$ será estipulado como igual a zero, uma vez que movimentações que provocam rolagem ou arfagem podem levá-lo à queda. Dessa forma, a equação anterior resultará em
+
+\begin{eqnarray}
+\omega_i(t) = K_i( - \omega_{roll/pitch}).
+\end{eqnarray}
+
+Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, deve ser feita uma derivação para obter as velocidades $\omega_{roll/pitch}$. Dessa forma
+
+\begin{eqnarray}
+\omega_i(t) = -K_i \frac{\mathrm d}{\mathrm d t} \left( \theta_{roll/pitch} \right),
+\end{eqnarray}
+
+\noindent em que $\theta_{roll/pitch}$ é o ângulo de rolagem ou arfagem medido pelo acelerômetro. O diagrama de blocos, dessa forma é modificado, resultando na Figura \ref{fig:diagrama2}.
+
+\begin{figure} [b]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama2}
+	\caption{Diagrama de Blocos do Sistema no Modo Velocidade}
+	\label{fig:diagrama2}
+\end{figure}
