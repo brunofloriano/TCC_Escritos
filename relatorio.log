@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  2 NOV 2017 19:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  2 NOV 2017 19:46
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -948,10 +948,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5811 strings out of 493334
- 79647 string characters out of 3139252
- 156281 words of memory out of 3000000
- 9063 multiletter control sequences out of 15000+200000
+ 5816 strings out of 493334
+ 79733 string characters out of 3139252
+ 156317 words of memory out of 3000000
+ 9068 multiletter control sequences out of 15000+200000
  26864 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -986,9 +986,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (57 pages, 3099257 bytes).
+Output written on relatorio.pdf (57 pages, 3101708 bytes).
 PDF statistics:
- 993 PDF objects out of 1000 (max. 8388607)
+ 994 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

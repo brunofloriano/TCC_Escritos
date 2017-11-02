@@ -128,9 +128,9 @@ O princípio do controle de estabilidade adotado pelo presente trabalho se baseia
 q_i(t) = K_if_i(d_{roll/pitch}),
 \end{eqnarray}
 
-\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta, $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro (podendo ser posição ou velocidade dos ângulos de rolagem ou arfagem) e $f_i$ é uma função linear da i-ésima junta que determina o sinal da resposta $q_i$ para que o movimento final do robô seja de modo a se opor ao movimento gerado pelo distúrbio. Assim $f_i(d_{roll/pitch}) = \pm d_{roll/pitch}$, sendo o sinal determinado empiricamente para cada junta.
+\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta, $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro  e $f_i$ é uma função linear da i-ésima junta que determina o sinal da resposta $q_i$ para que o movimento final do robô seja de modo a se opor ao movimento gerado pelo distúrbio. Assim $f_i(d_{roll/pitch}) = \pm d_{roll/pitch}$, sendo o sinal determinado empiricamente para cada junta.
 
-Podemos observar que equação \ref{eq:des_inicial} é muito semelhante com a equação \ref{} de \cite{article:sousa:2010}. Como a abordagem a ser utilizada é empírica na determinação de $K_i$ substituiremos a função $f_i$ pelo próprio $d_{roll/pitch}$ assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
+Podemos observar que equação \ref{eq:des_inicial} é muito semelhante com a equação \ref{} de \cite{article:sousa:2010}. Como a abordagem a ser utilizada é empírica na determinação de $K_i$ substituiremos a função $f_i(d_{roll/pitch})$ pelo próprio $d_{roll/pitch}$ assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
 
 O distúrbio, $d_{roll/pitch}$, será tratado no presente trabalho como a diferença entre o valor de referência desejado para aquela quantidade (posição ou velocidade) e o valor atual da mesma (medida pelo acelerômetro). Isto se representará como
 
@@ -138,7 +138,7 @@ O distúrbio, $d_{roll/pitch}$, será tratado no presente trabalho como a diferenç
 d_{roll/pitch} = r_{roll/pitch} - m_{roll/pitch},
 \end{eqnarray}
 
-\noindent em que $r_{roll/pitch}$ é o valor de referência, no geral será igual a zero, e $m_{roll/pitch}$ é o valor medido a cada instante de amostragem. A equação, portanto, que resume a ideia básica do controle proposto é
+\noindent em que $r_{roll/pitch}$ é o valor de referência, que no geral será igual a zero, e $m_{roll/pitch}$ é o valor medido a cada instante de amostragem. A equação, portanto, que resume a ideia básica do controle proposto é
 
 \begin{eqnarray}
 q_i(t) = K_i(r_{roll/pitch} - m_{roll/pitch}).
@@ -169,7 +169,7 @@ Como deseja-se a estabilidade do robô, $r_{roll/pitch}$ será estipulado como igu
 
 Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, deve ser feita uma derivação para obter as velocidades $\omega_{roll/pitch}$. Dessa forma
 
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:controle_velocidade}
 \omega_i(t) = -K_i \frac{\mathrm d}{\mathrm d t} \left( \theta_{roll/pitch} \right),
 \end{eqnarray}
 
@@ -181,3 +181,17 @@ Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, dev
 	\caption{Diagrama de Blocos do Sistema no Modo Velocidade}
 	\label{fig:diagrama2}
 \end{figure}
+
+Uma vez que o sistema está digitalizado, as equações deve ser discretizadas com o tempo de amostragem $T_{am}$. A equação \ref{eq:controle_velocidade} discretizada, portanto, resulta em
+
+\begin{eqnarray} \label{eq:controle_velocidade_discreto}
+\omega_i[k] = -K_i \frac{\theta_{roll/pitch}[k] - \theta_{roll/pitch}[k-1]}{T_{am}}.
+\end{eqnarray}
+
+\subsection{Filtro}
+A derivação dos ângulos medidos pelo acelerômetro deixa o sistema suscetível a ruídos, uma vez que as frequências mais elevadas são impactadas com um ganho maior. Para mitigar este efeito adicionou-se um filtro passa-baixas após a derivação com frequência de amostragem de $f_c = 1Hz$. A equação que descreve o filtro de forma discretizada é
+
+\begin{eqnarray} \label{filtro}
+A_{out}[k] = \frac{1}{1+T_{am}2\pi f_c}A_{out}[k-1] + \frac{T_{am}2\pi f_c}{1+T_{am}2\pi f_c}A[k].
+\end{eqnarray}
+
