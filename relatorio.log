@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  3 NOV 2017 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  3 NOV 2017 19:23
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -856,56 +856,56 @@ Package pdftex.def Info: Figuras/robo1.png used on input line 27.
 
 
 ] [32 <./Figuras/robo1.png (PNG copy)>]
-<Figuras/motor.png, id=201, 208.52907pt x 186.6975pt>
+<Figuras/motor.png, id=203, 208.52907pt x 186.6975pt>
 File: Figuras/motor.png Graphic file (type png)
  <use Figuras/motor.png>
 Package pdftex.def Info: Figuras/motor.png used on input line 69.
 (pdftex.def)             Requested size: 185.73683pt x 166.29984pt.
 
-<Figuras/modoposicao.png, id=202, 285.31593pt x 207.77625pt>
+<Figuras/modoposicao.png, id=204, 285.31593pt x 207.77625pt>
 File: Figuras/modoposicao.png Graphic file (type png)
 
 <use Figuras/modoposicao.png>
 Package pdftex.def Info: Figuras/modoposicao.png used on input line 87.
 (pdftex.def)             Requested size: 232.17459pt x 169.07774pt.
  [33 <./Figuras/motor.png (PNG copy)>]
-<Figuras/Arquitetura.png, id=206, 343.78438pt x 328.72812pt>
+<Figuras/Arquitetura.png, id=208, 343.78438pt x 328.72812pt>
 File: Figuras/Arquitetura.png Graphic file (type png)
 
 <use Figuras/Arquitetura.png>
-Package pdftex.def Info: Figuras/Arquitetura.png used on input line 107.
+Package pdftex.def Info: Figuras/Arquitetura.png used on input line 109.
 (pdftex.def)             Requested size: 232.17459pt x 222.0073pt.
  [34 <./Figuras/modoposicao.png (PNG copy)>]
-[35 <./Figuras/Arquitetura.png (PNG copy)>]
+[35 <./Figuras/Arquitetura.png (PNG copy)>] [36]
 
-LaTeX Warning: Reference `' on page 36 undefined on input line 137.
+LaTeX Warning: Reference `' on page 37 undefined on input line 139.
 
-[36] <Figuras/Diagrama1.png, id=218, 789.95125pt x 276.03125pt>
+<Figuras/Diagrama1.png, id=218, 789.95125pt x 276.03125pt>
 File: Figuras/Diagrama1.png Graphic file (type png)
 
 <use Figuras/Diagrama1.png>
-Package pdftex.def Info: Figuras/Diagrama1.png used on input line 155.
+Package pdftex.def Info: Figuras/Diagrama1.png used on input line 157.
 (pdftex.def)             Requested size: 278.61234pt x 97.35367pt.
  [37 <./Figuras/Diagrama1.png>]
 <Figuras/Diagrama2.png, id=223, 1310.8975pt x 397.485pt>
 File: Figuras/Diagrama2.png Graphic file (type png)
 
 <use Figuras/Diagrama2.png>
-Package pdftex.def Info: Figuras/Diagrama2.png used on input line 184.
+Package pdftex.def Info: Figuras/Diagrama2.png used on input line 186.
 (pdftex.def)             Requested size: 325.043pt x 98.55827pt.
  [38 <./Figuras/Diagrama2.png>]
 <Figuras/Diagrama3.png, id=229, 1711.39375pt x 416.55624pt>
 File: Figuras/Diagrama3.png Graphic file (type png)
 
 <use Figuras/Diagrama3.png>
-Package pdftex.def Info: Figuras/Diagrama3.png used on input line 218.
+Package pdftex.def Info: Figuras/Diagrama3.png used on input line 220.
 (pdftex.def)             Requested size: 325.043pt x 79.11472pt.
  [39 <./Figuras/Diagrama3.png>]
 <Figuras/Diagrama4.png, id=234, 2152.04pt x 361.35pt>
 File: Figuras/Diagrama4.png Graphic file (type png)
 
 <use Figuras/Diagrama4.png>
-Package pdftex.def Info: Figuras/Diagrama4.png used on input line 240.
+Package pdftex.def Info: Figuras/Diagrama4.png used on input line 242.
 (pdftex.def)             Requested size: 325.043pt x 54.57509pt.
  [40 <./Figuras/Diagrama4.png>]) [41]
 \openout2 = `cap_Experimentos.aux'.
@@ -962,10 +962,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5844 strings out of 493334
- 80204 string characters out of 3139252
- 156387 words of memory out of 3000000
- 9092 multiletter control sequences out of 15000+200000
+ 5845 strings out of 493334
+ 80225 string characters out of 3139252
+ 156398 words of memory out of 3000000
+ 9093 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1001,9 +1001,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
 pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (60 pages, 3233751 bytes).
+Output written on relatorio.pdf (60 pages, 3237345 bytes).
 PDF statistics:
- 1014 PDF objects out of 1200 (max. 8388607)
+ 1022 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
