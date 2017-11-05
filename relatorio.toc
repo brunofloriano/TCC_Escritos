@@ -41,14 +41,15 @@
 \contentsline {section}{\numberline {3.4}Thread Periódica}{35}
 \contentsline {section}{\numberline {3.5}Controle de Estabilidade}{36}
 \contentsline {subsection}{\numberline {3.5.1}Abordagem Inicial}{37}
-\contentsline {subsection}{\numberline {3.5.2}Filtro}{38}
+\contentsline {subsection}{\numberline {3.5.2}Filtro}{39}
 \contentsline {subsection}{\numberline {3.5.3}Torque no Modo Velocidade}{39}
 \contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{40}
 \contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{40}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{42}
-\contentsline {section}{\numberline {4.1}Introdução}{42}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{43}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{44}
-\contentsline {chapter}{{Anexos}}{46}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{47}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{48}
+\contentsline {subsection}{\numberline {3.5.6}Paralelismo com a Posição Desejada}{43}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{44}
+\contentsline {section}{\numberline {4.1}Introdução}{44}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{45}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{46}
+\contentsline {chapter}{{Anexos}}{48}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{49}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{50}

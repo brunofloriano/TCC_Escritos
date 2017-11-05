@@ -98,11 +98,11 @@ B_{\omega} = \frac{1023}{6.91}|\omega_i| + 1024u(-\omega_i) = 148|\omega_i| + 10
 Segundo o manual, para definir qual o modo de operação será utilizado, deve-se alterar os ângulos limites de cada motor, permitindo ou não que o movimento seja limitado. Dessa forma, para selecionar o modo velocidade, os ângulos mínimo e máximo devem ser ambos iguais a zero. Consequentemente, o sistema identifica que não deve haver restrição de movimento. Já para selecionar o modo posição, nenhum dos dois pode ser zero, havendo, dessa maneira, uma restrição do movimento. Para garantir a maior abrangência do movimento de cada motor no modo posição, pode-se definir o ângulo mínimo como 1 (valor quantizado) e o ângulo máximo como 1023. A definição dos ângulos mínimo e máximo pode ser realizada através dos bytes de 6 a 9 da memória.
 
 \subsection{Sistema Embarcado}
-Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o Arduino envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
+Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele, então, envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o Arduino envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
 
 \footnotetext{http://support.robotis.com/en/product/actuator/dynamixel/rx\_series/rx-28.htm\#Actuator\_Address\_06}
 
-O \emph{Raspberry Pi}, por sua vez, atua na posição de servo do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as informações para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
+O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
 
 \begin{figure} [t]
 	\centering
@@ -117,9 +117,11 @@ O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo
 O \emph{gDataLogger} foi acoplado no código desenvolvido para o recolhimento e análise dos dados de cada experimento do controle de estabilidade. As principais funções para realizar tal recolhimento são: declarar as variáveis, inserir um valor na variável, atualizar o programa e fechá-lo. Além disso, foi desenvolvido um código no próprio \emph{Matlab} para recolher as informações de cada arquivo .mat, organizá-las e, por fim, plotá-las em um gráfico de forma adequada para a análise.
 
 \section{Thread Periódica}
-Segundo \cite{book:realtime}, "um sistema real é um sistema que deve satisfazer restrições explícitas e delimitadas de tempo de resposta ou sofrer consequências graves, incluindo a falha". Ainda pela mesma referência, tempo de resposta é o "tempo entre a apresentação das entradas ao sistema e o aparecimento das suas respectivas respostas". Dessa forma, o sistema real deve conseguir responder de forma satisfatória às entradas, dentro de um período específico de tempo. Portanto, nota-se que o sistema de equilíbrio do robô quadrúpede pode ser considerado como um sistema real, uma vez que este necessita responder dentro de certos limites de tempo, caso contrário haverá falha, neste caso, a queda do robô.
+Segundo \cite{book:realtime}, "um sistema real é um sistema que deve satisfazer restrições explícitas e delimitadas de tempo de resposta ou sofrer consequências graves, incluindo a falha". Ainda pela mesma referência, tempo de resposta é o "tempo entre a apresentação das entradas ao sistema e o aparecimento das suas respectivas respostas". Dessa forma, o sistema real deve conseguir responder de forma satisfatória às entradas, dentro de um período específico de tempo. 
 
-Para lidar com tal sistema como um sistema real, implementou-se o controle de estabilidade como uma thread periódica, com período de amostragem $T_{am}$. Uma thread é um processo que é aberto pelo sistema de processamento (neste caso do \emph{Raspberry Pi}), para ser rodado de forma paralela com outros. Isso permite com que aquele processo não sofra a influência dos demais, especialmente no tempo de resposta (o processo não precisa esperar que outro termine para poder começar). Uma thread periódica, por sua vez, é uma thread que é chamada a cada período de tempo, neste caso, a cada $T_{am}$ segundos.
+Dada esta definição de sistema em tempo real, nota-se que o sistema de equilíbrio do robô quadrúpede pode ser considerado como tal, uma vez que este necessita responder ao distúrbio (que, neste caso, é a entrada do sistema) dentro de certos limites de tempo, caso contrário haverá falha ou, no âmbito desta análise, a queda do robô.
+
+Para lidar com tal sistema como um sistema real, implementou-se o controle de estabilidade como uma thread periódica, com período de amostragem $T_{am}$. Uma thread é um processo que é aberto pelo sistema de processamento (neste caso do \emph{Raspberry Pi}), para ser rodado de forma paralela com outros. Isso permite que o processo não sofra a influência dos demais, especialmente no tempo de resposta (o processo não precisa esperar que outro termine para poder começar). Uma thread periódica, por sua vez, é uma thread que é chamada a cada período de tempo, neste caso, a cada $T_{am}$ segundos.
 
 Desta forma, a implementação do controle de estabilidade como uma thread periódica permite que este não seja influenciado por outros processos, de modo que o tempo de resposta para a correção dos distúrbios fique em limiares aceitáveis para que não haja falhas. No código desenvolvido, a função \emph{main}, depois de configurar todos os parâmetros necessários, cria um timer com $T_{am}$ segundos de periodicidade que, por sua vez, chama a thread de controle sempre que o tempo de amostragem é atingido. Asssim, dois processos acontecem simultaneamente: a função \emph{main}, que determina as condições de parada do código e escreve informações na tela, e a função de controle que lê os dados do acelerômetro, calcula as devidas respostas e as envia para os motores.
 
@@ -128,15 +130,19 @@ O valor de $T_{am}$ foi, a princípio, estipulado como 0.1 segundos. Porém, perce
 Após várias testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-las. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0.2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
 
 \section{Controle de Estabilidade}
-O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle será, portanto, a utilização de sensores, especificamente do acelerômetro, para a detecção de distúrbios no robô que possam gerar os movimentos indesejados de rolagem (queda para direita ou esquerda) ou arfagem (queda para frente ou para trás). Então, a resposta da i-ésima junta para compensar tal movimento será dada por
+O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle consiste na utilização de sensores para a aquisição das informações do estado atual do robô e a subsequente aplicação de respostas aos motores baseadas nestes dados. Mais especificamente, a resposta de cada motor i será dada pela multiplicação do distúrbio detectado pelos sensores por um ganho $K_i$ obtido empiricamente para cada junta. 
+
+Para a implementação do controle desejado, o sensoriamento será feito através do acelerômetro, responsável pela detecção de distúrbios no robô que possam gerar os movimentos indesejados de rolagem, $d_{roll}$ (queda para direita ou esquerda) ou arfagem, $d_{pitch}$ (queda para frente ou para trás). Então, a resposta da i-ésima junta para compensar tal movimento será dada por
 
 \begin{eqnarray} \label{eq:des_inicial}
-q_i(t) = K_if_i(d_{roll/pitch}),
+q_i(t) = \pm K_id_{roll/pitch},
 \end{eqnarray}
 
-\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta, $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro  e $f_i$ é uma função linear da i-ésima junta que determina o sinal da resposta $q_i$ para que o movimento final do robô seja de modo a se opor ao movimento gerado pelo distúrbio. Assim $f_i(d_{roll/pitch}) = \pm d_{roll/pitch}$, sendo o sinal determinado empiricamente para cada junta.
+\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta e $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro\footnote{A notação $X_{roll/pitch}$, que será utilizada neste trabalho, indica que o termo pode ser substituído por $X_{roll}$ ou $X_{pitch}$ dependendo do motor em questão. Por exemplo, o motor 1 corrige o movimento de rolagem então os termos $X_{roll/pitch}$ serão substituídos por $X_{roll}$.}.
 
-Podemos observar que a equação \ref{eq:des_inicial} é muito semelhante com a equação \ref{} de \cite{article:sousa:2010}. Como a abordagem a ser utilizada é empírica na determinação de $K_i$ substituiremos a função $f_i(d_{roll/pitch})$ pelo próprio $d_{roll/pitch}$ assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim, $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
+O sinal de $q_i(t)$ será determinado empiricamente de modo que a resposta da i-ésima junta seja tal que gere um movimento final no robô que se oponha ao movimento gerado pelo distúrbio. Por exemplo, se o acelerômetro detecta uma queda para à esquerda do robô, as juntas responsáveis pela rolagem devem se movimentar no sentido tal que o robô sofra um movimento para a direita.
+
+Podemos observar que a equação \ref{eq:des_inicial} é muito semelhante com a equação \ref{} de \cite{article:sousa:2010}. Como a abordagem a ser utilizada também é empírica na determinação de $K_i$, incorporaremos o sinal $\pm$ ao ganho,  assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim, $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
 
 O distúrbio, $d_{roll/pitch}$, por sua vez, será tratado no presente trabalho como a diferença entre o valor de referência desejado para aquela quantidade (posição ou velocidade) e o valor atual da mesma (medida pelo acelerômetro). Isto se representará como
 
@@ -146,13 +152,13 @@ d_{roll/pitch} = r_{roll/pitch} - m_{roll/pitch},
 
 \noindent em que $r_{roll/pitch}$ é o valor de referência, que no geral será igual a zero, e $m_{roll/pitch}$ é o valor medido a cada instante de amostragem. A equação, portanto, que resume a ideia básica do controle proposto é
 
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:basica_final}
 q_i(t) = K_i(r_{roll/pitch} - m_{roll/pitch}).
 \end{eqnarray}
 
 \noindent O sistema básico acima descrito pode ser melhor visualizado pela Figura \ref{fig:diagrama1}.
 
-\begin{figure} [b]
+\begin{figure} [t]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/Diagrama1}
 	\caption{Diagrama de Blocos do Sistema Básico}
@@ -161,7 +167,7 @@ q_i(t) = K_i(r_{roll/pitch} - m_{roll/pitch}).
 
 
 \subsection{Abordagem Inicial}
-A ideia inicial para o controle de estabilidade se baseia na utilização de velocidades ao invés de posições e, consequentemente, do modo velocidade dos motores. Esta abordagem se justifica pela necessidade de uma resposta rápida e não cadenciada das juntas. Com isso, os termos da equação \ref{eq:des_inicial} se tornam velocidades, isto é, $d_{roll/pitch}$ se torna a diferença entre a velocidade angular desejada para a rolagem ou arfagem, $r_{roll/pitch}$, e a velocidade atualmente medida para estas, $\omega_{roll/pitch}$. Da mesma forma, $q_i(t)$ passa ser a velocidade do motor i no instante t, ou seja, $\omega_i(t)$. Remodelando a equação \ref{eq:des_inicial} para as novas definções tem-se
+A ideia inicial para o controle de estabilidade se baseia na utilização de velocidades ao invés de posições e, portanto, do modo velocidade dos motores. Esta abordagem se justifica pela necessidade de uma resposta rápida e não cadenciada das juntas. Consequentemente, os termos da equação \ref{eq:basica_final} serão caracterizados como velocidades, isto é, $r_{roll/pitch}$ será a velocidade angular desejada para a rolagem ou arfagem e $m_{roll/pitch}$, a velocidade atualmente medida para estes movimentos, que reescreveremos como $\omega_{roll/pitch}$. Da mesma forma, $q_i(t)$ será descrito como a velocidade do motor i no instante t, ou seja, $\omega_i(t)$. Remodelando a equação \ref{eq:des_inicial} para as novas definções tem-se
 
 \begin{eqnarray}
 \omega_i(t) = K_i(r_{roll/pitch} - \omega_{roll/pitch}).
@@ -179,7 +185,7 @@ Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, dev
 \omega_i(t) = -K_i \frac{\mathrm d}{\mathrm d t} \left( \theta_{roll/pitch} \right),
 \end{eqnarray}
 
-\noindent em que $\theta_{roll/pitch}$ é o ângulo de rolagem ou arfagem medido pelo acelerômetro. O diagrama de blocos, dessa forma é modificado, resultando na Figura \ref{fig:diagrama2}.
+\noindent em que $\theta_{roll/pitch}$ é o ângulo de rolagem ou arfagem medido pelo acelerômetro. O diagrama de blocos resultante desta configuração pode ser visualizado na Figura \ref{fig:diagrama2}.
 
 \begin{figure} [b]
 	\centering
@@ -188,7 +194,7 @@ Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, dev
 	\label{fig:diagrama2}
 \end{figure}
 
-Uma vez que o sistema está digitalizado, as equações deve ser discretizadas com o tempo de amostragem $T_{am}$. A equação \ref{eq:controle_velocidade} discretizada, portanto, resulta em
+Uma vez que o sistema está digitalizado, as equações devem ser discretizadas com o tempo de amostragem $T_{am}$. A equação \ref{eq:controle_velocidade} discretizada, portanto, resulta em
 
 \begin{eqnarray} \label{eq:controle_velocidade_discreto}
 \omega_i[k] = -K_i \frac{\theta_{roll/pitch}[k] - \theta_{roll/pitch}[k-1]}{T_{am}}.
@@ -226,7 +232,7 @@ O diagrama de blocos com filtro pode ser visualizado na Figura \ref{fig:diagrama
 
 Conforme será melhor aprofundado no capítulo de Resultados, após alguns testes, percebeu-se que os motores no modo velocidade não exibem torque suficiente para sustentar o próprio peso. Nestes casos, as juntas se movem facilmente por ações externas ao invés de manter a posição fixa (para velocidades nulas). Isto resulta em casos em que, mesmo sem distúrbio, as juntas acabam se movendo pela ação do peso do robô sobre elas e gerando, como resultado, a queda do robô.
 
-Por outro lado, o modo posição apresenta um torque elevado, de modo que ao determinar uma posição específica para cada junta, esta se mantém fixa e não cede facilmente a forças aplicadas externamente. Não foi encontrado ainda o motivo dessa diferença entre os dois modos de operação. Porém uma vez reconhecida esta diferença decidiu-se trabalhar no modo posição para obter um controle de estabilidade mais adequado.
+Por outro lado, o modo posição apresenta um torque elevado, de modo que ao determinar uma posição específica para cada junta, esta se mantém fixa e não cede facilmente a forças aplicadas externamente. Não foi encontrado ainda o motivo dessa diferença entre os dois modos de operação. Porém, uma vez reconhecida esta diferença, decidiu-se trabalhar no modo posição para obter um controle de estabilidade mais adequado.
 
 \subsection{Controle de Estabilidade no Modo Posição}
 Uma vez decidido pelo uso do modo posição dos motores ao invés do modo velocidade, algumas alterações ao modelo anteriormente proposto foram necessárias. A equação \ref{eq:controle_velocidade_discreto} determina qual a velocidade $\omega_i[k]$ que deve ser aplicada ao i-ésimo motor no instante k. No entanto, como passou-se a trabalhar no modo posição, a informação que deve ser enviada a cada motor é a sua posição e não a sua velocidade. Dessa forma, para obter a posição desejada de cada motor, basta integrar $\omega_i$. No cenário discretizado em que estamos trabalhando, portanto, a posição angular $\theta_i[k]$ de cada motor no instante k será dada por
@@ -248,23 +254,62 @@ Dessa forma, o diagrama de blocos correspondente a esta nova estrutura adiciona 
 
 Com o sistema de controle de equilíbrio definido e as juntas capazes de sustentar o peso do robô, foi possível realizar os testes das respostas dos motores aos distúrbios. Dessa forma, pode-se determinar empiricamente o valor de $K_i$ para cada motor de modo a corrigir o distúrbio da maneira mais eficiente possível.
 
-Para auxiliar na determinação destes ganhos utilizamos a simetria do robô de modo a agrupar as respostas que devem ocorrer de maneira simultânea no mesmo sentido. No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos como patas da direita e patas da esquerda. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem terão um ganho $K_i = K^{esquerda}_{roll}$ enquanto os que são referentes às patas da direita obedecerão à relação $K_i = K^{direita}_{roll}$.
+Para auxiliar na determinação destes ganhos utilizamos a simetria do robô para agrupar os motores que devem responder de maneira simultânea e no mesmo sentido. No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos em patas da direita e patas da esquerda. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem terão um ganho $K_i = K_{roll\_L}$ enquanto os que são referentes às patas da direita obedecerão à relação $K_i = K_{roll\_R}$.
 
-Da mesma forma, a correção do movimento de arfagem pode ser feita com as patas da frente, com um ganho $K^{frente}_{pitch}$, ou com as patas de trás, com um ganho $K^{tras}_{pitch}$. No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho, com um ganho $K_{down}$, e os de cima, $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K^{frente}_{pitch}K_{up}$.
+Da mesma forma, a correção do movimento de arfagem pode ser feita com as patas da frente, com um ganho $K_{pitch_F}$, ou com as patas de trás, com um ganho $K_{pitch_B}$. No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho, com um ganho $K_{down}$, ou os de cima, $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{pitch\_F}K_{up}$.
 
 Assim, observando a Tabela 1, podemos determinar cada $K_i$:
 
 \begin{eqnarray} \label{eq:ganhos}
-K_{4/7} = K^{direita}_{roll},\nonumber\\
-K_{1/10} = K^{esquerda}_{roll},\nonumber\\
-K_{2/5} = K^{tras}_{pitch}K_{up},\nonumber\\
-K_{3/6} = K^{tras}_{pitch}K_{down},\nonumber\\
-K_{8/11} = K^{frente}_{pitch}K_{up},\nonumber\\
-K_{9/12} = K^{frente}_{pitch}K_{down}.
+K_{4/7} = K_{roll\_R},\nonumber\\
+K_{1/10} = K_{roll\_L},\nonumber\\
+K_{2/5} = K_{pitch\_B}K_{up},\nonumber\\
+K_{3/6} = K_{pitch\_B}K_{down},\nonumber\\
+K_{8/11} = K_{pitch\_F}K_{up},\nonumber\\
+K_{9/12} = K_{pitch\_F}K_{down}.
 \end{eqnarray}
+
+\noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$ são igual ao valor do outro lado da igualdade.
 
 Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1.1 para a devida correção.
 
-A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais. Neste sentido, o primeiro fato detectado através dos testes é que a resposta de cada pata deve seguir o movimento do distúrbio. Por exemplo, se o robô é empurrado para a direita, o movimento das patas deve ser avançar no sentido da direita. O mesmo se aplica para o movimento de arfagem, com exceção das juntas do tipo joelho. Neste caso, percebeu-se, empiricamente, que o mais adequado para esta juntas é que estas sigam o movimento contrário. Isso ocorre porque, ao seguir o movimento contrário, a junta do joelho orienta a pata de modo a aterrissar de forma vertical. 
+A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais. Neste sentido, o primeiro fato detectado através dos testes é que a resposta de cada pata deve seguir o movimento do distúrbio. Por exemplo, se o robô é empurrado para a direita, então as patas devem se deslocar para a direita para que o distúrbio seja corrigido. O mesmo se aplica para o movimento de arfagem.
 
-Essa perspectiva influencia os valores da equação \ref{eq:ganhos} em seu sinal. Analisando a resposta dos motores, percebeu-se que os valores positivos seguem exatamente o movimento desejado, exceto para as juntas do tipo joelho, em que o sinal deve ser negativo para seguir o movimento contrário do distúrbio.
+No entanto, as juntas do tipo joelho diferem das outras neste sentido. Em tal caso, percebeu-se, que o mais adequado para estas juntas é que sigam o movimento contrário ao distúrbio. Isso ocorre porque, ao seguir este sentido, a junta do joelho orienta a pata a aterrissar na vertical. Podemos visualizar melhor os possíveis cenários de orientação desta junta durante a aterrissagem através da Figura \ref{fig:aterrissagem}.
+
+A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem correção de distúrbio, como referência. A Fig. \ref{fig:aterrissagem}(b), por sua vez, apresenta o caso em que a junta do joelho não muda sua configuração durante o distúrbio, ocasionando em uma aterrissagem diagonal. Dessa forma, a pata fica suscetível a deslizar horizontalmente. Já a Fig. \ref{fig:aterrissagem}(c) indica a configuração aproximada da pata quando o joelho se move em oposição ao distúrbio. É possível notar que a pata tem uma possibilidade mínima de deslizamento neste caso. Por fim, na Fig. \ref{fig:aterrissagem}(d), é possível visualizar a posição da pata quando o joelho se desloca no sentido do distúrbio. Neste cenário, a pata também pode sofrer o deslizamento horizontal, cedendo ao peso do robô ocasionando em sua queda.
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/Aterrissagem}
+	\caption{Configurações das juntas tipo joelho durante a aterrissagem}
+	\label{fig:aterrissagem}
+\end{figure}
+
+Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes que o valor mais adequado para $K_{down}$ é 0.4. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem. Os demais motores que a corrigem não sofrem influências relevantes por movimentarem a parte de cima da pata e, portanto, pode ser caracterizados com $K_{up} = 1$.
+
+A análise seguinte que foi observada através dos testes com a plataforma foi que as patas que devem corrigir o distúrbio devem ser apenas aquelas referentes à direção do mesmo. Por exemplo, se é detectado um empurrão no robô que o faria tombar para a direita então apenas as patas da direita devem responder a tal. Isso pode ser descrito através da equação
+
+\begin{equation}\label{eq:ganho_condicional}
+K_{roll/pitch\_j} =
+\begin{cases} 
+K_{resp\_j} & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
+0 & \text{caso contrário.}
+\end{cases}
+\end{equation}
+
+\noindent Isto é, se a velocidade detectada ocorrer no sentido j (esquerda, direita, para frente ou para trás), o ganho referente a este sentido será diferente de zero e igual ao ganho de resposta, $K_{resp\_j}$, a ser caracterizado empiricamente. Caso não seja detectado nenhum distúrbio no sentido j o ganho referente àquela direção será igual a zero.	
+
+Os testes realizados na plataforma indicaram que o valor de $K_{resp\_j}$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
+
+\subsection{Paralelismo com a Posição Desejada}
+\begin{eqnarray}
+G_1(s) = G_2(s) \theta_i^{\ast}
+\end{eqnarray}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama5}
+	\caption{Diagrama de Blocos com Paralelismo}
+	\label{fig:diagrama5}
+\end{figure}

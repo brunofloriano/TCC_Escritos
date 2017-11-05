@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  3 NOV 2017 19:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  5 NOV 2017 00:40
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -878,42 +878,56 @@ Package pdftex.def Info: Figuras/Arquitetura.png used on input line 109.
  [34 <./Figuras/modoposicao.png (PNG copy)>]
 [35 <./Figuras/Arquitetura.png (PNG copy)>] [36]
 
-LaTeX Warning: Reference `' on page 37 undefined on input line 139.
+LaTeX Warning: Reference `' on page 37 undefined on input line 145.
 
 <Figuras/Diagrama1.png, id=218, 789.95125pt x 276.03125pt>
 File: Figuras/Diagrama1.png Graphic file (type png)
 
 <use Figuras/Diagrama1.png>
-Package pdftex.def Info: Figuras/Diagrama1.png used on input line 157.
+Package pdftex.def Info: Figuras/Diagrama1.png used on input line 163.
 (pdftex.def)             Requested size: 278.61234pt x 97.35367pt.
- [37 <./Figuras/Diagrama1.png>]
-<Figuras/Diagrama2.png, id=223, 1310.8975pt x 397.485pt>
+ [37]
+<Figuras/Diagrama2.png, id=224, 1310.8975pt x 397.485pt>
 File: Figuras/Diagrama2.png Graphic file (type png)
 
 <use Figuras/Diagrama2.png>
-Package pdftex.def Info: Figuras/Diagrama2.png used on input line 186.
+Package pdftex.def Info: Figuras/Diagrama2.png used on input line 192.
 (pdftex.def)             Requested size: 325.043pt x 98.55827pt.
- [38 <./Figuras/Diagrama2.png>]
-<Figuras/Diagrama3.png, id=229, 1711.39375pt x 416.55624pt>
+ [38 <./Figuras/Diagrama1.png> <./Figuras/Diagrama2.png>] <Figuras/Diagrama3.pn
+g, id=230, 1711.39375pt x 416.55624pt>
 File: Figuras/Diagrama3.png Graphic file (type png)
 
 <use Figuras/Diagrama3.png>
-Package pdftex.def Info: Figuras/Diagrama3.png used on input line 220.
+Package pdftex.def Info: Figuras/Diagrama3.png used on input line 226.
 (pdftex.def)             Requested size: 325.043pt x 79.11472pt.
  [39 <./Figuras/Diagrama3.png>]
-<Figuras/Diagrama4.png, id=234, 2152.04pt x 361.35pt>
+<Figuras/Diagrama4.png, id=235, 2152.04pt x 361.35pt>
 File: Figuras/Diagrama4.png Graphic file (type png)
 
 <use Figuras/Diagrama4.png>
-Package pdftex.def Info: Figuras/Diagrama4.png used on input line 242.
+Package pdftex.def Info: Figuras/Diagrama4.png used on input line 248.
 (pdftex.def)             Requested size: 325.043pt x 54.57509pt.
- [40 <./Figuras/Diagrama4.png>]) [41]
+ [40 <./Figuras/Diagrama4.png>] [41]
+<Figuras/Aterrissagem.png, id=244, 822.07124pt x 360.34625pt>
+File: Figuras/Aterrissagem.png Graphic file (type png)
+
+<use Figuras/Aterrissagem.png>
+Package pdftex.def Info: Figuras/Aterrissagem.png used on input line 284.
+(pdftex.def)             Requested size: 325.043pt x 142.47542pt.
+ [42 <./Figuras/Aterrissagem.png>]
+<Figuras/Diagrama5.png, id=248, 1001.7425pt x 584.1825pt>
+File: Figuras/Diagrama5.png Graphic file (type png)
+
+<use Figuras/Diagrama5.png>
+Package pdftex.def Info: Figuras/Diagrama5.png used on input line 312.
+(pdftex.def)             Requested size: 325.043pt x 189.55399pt.
+) [43 <./Figuras/Diagrama5.png>]
 \openout2 = `cap_Experimentos.aux'.
 
 
 (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-) [42
+) [44
 
 
 
@@ -922,23 +936,23 @@ Cap\'{\i }tulo 4.
 
  (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [43
+) [45
 
 
 
-] (relatorio.bbl [44
+] (relatorio.bbl [46
 
 
-]) [45]
+]) [47]
 \c@noAnexo=\count118
- [46
+ [48
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [47
+) [49
 
 
 ]
@@ -946,7 +960,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [48
+) [50
 
 
 
@@ -962,10 +976,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5845 strings out of 493334
- 80225 string characters out of 3139252
- 156398 words of memory out of 3000000
- 9093 multiletter control sequences out of 15000+200000
+ 5861 strings out of 493334
+ 80567 string characters out of 3139252
+ 156445 words of memory out of 3000000
+ 9107 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -995,15 +1009,16 @@ ic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (60 pages, 3237345 bytes).
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on relatorio.pdf (62 pages, 3301427 bytes).
 PDF statistics:
- 1022 PDF objects out of 1200 (max. 8388607)
+ 1048 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 196 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

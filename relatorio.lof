@@ -38,10 +38,12 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Motor Rx-28 da Dynamixel (Fonte: \cite {tcc:porphirio:2017})}}{33}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Configurações do Modo Posição}}{34}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Arquitetura do Sistema Embarcado (Fonte: \cite {tcc:porphirio:2017})}}{35}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de Blocos do Sistema Básico}}{37}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de Blocos do Sistema Básico}}{38}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade}}{38}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade com Filtro}}{39}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de Blocos do Sistema no Modo Posição}}{40}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Configurações das juntas tipo joelho durante a aterrissagem}}{42}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de Blocos com Paralelismo}}{43}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
