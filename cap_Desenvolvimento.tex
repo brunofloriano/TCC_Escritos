@@ -286,7 +286,7 @@ A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem c
 	\label{fig:aterrissagem}
 \end{figure}
 
-Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes que o valor mais adequado para $K_{down}$ é 0.4. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem. Os demais motores que a corrigem não sofrem influências relevantes por movimentarem a parte de cima da pata e, portanto, pode ser caracterizados com $K_{up} = 1$.
+Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes que o valor mais adequado para $K_{down}$ é -0.4. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem. Os demais motores que a corrigem não sofrem influências relevantes por movimentarem a parte de cima da pata e, portanto, pode ser caracterizados com $K_{up} = 1$.
 
 A análise seguinte que foi observada através dos testes com a plataforma foi que as patas que devem corrigir o distúrbio devem ser apenas aquelas referentes à direção do mesmo. Por exemplo, se é detectado um empurrão no robô que o faria tombar para a direita então apenas as patas da direita devem responder a tal. Isso pode ser descrito através da equação
 
@@ -303,13 +303,126 @@ K_{resp\_j} & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
 Os testes realizados na plataforma indicaram que o valor de $K_{resp\_j}$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
 
 \subsection{Paralelismo com a Posição Desejada}
+Determinados os ganhos $K_i$ de todos os motores, o controle de estabilidade está apto a corrigir os distúrbios, conforme será melhor abordados no capítulo dos Resultados. No entanto, o controle proposto até aqui, caracterizado pela equação \ref{eq:controle_posicao_discreto}, aplica uma determinada posição $\theta_i$ em cada junta e não a modifica mais até a ocorrência de um novo distúrbio. Isto resulta na permanência do robô na posição de correção, mesmo após o fim do distúrbio.
+
+A ação mais adequada para o quadrúpede é de, após a correção do distúrbio, cada junta voltar a uma posição desejada para o regime permanente. Dessa forma, se o robô estiver parado, deseja-se que ele volte à posição inicial após a correção. Da mesma maneira, caso a plataforma esteja em processo de marcha, ela deve continuar sua movimentação normalmente após a estabilidade ser alcançada.
+
+À vista disso, podemos remodelar o controle de equilíbrio com um novo diagrama de blocos, como o da Figura \ref{fig:diagrama5}. Podemos notar que, neste novo modelo, a posição desejada para cada junta é a soma de duas componentes: uma determinada pelo controle de estabilidade $G_1(s)$, que tem como entrada o distúrbio detectado pelo acelerômetro e a outra determinada pela posição desejada em regime permanente $\theta_i^{\ast}$. Esta será definida pelo geração de marchas da plataforma mas, inicialmente, será dada apenas pela posição inicial das juntas para que o robô permaneça parado.
+
+Nesta remodelação, consideraremos $d_{roll/pitch}$ agora como o erro da posição angular dos ângulos de rolagem e arfagem detectados pelo acelerômetro, e não mais suas velocidades. Consequentemente
+
 \begin{eqnarray}
-G_1(s) = G_2(s) \theta_i^{\ast}
+d_{roll/pitch} = r_{roll/pitch} - \theta_{roll/pitch},
 \end{eqnarray}
 
-\begin{figure}
+\noindent e, como deseja-se a estabilidade do robô, considerar-se-a $r_{roll/pitch} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
+
+\begin{figure} [h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama5}
 	\caption{Diagrama de Blocos com Paralelismo}
 	\label{fig:diagrama5}
 \end{figure}
+
+\begin{eqnarray}
+d_{roll/pitch} =  - \theta_{roll/pitch}.
+\end{eqnarray}
+
+A posição do i-ésimo motor, no domínio s será
+
+\begin{eqnarray}
+\Theta_i(s) = G_1(s)D(s) + G_2(s)\Theta_i^{\ast}(s).
+\end{eqnarray}
+
+Para determinar os controladores $G_1(s)$ e $G_2(s)$ mais adequados, analisaremos as condições de regime permanente desejadas através do teorema do valor final. Segundo este
+
+\begin{eqnarray}
+\lim_{t \to \infty} \theta_i(t) = \theta_i(\infty) =  \lim_{s \to 0} s\Theta_i(s)  = \lim_{s \to 0} s(G_1(s)D(s) + G_2(s)\Theta_i^{\ast}(s)).
+\end{eqnarray}
+
+Deseja-se que $\theta_i(\infty) = \theta_i^{\ast}(t)$. Para tal, a componente referente ao distúrbio $sG_1(s)D(s)$ deve ser anulada quando s tende a zero, enquanto a componente $sG_2(s)\Theta_i^{\ast}(s)$ deve ser igual a $\Theta_i^{\ast}(s)$, nesta mesma condição. Para que a primeira condição seja satisfeita, consideremos um distúrbio do tipo degrau, ou seja, $D(s) = \frac{D_k}{s}$, em que $D_k$ é a amplitude do degrau. Logo
+
+\begin{eqnarray}
+sG_1(s)D(s) = D_k G_1(s).
+\end{eqnarray}
+
+\noindent Para que esta equação seja nula no limite de s tentendo a zero, basta que $G_1(s)$ tenha um zero em $s = 0$. Isto é
+
+\begin{eqnarray}
+G_1(s) = \frac{K_d s}{H_1(s)},
+\end{eqnarray}
+
+\noindent em que $K_d$ é um ganho que será determinado posteriormente baseado nas abordagens anteriores e $H_1(s)$ é o denominador de $G_1(s)$. Podemos observar que a presença do termo s no numerador da função de transferência implica que a resposta ao distúrbio deve ser alocada em frequências maiores. Dessa forma, podemos caracterizar $G_1(s)$ como um filtro passa-alta, uma vez que a componente DC é desejada como nula e as frequências mais elevadas são utilizadas para corrigir o distúrbio. Além do mais, essa caracterização nos permite determinar o tempo de resposta do sistema para a correção do equilíbrio. Assim
+
+\begin{eqnarray}
+G_1(s) = \frac{K_d s}{\tau_d s + 1},
+\end{eqnarray}
+
+\noindent em que $\tau_d$ é a constante de tempo do controlador de estabilidade.
+
+Já para que a segunda condição seja atendida também consideraremos $\Theta_i^{\ast}(s)$ como um degrau, ou seja, $\Theta_i^{\ast}(s) = \frac{\Theta_i^{\ast}}{s}$, em que $\Theta_i^{\ast}$ é a amplitude do degrau. Dessa forma,
+
+\begin{eqnarray}
+sG_2(s)\Theta_i^{\ast}(s) = G_2(s)\Theta_i^{\ast}.
+\end{eqnarray}
+
+\noindent Para que a equação acima seja igual $\Theta_i^{\ast}$ quando s tender a zero, $G_2(s)$ deve ser igual 1 nessas condições. Podemos concluir, portanto, que esta componente depende que um ganho unitário seja garantido em DC. A resposta em frequências maiores determina apenas o tempo de resposta do sistema para que este atinja o valor final desejado. Por isso, podemos implmentar $G_2(s)$ como um filtro passa-baixas com ganho DC unitário e frequência de corte variável, a ser determinada empiricamente para obtenção da resposta mais adequada. Portanto
+
+\begin{eqnarray}
+G_2(s) = \frac{1}{\tau_p s + 1},
+\end{eqnarray}
+
+\noindent em que $\tau_p$ é a constante de tempo da resposta em regime permanente (ou então o inverso da frequência de corte).
+
+Portanto, a posição de cada motor será determinada, no domínio s, por
+
+\begin{eqnarray} \label{eq:tf_final}
+\Theta_i(s) = \frac{K_d s}{\tau_d s + 1}D(s) + \frac{1}{\tau_p s + 1}\Theta_i^{\ast}(s).
+\end{eqnarray}
+
+\noindent Reorganizando a equação \ref{eq:tf_final} e passando-a para o domínio do tempo, podemos obter a equação diferencial que representa o sistema proposto como
+
+\begin{eqnarray}
+\ddot{\theta_i}(t)\tau_d \tau_p + \dot{\theta_i}(t)(\tau_d + \tau_p) + \theta_i(t) = K_d \tau_p \ddot{d}(t) + K_d \dot{d}(t) + \tau_d \dot{\theta_i^{\ast}}(t) + \theta_i^{\ast}(t).
+\end{eqnarray}
+
+Para obter a equação do sistema discretizado, representar-se-a a quantidade $x(t)$ (em que x pode ser $\theta_i$, $d$ ou $\theta_i^{\ast}$) como $x[k]$ e as suas derivadas como
+
+\begin{eqnarray}
+\dot{x}(t) = \frac{x[k] - x[k-1]}{T_{am}}, \text{e} \nonumber \\ 
+\ddot{x}(t) = \frac{x[k] - 2x[k-1] + x[k-2]}{T_{am}^2}.
+\end{eqnarray}
+
+Dessa forma, a equação de diferenças do sistema discretizado será
+
+\begin{eqnarray}
+\theta_i[k]\left(\alpha + \beta + 1\right) + \theta_i[k-1]\left(-2 \alpha- \beta \right) + \theta_i[k-2]\left(\alpha\right) = b[k],
+\end{eqnarray}
+
+\noindent em que $b[k]$ será dado como
+
+\begin{eqnarray}
+b[k] = d[k]\left(\gamma + \eta \right) + d[k-1]\left(-2 \gamma - \eta \right) + d[k-2]\left(2 \gamma \right) + \theta_i^{\ast}[k]\left(\lambda + 1\right) - \theta_i^{\ast}[k-1]\lambda,
+\end{eqnarray}
+
+e os coeficientes $\alpha$, $\beta$, $\gamma$, $\eta$ e $\lambda$ são dados por
+
+\begin{eqnarray}
+\alpha = \frac{\tau_d \tau_p}{T_{am}^2}, \nonumber \\
+\beta = \frac{\left(\tau_d + \tau_p\right)}{T_{am}}, \nonumber \\
+\gamma = \frac{K_d \tau_p}{T_{am}^2}, \nonumber \\
+\eta = \frac{K_d}{T_{am}}, \text{e} \nonumber \\
+\lambda = \frac{\tau_d}{T_{am}}.
+\end{eqnarray}
+
+Portanto, o ângulo $\theta_i[k]$ que deverá ser enviado para cada motor i no instante k é dado por
+
+\begin{eqnarray}
+\theta_i[k] = \frac{b[k] - \theta_i[k-1]\left(-2 \alpha- \beta \right) - \theta_i[k-2]\alpha}{\alpha + \beta + 1}.
+\end{eqnarray}
+
+Para determinar o parâmetro $K_d$ do controlador, podemos observar comparativamente as equações \ref{eq:controle_posicao_discreto} e \ref{eq:tf_final}. No primeiro caso, é possível observar que a posição final de cada motor é dado pela soma de uma posição prévia a uma velocidade multiplicada pelo tempo de amostragem e uma constante adimensional. A análise dimensional, portanto, confere para a dimensão de posição angular. Já para o segundo caso, como já foi mencionado anteriormente, o distúrbio $D(s)$ é uma posição angular. A composição $sD(s)$, dessa forma, é a velocidade angular do distúrbio, assim como $\omega_{roll/pitch}$ da primeira equação. Assim, para que a resposta do controlador seja similar ao determinado anteriormente, $K_d$ deve ser a mesma constante multiplicando a velocidade, isto é, $K_i T_{am}$. Portanto,
+
+\begin{eqnarray}
+K_d = K_i T_{am}.
+\end{eqnarray}

@@ -46,10 +46,10 @@
 \contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{40}
 \contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{40}
 \contentsline {subsection}{\numberline {3.5.6}Paralelismo com a Posição Desejada}{43}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{44}
-\contentsline {section}{\numberline {4.1}Introdução}{44}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{45}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{46}
-\contentsline {chapter}{{Anexos}}{48}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{49}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{50}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{47}
+\contentsline {section}{\numberline {4.1}Introdução}{47}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{48}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{49}
+\contentsline {chapter}{{Anexos}}{51}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{52}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{53}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  5 NOV 2017 00:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  5 NOV 2017 16:21
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -919,15 +919,18 @@ Package pdftex.def Info: Figuras/Aterrissagem.png used on input line 284.
 File: Figuras/Diagrama5.png Graphic file (type png)
 
 <use Figuras/Diagrama5.png>
-Package pdftex.def Info: Figuras/Diagrama5.png used on input line 312.
+Package pdftex.def Info: Figuras/Diagrama5.png used on input line 322.
 (pdftex.def)             Requested size: 325.043pt x 189.55399pt.
-) [43 <./Figuras/Diagrama5.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[43] [44 <./Figuras/Diagrama5.png>] [45]) [46]
 \openout2 = `cap_Experimentos.aux'.
 
-
-(cap_Experimentos.tex
+ (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-) [44
+) [47
 
 
 
@@ -936,23 +939,23 @@ Cap\'{\i }tulo 4.
 
  (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [45
+) [48
 
 
 
-] (relatorio.bbl [46
+] (relatorio.bbl [49
 
 
-]) [47]
+]) [50]
 \c@noAnexo=\count118
- [48
+ [51
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [49
+) [52
 
 
 ]
@@ -960,7 +963,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [50
+) [53
 
 
 
@@ -976,10 +979,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5861 strings out of 493334
- 80567 string characters out of 3139252
- 156445 words of memory out of 3000000
- 9107 multiletter control sequences out of 15000+200000
+ 5878 strings out of 493334
+ 80784 string characters out of 3139252
+ 156457 words of memory out of 3000000
+ 9124 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1014,11 +1017,12 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files
 .9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb>
-Output written on relatorio.pdf (62 pages, 3301427 bytes).
+ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on relatorio.pdf (65 pages, 3325724 bytes).
 PDF statistics:
- 1048 PDF objects out of 1200 (max. 8388607)
+ 1061 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
