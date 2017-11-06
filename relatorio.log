@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  5 NOV 2017 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  5 NOV 2017 21:58
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -562,8 +562,9 @@ e 103.
  [1
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./figs/capa_fundo-eps-con
-verted-to.pdf>] [1
+{C:/Users/bruno/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figs/capa
+_fundo-eps-converted-to.pdf>]
+[1
 
 ] [1
 
@@ -573,8 +574,7 @@ verted-to.pdf>] [1
 ]
 \openout2 = `resumos.aux'.
 
-
-(resumos.tex) [1
+ (resumos.tex) [1
 
 ] (relatorio.toc [2
 
@@ -589,8 +589,8 @@ verted-to.pdf>] [1
 \tf@lof=\write6
 \openout6 = `relatorio.lof'.
 
- [5]
-(relatorio.lot)
+
+[5] (relatorio.lot)
 \tf@lot=\write7
 \openout7 = `relatorio.lot'.
 
@@ -925,12 +925,12 @@ Package pdftex.def Info: Figuras/Diagrama5.png used on input line 322.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43] [44 <./Figuras/Diagrama5.png>] [45]) [46]
+[43] [44 <./Figuras/Diagrama5.png>] [45] [46]) [47]
 \openout2 = `cap_Experimentos.aux'.
 
  (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-) [47
+) [48
 
 
 
@@ -939,23 +939,23 @@ Cap\'{\i }tulo 4.
 
  (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [48
+) [49
 
 
 
-] (relatorio.bbl [49
+] (relatorio.bbl [50
 
 
-]) [50]
+]) [51]
 \c@noAnexo=\count118
- [51
+ [52
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [52
+) [53
 
 
 ]
@@ -963,7 +963,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [53
+) [54
 
 
 
@@ -979,10 +979,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5878 strings out of 493334
- 80784 string characters out of 3139252
- 156457 words of memory out of 3000000
- 9124 multiletter control sequences out of 15000+200000
+ 5879 strings out of 493334
+ 80801 string characters out of 3139252
+ 156469 words of memory out of 3000000
+ 9125 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1020,9 +1020,9 @@ c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on relatorio.pdf (65 pages, 3325724 bytes).
+Output written on relatorio.pdf (66 pages, 3329109 bytes).
 PDF statistics:
- 1061 PDF objects out of 1200 (max. 8388607)
+ 1065 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

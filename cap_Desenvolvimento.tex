@@ -407,7 +407,7 @@ b[k] = d[k]\left(\gamma + \eta \right) + d[k-1]\left(-2 \gamma - \eta \right) + 
 
 e os coeficientes $\alpha$, $\beta$, $\gamma$, $\eta$ e $\lambda$ são dados por
 
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:coeficientes}
 \alpha = \frac{\tau_d \tau_p}{T_{am}^2}, \nonumber \\
 \beta = \frac{\left(\tau_d + \tau_p\right)}{T_{am}}, \nonumber \\
 \gamma = \frac{K_d \tau_p}{T_{am}^2}, \nonumber \\
@@ -426,3 +426,16 @@ Para determinar o parâmetro $K_d$ do controlador, podemos observar comparativame
 \begin{eqnarray}
 K_d = K_i T_{am}.
 \end{eqnarray}
+
+Como já mencionado anteriormente, as constantes $\tau_d$ e $\tau_p$ serão determinada empiricamente através de testes reais na plataforma. Tais experimentos determinarão o tempo mais adequado de resposta para a correção de equilíbrio e para que o robô atinja a resposta em regime permanente. Uma vez que estes valores estiverem estipulados, todos os parâmetros da equação \ref{eq:coeficientes} estarão devidamente determinados.
+
+\section{Estrutura Geral do Código}
+Podemos, então, condensar as principais informações descritas nas seções anteriores para resumir a estrutura básica do código desenvolvido para o controle de estabilidade. O código foi escrito em C++ e possui as funções \emph{main} e controle como os processos principais.
+
+A função \emph{main}, em um primeiro momento, faz todas as inicializações necessárias. Isto inclui abrir a comunicação com os motores e com o \emph{Arduino}, declarar as variáveis que serão alocadas no gDataLogger para aquisição de dados, ativar o modo posição dos motores e declarar a posição inicial assim como enviá-la para os motores. Em seguida, ela espera alguma tecla ser pressionada para seguir os próximos passos.
+
+Uma vez detectada resposta do teclado, a função \emph{main} cria um timer com tempo de amostragem $T_{am}$ que é configurado para chamar a função de controle sempre $T_{am}$ segundos forem decorridos. Com isso, a thread de controle é criada e a função \emph{main}, a partir de então, permanece em um loop apenas para verificar se a condição de parada foi satisfeita (neste caso a condição de parada é um novo toque em qualquer tecla) e atualizar o gDataLogger.
+
+Se detectada a condição de parada, a função \emph{main} para o timer, fecha o gDataLogger e a conexão com o \emph{Arduino}, libera os motores e, se configurado, exporta os dados para um diretório no site \emph{GitHub}, onde os dados podem ser acessados.
+
+Já a função de controle, a cada vez que é chamada, começa com a medição dos dados do acelerômetro. Em seguida ela passa os dados pelo filtro e calcula os ganhos $K_i$ com base nos dados obtidos. Posteriormente, ela passa os dados para o controlador que, após os devidos cálculos, retorna a posição desejada para a i-ésima junta que, então, é mandada para seu respectivo motor. Por fim os dados são atualizados para serem utilizados na próxima vez que a função for chamada. Para tal a maioria das variáveis são definidas como variáveis globais, assim elas podem ser armazenadas enquanto a thread não é chamada novamente.
