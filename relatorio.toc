@@ -47,10 +47,11 @@
 \contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{40}
 \contentsline {subsection}{\numberline {3.5.6}Paralelismo com a Posição Desejada}{43}
 \contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{47}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{48}
-\contentsline {section}{\numberline {4.1}Introdução}{48}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{49}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{50}
-\contentsline {chapter}{{Anexos}}{52}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{53}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{54}
+\contentsline {section}{\numberline {3.7}Conclusão}{47}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{49}
+\contentsline {section}{\numberline {4.1}Introdução}{49}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{50}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{51}
+\contentsline {chapter}{{Anexos}}{53}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{54}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{55}
