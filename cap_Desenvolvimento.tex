@@ -98,23 +98,34 @@ B_{\omega} = \frac{1023}{6.91}|\omega_i| + 1024u(-\omega_i) = 148|\omega_i| + 10
 Segundo o manual, para definir qual o modo de operação será utilizado, deve-se alterar os ângulos limites de cada motor, permitindo ou não que o movimento seja limitado. Dessa forma, para selecionar o modo velocidade, os ângulos mínimo e máximo devem ser ambos iguais a zero. Consequentemente, o sistema identifica que não deve haver restrição de movimento. Já para selecionar o modo posição, nenhum dos dois pode ser zero, havendo, dessa maneira, uma restrição do movimento. Para garantir a maior abrangência do movimento de cada motor no modo posição, pode-se definir o ângulo mínimo como 1 (valor quantizado) e o ângulo máximo como 1023. A definição dos ângulos mínimo e máximo pode ser realizada através dos bytes de 6 a 9 da memória.
 
 \subsection{Sistema Embarcado}
-Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele, então, envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o Arduino envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
+Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele, então, envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o \emph{Arduino} envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
 
 \footnotetext{http://support.robotis.com/en/product/actuator/dynamixel/rx\_series/rx-28.htm\#Actuator\_Address\_06}
 
-O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
+Tais ângulos possibilitam caracterizar a orientação do robô no espaço, indicando se há uma inclinação no sentido transversal ou sagital, como pode ser observado na Figura \ref{fig:angulos}. Na Fig. \ref{fig:angulos}(a), o robô em estado de equilíbrio (em cinza) é deslocado levemente para a direita (hachurado). Neste caso definimos o ângulo entre o plano horizontal e o plano da base do robô como $\theta_{roll}$, o ângulo de rolagem. Já na Fig. \ref{fig:angulos}(b) o robô em repouso é deslocado para frente, formando, dessa forma, o ângulo $\theta_{pitch}$ entre os dois planos, o ângulo de arfagem.
 
-\begin{figure} [t]
+\begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Figuras/Arquitetura}
-	\caption{Arquitetura do Sistema Embarcado (Fonte: \cite{tcc:porphirio:2017})}
-	\label{fig:arquitetura}
+	\mbox{
+		\subfigure[Ângulo de Rolagem]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_rolagem}}\quad\quad
+		\subfigure[Ângulo de Arfagem]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_arfagem}}}
+	\caption{Orientações detectáveis pelo acelerômetro}
+	\label{fig:angulos}
 \end{figure}
+
+O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
 
 \section{gDataLogger}
 O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo Borges para que os dados adquiridos durante o processo (como os ângulos de rolagem e arfagem, a posição dos motores e etc) sejam armazenados em um arquivo com extensão .mat para a posterior leitura pelo software \emph{Matlab}.
 
 O \emph{gDataLogger} foi acoplado no código desenvolvido para o recolhimento e análise dos dados de cada experimento do controle de estabilidade. As principais funções para realizar tal recolhimento são: declarar as variáveis, inserir um valor na variável, atualizar o programa e fechá-lo. Além disso, foi desenvolvido um código no próprio \emph{Matlab} para recolher as informações de cada arquivo .mat, organizá-las e, por fim, plotá-las em um gráfico de forma adequada para a análise.
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figuras/Arquitetura}
+	\caption{Arquitetura do Sistema Embarcado (Fonte: \cite{tcc:porphirio:2017})}
+	\label{fig:arquitetura}
+\end{figure}
 
 \section{Thread Periódica}
 Segundo \cite{book:realtime}, "um sistema real é um sistema que deve satisfazer restrições explícitas e delimitadas de tempo de resposta ou sofrer consequências graves, incluindo a falha". Ainda pela mesma referência, tempo de resposta é o "tempo entre a apresentação das entradas ao sistema e o aparecimento das suas respectivas respostas". Dessa forma, o sistema real deve conseguir responder de forma satisfatória às entradas, dentro de um período específico de tempo. 
