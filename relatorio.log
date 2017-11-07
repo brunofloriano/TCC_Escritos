@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  6 NOV 2017 11:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  7 NOV 2017 12:16
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -948,32 +948,63 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-) [49
+<Figuras/Angulos_ruido.jpg, id=272, 562.1pt x 421.575pt>
+File: Figuras/Angulos_ruido.jpg Graphic file (type jpg)
+
+<use Figuras/Angulos_ruido.jpg>
+Package pdftex.def Info: Figuras/Angulos_ruido.jpg used on input line 27.
+(pdftex.def)             Requested size: 325.043pt x 243.78033pt.
+ [49
 
 
 
 ]
+<Figuras/Filtro_roll.jpg, id=277, 562.1pt x 421.575pt>
+File: Figuras/Filtro_roll.jpg Graphic file (type jpg)
+
+<use Figuras/Filtro_roll.jpg>
+Package pdftex.def Info: Figuras/Filtro_roll.jpg used on input line 56.
+(pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
+
+<Figuras/Filtro_pitch.jpg, id=278, 562.1pt x 421.575pt>
+File: Figuras/Filtro_pitch.jpg Graphic file (type jpg)
+
+<use Figuras/Filtro_pitch.jpg>
+Package pdftex.def Info: Figuras/Filtro_pitch.jpg used on input line 56.
+(pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
+
+Overfull \hbox (25.4063pt too wide) in paragraph at lines 56--57
+ [][] 
+ []
+
+[50 <./Figuras/Angulos_ruido.jpg>]
+Overfull \hbox (61.34375pt too wide) in paragraph at lines 67--76
+ [] 
+ []
+
+) [51 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]
 \openout2 = `cap_Conclusoes.aux'.
 
- (cap_Conclusoes.tex
+
+(cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [50
+) [52
 
 
 
-] (relatorio.bbl [51
+] (relatorio.bbl [53
 
 
-]) [52]
+]) [54]
 \c@noAnexo=\count118
- [53
+ [55
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [54
+) [56
 
 
 ]
@@ -981,7 +1012,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [55
+) [57
 
 
 
@@ -997,10 +1028,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5890 strings out of 493334
- 81076 string characters out of 3139252
- 156481 words of memory out of 3000000
- 9134 multiletter control sequences out of 15000+200000
+ 5911 strings out of 493334
+ 81566 string characters out of 3139252
+ 156525 words of memory out of 3000000
+ 9152 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1038,9 +1069,9 @@ c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on relatorio.pdf (67 pages, 3345257 bytes).
+Output written on relatorio.pdf (69 pages, 3445775 bytes).
 PDF statistics:
- 1071 PDF objects out of 1200 (max. 8388607)
+ 1089 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

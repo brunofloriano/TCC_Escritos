@@ -50,8 +50,9 @@
 \contentsline {section}{\numberline {3.7}Conclusão}{47}
 \contentsline {chapter}{\numberline {4}Resultados Experimentais}{49}
 \contentsline {section}{\numberline {4.1}Introdução}{49}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{50}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{51}
-\contentsline {chapter}{{Anexos}}{53}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{54}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{55}
+\contentsline {section}{\numberline {4.2}Modo Velocidade}{49}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{52}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{53}
+\contentsline {chapter}{{Anexos}}{55}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{56}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{57}

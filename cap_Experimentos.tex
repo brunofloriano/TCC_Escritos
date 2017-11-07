@@ -10,3 +10,70 @@
 %Na introdução deverá ser feita uma descrição geral dos experimentos realizados. 
 
 %Para cada experimentação apresentada, descrever as condições de experimentação (e.g., instrumentos, ligações específicas, configurações dos programas), os resultados obtidos na forma de tabelas, curvas ou gráficos. Por fim, tão importante quando ter os resultados é a análise que se faz deles. Quando os resultados obtidos não forem como esperados, procurar justificar e/ou propor alteração na teoria de forma a justificá-los.
+
+Como foi abordado no Capítulo \ref{CapDesenvolvimento}, o desenvolvimento do projeto sofreu modificações com relação à concepção inicial do controle de estabilidade. As principais mudanças, assim como a determinação dos coeficientes de resposta dos motores, foram baseadas em testes reais na plataforma, que serão mostrados e analisados neste capítulo.
+
+Os experimentos consistiram na execução do programa elaborado para cada etapa do desenvolvimento do controle. A cada etapa, eram realizados experimentos com o robô nos seguintes cenários: sustentado por uma caixa, sem contato das patas com o solo; com o robô em pé se sustentando, mas sem nenhum distúrbio e sendo empurrado para a esquerda, direita, para frente ou para trás.
+
+Após cada experimento, os dados eram recolhidos e analisados através do software \emph{Matlab}. Os gráficos que serão apresentados neste capítulo foram obtidos por tal programa.
+
+\section{Modo Velocidade}
+A primeira abordagem do controle de estabilidade foi a utilização do modo velocidade dos motores. O primeiro elemento a ser testado na abordagem inicial é a medição dos ângulos pelo acelerômetro. Além disso, pode-se obter a velocidade dos ângulos de rolagem e arfagem e observar os efeitos do filtro passa-baixa desenvolvido.
+
+O primeiro teste é feito com o robô parado, sustentado por uma caixa que impede as patas de entrarem em contato com o solo, sem a adição de qualquer distúrbio e com a resposta dos motores desativada. Dessa forma, é possível observar o ruído produzido durante a medição, uma vez que os dados de velocidade, em um cenário ideal, deveriam ser iguais a zero e os ângulos, sempre constantes. Podemos observar a medição destes na Figura \ref{fig:angulos_ruido}.
+
+\begin{figure} [tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/Angulos_ruido}
+	\caption{Ângulos de Rolagem e Arfagem medidos com o robô parado}
+	\label{fig:angulos_ruido}
+\end{figure}
+
+Os ângulos iniciam o teste com os valores iniciais de zero graus, devido à inicialização da conexão com o \emph{Arduino}. No entanto, após 6 períodos de amostragem (ou 1.2 segundos) a aquisição de dados é estabelecida. A partir de então podemos notar que os dados sofrem variações devido ao ruído. Utilizando os comandos \emph{max}, \emph{min} e \emph{mean} do \emph{Matlab} podemos identificar os ângulos mínimo, máximo e médio atingidos para cada medição. Tais valores são apresentados na Tabela \ref{TabAngulos}. 
+
+\begin{table}[b]
+	\caption{Ângulos mínimo, máximo e médio medidos}
+	\label{TabAngulos}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Orientação} & \textbf{Valor mínimo (graus)} & \textbf{Valor máximo (graus)} & \textbf{Valor médio (graus)} \\
+			\hline
+			Rolagem & 0.6663 & 1.3429 & 0.9947\\
+			Arfagem & -0.3531 & 0.3237 & -0.0849\\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Podemos observar que o valor médio das duas quantidades é diferente de zero, apesar de muito próximos deste valor, indicando uma pequena inclinação da superfície em que o robô é instalado. A variação de cada ângulo medido a cada período de amostragem é um efeito do ruído de medição, caracterizado por altas frequências.
+
+Após a medição, os ângulos são derivados e, em seguida, passados por um filtro passa-baixa, especificado pela equação \ref{eq:filtro}. As velocidades resultantes após a derivação e após a filtragem podem ser visualizadas na Figura \ref{fig:velocidades_medidas}. Para poder analisar o efeito do filtro sobre a velocidade calculada, montou-se a Tabela \ref{TabVelocidades}. Nela foram organizados os valores mínimo, máximo e médio das velocidades assim como sua amplitude, ou seja, a diferença entre o máximo e o mínimo atingidos.
+
+\begin{figure}[tb]
+	\centering
+	\mbox{
+		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_roll}}\quad\quad
+		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_pitch}}}
+	\caption{Velocidades antes e depois da filtragem}
+	\label{fig:velocidades_medidas}
+\end{figure}
+
+Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruído decaiu 45.7\% para a medição da velocidade de rolagem e 52.5\% para a arfagem. Isso indica que o efeito do filtro sob a medição da velocidade se mostrou adequado para as necessidades para as quais ele foi desenvolvido. Isto é, ele é capaz de amenizar a ação do ruído em altas frequências.
+
+\begin{table}[b]
+	\caption{Velocidades mínima, máxima, média e sua amplitude}
+	\label{TabVelocidades}
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c}
+			\hline
+			\textbf{Orientação} & \textbf{Mínimo (rad/s)} & \textbf{Máximo (rad/s)} & \textbf{Amplitude (rad/s)} & \textbf{Valor médio (rad/s)} \\
+			\hline
+			Rolagem & -0.0581 & 0.1172 & 0.1753 & $7.0738*10^{-4}$\\
+			Rolagem filtrada & -0.0299 & 0.0952 & 0.0653 & $7.0598*10^{-4}$\\
+			Arfagem & -0.0399 & 0.0409 & 0.0808 & $8.3171*10^{-5}$\\
+			Arfagem filtrada & -0.0184 & 0.0384 & 0.02 & $2.9474*10^{-5}$\\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s. 
