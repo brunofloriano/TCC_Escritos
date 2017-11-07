@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  7 NOV 2017 12:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  7 NOV 2017 15:29
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -978,33 +978,54 @@ Overfull \hbox (25.4063pt too wide) in paragraph at lines 56--57
  []
 
 [50 <./Figuras/Angulos_ruido.jpg>]
-Overfull \hbox (61.34375pt too wide) in paragraph at lines 67--76
+Overfull \hbox (29.10141pt too wide) in paragraph at lines 67--76
  [] 
  []
 
-) [51 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]
+<Figuras/Modo_velocidade1.jpg, id=282, 562.1pt x 421.575pt>
+File: Figuras/Modo_velocidade1.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_velocidade1.jpg>
+Package pdftex.def Info: Figuras/Modo_velocidade1.jpg used on input line 91.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Modo_velocidade2.jpg, id=283, 562.1pt x 421.575pt>
+File: Figuras/Modo_velocidade2.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_velocidade2.jpg>
+Package pdftex.def Info: Figuras/Modo_velocidade2.jpg used on input line 91.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Modo_velocidade3.jpg, id=284, 562.1pt x 422.57875pt>
+File: Figuras/Modo_velocidade3.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_velocidade3.jpg>
+Package pdftex.def Info: Figuras/Modo_velocidade3.jpg used on input line 91.
+(pdftex.def)             Requested size: 139.30617pt x 104.7288pt.
+ [51 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]) [52 <./Figuras/
+Modo_velocidade1.jpg> <./Figuras/Modo_velocidade2.jpg> <./Figuras/Modo_velocida
+de3.jpg>]
 \openout2 = `cap_Conclusoes.aux'.
 
-
-(cap_Conclusoes.tex
+ (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [52
+) [53
 
 
 
-] (relatorio.bbl [53
+] (relatorio.bbl [54
 
 
-]) [54]
+]) [55]
 \c@noAnexo=\count118
- [55
+ [56
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [56
+) [57
 
 
 ]
@@ -1012,7 +1033,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [57
+) [58
 
 
 
@@ -1028,10 +1049,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5911 strings out of 493334
- 81566 string characters out of 3139252
- 156525 words of memory out of 3000000
- 9152 multiletter control sequences out of 15000+200000
+ 5927 strings out of 493334
+ 82042 string characters out of 3139252
+ 156536 words of memory out of 3000000
+ 9165 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1069,9 +1090,9 @@ c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on relatorio.pdf (69 pages, 3445775 bytes).
+Output written on relatorio.pdf (70 pages, 3504271 bytes).
 PDF statistics:
- 1089 PDF objects out of 1200 (max. 8388607)
+ 1096 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 246 words of extra memory for PDF output out of 10000 (max. 10000000)
 

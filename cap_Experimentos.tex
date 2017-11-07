@@ -66,7 +66,7 @@ Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruíd
 	\begin{center}
 		\begin{tabular}{c|c|c|c|c}
 			\hline
-			\textbf{Orientação} & \textbf{Mínimo (rad/s)} & \textbf{Máximo (rad/s)} & \textbf{Amplitude (rad/s)} & \textbf{Valor médio (rad/s)} \\
+			\textbf{Orientação} & \textbf{Mínimo (rad/s)} & \textbf{Máximo (rad/s)} & \textbf{Amplitude (rad/s)} & \textbf{Média (rad/s)} \\
 			\hline
 			Rolagem & -0.0581 & 0.1172 & 0.1753 & $7.0738*10^{-4}$\\
 			Rolagem filtrada & -0.0299 & 0.0952 & 0.0653 & $7.0598*10^{-4}$\\
@@ -76,4 +76,19 @@ Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruíd
 	\end{center}
 \end{table}
 
-Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s. 
+Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s.
+
+\subsection{Torque no Modo Velocidade}
+Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais de cada motor de modo que o robô fique na postura adequada. Em seguida, a plataforma é posicionada no solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação \ref{eq:controle_velocidade_discreto}, como para o controle adaptado para o modo posição, determinado pela equação \ref{eq:controle_posicao_discreto}.
+
+O resultado obtido no modo posição pode ser visualizado pela Figura
+
+\begin{figure}[tb]
+	%\centering
+	\mbox{
+		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade1}}\quad\quad
+		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade2}}
+		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade3}}}
+	\caption{Teste de Sustentação do Robô}
+	\label{fig:teste_sustentacao}
+\end{figure}
