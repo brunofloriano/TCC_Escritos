@@ -54,7 +54,7 @@
 \contentsline {subsection}{\numberline {4.2.1}Medição}{49}
 \contentsline {subsection}{\numberline {4.2.2}Teste de Sustentação}{51}
 \contentsline {section}{\numberline {4.3}Modo Posição}{53}
-\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{53}
+\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{54}
 \contentsline {chapter}{\numberline {5}Conclus\~{o}es}{55}
 \contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{56}
 \contentsline {chapter}{{Anexos}}{58}
