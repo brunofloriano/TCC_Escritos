@@ -261,7 +261,7 @@ Dessa forma, o diagrama de blocos correspondente a esta nova estrutura adiciona 
 	\label{fig:diagrama4}
 \end{figure}
 
-\subsection{Determinação dos Ganhos $K_i$}
+\subsection{Determinação dos Ganhos $K_i$} \label{sec:ganhos}
 
 Com o sistema de controle de equilíbrio definido e as juntas capazes de sustentar o peso do robô, foi possível realizar os testes das respostas dos motores aos distúrbios. Dessa forma, pode-se determinar empiricamente o valor de $K_i$ para cada motor de modo a corrigir o distúrbio da maneira mais eficiente possível.
 
@@ -326,7 +326,7 @@ Nesta remodelação, consideraremos $d_{roll/pitch}$ agora como o erro da posição 
 d_{roll/pitch} = r_{roll/pitch} - \theta_{roll/pitch},
 \end{eqnarray}
 
-\noindent e, como deseja-se a estabilidade do robô, considerar-se-a $r_{roll/pitch} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
+\noindent e, como deseja-se a estabilidade do robô, considerar-se-á $r_{roll/pitch} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
 
 \begin{figure} [h]
 	\centering
@@ -397,7 +397,7 @@ Portanto, a posição de cada motor será determinada, no domínio s, por
 \ddot{\theta_i}(t)\tau_d \tau_p + \dot{\theta_i}(t)(\tau_d + \tau_p) + \theta_i(t) = K_d \tau_p \ddot{d}(t) + K_d \dot{d}(t) + \tau_d \dot{\theta_i^{\ast}}(t) + \theta_i^{\ast}(t).
 \end{eqnarray}
 
-Para obter a equação do sistema discretizado, representar-se-a a quantidade $x(t)$ (em que x pode ser $\theta_i$, $d$ ou $\theta_i^{\ast}$) como $x[k]$ e as suas derivadas como
+Para obter a equação do sistema discretizado, representar-se-á a quantidade $x(t)$ (em que x pode ser $\theta_i$, $d$ ou $\theta_i^{\ast}$) como $x[k]$ e as suas derivadas como
 
 \begin{eqnarray}
 \dot{x}(t) = \frac{x[k] - x[k-1]}{T_{am}}, \text{e} \nonumber \\ 
