@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  7 NOV 2017 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  7 NOV 2017 23:49
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -948,84 +948,113 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-<Figuras/Angulos_ruido.jpg, id=272, 562.1pt x 421.575pt>
+[49
+
+
+
+] <Figuras/Angulos_ruido.jpg, id=276, 562.1pt x 421.575pt>
 File: Figuras/Angulos_ruido.jpg Graphic file (type jpg)
 
 <use Figuras/Angulos_ruido.jpg>
-Package pdftex.def Info: Figuras/Angulos_ruido.jpg used on input line 27.
+Package pdftex.def Info: Figuras/Angulos_ruido.jpg used on input line 30.
 (pdftex.def)             Requested size: 325.043pt x 243.78033pt.
- [49
-
-
-
-]
-<Figuras/Filtro_roll.jpg, id=277, 562.1pt x 421.575pt>
+ [50 <./Figuras/Angulos_ruido.jpg>]
+<Figuras/Filtro_roll.jpg, id=280, 562.1pt x 421.575pt>
 File: Figuras/Filtro_roll.jpg Graphic file (type jpg)
 
 <use Figuras/Filtro_roll.jpg>
-Package pdftex.def Info: Figuras/Filtro_roll.jpg used on input line 56.
+Package pdftex.def Info: Figuras/Filtro_roll.jpg used on input line 59.
 (pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
 
-<Figuras/Filtro_pitch.jpg, id=278, 562.1pt x 421.575pt>
+<Figuras/Filtro_pitch.jpg, id=281, 562.1pt x 421.575pt>
 File: Figuras/Filtro_pitch.jpg Graphic file (type jpg)
 
 <use Figuras/Filtro_pitch.jpg>
-Package pdftex.def Info: Figuras/Filtro_pitch.jpg used on input line 56.
+Package pdftex.def Info: Figuras/Filtro_pitch.jpg used on input line 59.
 (pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
 
-Overfull \hbox (25.4063pt too wide) in paragraph at lines 56--57
+Overfull \hbox (25.4063pt too wide) in paragraph at lines 59--60
  [][] 
  []
 
-[50 <./Figuras/Angulos_ruido.jpg>]
-Overfull \hbox (29.10141pt too wide) in paragraph at lines 67--76
+
+Overfull \hbox (29.10141pt too wide) in paragraph at lines 70--79
  [] 
  []
 
-<Figuras/Modo_velocidade1.jpg, id=282, 562.1pt x 421.575pt>
+[51 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]
+<Figuras/Modo_velocidade1.jpg, id=285, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade1.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade1.jpg>
-Package pdftex.def Info: Figuras/Modo_velocidade1.jpg used on input line 91.
+Package pdftex.def Info: Figuras/Modo_velocidade1.jpg used on input line 94.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_velocidade2.jpg, id=283, 562.1pt x 421.575pt>
+<Figuras/Modo_velocidade2.jpg, id=286, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade2.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade2.jpg>
-Package pdftex.def Info: Figuras/Modo_velocidade2.jpg used on input line 91.
+Package pdftex.def Info: Figuras/Modo_velocidade2.jpg used on input line 94.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_velocidade3.jpg, id=284, 562.1pt x 422.57875pt>
+<Figuras/Modo_velocidade3.jpg, id=287, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade3.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade3.jpg>
-Package pdftex.def Info: Figuras/Modo_velocidade3.jpg used on input line 91.
-(pdftex.def)             Requested size: 139.30617pt x 104.7288pt.
- [51 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]) [52 <./Figuras/
-Modo_velocidade1.jpg> <./Figuras/Modo_velocidade2.jpg> <./Figuras/Modo_velocida
-de3.jpg>]
+Package pdftex.def Info: Figuras/Modo_velocidade3.jpg used on input line 94.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Modo_velocidade4.jpg, id=288, 562.1pt x 421.575pt>
+File: Figuras/Modo_velocidade4.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_velocidade4.jpg>
+Package pdftex.def Info: Figuras/Modo_velocidade4.jpg used on input line 107.
+(pdftex.def)             Requested size: 325.043pt x 243.78033pt.
+ [52 <./Figuras/Modo_velocidade1.jpg> <./Figuras/Modo_velocidade2.jpg> <./Figur
+as/Modo_velocidade3.jpg>]
+<Figuras/Modo_posicao1.jpg, id=292, 562.1pt x 421.575pt>
+File: Figuras/Modo_posicao1.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_posicao1.jpg>
+Package pdftex.def Info: Figuras/Modo_posicao1.jpg used on input line 129.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Modo_posicao2.jpg, id=293, 562.1pt x 421.575pt>
+File: Figuras/Modo_posicao2.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_posicao2.jpg>
+Package pdftex.def Info: Figuras/Modo_posicao2.jpg used on input line 129.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Modo_posicao3.jpg, id=294, 562.1pt x 427.5975pt>
+File: Figuras/Modo_posicao3.jpg Graphic file (type jpg)
+
+<use Figuras/Modo_posicao3.jpg>
+Package pdftex.def Info: Figuras/Modo_posicao3.jpg used on input line 129.
+(pdftex.def)             Requested size: 139.30617pt x 105.97261pt.
+) [53 <./Figuras/Modo_velocidade4.jpg>] [54 <./Figuras/Modo_posicao1.jpg> <./Fi
+guras/Modo_posicao2.jpg> <./Figuras/Modo_posicao3.jpg>]
 \openout2 = `cap_Conclusoes.aux'.
 
  (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [53
+) [55
 
 
 
-] (relatorio.bbl [54
+] (relatorio.bbl [56
 
 
-]) [55]
+]) [57]
 \c@noAnexo=\count118
- [56
+ [58
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [57
+) [59
 
 
 ]
@@ -1033,7 +1062,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [58
+) [60
 
 
 
@@ -1049,10 +1078,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5927 strings out of 493334
- 82042 string characters out of 3139252
- 156536 words of memory out of 3000000
- 9165 multiletter control sequences out of 15000+200000
+ 5950 strings out of 493334
+ 82677 string characters out of 3139252
+ 156571 words of memory out of 3000000
+ 9184 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1090,9 +1119,9 @@ c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on relatorio.pdf (70 pages, 3504271 bytes).
+Output written on relatorio.pdf (72 pages, 3658996 bytes).
 PDF statistics:
- 1096 PDF objects out of 1200 (max. 8388607)
+ 1106 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 246 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

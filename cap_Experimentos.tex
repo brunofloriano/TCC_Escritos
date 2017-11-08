@@ -18,9 +18,12 @@ Os experimentos consistiram na execução do programa elaborado para cada etapa do
 Após cada experimento, os dados eram recolhidos e analisados através do software \emph{Matlab}. Os gráficos que serão apresentados neste capítulo foram obtidos por tal programa.
 
 \section{Modo Velocidade}
-A primeira abordagem do controle de estabilidade foi a utilização do modo velocidade dos motores. O primeiro elemento a ser testado na abordagem inicial é a medição dos ângulos pelo acelerômetro. Além disso, pode-se obter a velocidade dos ângulos de rolagem e arfagem e observar os efeitos do filtro passa-baixa desenvolvido.
+A primeira abordagem do controle de estabilidade foi a utilização dos motores no modo velocidade. Nesta seção serão apresentados os principais resultados obtidos neste modo de operação e analisadas as suas consequências para o controle de estabilidade.
 
-O primeiro teste é feito com o robô parado, sustentado por uma caixa que impede as patas de entrarem em contato com o solo, sem a adição de qualquer distúrbio e com a resposta dos motores desativada. Dessa forma, é possível observar o ruído produzido durante a medição, uma vez que os dados de velocidade, em um cenário ideal, deveriam ser iguais a zero e os ângulos, sempre constantes. Podemos observar a medição destes na Figura \ref{fig:angulos_ruido}.
+\subsection{Medição}
+O primeiro elemento a ser testado é a medição dos ângulos pelo acelerômetro. Além disso, pode-se obter a velocidade dos ângulos de rolagem e arfagem através da derivação e observar os efeitos do filtro passa-baixa desenvolvido.
+
+O teste é feito com o robô parado, sustentado por uma caixa que impede as patas de entrarem em contato com o solo, sem a adição de qualquer distúrbio e com a resposta dos motores desativada. Dessa forma, é possível observar o ruído produzido durante a medição, uma vez que os dados de velocidade, em um cenário ideal, deveriam ser iguais a zero e os ângulos, sempre constantes. Podemos observar a medição destes na Figura \ref{fig:angulos_ruido}.
 
 \begin{figure} [tb]
 	\centering
@@ -29,7 +32,7 @@ O primeiro teste é feito com o robô parado, sustentado por uma caixa que impede 
 	\label{fig:angulos_ruido}
 \end{figure}
 
-Os ângulos iniciam o teste com os valores iniciais de zero graus, devido à inicialização da conexão com o \emph{Arduino}. No entanto, após 6 períodos de amostragem (ou 1.2 segundos) a aquisição de dados é estabelecida. A partir de então podemos notar que os dados sofrem variações devido ao ruído. Utilizando os comandos \emph{max}, \emph{min} e \emph{mean} do \emph{Matlab} podemos identificar os ângulos mínimo, máximo e médio atingidos para cada medição. Tais valores são apresentados na Tabela \ref{TabAngulos}. 
+Os ângulos iniciam o teste com os valores iniciais de zero graus, devido à inicialização da conexão com o \emph{Arduino}. No entanto, após 6 períodos de amostragem (ou 1.2 segundos) a aquisição de dados é estabelecida. A partir de então, podemos notar que os dados sofrem variações devido ao ruído. Utilizando os comandos \emph{max}, \emph{min} e \emph{mean} do \emph{Matlab} podemos identificar os ângulos mínimo, máximo e médio atingidos para cada medição. Tais valores são apresentados na Tabela \ref{TabAngulos}. 
 
 \begin{table}[b]
 	\caption{Ângulos mínimo, máximo e médio medidos}
@@ -78,17 +81,52 @@ Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruíd
 
 Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s.
 
-\subsection{Torque no Modo Velocidade}
-Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais de cada motor de modo que o robô fique na postura adequada. Em seguida, a plataforma é posicionada no solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação \ref{eq:controle_velocidade_discreto}, como para o controle adaptado para o modo posição, determinado pela equação \ref{eq:controle_posicao_discreto}.
+\subsection{Teste de Sustentação} \label{sec:sustentacao_velocidade}
+Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais de cada motor de modo que o robô fique na postura adequada. Em seguida, a plataforma é posicionada no solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado, para fins de comparação, tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação \ref{eq:controle_velocidade_discreto}, como para o controle adaptado para o modo posição, determinado pela equação \ref{eq:controle_posicao_discreto}.
 
-O resultado obtido no modo posição pode ser visualizado pela Figura
+O resultado obtido no modo velocidade pode ser visualizado pela Figura \ref{fig:teste_sustentacao}. Na Fig. \ref{fig:teste_sustentacao}(a) são mostrados os ângulos de rolagem e arfagem medidos. Já a Fig. \ref{fig:teste_sustentacao}(b) apresenta, em vermelho, a velocidade de rolagem e, de amarelo, a velocidade dos motores utilizados para corrigir o distúrbio nesta direção (i.e. motores 1, 4, 7 e 10). Analogamente, a Fig. \ref{fig:teste_sustentacao}(b) contém a velocidade de arfagem e dos respectivos motores que a corrigem.
 
-\begin{figure}[tb]
+\begin{figure}[b]
 	%\centering
 	\mbox{
-		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade1}}\quad\quad
-		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade2}}
-		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade3}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade1}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade2}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade3}}}
 	\caption{Teste de Sustentação do Robô}
 	\label{fig:teste_sustentacao}
+\end{figure}
+
+Podemos notar, uma grande movimentação entre os instantes 1 e 3 segundos mas que se devem apenas à alocação do robô sobre o solo. A partir deste momento, nenhum distúrbio externo foi aplicado ao robô. Ainda assim, é possível observar, na Fig. \ref{fig:teste_sustentacao}(a), que o robô sofre uma queda, a partir de aproximadamente 8 segundos, quando o ângulo de arfagem caiu para -18.3127 graus.
+
+Para analisar o ocorrido podemos verificar a Fig. \ref{fig:teste_sustentacao}(c), representando a direção em que houve a queda (i.e arfagem). Nela, as linhas em amarelo, representando as velocidades dos motores, começam a aumentar (em módulo) alguns segundos antes da queda brusca. Este é um indicador de que as juntas começaram a ceder inicialmente de forma lenta e foram aumentando sua velocidade até que o robô não foi mais capaz de se sustentar, gerando a queda.
+
+Podemos, para melhor visualização, separar a resposta de um desses motores, como é feito na Figura \ref{fig:motor_queda}. Nesta imagem, isolou-se a resposta, em módulo, do motor 11 (utilizado para corrigir a arfagem em uma junta do tipo não joelho). Constata-se que a velocidade do motor começou a aumentar cerca de 2 segundos antes da queda do robô, atingindo o seu ápice por volta de 8.42 segundos.
+
+\begin{figure} [tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/Modo_velocidade4}
+	\caption{Velocidade do Motor 11}
+	\label{fig:motor_queda}
+\end{figure}
+
+Como não houve distúrbios externos e a resposta dos motores havia sido configurada para 0 rad/s, conclui-se que os motores não apresentam torque suficiente no modo velocidade para manter a velocidade como tal e, consequentemente, deixam as juntas suscetíveis a serem movimentadas. Isto ocasionou que o peso do robô movimentou as juntas até o ponto que o robô não foi capaz de sustentar mais.
+
+Como será visto na próxima seção, o modo posição apresenta um torque bastante elevado quando comparado ao modo velocidade. Neste caso, ao determinar uma posição para o motor (assim como configuramos uma velocidade de 0 rad/s) este fixa tal localização e não cede facilmente a movimentos externos que tendam a mover a junta para uma posição diferente. Portanto, é mais vantajoso que trabalhemos no modo posição para que o robô possa se sustentar sozinho.
+
+\section{Modo Posição}
+Com o modo posição, podemos utilizar os motores de forma mais adequada para que o robô se sustente e corrija os distúrbios aos quais está suscetível. Da mesma forma que no modo velocidade, nesta seção abordar-se-a os resultados atingidos com os experimentos no modo posição analisando o que necessita de modificação e, principalmente, obtendo os dados empíricos para a determinação das constantes de controle.
+
+\subsection{Teste de Sustentação}
+Assim como foi realizado na seção \ref{sec:sustentacao_velocidade}, neste experimento realizou-se o teste de sustentação, com o robô em pé, parado, sem aplicação de distúrbios externos e com a velocidade dos motores configurada para zero. A diferença entre o presente experimento e o item mencionado é que, neste caso, para manter a velocidade de 0 rad/s em cada motor, o sistema configura sua posição sempre com o mesmo valor enquanto, anteriormente, a própria velocidade era configurada.
+
+Os dados obtidos para tal teste podem ser analisados na Figura \ref{fig:teste_sustentacao_posicao}. Podemos observar que o experimento foi possível de ser realizado por mais tempo que anteriormente pois não houve a queda do robô. Dessa forma, as figuras apresentadas apresentam apenas ruído, uma vez que não 
+
+\begin{figure}[t]
+	%\centering
+	\mbox{
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao1}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao2}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao3}}}
+	\caption{Teste de Sustentação do Robô no Modo Posição}
+	\label{fig:teste_sustentacao_posicao}
 \end{figure}
