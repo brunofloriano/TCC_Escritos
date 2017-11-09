@@ -146,11 +146,18 @@ As constantes $K_{up}$ e $K_{down}$, no escopo de correção do movimento de arfag
 
 Por esse motivo, considerou-se, inicialmente, que $K_{up} = 1$. Assim, podemos determinar empiricamente o ganho $K_{down}$, em conformidade com o movimento do motor de cima, para que o deslocamento da pata no sentido sagital seja tal que esta aterrisse da forma mais vertical possível como mostrado na Fig. \ref{fig:aterrissagem}(c). Assim, a correção da estabilidade do robô será determinada unicamente pelos ganhos $K_{pitch\_F}$ e $K_{pitch\_B}$, abordados mais adiante.
 
-O teste para se determinar $K_{down}$ ocorrerá da seguinte forma: em uma das patas, aplicar-se-á uma velocidade 0.5 rad/s por 2 segundos no motor de cima. Então, para quatro valores de $K_{down}$, definiremos a resposta da junta do tipo joelho da respectiva perna como $0.5K_{down}$ rad/s. Desse modo, a resposta do joelho será igual à velocidade do motor de cima, ponderada pelo ganho, assim como no controle proposto.
+O teste para se determinar $K_{down}$ ocorrerá da seguinte forma: em uma das patas, aplicar-se-á uma velocidade de 0.5 rad/s por 2 segundos no motor de cima. Então, para quatro valores de $K_{down}$, definiremos a resposta da junta do tipo joelho da respectiva perna como $0.5K_{down}$ rad/s. Desse modo, a resposta do joelho será igual à velocidade do motor de cima, ponderada pelo ganho, assim como no controle proposto.
 
-Então, observaremos a posição da pata ao final de cada experimento e defineremos $K_{down}$ com o valor que melhor ajusta a pata para aterrissagem vertical.
+Então, observaremos a posição da pata ao final de cada experimento e defineremos $K_{down}$ com o valor que melhor ajusta a pata para aterrissagem vertical. Caso se perceba necessário, novos valores serão sugeridos e testados da mesma forma.
 
 \subsection{Determinação das constantes $K_{roll\_R}$ e $K_{roll\_L}$}
+Os ângulos referentes à rolagem, $K_{roll\_R}$ e $K_{roll\_L}$, foram testados em ensaios com a presença de distúrbio. Neste sentido, o robô é posicionado em pé sobre o solo com todas as juntas na posição inicial. Quando o controle é acionado, são aplicados manualmente empurrões no robô para a sua esquerda ou sua direita com um espaço de tempo entre eles. Então, é observada a resposta dos motores 1, 4, 7 e 10 e a postura do robô a cada instante para verificar sua sustentação.
+
+\begin{eqnarray}
+\mathbb{E}_{\boldsymbol{h}_k,\boldsymbol{x}_k}\{tr\left(\boldsymbol{H}^H\boldsymbol{H}\right)^{-1}\}\nonumber\\   \mathbb{E}_{\boldsymbol{x}_k}\{\frac{tr\left(\boldsymbol{\Lambda}^{-1}\right)}{M-K}} \nonumber \\
+%\sum\limits_{k=1}^{K}
+\frac{\mathbb{E}_{\boldsymbol{x}_k}\{(l(\boldsymbol{x}_k))^{-1}\}}{M-K}.
+\end{eqnarray}
 
 %Falar do teste 1: descobrir que k = 0 quando o disturbio nao foi no seu sentido
 %Falar do teste 2: descobrir o valor de fato
