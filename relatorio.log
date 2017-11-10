@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  9 NOV 2017 12:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  10 NOV 2017 14:27
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -933,44 +933,55 @@ File: Figuras/Aterrissagem.png Graphic file (type png)
 Package pdftex.def Info: Figuras/Aterrissagem.png used on input line 295.
 (pdftex.def)             Requested size: 325.043pt x 142.47542pt.
  [42 <./Figuras/Aterrissagem.png>]
-<Figuras/Diagrama5.png, id=251, 1001.7425pt x 584.1825pt>
+<Figuras/Robo_direita.png, id=251, 487.8225pt x 271.0125pt>
+File: Figuras/Robo_direita.png Graphic file (type png)
+
+<use Figuras/Robo_direita.png>
+Package pdftex.def Info: Figuras/Robo_direita.png used on input line 310.
+(pdftex.def)             Requested size: 185.73683pt x 103.18845pt.
+
+<Figuras/Robo_frente.png, id=252, 376.40625pt x 183.18437pt>
+File: Figuras/Robo_frente.png Graphic file (type png)
+
+<use Figuras/Robo_frente.png>
+Package pdftex.def Info: Figuras/Robo_frente.png used on input line 310.
+(pdftex.def)             Requested size: 185.73683pt x 90.39282pt.
+ [43 <./Figuras/Robo_direita.png> <./Figuras/Robo_frente.png>] [44] <Figuras/Di
+agrama5.png, id=261, 1001.7425pt x 584.1825pt>
 File: Figuras/Diagrama5.png Graphic file (type png)
 
 <use Figuras/Diagrama5.png>
-Package pdftex.def Info: Figuras/Diagrama5.png used on input line 333.
+Package pdftex.def Info: Figuras/Diagrama5.png used on input line 356.
 (pdftex.def)             Requested size: 325.043pt x 189.55399pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[43] [44 <./Figuras/Diagrama5.png>] [45] [46] [47]) [48]
+ [45 <./Figuras/Diagrama5.png>] [46] [47] [48])
+[49]
 \openout2 = `cap_Experimentos.aux'.
 
  (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-[49
+[50
 
 
 
-] <Figuras/Angulos_ruido.jpg, id=277, 562.1pt x 421.575pt>
+] <Figuras/Angulos_ruido.jpg, id=283, 562.1pt x 421.575pt>
 File: Figuras/Angulos_ruido.jpg Graphic file (type jpg)
 
 <use Figuras/Angulos_ruido.jpg>
 Package pdftex.def Info: Figuras/Angulos_ruido.jpg used on input line 41.
 (pdftex.def)             Requested size: 278.61234pt x 208.96008pt.
- [50 <./Figuras/Angulos_ruido.jpg>]
+ [51 <./Figuras/Angulos_ruido.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
-<Figuras/Filtro_roll.jpg, id=281, 562.1pt x 421.575pt>
+<Figuras/Filtro_roll.jpg, id=287, 562.1pt x 421.575pt>
 File: Figuras/Filtro_roll.jpg Graphic file (type jpg)
 
 <use Figuras/Filtro_roll.jpg>
 Package pdftex.def Info: Figuras/Filtro_roll.jpg used on input line 72.
 (pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
 
-<Figuras/Filtro_pitch.jpg, id=282, 562.1pt x 421.575pt>
+<Figuras/Filtro_pitch.jpg, id=288, 562.1pt x 421.575pt>
 File: Figuras/Filtro_pitch.jpg Graphic file (type jpg)
 
 <use Figuras/Filtro_pitch.jpg>
@@ -981,119 +992,119 @@ Overfull \hbox (25.4063pt too wide) in paragraph at lines 72--73
  [][] 
  []
 
-[51 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]
+[52 <./Figuras/Filtro_roll.jpg> <./Figuras/Filtro_pitch.jpg>]
 Overfull \hbox (29.10141pt too wide) in paragraph at lines 83--92
  [] 
  []
 
-<Figuras/Modo_velocidade1.jpg, id=286, 562.1pt x 421.575pt>
+<Figuras/Modo_velocidade1.jpg, id=292, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade1.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade1.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade1.jpg used on input line 100.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_velocidade2.jpg, id=287, 562.1pt x 421.575pt>
+<Figuras/Modo_velocidade2.jpg, id=293, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade2.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade2.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade2.jpg used on input line 100.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_velocidade3.jpg, id=288, 562.1pt x 421.575pt>
+<Figuras/Modo_velocidade3.jpg, id=294, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade3.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade3.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade3.jpg used on input line 100.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_velocidade4.jpg, id=289, 562.1pt x 421.575pt>
+<Figuras/Modo_velocidade4.jpg, id=295, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade4.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade4.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade4.jpg used on input line 111.
 (pdftex.def)             Requested size: 278.61234pt x 208.96008pt.
- [52 <./Figuras/Modo_velocidade1.jpg> <./Figuras/Modo_velocidade2.jpg> <./Figur
-as/Modo_velocidade3.jpg>] [53 <./Figuras/Modo_velocidade4.jpg>] <Figuras/Modo_p
-osicao1.jpg, id=296, 562.1pt x 421.575pt>
+ [53 <./Figuras/Modo_velocidade1.jpg> <./Figuras/Modo_velocidade2.jpg> <./Figur
+as/Modo_velocidade3.jpg>] [54 <./Figuras/Modo_velocidade4.jpg>] <Figuras/Modo_p
+osicao1.jpg, id=302, 562.1pt x 421.575pt>
 File: Figuras/Modo_posicao1.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_posicao1.jpg>
 Package pdftex.def Info: Figuras/Modo_posicao1.jpg used on input line 137.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_posicao2.jpg, id=297, 562.1pt x 421.575pt>
+<Figuras/Modo_posicao2.jpg, id=303, 562.1pt x 421.575pt>
 File: Figuras/Modo_posicao2.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_posicao2.jpg>
 Package pdftex.def Info: Figuras/Modo_posicao2.jpg used on input line 137.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Modo_posicao3.jpg, id=298, 562.1pt x 427.5975pt>
+<Figuras/Modo_posicao3.jpg, id=304, 562.1pt x 427.5975pt>
 File: Figuras/Modo_posicao3.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_posicao3.jpg>
 Package pdftex.def Info: Figuras/Modo_posicao3.jpg used on input line 137.
 (pdftex.def)             Requested size: 139.30617pt x 105.97261pt.
- [54 <./Figuras/Modo_posicao1.jpg> <./Figuras/Modo_posicao2.jpg> <./Figuras/Mod
+ [55 <./Figuras/Modo_posicao1.jpg> <./Figuras/Modo_posicao2.jpg> <./Figuras/Mod
 o_posicao3.jpg>]
-<Figuras/Queda_Roll_R_1.jpg, id=302, 562.1pt x 421.575pt>
+<Figuras/Queda_Roll_R_1.jpg, id=309, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_1.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_1.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_1.jpg used on input line 162.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Queda_Roll_R_2.jpg, id=303, 562.1pt x 421.575pt>
+<Figuras/Queda_Roll_R_2.jpg, id=310, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_2.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_2.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_2.jpg used on input line 162.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
- [55 <./Figuras/Queda_Roll_R_1.jpg> <./Figuras/Queda_Roll_R_2.jpg>] <Figuras/Qu
-eda_Roll_R_3.jpg, id=309, 562.1pt x 421.575pt>
+ [56 <./Figuras/Queda_Roll_R_1.jpg> <./Figuras/Queda_Roll_R_2.jpg>] <Figuras/Qu
+eda_Roll_R_3.jpg, id=315, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_3.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_3.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_3.jpg used on input line 178.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Queda_Roll_R_4.jpg, id=310, 562.1pt x 421.575pt>
+<Figuras/Queda_Roll_R_4.jpg, id=316, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_4.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_4.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_4.jpg used on input line 178.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/Queda_Roll_R_5.jpg, id=311, 562.1pt x 421.575pt>
+<Figuras/Queda_Roll_R_5.jpg, id=317, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_5.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_5.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_5.jpg used on input line 178.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
-) [56 <./Figuras/Queda_Roll_R_3.jpg> <./Figuras/Queda_Roll_R_4.jpg> <./Figuras/
+) [57 <./Figuras/Queda_Roll_R_3.jpg> <./Figuras/Queda_Roll_R_4.jpg> <./Figuras/
 Queda_Roll_R_5.jpg>]
 \openout2 = `cap_Conclusoes.aux'.
 
  (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-) [57
+) [58
 
 
 
-] (relatorio.bbl [58
+] (relatorio.bbl [59
 
 
-]) [59]
+]) [60]
 \c@noAnexo=\count118
- [60
+ [61
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [61
+) [62
 
 
 ]
@@ -1101,7 +1112,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [62
+) [63
 
 
 
@@ -1117,10 +1128,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5986 strings out of 493334
- 83514 string characters out of 3139252
- 156606 words of memory out of 3000000
- 9211 multiletter control sequences out of 15000+200000
+ 5998 strings out of 493334
+ 83810 string characters out of 3139252
+ 156628 words of memory out of 3000000
+ 9221 multiletter control sequences out of 15000+200000
  31317 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1160,9 +1171,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2
 /type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (74 pages, 3788768 bytes).
+Output written on relatorio.pdf (75 pages, 3804926 bytes).
 PDF statistics:
- 1130 PDF objects out of 1200 (max. 8388607)
+ 1136 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 291 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 words of extra memory for PDF output out of 10000 (max. 10000000)
 

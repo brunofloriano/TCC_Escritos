@@ -46,28 +46,31 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade com Filtro}}{40}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de Blocos do Sistema no Modo Posição}}{41}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Configurações das juntas tipo joelho durante a aterrissagem}}{42}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama de Blocos com Paralelismo}}{44}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Centro de Gravidade durante o distúrbio}}{43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Queda para a direita}}}{43}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Queda para frente}}}{43}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Diagrama de Blocos com Paralelismo}}{45}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Ângulos de Rolagem e Arfagem medidos com o robô parado}}{50}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Velocidades antes e depois da filtragem}}{51}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Velocidade de Rolagem}}}{51}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Arfagem}}}{51}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Teste de Sustentação do Robô}}{52}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{52}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{52}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{52}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Velocidade do Motor 11}}{53}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Teste de Sustentação do Robô no Modo Posição}}{54}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{54}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{54}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{54}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Teste de Queda para a direita com $K_{roll\_R} = 1$}}{55}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Ângulos de Rolagem e Arfagem medidos com o robô parado}}{51}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Velocidades antes e depois da filtragem}}{52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Velocidade de Rolagem}}}{52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Arfagem}}}{52}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Teste de Sustentação do Robô}}{53}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{53}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{53}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{53}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Velocidade do Motor 11}}{54}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Teste de Sustentação do Robô no Modo Posição}}{55}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{55}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{55}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Teste de Queda para a direita com $K_{roll\_R} = 1.5$}}{56}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{55}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Teste de Queda para a direita com $K_{roll\_R} = 1$}}{56}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{56}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{56}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{56}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Teste de Queda para a direita com $K_{roll\_R} = 1.5$}}{57}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{57}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{57}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{57}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
