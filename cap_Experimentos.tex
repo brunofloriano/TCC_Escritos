@@ -144,31 +144,33 @@ Desta maneira, comparando com os dados obtidos na seção \ref{sec:sustentacao_vel
 \subsection{Determinação das constantes $K_{up}$ e $K_{down}$}
 As constantes $K_{up}$ e $K_{down}$, no escopo de correção do movimento de arfagem, tem a finalidade de diferenciar as respostas dos motores de juntas do tipo joelho (com o ganho $K_{up}$) das demais ($K_{down}$). Como mencionado na seção \ref{sec:ganhos}, cada um deses motores terá, ainda, uma segunda componente que será a responsável pelo movimento de correção em si. Dessa forma, $K_{up}$ e $K_{down}$ são apenas ponderações da resposta para a diferenciação das juntas do tipo joelho.
 
-Por esse motivo, considerou-se, inicialmente, que $K_{up} = 1$. Assim, podemos determinar empiricamente o ganho $K_{down}$, em conformidade com o movimento do motor de cima, para que o deslocamento da pata no sentido sagital seja tal que esta aterrisse da forma mais vertical possível como mostrado na Fig. \ref{fig:aterrissagem}(c). Assim, a correção da estabilidade do robô será determinada unicamente pelos ganhos $K_{pitch\_F}$ e $K_{pitch\_B}$, abordados mais adiante.
+Por esse motivo, considerou-se, inicialmente, que $K_{up} = 1$. Assim, podemos determinar empiricamente o ganho $K_{down}$, em conformidade com o movimento do motor de cima, para que o deslocamento da pata no sentido sagital seja tal que esta aterrisse da forma mais vertical possível como mostrado na Fig. \ref{fig:aterrissagem}(c). Assim, a correção da estabilidade do robô será determinada unicamente pelos ganhos $K_F$ e $K_B$, abordados mais adiante.
 
 O teste para se determinar $K_{down}$ ocorrerá da seguinte forma: em uma das patas, aplicar-se-á uma velocidade de 0.5 rad/s por 2 segundos no motor de cima. Então, para quatro valores de $K_{down}$, definiremos a resposta da junta do tipo joelho da respectiva perna como $0.5K_{down}$ rad/s. Desse modo, a resposta do joelho será igual à velocidade do motor de cima, ponderada pelo ganho, assim como no controle proposto.
 
 Então, observaremos a posição da pata ao final de cada experimento e defineremos $K_{down}$ com o valor que melhor ajusta a pata para aterrissagem vertical. Caso se perceba necessário, novos valores serão sugeridos e testados da mesma forma.
 
-\subsection{Determinação das constantes $K_{roll\_R}$ e $K_{roll\_L}$}
-Os ângulos referentes à rolagem, $K_{roll\_R}$ e $K_{roll\_L}$, foram testados em ensaios com a presença de distúrbio. Neste sentido, o robô é posicionado em pé sobre o solo com todas as juntas na posição inicial. Quando o controle é acionado, são aplicados manualmente empurrões no robô, para a sua esquerda ou sua direita, com um espaço de tempo entre eles. Então, é observada a resposta dos motores 1, 4, 7 e 10 e a postura do robô a cada instante para verificar sua sustentação. Baseados nessas observações, os ganhos são modificados de forma a adequar o movimento desejado das patas para a correção adequada do distúrbio, por exemplo, se for notado que a resposta precisa ser mais rápida, aumentamos o ganho; caso verifique uma sensibilidade muito elevada da resposta, diminuímos tal valor.
+\subsection{Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}
+Os ganhos referentes à rolagem, $K_{R}$ e $K_{L}$, foram testados em ensaios com a presença de distúrbio. Para tal, o robô foi posicionado em pé sobre o solo com todas as juntas na posição inicial. Quando o controle foi acionado, aplicou-se manualmente empurrões no robô, para a sua esquerda ou sua direita, com um intervalo de tempo entre eles. Então, é observada a resposta dos motores 1, 4, 7 e 10 e a postura do robô a cada instante para verificar sua sustentação. Baseados nessas observações, os ganhos são modificados de forma a adequar o movimento desejado das patas para a correção adequada do distúrbio. Por exemplo, se for notado que a resposta precisa ser mais rápida, aumentamos o ganho; caso se 	verifique uma sensibilidade muito elevada da resposta, diminuímos tal valor.
 
-Inicialmente, foi realizado tal ensaio com o distúrbio apenas para a direita, ou seja, foram aplicados empurrões na direção que pudesse fazer o robô tombar para a direita. O valor de $K_{roll\_R}$ foi inicialmente configurado para 1. As respostas obtidas com este valor podem ser observadas na Figura \ref{fig:queda_roll_1}.
+Como abordado na seção \ref{sentido_movimentacao} e condensado na equação \ref{eq:ganho_condicional}, os ganhos dependem do sentido de movimentação causado pela perturbação e são iguais a zero caso o sentido não corresponda àquela junta. Portanto, as quantidades aqui testadas são referentes ao caso diferente de zero, ou seja, $A_{R}$ e $A_{L}$.
+
+Inicialmente, foi realizado tal ensaio com o distúrbio apenas para a direita, ou seja, foram aplicados empurrões na direção que pudesse fazer o robô tombar para a direita. O valor de $K_{R}$ foi inicialmente configurado para 1. As respostas obtidas com este valor podem ser observadas na Figura \ref{fig:queda_roll_1}.
 
 \begin{figure}[b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_1}}\quad\quad
 		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_2}}}
-	\caption{Teste de Queda para a direita com $K_{roll\_R} = 1$}
+	\caption{Teste de Queda para a direita com $K_{R} = 1$}
 	\label{fig:queda_roll_1}
 \end{figure}
 
-Podemos observar neste dados, que diversos distúrbios foram aplicados em intervalos de aproximadamente 2 segundos entre eles, com uma amplitude, em módulo, de até 0.85 rad/s. Em grande parte das respostas subsequentes, percebe-se, que o ângulo de rolagem volta ao seu valor inicial assim como a velocidade volta a ser de 0 rad/s, indicando a estabilidade. No entanto, o último distúrbio verificado causa a instabilidade do robô, como pode ser visto na Fig. \ref{fig:queda_roll_1}(a). Neste caso, o ângulo de rolagem cai para aproximadamente $30^o$, indicando a queda do robô.
+Podemos observar neste dados, que diversos distúrbios foram aplicados em intervalos de aproximadamente 2 segundos entre eles, com uma amplitude, em módulo, de até 0.85 rad/s. Em grande parte das respostas subsequentes, percebe-se que o ângulo de rolagem volta ao seu valor inicial assim como a velocidade volta a ser de 0 rad/s, indicando a estabilidade. No entanto, o último distúrbio verificado causa a instabilidade do robô, como pode ser visto na Fig. \ref{fig:queda_roll_1}(a). Neste caso, o ângulo de rolagem cai para aproximadamente $30^o$, indicando a queda do robô.
 
-Além disso, a Fig. \ref{fig:queda_roll_1}(b) indica que as velocidades dos motores (em amarelo) estavam bem reduzidas neste experimento e, portanto, quase não responderam ao distúrbio. Dessa forma, pode-se concluir que a estabilização dos primeiros distúrbios não teve relação com a resposta dos motores, mas sim com a própria geometria de distribuição das patas e da magnitude do distúrbio, insuficiente para fazê-lo cair. Apenas o último empurrão imposto na plataforma teve a magnitude suficiente para fazê-lo cair e, como as respostas dos motores estavam em patamares insuficientes, a queda do robô ocorreu.
+Além disso, a Fig. \ref{fig:queda_roll_1}(b) indica que as velocidades dos motores (em amarelo) estavam bem reduzidas neste experimento e, portanto, quase não responderam ao distúrbio. Dessa forma, pode-se concluir que a estabilização dos primeiros distúrbios não teve relação com a resposta dos motores, mas sim com a própria geometria de distribuição das patas e da magnitude do distúrbio, insuficiente para fazê-lo cair. Apenas o último empurrão imposto na plataforma teve magnitude suficiente para fazê-lo cair e, como as respostas dos motores estavam em patamares insuficientes, a queda do robô ocorreu.
 
-Portanto, o ganho de $K_{roll\_R}$ foi insuficiente para corrigir tal distúrbio. Logo, fez-se necessário aumentar tal valor para que o controle possa responder adequadamente a tal. O próximo valor a ser testado neste mesmo experimento é de $K_{roll\_R} = 1.5$. Os dados referentes a este valor se encontram na Figura \ref{fig:queda_roll_2}.
+Portanto, o ganho de $K_{R}$ foi insuficiente para corrigir o distúrbio indicando uma necessidade de aumentar tal valor para que o controle possa responder adequadamente a tal. O próximo valor a ser testado neste mesmo experimento é de $K_{R} = 1.5$. Os dados referentes a este valor se encontram na Figura \ref{fig:queda_roll_2}.
 
 \begin{figure}[b]
 	\centering
@@ -176,15 +178,73 @@ Portanto, o ganho de $K_{roll\_R}$ foi insuficiente para corrigir tal distúrbio.
 		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_3}}\quad\quad
 		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_4}}
 		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_5}}}
-	\caption{Teste de Queda para a direita com $K_{roll\_R} = 1.5$}
+	\caption{Teste de Queda para a direita com $K_{R} = 1.5$}
 	\label{fig:queda_roll_2}
 \end{figure}
 
-Neste caso, foram aplicados dois distúrbios maiores em aproximadamente 7.5 e em 15 segundos e um menor em 6 segundos. Nota-se, na Fig. \ref{fig:queda_roll_2}(b), que as respostas dos motores se encontram bem mais significativas do que no experimento anterior. Nesta situação, o ângulo de rolagem chega em valores de até $15^o$ (Fig. \ref{fig:queda_roll_2}(a)) e retornam à sua posição inicial e velocidade zero. Isto foi possível devido à ação de resposta dos motores.
+Neste caso, foram aplicados dois distúrbios maiores em aproximadamente 7.5 e em 15 segundos e um menor em 6 segundos. Nota-se, na Fig. \ref{fig:queda_roll_2}(b), que as respostas dos motores se encontram bem mais significativas do que no experimento anterior. Nesta situação, o ângulo de rolagem chega em valores de até $15^o$ (Fig. \ref{fig:queda_roll_2}(a)) e retornam à sua posição inicial e velocidade zero. Isto foi possível devido à ação de resposta dos motores, que se deslocaram com uma velocidade suficiente para corrigir a perturbação e impedir a queda do robô. Assim, pode-se estabelecer que o valor de 1.5 foi bastante adequado para a correção da estabilidade no sentido de rolagem para direita.
 
 Em uma análise mais detalhada da Fig. \ref{fig:queda_roll_2}(a), constata-se que, ao final do último distúrbio, os ângulos de rolagem e arfagem se acomodam em valores ligeiramente diferente do valor inicial. Isto é uma consequência do controle de estabilidade ter sido desenvolvido, até o presente experimento, sem a consideração do retorno à posição inicial. Deste modo, as patas, após corrigirem a perturbação, continuam na mesma posição que terminaram o movimento de correção. Em outras palavras, a posição de cada pata em regime permanente é dada pela posição que ela atinge ao final do deslocamento de correção. Isto faz com que os ângulos de rolagem e arfagem possam se acomodar em valores distintos do inicial.
 
-Por fim, podemos notar na Fig. \ref{fig:queda_roll_2}(c), que o distúrbio aplicado não teve componentes apenas no movimento de rolagem conforme desejado, mas também foi aplicado na direção de arfagem. No entanto, este movimento não influenciou a análise da rolagem, uma vez que não gerou a queda do robô e movimento de rolagem pode ser caracterizado de forma independente.
+Podemos observar melhor este fenômeno através da Figura \ref{fig:roboreal1}, que ilustra o momento ao final do experimento, em que o robô já se estabilizou mas manteve a posição fixa ao invés de voltar à posição inicial. É perceptível que o robô tem as patas dispostas para os lados enquanto sua posição inicial é com as quatro patas perpendiculares à base.
 
-%Falar do teste 1: descobrir que k = 0 quando o disturbio nao foi no seu sentido
-%Falar do teste 2: descobrir o valor de fato
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Figuras/robo_real1}
+	\caption{Posição do robô após a correção do distúrbio}
+	\label{fig:roboreal1}
+\end{figure}
+
+Por fim, podemos notar na Fig. \ref{fig:queda_roll_2}(c), que o distúrbio aplicado não teve componentes apenas no movimento de rolagem conforme desejado, mas também foi aplicado na direção de arfagem. No entanto, este movimento não influenciou a análise da rolagem, uma vez que não gerou a queda do robô e o movimento de rolagem pode ser caracterizado de forma independente.
+
+\subsection{Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}
+Para determinar os ganhos $K_{B}$ e $K_{F}$ segui-se os mesmos procedimentos descritos anteriormente para o caso da rolagem. Isto é, o robô será posicionado sobre o chão na posição inicial e, após a ativação do sistema de controle, serão aplicadas perturbações para frente e para trás do robô. Em seguida, os dados serão analisados para verificar a necessidade de aumentar os ganhos, caso a resposta esteja muito lenta, ou diminuí-lo em caso de uma sensibilidade muito elevada nas respostas dos motores.
+
+O primeiro teste foi feito para a aquisição de $K_{F}$. Apesar das dimensões longitudinais do robô serem maiores do que suas extensões transversais (o robô tem base retangular), é razoável admitir inicialmente o ganho como 1.5, valor este que garantiu uma resposta adequada no movimento de rolagem. Alterações finas podem ser requeridas caso o experimento com este valor não seja conveniente, mas assume-se que esta quantia deva ter uma ordem de grandeza semelhante à necessária para a estabilização do distúrbio da arfagem.
+
+Os resultados obtidos neste experimento são ilustrados na Figura \ref{fig:queda_pitch1}. Podemos observar na Fig. \ref{fig:queda_pitch1}(c) que os motores responderam bem aos distúrbios impostos, com uma magnitude levemente maior que as próprias perturbações. Na Fig \ref{fig:queda_pitch1} podemos observar
+
+\begin{figure}[b]
+	\centering
+	\mbox{
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_1}}\quad\quad
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_2}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_3}}}
+	\caption{Teste de Queda para a direita com $K_{F} = 1.5$}
+	\label{fig:queda_pitch1}
+\end{figure}
+
+\section{Paralelismo com a Posição Desejada}
+Na seção anterior determinou-se todas as constantes de velocidade $K_i$ e, com isso, foi possível obter um controle de estabilidade satisfatório que corrigia o movimento do robô face a um distúrbio externo aplicado. No entanto, conforme foi mencionado, uma vez que o robô retornava à condição de estabilidade, as patas não voltavam à posição inicial. Este comportamento não é adequado considerando o cenário em que o robô se estabiliza ao mesmo tempo que mantém uma marcha constante. Neste caso, é desejado que, uma vez corrigido o distúrbio, o robô continue a se movimentar normalmente.
+
+Com isso em mente, foi proposto e implementado o controle com paralelismo como explicado na seção \ref{sec:paralelismo}. Esta seção, por sua vez, realizará os testes do controle proposto. Em um primeiro momento, o controlador foi testado com a posição desejada para cada motor em regime permanente configurada para a posição inicial. Desta forma, espera-se que robô seja capaz de corrigir o distúrbio e voltar para a posição inicial, permanecendo parado a partir daí. Se os testes forem bem sucedidos, adicionar-se-á a marcha desenvolvida em \cite{tcc:porphirio:2017} para determinar a posição em regime permanente.
+
+%Determinar os taus empiricamente
+
+Dessa forma os testes aplicados inicialmente foram semelhantes aos realizados anteriormente. Foram aplicados distúrbios para os quatro sentidos estudados, com os ganhos $K_i$ obtidos, e analisados os resultados advindos deste procedimento.
+
+O primeiro teste foi realizado na direção de rolagem, para a direita. Os dados referentes a este caso são ilustrados na Figura \ref{fig:queda_final_direita}. Os dados para esta concepção do controlador são fornecidos em posição, ao invés de velocidade, e por esse motivo tem um formato diferente dos anteriores.
+
+\begin{figure}[t]
+	\centering
+	\mbox{
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_direita}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_direita2}}}
+	\caption{Teste de Queda para a direita com Paralelismo}
+	\label{fig:queda_final_direita}
+\end{figure}
+
+A Fig. \ref{fig:queda_final_direita}(a) apresenta, em amarelo, a posição dos quatro motores que corrigem a rolagem e, em vermelho, o distúrbio lido pelo acelerômetro, em graus. Nela, podemos observar que todos os motores respondem de forma sincronizada à perturbação, voltando à posição inicial após o seu fim. Conforme havia sido concebido, o controle com paralelismo foi capaz não apenas de corrigir o distúrbio externo, como também de retornar à posição desejada para o regime permanente.
+
+A Fig. \ref{fig:queda_final_direita}(b), por sua vez, retrata o comportamento do ângulo de arfagem e dos motores a ele relacionado. Neste experimento, quase não houve movimentação nesta direção, com exceção de uma pequena perturbação por volta dos 16 segundos, provavelmente consequência de uma irregularidade no momento da aplicação do distúrbio, mas que não foi significativa para causar influência no experimento.
+
+O mesmo experimento foi realizado com os distúrbios para a esquerda, resultando nos dados da Figura \ref{fig:queda_final_esquerda}.
+
+\begin{figure}[b]
+	\centering
+	\mbox{
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerda}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerda2}}}
+	\caption{Teste de Queda para a esquerda com Paralelismo}
+	\label{fig:queda_final_esquerda}
+\end{figure}

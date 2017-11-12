@@ -141,7 +141,7 @@ O valor de $T_{am}$ foi, a princípio, estipulado como 0.1 segundos. Porém, perce
 Após várias testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-las. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0.2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
 
 \section{Controle de Estabilidade}
-O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle consiste na utilização de sensores para a aquisição das informações do estado atual do robô e a subsequente aplicação de respostas aos motores baseadas nestes dados. Mais especificamente, a resposta de cada motor i será dada pela multiplicação do distúrbio detectado pelos sensores por um ganho $K_i$ obtido empiricamente para cada junta. 
+O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle consiste na utilização de sensores para a aquisição das informações do estado atual do robô e a subsequente aplicação de respostas aos motores baseadas nestes dados. Mais especificamente, a resposta de cada motor i (em que i varia entre 1 e 12) será dada pela multiplicação do distúrbio detectado pelos sensores por um ganho $K_i$ obtido empiricamente para cada junta. 
 
 Para a implementação do controle desejado, o sensoriamento será feito através do acelerômetro, responsável pela detecção de distúrbios no robô que possam gerar os movimentos indesejados de rolagem, $d_{roll}$ (queda para direita ou esquerda) ou arfagem, $d_{pitch}$ (queda para frente ou para trás). Então, a resposta da i-ésima junta para compensar tal movimento será dada por
 
@@ -254,7 +254,7 @@ Uma vez decidido pelo uso do modo posição dos motores ao invés do modo velocidad
 
 Dessa forma, o diagrama de blocos correspondente a esta nova estrutura adiciona um integrador ao final, como mostra a Figura \ref{fig:diagrama4}.
 
-\begin{figure} [b]
+\begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama4}
 	\caption{Diagrama de Blocos do Sistema no Modo Posição}
@@ -265,28 +265,90 @@ Dessa forma, o diagrama de blocos correspondente a esta nova estrutura adiciona 
 
 Com o sistema de controle de equilíbrio definido e as juntas capazes de sustentar o peso do robô, foi possível realizar os testes das respostas dos motores aos distúrbios. Dessa forma, pode-se determinar empiricamente o valor de $K_i$ para cada motor de modo a corrigir o distúrbio da maneira mais eficiente possível.
 
-Para auxiliar na determinação destes ganhos utilizamos a simetria do robô para agrupar os motores que devem responder de maneira simultânea e no mesmo sentido. No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos em patas da direita e patas da esquerda. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem (motores 1 e 10) terão um ganho $K_i = K_{roll\_L}$ enquanto os que são referentes às patas da direita (motores 4 e 7) obedecerão à relação $K_i = K_{roll\_R}$.
+Com a finalidade de auxiliar a determinação destes ganhos, utilizamos a simetria do robô para a agrupar os motores que devem responder de maneira simultânea e no mesmo sentido, como ilustrado nas Figuras \ref{fig:sincronia_roll} e \ref{fig:sincronia_pitch}. Isto permitirá que o ganho de vários motores possam ter a mesma resposta e, consequentemente, o mesmo $K_i$.
 
-Da mesma forma, a correção do movimento de arfagem pode ser feita com as patas da frente, com um ganho $K_{pitch\_F}$, ou com as patas de trás, com um ganho $K_{pitch\_B}$. No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho, com um ganho $K_{down}$, e motores de cima, $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{pitch\_F}K_{up}$.
+No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos em patas da direita e patas da esquerda, como na Fig. \ref{fig:sincronia_roll}. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem (motores 1 e 10, em amarelo) terão um ganho $K_i = K_{L}$ enquanto os que são referentes às patas da direita (motores 4 e 7, em verde) obedecerão à relação $K_i = K_{R}$, respondendo ao mesmo tempo e no mesmo sentido.
+
+
+Da mesma forma, a correção do movimento de arfagem, como pode ser observado na Fig. \ref{fig:sincronia_pitch}(a), pode ser feita com as patas da frente (motores 8, 9, 11 e 12, em laranja), com um ganho $K_{F}$, ou com as patas de trás (motores 2, 3, 5 e 6, em roxo), com um ganho $K_{B}$\footnotemark.
+
+\footnotetext{No presente trabalho foram utilizados os subíndices R, L, B e F para indicar, respectivamente, os sentidos da direita (Right), esquerda (Left), para trás (Back) e para frente (Front).}
+
+No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho e motores de cima (ou não-joelho). Aos motores do tipo joelho, ilustrados pela Fig. \ref{fig:sincronia_pitch}(a) com a cor azul, serão atribuídos um ganho $K_{down}$, e aos motores de cima (em vermelho), um ganho $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{F}K_{up}$.
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/robo4}
+	\caption{Motores de rolagem em sincronia}
+	\label{fig:sincronia_roll}
+\end{figure}
+
+\begin{figure}[b]
+	\centering
+	\mbox{
+		\subfigure[Sincronia por patas]{\includegraphics[width=0.4\textwidth]{Figuras/robo5}}\quad\quad
+		\subfigure[Sincronia pelo tipo de junta]{\includegraphics[width=0.4\textwidth]{Figuras/robo3}}}
+	\caption{Motores de arfagem em sincronia}
+	\label{fig:sincronia_pitch}
+\end{figure}
 
 Assim, observando a Tabela 1, podemos determinar cada $K_i$:
 
 \begin{eqnarray} \label{eq:ganhos}
-K_{4/7} = K_{roll\_R},\nonumber\\
-K_{1/10} = K_{roll\_L},\nonumber\\
-K_{2/5} = K_{pitch\_B}K_{up},\nonumber\\
-K_{3/6} = K_{pitch\_B}K_{down},\nonumber\\
-K_{8/11} = K_{pitch\_F}K_{up},\nonumber\\
-K_{9/12} = K_{pitch\_F}K_{down}.
+K_{4/7} = K_{R},\nonumber\\
+K_{1/10} = K_{L},\nonumber\\
+K_{2/5} = K_{B}K_{up},\nonumber\\
+K_{3/6} = K_{B}K_{down},\nonumber\\
+K_{8/11} = K_{F}K_{up},\nonumber\\
+K_{9/12} = K_{F}K_{down}.
 \end{eqnarray}
 
 \noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$ são igual ao valor do outro lado da igualdade.
 
 Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1.1 para a devida correção.
 
-A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais. Neste sentido, o primeiro fato detectado através dos testes é que a resposta de cada pata deve seguir o movimento do distúrbio. Por exemplo, se o robô é empurrado para a direita, então as patas devem se deslocar para a direita para que o distúrbio seja corrigido. O mesmo se aplica para o movimento de arfagem.
+A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais. 
 
-No entanto, as juntas do tipo joelho diferem das outras neste sentido. Em tal caso, percebeu-se, que o mais adequado para estas juntas é que sigam o movimento contrário ao distúrbio. Isso ocorre porque, ao seguir este sentido, a junta do joelho orienta a pata a aterrissar na vertical. Podemos visualizar melhor os possíveis cenários de orientação desta junta durante a aterrissagem através da Figura \ref{fig:aterrissagem}.
+\subsection{Sentido de Movimentação das Patas} \label{sentido_movimentacao}
+
+A análise seguinte que deve ser observada com relação aos ganhos se relaciona com a resposta desejada para cada grupo de patas em conformidade com o sentido de movimentação do robô. Observando a Figura \ref{fig:quedas}, podemos analisar os movimentos de rolagem e arfagem e, assim, determinar o sentido mais adequado para a movimentação das patas. Nesta imagem, apresenta-se os casos em que, partindo da condição de repouso, o robô é empurrado para a direita (Fig. \ref{fig:quedas}(a)) e para frente (Fig. \ref{fig:quedas}(b)).
+
+\begin{figure}[t]
+	\centering
+	\mbox{
+		\subfigure[Queda para a direita]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_direita}}\quad\quad
+		\subfigure[Queda para frente]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_frente}}}
+	\caption{Centro de Gravidade durante o distúrbio}
+	\label{fig:quedas}
+\end{figure}
+
+O círculo escuro no centro da base do robô é a representação do seu Centro de Gravidade (COG).	Pela simetria e distribuição de massa que podemos assumir presentes no quadrúpede, tem-se que a projeção vertical do COG no solo, em condições de repouso, se encontra equidistante das patas tanto no plano sagital quanto no transversal. Dessa forma, tal projeção se localiza no centro do retângulo formado pelas patas. Por simplicidade, esta distância é normalizada para cada plano e, portanto, em repouso é igual a 1.
+
+Na Fig. \ref{fig:quedas}(a), apresenta-se o caso em que um distúrbio é aplicado	na plataforma, anteriormente em repouso, de modo a movimentá-la para a direita do robô (movimento de rolagem). Podemos notar que essa perturbação resulta no deslocamento do centro de gravidade no plano transversal e, consequentemente, na movimentação de sua projeção para a direita. Como resultado, o valor da distância entre tal projeção e as patas da esquerda aumenta por um fator $\epsilon$, enquanto essa relação com as patas da direita diminui pelo mesmo fator.
+
+Dessa forma, considerando os teoremas abordados no item \ref{sec:estabilidade_estatica} deste trabalho, percebemos que a margem de estabilidade estática do robô é prejudicada, uma vez que ela passa a ser igual a $1-\epsilon$. Para fazer com que essa margem seja corrigida e evitar a instabilidade do robô, as patas da direita devem se mover para a direita. Isso faz com que a menor distância entre a projeção do COG e as bordas do retângulo formado pelas patas aumente e, com isso, a estabilidade seja atingida.
+
+Cabe aqui ressaltar que a movimentação das patas da esquerda não influencia a estabilidade neste caso pois, se elas se movessem para a esquerda, a margem de estabilidade não mudaria (uma vez que esta é definida como a menor distância) e, se elas se movessem para a direita, haveria o risco de se criar uma nova margem, porém, ainda menor do que $1-\epsilon$. Conclui-se, então, que apenas as patas da direita devem se mover e que têm de fazê-lo para a direita. O mesmo se aplica caso o movimento perturbador seja para a esquerda (caso em que apenas as patas da esquerda devem se mover para a esquerda).
+
+A mesma análise pode ser realizada para o movimento de arfagem como pode ser observado na Fig. \ref{fig:quedas}(b). Analogamente ao caso anterior, na ocorrência de um distúrbio para a frente do robô apenas as patas dianteiras devem se movimentar e para frente, enquanto uma perturbação para trás deve ser corrigida com um movimento para trás das patas traseiras.
+
+Portanto, pode-se definir que as patas que devem corrigir o distúrbio devem ser apenas aquelas referentes à direção do mesmo e no mesmo sentido. Isso pode ser descrito através da equação
+
+\begin{equation}\label{eq:ganho_condicional}
+K_j =
+\begin{cases} 
+A_j & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
+0 & \text{caso contrário.}
+\end{cases}
+\end{equation}
+
+\noindent Isto é, se a velocidade detectada ocorrer no sentido j (em que j pode ser igual a R, L, F ou B, dependendo do sentido da queda do robô), o ganho referente a este sentido será diferente de zero e igual ao ganho de resposta, $A_j$, a ser caracterizado empiricamente. Caso não seja detectado nenhum distúrbio no sentido j o ganho referente àquela direção será igual a zero.
+
+Os testes realizados na plataforma indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
+
+\subsection{Juntas do Tipo Joelho}
+
+As juntas do tipo joelho diferem das outras no que diz respeito ao seu sentido de deslocamento. Em tal caso, percebeu-se, que o mais adequado para estas juntas é que sigam o movimento contrário ao distúrbio. Isso ocorre porque, ao seguir este sentido, a junta do joelho orienta a pata a aterrissar na vertical. Podemos visualizar melhor os possíveis cenários de orientação desta junta durante a aterrissagem através da Figura \ref{fig:aterrissagem}.
 
 A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem correção de distúrbio, como referência. A Fig. \ref{fig:aterrissagem}(b), por sua vez, apresenta o caso em que a junta do joelho não muda sua configuração durante o distúrbio, ocasionando em uma aterrissagem diagonal. Dessa forma, a pata fica suscetível a deslizar horizontalmente. Já a Fig. \ref{fig:aterrissagem}(c) indica a configuração aproximada da pata quando o joelho se move em oposição ao distúrbio. É possível notar que a pata tem uma possibilidade mínima de deslizamento neste caso. Por fim, na Fig. \ref{fig:aterrissagem}(d), é possível visualizar a posição da pata quando o joelho se desloca no sentido do distúrbio. Neste cenário, a pata também pode sofrer o deslizamento horizontal, cedendo ao peso do robô ocasionando em sua queda.
 
@@ -299,44 +361,7 @@ A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem c
 
 Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes que o valor mais adequado para $K_{down}$ é -0.4. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem. Os demais motores que a corrigem não sofrem influências relevantes por movimentarem a parte de cima da pata e, portanto, pode ser caracterizados com $K_{up} = 1$.
 
-\subsection{Sentido de Movimentação das Patas}
-
-A análise seguinte que deve ser observada com relação aos ganhos se relaciona com a resposta desejada para cada grupo de patas em conformidade com o sentido de movimentação do robô. Observando a Figura \ref{fig:quedas}, podemos analisar os movimentos de rolagem e arfagem e, assim, determinar o sentido mais adequado para a movimentação das patas. Nesta imagem, apresenta-se os casos em que, partindo da condição de repouso, o robô é empurrado para a direita (Fig. \ref{fig:quedas}(a)) e para frente (Fig. \ref{fig:quedas}(b)).
-
-\begin{figure}[b]
-	\centering
-	\mbox{
-		\subfigure[Queda para a direita]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_direita}}\quad\quad
-		\subfigure[Queda para frente]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_frente}}}
-	\caption{Centro de Gravidade durante o distúrbio}
-	\label{fig:quedas}
-\end{figure}
-
-O círculo escuro no centro da base do robô é a representação do seu Centro de Gravidade (COG).	Pela simetria e distribuição de massa que podemos assumir presente no quadrúpede, tem-se que a projeção vertical do COG no solo, em condições de repouso, se encontra equidistante da patas tanto no plano sagital quanto no transversal. Dessa forma, tal projeção se localiza no centro do retângulo formado pelas patas. Por simplicidade, esta distância é normalizada para cada plano e, portanto, em repouso é igual a 1.
-
-Na Fig. \ref{fig:quedas}(a), apresenta-se o caso em que um distúrbio é aplicado	na plataforma, anteriormente em repouso, de modo a movimentá-la para a direita do robô (movimento de rolagem). Podemos notar que essa perturbação resulta no deslocamento do centro de gravidade no plano transversal e, consequentemente, na movimentação de sua projeção para a direita. Como resultado, o valor da distância entre tal projeção e as patas da esquerda aumenta por um fator $\epsilon$, enquanto essa relação com as patas da direita diminui pelo mesmo fator.
-
-Dessa forma, considerando os teoremas abordados no item \ref{sec:estabilidade_estatica} deste trabalho, percebemos que a margem de estabilidade estática do robô é prejudicada, uma vez que ela passa a ser igual a $1-\epsilon$. Para fazer com que essa margem seja corrigida e evitar a instabilidade do robô, as patas da direita devem se mover para a direita. Isso faz com que a menor distância entre a projeção do COG e as bordas do retângulo formado pelas patas aumente e, com isso, a estabilidade seja atingida.
-
-Cabe aqui ressaltar que a movimentação das patas da esquerda não influencia a estabilidade neste caso pois, se elas se movessem para a esquerda, a margem de estabilidade não mudaria (uma vez que esta é definida como a menor distância) e, se elas se movessem para a direita, haveria o risco de se criar uma nova margem, porém, ainda menor do que $1-\epsilon$. Conclui-se, então, que apenas as patas da direita devem se mover e para a direita. O mesmo se aplica caso o movimento perturbador seja para a esquerda (caso em que apenas as patas da esquerda devem se mover para a esquerda).
-
-A mesma análise pode ser realizada para o movimento de arfagem como pode ser observado na Fig. \ref{fig:quedas}(b). Analogamente ao caso anterior, na ocorrência de um distúrbio para a frente do robô apenas as patas dianteiras devem se movimentar e para frente, enquanto uma perturbação para trás deve ser corrigida com um movimento para trás das patas traseiras.
-
-Portanto, pode-se definir que as patas que devem corrigir o distúrbio devem ser apenas aquelas referentes à direção do mesmo e no mesmo sentido. Isso pode ser descrito através da equação
-
-\begin{equation}\label{eq:ganho_condicional}
-K_{roll/pitch\_j} =
-\begin{cases} 
-K_{resp\_j} & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
-0 & \text{caso contrário.}
-\end{cases}
-\end{equation}
-
-\noindent Isto é, se a velocidade detectada ocorrer no sentido j (esquerda, direita, para frente ou para trás), o ganho referente a este sentido será diferente de zero e igual ao ganho de resposta, $K_{resp\_j}$, a ser caracterizado empiricamente. Caso não seja detectado nenhum distúrbio no sentido j o ganho referente àquela direção será igual a zero.
-
-Os testes realizados na plataforma indicaram que o valor de $K_{resp\_j}$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
-
-\subsection{Paralelismo com a Posição Desejada}
+\subsection{Paralelismo com a Posição Desejada} \label{sec:paralelismo}
 Determinados os ganhos $K_i$ de todos os motores, o controle de estabilidade está apto a corrigir os distúrbios, conforme será melhor abordados no capítulo dos Resultados. No entanto, o controle proposto até aqui, caracterizado pela equação \ref{eq:controle_posicao_discreto}, aplica uma determinada posição $\theta_i$ em cada junta e não a modifica mais até a ocorrência de um novo distúrbio. Isto resulta na permanência do robô na posição de correção, mesmo após o fim do distúrbio.
 
 A ação mais adequada para o quadrúpede é de, após a correção do distúrbio, cada junta voltar a uma posição desejada para o regime permanente. Dessa forma, se o robô estiver parado, deseja-se que ele volte à posição inicial após a correção. Da mesma maneira, caso a plataforma esteja em processo de marcha, ela deve continuar sua movimentação normalmente após a estabilidade ser alcançada.

@@ -46,20 +46,23 @@
 \contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{40}
 \contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{40}
 \contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{42}
-\contentsline {subsection}{\numberline {3.5.7}Paralelismo com a Posição Desejada}{44}
-\contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{48}
+\contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{44}
+\contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{45}
+\contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{49}
 \contentsline {section}{\numberline {3.7}Conclusão}{49}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{50}
-\contentsline {section}{\numberline {4.1}Introdução}{50}
-\contentsline {section}{\numberline {4.2}Modo Velocidade}{50}
-\contentsline {subsection}{\numberline {4.2.1}Medição}{50}
-\contentsline {subsection}{\numberline {4.2.2}Teste de Sustentação}{52}
-\contentsline {section}{\numberline {4.3}Modo Posição}{54}
-\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{55}
-\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{55}
-\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes $K_{roll\_R}$ e $K_{roll\_L}$}{56}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{58}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{59}
-\contentsline {chapter}{{Anexos}}{61}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{62}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{63}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{51}
+\contentsline {section}{\numberline {4.1}Introdução}{51}
+\contentsline {section}{\numberline {4.2}Modo Velocidade}{51}
+\contentsline {subsection}{\numberline {4.2.1}Medição}{51}
+\contentsline {subsection}{\numberline {4.2.2}Teste de Sustentação}{53}
+\contentsline {section}{\numberline {4.3}Modo Posição}{55}
+\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{56}
+\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{56}
+\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{57}
+\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{59}
+\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{60}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{62}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{63}
+\contentsline {chapter}{{Anexos}}{65}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{66}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{67}
