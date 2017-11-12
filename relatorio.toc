@@ -56,12 +56,13 @@
 \contentsline {subsection}{\numberline {4.2.1}Medição}{51}
 \contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{53}
 \contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{54}
-\contentsline {section}{\numberline {4.3}Modo Posição}{55}
-\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{55}
-\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{56}
-\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{56}
-\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{58}
-\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{58}
+\contentsline {section}{\numberline {4.3}Modo Posição}{57}
+\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{57}
+\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{57}
+\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{58}
+\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{60}
+\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{61}
+\contentsline {section}{\numberline {4.5}Conclusões}{63}
 \contentsline {chapter}{\numberline {5}Conclus\~{o}es}{65}
 \contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{66}
 \contentsline {chapter}{{Anexos}}{68}

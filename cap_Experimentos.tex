@@ -23,17 +23,25 @@ A primeira abordagem do controle de estabilidade foi a utilização dos motores no
 \subsection{Medição}
 O primeiro elemento a ser testado é a medição dos ângulos pelo acelerômetro. Além disso, pode-se obter a velocidade dos ângulos de rolagem e arfagem através da derivação e observar os efeitos do filtro passa-baixa desenvolvido.
 
+
 O teste é feito com o robô parado, sustentado por uma caixa que impede as patas de entrarem em contato com o solo, sem a adição de qualquer distúrbio e com a resposta dos motores desativada. Dessa forma, é possível observar o ruído produzido durante a medição, uma vez que os dados de velocidade, em um cenário ideal, deveriam ser iguais a zero e os ângulos, sempre constantes. Podemos observar a medição destes na Figura \ref{fig:angulos_ruido}.
 
-\begin{figure} [b]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/Angulos_ruido}
 	\caption{Ângulos de Rolagem e Arfagem medidos com o robô parado}
 	\label{fig:angulos_ruido}
 \end{figure}
 
-
 Os ângulos iniciam o teste com os valores iniciais de zero graus, devido à inicialização da conexão com o \emph{Arduino}. No entanto, após 6 períodos de amostragem (ou 1.2 segundos) a aquisição de dados é estabelecida. A partir de então, podemos notar que os dados sofrem variações devido ao ruído. Utilizando os comandos \emph{max}, \emph{min} e \emph{mean} do \emph{Matlab} podemos identificar os ângulos mínimo, máximo e médio atingidos para cada medição. Tais valores são apresentados na Tabela \ref{TabAngulos}. 
+
+Podemos observar que o valor médio das duas quantidades é diferente de zero, apesar de muito próximos deste valor, indicando uma pequena inclinação da superfície em que o robô é instalado. A variação de cada ângulo medido a cada período de amostragem é um efeito do ruído de medição, caracterizado por altas frequências.
+
+Após a medição, os ângulos são derivados e, em seguida, passados por um filtro passa-baixa, especificado pela equação \ref{eq:filtro}. As velocidades resultantes após a derivação e após a filtragem podem ser visualizadas na Figura \ref{fig:velocidades_medidas}. Para poder analisar o efeito do filtro sobre a velocidade calculada, montou-se a Tabela \ref{TabVelocidades}. Nela foram organizados os valores mínimo, máximo e médio das velocidades assim como sua amplitude, ou seja, a diferença entre o máximo e o mínimo atingidos.
+
+Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruído decaiu 45.7\% para a medição da velocidade de rolagem e 52.5\% para a arfagem. Isso indica que o efeito do filtro sob a medição da velocidade se mostrou adequado para as necessidades para as quais ele foi desenvolvido. Isto é, ele é capaz de amenizar a ação do ruído em altas frequências.
+
+Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s.
 
 \begin{table}[t]
 	\caption{Ângulos mínimo, máximo e médio medidos}
@@ -49,11 +57,8 @@ Os ângulos iniciam o teste com os valores iniciais de zero graus, devido à inici
 	\end{center}
 \end{table}
 
-Podemos observar que o valor médio das duas quantidades é diferente de zero, apesar de muito próximos deste valor, indicando uma pequena inclinação da superfície em que o robô é instalado. A variação de cada ângulo medido a cada período de amostragem é um efeito do ruído de medição, caracterizado por altas frequências.
 
-Após a medição, os ângulos são derivados e, em seguida, passados por um filtro passa-baixa, especificado pela equação \ref{eq:filtro}. As velocidades resultantes após a derivação e após a filtragem podem ser visualizadas na Figura \ref{fig:velocidades_medidas}. Para poder analisar o efeito do filtro sobre a velocidade calculada, montou-se a Tabela \ref{TabVelocidades}. Nela foram organizados os valores mínimo, máximo e médio das velocidades assim como sua amplitude, ou seja, a diferença entre o máximo e o mínimo atingidos.
-
-\begin{figure}[b]
+\begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_roll}}\quad\quad
@@ -61,6 +66,12 @@ Após a medição, os ângulos são derivados e, em seguida, passados por um filtro p
 	\caption{Velocidades antes e depois da filtragem}
 	\label{fig:velocidades_medidas}
 \end{figure}
+
+\subsection{Posição Inicial}
+Um dos elementos fundamentais nos experimentos que serão realizados é que o robô inicie cada procedimento em uma posição inicial adequada. Determinou-se que tal disposição consistia nas patas perpendiculares à base do robô, sustentando-o através de um arranjo retangular.
+
+Para obter tal posição realizou-se um breve procedimento em que os motores foram desprovidos de qualquer resposta (para tal, configurou-se o torque limite de todos os motores como zero) e, então, cada motor foi manualmente rearranjado de modo que as quatro patas ficassem perpendicular ao plano da base do robô. Em seguida, foi feita a leitura da posição de todos os motores. Essas leituras podem ser visualizadas na Tabela \ref{TabPosicaoInicial}.
+
 
 \begin{table}[t]
 	\caption{Velocidades mínima, máxima, média e sua amplitude}
@@ -78,17 +89,7 @@ Após a medição, os ângulos são derivados e, em seguida, passados por um filtro p
 	\end{center}
 \end{table}
 
-Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruído decaiu 45.7\% para a medição da velocidade de rolagem e 52.5\% para a arfagem. Isso indica que o efeito do filtro sob a medição da velocidade se mostrou adequado para as necessidades para as quais ele foi desenvolvido. Isto é, ele é capaz de amenizar a ação do ruído em altas frequências.
-
-Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s.
-
-
-\subsection{Posição Inicial}
-Um dos elementos fundamentais nos experimentos que serão realizados é que o robô inicie cada procedimento em uma posição inicial adequada. Determinou-se que tal disposição consistia nas patas perpendiculares à base do robô, sustentando-o através de um arranjo retangular.
-
-Para obter tal posição realizou-se um breve procedimento em que os motores foram desprovidos de qualquer resposta (para tal, configurou-se o torque limite de todos os motores como zero) e, então, cada motor foi manualmente rearranjado de modo que as quatro patas ficassem perpendicular ao plano da base do robô. Em seguida, foi feita a leitura da posição de todos os motores. Essas leituras podem ser visualizadas na Tabela \ref{TabPosicaoInicial}.
-
-\begin{table}[t]
+\begin{table}[!b]
 	\caption{Posição Inicial dos Motores}
 	\label{TabPosicaoInicial}
 	\begin{center}
@@ -116,22 +117,21 @@ Com estes valores, foi possível adicionar na função \emph{main} do código, coman
 
 Podemos visualizar a posição inicial do robô na Figura 	\ref{fig:roboreal2}.
 
-
-\begin{figure} [b]
-	\centering
-	\includegraphics[width=0.6\textwidth]{Figuras/robo_real2}
-	\caption{Robô na sua posição inicial}
-	\label{fig:roboreal2}
-\end{figure}
-
-
 \subsection{Teste de Sustentação} \label{sec:sustentacao_velocidade}
 Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais de cada motor de modo que o robô fique na postura adequada. Em seguida, a plataforma é posicionada no solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado, para fins de comparação, tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação \ref{eq:controle_velocidade_discreto}, como para o controle adaptado para o modo posição, determinado pela equação \ref{eq:controle_posicao_discreto}.
 
 
 O resultado obtido no modo velocidade pode ser visualizado pela Figura \ref{fig:teste_sustentacao}. Na Fig. \ref{fig:teste_sustentacao}(a) são mostrados os ângulos de rolagem e arfagem medidos. Já a Fig. \ref{fig:teste_sustentacao}(b) apresenta, em vermelho, a velocidade de rolagem e, de amarelo, a velocidade dos motores utilizados para corrigir o distúrbio nesta direção (i.e. motores 1, 4, 7 e 10). Analogamente, a Fig. \ref{fig:teste_sustentacao}(b) contém a velocidade de arfagem e dos respectivos motores que a corrigem.
 
-Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que se devem apenas à alocação do robô sobre o solo. A partir deste momento, nenhum distúrbio externo foi aplicado ao robô. Ainda assim, é possível observar, na Fig. \ref{fig:teste_sustentacao}(a), que o robô sofre uma queda, a partir de aproximadamente 8 segundos, quando o ângulo de arfagem caiu para -18.3127 graus. \\
+Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que se devem apenas à alocação do robô sobre o solo. A partir deste momento, nenhum distúrbio externo foi aplicado ao robô. Ainda assim, é possível observar, na Fig. \ref{fig:teste_sustentacao}(a), que o robô sofre uma queda, a partir de aproximadamente 8 segundos, quando o ângulo de arfagem caiu para -18.3127 graus.
+
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Figuras/robo_real2}
+	\caption{Robô na sua posição inicial}
+	\label{fig:roboreal2}
+\end{figure}
 
 \begin{figure}[b]
 	%\centering
@@ -143,16 +143,19 @@ Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que 
 	\label{fig:teste_sustentacao}
 \end{figure}
 
+
 Para analisar o ocorrido podemos verificar a Fig. \ref{fig:teste_sustentacao}(c), representando a direção em que houve a queda (i.e arfagem). Nela, as linhas em amarelo, representando as velocidades dos motores, começam a aumentar (em módulo) alguns segundos antes da queda brusca. Este é um indicador de que as juntas começaram a ceder inicialmente de forma lenta e foram aumentando sua velocidade até que o robô não foi mais capaz de se sustentar, gerando a queda.
 
 Podemos, para melhor visualização, separar a resposta de um desses motores, como é feito na Figura \ref{fig:motor_queda}. Nesta imagem, isolou-se a resposta, em módulo, do motor 11 (utilizado para corrigir a arfagem em uma junta do tipo não joelho). Constata-se que a velocidade do motor começou a aumentar cerca de 2 segundos antes da queda do robô, atingindo o seu ápice por volta de 8.42 segundos.
 
-\begin{figure} [tb]
+\begin{figure} [t]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/Modo_velocidade4}
 	\caption{Velocidade do Motor 11}
 	\label{fig:motor_queda}
 \end{figure}
+
+
 
 Como não houve distúrbios externos e a resposta dos motores havia sido configurada para 0 rad/s, conclui-se que os motores não apresentam torque suficiente no modo velocidade para mantê-la como tal e, consequentemente, deixam as juntas suscetíveis a serem movimentadas. O resultado disso foi o peso do robô movimentar as juntas até o ponto em que este não foi capaz de se sustentar mais.
 
@@ -170,6 +173,7 @@ Assim como foi realizado na seção \ref{sec:sustentacao_velocidade}, neste experi
 
 Os dados obtidos para tal teste podem ser analisados na Figura \ref{fig:teste_sustentacao_posicao}. Podemos observar que o experimento foi possível de ser realizado por mais tempo que anteriormente pois não houve a queda do robô. Dessa forma, as figuras apresentadas apresentam apenas ruído, uma vez que não houve distúrbios externos e nem movimento da juntas.
 
+
 \begin{figure}[b]
 	%\centering
 	\mbox{
@@ -179,6 +183,7 @@ Os dados obtidos para tal teste podem ser analisados na Figura \ref{fig:teste_su
 	\caption{Teste de Sustentação do Robô no Modo Posição}
 	\label{fig:teste_sustentacao_posicao}
 \end{figure}
+
 
 Desta maneira, comparando com os dados obtidos na seção \ref{sec:sustentacao_velocidade}, podemos concluir que a sustentação no modo posição é mais adequada para a plataforma do que no modo velocidade, uma vez que possibilita que o robô fique em pé parado.
 
@@ -198,7 +203,7 @@ Como abordado na seção \ref{sentido_movimentacao} e condensado na equação \ref{e
 
 Inicialmente, foi realizado tal ensaio com o distúrbio apenas para a direita, ou seja, foram aplicados empurrões na direção que pudesse fazer o robô tombar para a direita. O valor de $K_{R}$ foi inicialmente configurado para 1. As respostas obtidas com este valor podem ser observadas na Figura \ref{fig:queda_roll_1}.
 
-\begin{figure}[b]
+\begin{figure}[t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_1}}\quad\quad
@@ -212,6 +217,7 @@ Podemos observar neste dados, que diversos distúrbios foram aplicados em interva
 Além disso, a Fig. \ref{fig:queda_roll_1}(b) indica que as velocidades dos motores (em amarelo) estavam bem reduzidas neste experimento e, portanto, quase não responderam ao distúrbio. Dessa forma, pode-se concluir que a estabilização dos primeiros distúrbios não teve relação com a resposta dos motores, mas sim com a própria geometria de distribuição das patas e da magnitude do distúrbio, insuficiente para fazê-lo cair. Apenas o último empurrão imposto na plataforma teve magnitude suficiente para fazê-lo cair e, como as respostas dos motores estavam em patamares insuficientes, a queda do robô ocorreu.
 
 Portanto, o ganho de $K_{R}$ foi insuficiente para corrigir o distúrbio indicando uma necessidade de aumentar tal valor para que o controle possa responder adequadamente a tal. O próximo valor a ser testado neste mesmo experimento é de $K_{R} = 1.5$. Os dados referentes a este valor se encontram na Figura \ref{fig:queda_roll_2}.
+
 
 \begin{figure}[b]
 	\centering
@@ -229,7 +235,7 @@ Em uma análise mais detalhada da Fig. \ref{fig:queda_roll_2}(a), constata-se que
 
 Podemos observar melhor este fenômeno através da Figura \ref{fig:roboreal1}, que ilustra o momento ao final do experimento, em que o robô já se estabilizou mas manteve a posição fixa ao invés de voltar à posição inicial. É perceptível que o robô tem as patas dispostas para os lados enquanto sua posição inicial é com as quatro patas perpendiculares à base.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/robo_real1}
 	\caption{Posição do robô após a correção do distúrbio}
@@ -275,13 +281,17 @@ O primeiro teste foi realizado na direção de rolagem, para a direita. Os dados r
 	\label{fig:queda_final_direita}
 \end{figure}
 
-A Fig. \ref{fig:queda_final_direita}(a) apresenta, em amarelo, a posição dos quatro motores que corrigem a rolagem e, em vermelho, o distúrbio lido pelo acelerômetro, em graus. Nela, podemos observar que todos os motores respondem de forma sincronizada à perturbação, voltando à posição inicial após o seu fim. Conforme havia sido concebido, o controle com paralelismo foi capaz não apenas de corrigir o distúrbio externo, como também de retornar à posição desejada para o regime permanente.
+A Fig. \ref{fig:queda_final_direita}(a) apresenta, em amarelo, a posição dos motores que corrigem a rolagem da esquerda, em azul, os da direita e, em vermelho, o distúrbio lido pelo acelerômetro, em graus. Nela, podemos observar que todos os motores respondem de forma bem sincronizada à perturbação, de forma que os dois motores da direita apresentam uma curva de resposta muito similar, assim como os da esquerda também estão em sintonia. 
+
+Da mesma forma, é possível notar que, mesmo que a perturbação tenha sido realizada para a direita, os dois lados apresentaram alguma resposta. Isto se deve ao fato de que o movimento criado pelo distúrbio gera uma oscilação no robô, isto é, este é inicialmente lançado para a direita, mas após a correção pelas patas neste sentido, a plataforma tende a se movimentar para a esquerda e assim por diante até que o movimento seja amortecido pelo controlador. É possível observar essa oscilação através da linha vermelha da Fig. \ref{fig:queda_final_direita}(a) representando o distúrbio oscilante.
+
+Após a correção do distúrbio e o fim da oscilação do robô, notamos que as juntas voltam à posição inicial. Conforme havia sido concebido, o controle com paralelismo foi capaz não apenas de corrigir o distúrbio externo, como também de retornar à posição desejada para o regime permanente.
 
 A Fig. \ref{fig:queda_final_direita}(b), por sua vez, retrata o comportamento do ângulo de arfagem e dos motores a ele relacionado. Neste experimento, quase não houve movimentação nesta direção, com exceção de uma pequena perturbação por volta dos 16 segundos, provavelmente consequência de uma irregularidade no momento da aplicação do distúrbio, mas que não foi significativa para causar influência no experimento.
 
-O mesmo experimento foi realizado com os distúrbios para a esquerda, resultando nos dados da Figura \ref{fig:queda_final_esquerda}.
+O mesmo procedimento foi realizado com os distúrbios para a esquerda, resultando nos dados da Figura \ref{fig:queda_final_esquerda}. Nota-se que esta resposta é bem similar ao obtido na Fig. \ref{fig:queda_final_direita}, mesmo que as perturbações tenham sido aplicadas no sentido oposto. Isto se deve à mesma oscilação descrita anteriormente que acaba gerando movimento tanto para a direita quanto para a esquerda. Deste modo, as resposta de todos os motores se faz necessária para o amortecimento do deslocamento de rolagem.
 
-\begin{figure}[b]
+\begin{figure}[t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerda}}\quad\quad
@@ -289,3 +299,41 @@ O mesmo experimento foi realizado com os distúrbios para a esquerda, resultando 
 	\caption{Teste de Queda para a esquerda com Paralelismo}
 	\label{fig:queda_final_esquerda}
 \end{figure}
+
+Já para a direção de arfagem realizou-se, primeiramente, o teste com o distúrbio para a frente, resultando nos dados apresentados pela Figura \ref{fig:queda_final_frente}. A Fig. \ref{fig:queda_final_frente}(b) apresenta, em amarelo, as posições das juntas da parte da frente do robô que corrigem a arfagem. A curva em azul representa os motores de trás e, em vermelho, o distúrbio apresentado.
+
+\begin{figure}[b]
+	\centering
+	\mbox{
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_frente1}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_frente2}}}
+	\caption{Teste de Queda para frente com Paralelismo}
+	\label{fig:queda_final_frente}
+\end{figure}
+
+A análise da curva do distúrbio, em vermelho, evidencia mais a oscilação do movimento de arfagem, que persiste por mais tempo até a acomodação no valor de referência. Além disso, notamos que alguns motores seguem uma orientação contrária aos outros, indicando o movimento das juntas dos joelho que se opõe aos demais motores. Neste caso, as posições das juntas também retornam à posição inicial, conforme desejado.
+
+As respostas dos movimentos de rolagem, na Fig. \ref{fig:queda_final_frente}(a), são inferiores em magnitude e, portanto, não influenciaram neste procedimento.
+
+Para perturbações para trás do robô, obtivemos os resultados ilustrados na Figura \ref{fig:queda_final_tras}. Novamente percebemos a semelhança com o caso anteriorer devido à oscilação do movimento na direção da arfagem. Assim, os motores tem um comportamento bem similar, de modo a amortecer tal oscilação até que o valor de referência (0 rad/s) seja atingido e robô, estabilizado.
+
+\begin{figure}[t]
+	\centering
+	\mbox{
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_tras1}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_tras2}}}
+	\caption{Teste de Queda para a trás com Paralelismo}
+	\label{fig:queda_final_tras}
+\end{figure}
+
+\section{Conclusões}
+O controle de estabilidade proposto no capítulo \ref{CapDesenvolvimento} foi pensado com base em uma análise empírica, isto é, composta de testes reais na plataforma e da construção de um controlador em paralelo com os experimentos. Isto se reflete, desde a concepção inicial do projeto, na determinação dos ganhos $K_i$, proposta para ser realizada empiricamente com base nas respostas reais dos motores durante a correção de um distúrbio
+
+No entanto, a abordagem inicial teve que sofrer algumas modificações para se adequar ao cenário encontrado no quadrúpede. Devido especialmente à limitação do torque no modo velocidade, foi necessária a mudança para o modo posição, mas mantendo a concepção de que a velocidade de cada junta seria, basicamente, a velocidade do distúrbio vezes $K_i$. Com o novo modo de operação capaz de sustentar o robô nas condições de repouso, foi possível aplicar testes com o controlador proposto e, concomitantemente, adequar os ganhos $K_i$ até que se observasse a melhor resposta às perturbações.
+
+Descobertos os valores dos ganhos que melhor corrigem os distúrbios, estávamos em posse de um controlador efetivamente capaz de manter a plataforma equilibrada a perturbações externas. No entanto, ainda era necessário aliar o controle proposto ao desenvolvimento de marchas para que o robô conseguisse se equilibrar durante a caminhada sem prejudicar a mesma. Para tal foi proposto o sistema com paralelismo.
+
+Com o controlador em paralelo desenvolvido, foi possível realizar os testes que determinassem os valores adequados de $\tau_d$ e $\tau_p$ que resultassem em um tempo de resposta condizente com os distúrbios sofridos. Dessa forma, foi possível adequar os tempos de resposta para atingir o regime permanente e para responder ao distúrbio.
+
+Por fim, foi possível realizar os testes finais de verificação do controle de equilíbrio, avaliando a sua capacidade de responder aos distúrbios de forma efetiva, em todas as direções e retornar à posição inicial desejada. O alinhamento com as marchas desenvolvidas em \cite{tcc:porphirio:2017}, no entanto, não foi possível de ser realizado, uma vez que as marchas se encontravam muito lentas com o tempo de amostragem proposto. Contudo, ressalta-se que esta possibilidade não foi descartada e será incluída como sugestão para trabalhos futuros no capítulo seguinte.
+
