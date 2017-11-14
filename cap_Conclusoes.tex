@@ -3,4 +3,24 @@
 
 \chapter{Conclus\~{o}es}\label{CapConclusoes}
 
-Este capítulo é em geral formado por: um breve resumo do que foi apresentado, conclus\~{o}es mais pertinentes e propostas de trabalhos futuros.
+%Este capítulo é em geral formado por: um breve resumo do que foi apresentado, conclus\~{o}es mais pertinentes e propostas de trabalhos futuros.
+
+O controle de estabilidade proposto neste trabalho foi fundamentado nos trabalhos desenvolvidos em \cite{article:raibert:0000} e \cite{article:sousa:2010}. Tais propostas seguem um modelo empírico baseados em medições de dados através de sensores como acelerômetro e sensores de força, para a implementação de um controle formado pela contribuição conjunta de diversos atuadores para que a resposta final do robô seja de tal forma a manter o equilíbrio do quadrúpede. Além disso, tal contribuição seria diretamente relacionada com os dados mensurados, isto é, cada atuador teria um ganho individual $K_i$, de modo que a resposta de tal atuador seja o dados medido vezes seu ganho. Então, cada $K_i$ é determinado empiricamente de forma a contribuir da forma mais efetiva para a manutenção da estabilidade do robô.
+
+Neste sentido, o controle proposto no Capítulo \ref{CapDesenvolvimento} foi baseado em velocidades. Isto é, a velocidade de cada motor seria igual à velocidade do distúrbio sofrido vezes um ganho individual $K_i$. Algumas teorias foram estudadas para auxiliar em sua determinação mas, de modo geral, cada ganho devia ser encontrado através de testes na plataforma, com perturbações reais.
+
+O modo velocidade do motor, no entanto, demonstrou-se inadequado para as funcionalidades desejadas devido à limitação do torque no momento de sua sustentação. Apesar de não ter sido descoberto o motivo para tal, formulou-se a hipótese de que este modo teria sido desenvolvido para utilização em rodas, de modo que a fixação em um determinado ângulo não seja adequada para tal finalidade.
+
+Neste sentido o modo posição foi utilizado para implementar o controlador proposto e, para tal, bastou-se aplicar uma integração no mesmo. Com isso foi possível não apenas garantir a sustentação do robô como também que pudéssemos determinar os ganhos $K_i$. Dessa forma, os testes na plataforma forneceram dados satisfatórios para análise, verificação e modificação de cada ganho. Quando todos os ganhos foram estabelecidos, o controle de equilíbrio foi capaz de efetivamente corrigir os distúrbios em todas as direções.
+
+Contudo a necessidade de associar o controle de estabilidade com movimentos de marchas, ou mesmo com uma posição fixa, trouxe a precisão de se criar um paralelismo entre o controle proposto e a posição em regime permanente. Portanto, foi criado o sistema com paralelismo. Neste caso, novas constantes surgiram para serem determinadas empiricamente, $\tau_d$ e $\tau_p$. Estes parâmetros são responsáveis pelo tempo de resposta em regime permanente e foram configuradas de maneira a garantir o melhor tempo de resposta para os distúrbios aplicados.
+
+Ao final, o controle com paralelismo desenvolvido e empiricamente determinado possibilitou que o robô corrigisse as perturbações sofridas e voltasse à posição inicial após a estabilização ser alcançada. No entanto, não foi possível, neste trabalho, aliar tal controle com as marchas desenvolvidas anteriormente.
+
+\section{Sugestões de trabalhos futuros}
+
+Como sugestões para trabalhos futuros propõe-se que novas tentativas sejam realizadas para a utilização do modo velocidade com um torque adequado para a sustentação. Neste trabalho, o uso do modo velocidade serviu de base para a concepção original do projeto de controle de estabilidade, mas após alguns testes percebeu-se que tal modo de operação não fixava a posição das juntas como desejado, fazendo com que as patas não sustentassem o peso do robô, gerando quedas mesmo que sem distúrbios.
+
+A sugestão para os próximos trabalhos é a investigação mais detalhada dos motores, verificando se não há algum modo de fazê-lo trabalhar no modo velocidade com um torque adequado para a sustentação.
+
+Além disso, uma outra proposta é a integração do controle de estabilidade com uma marcha de deslocamento do robô. Ao final do presente trabalho obteve-se um sistema que não apenas mantém a estabilidade do robô como também o faz retornar para uma posição desejada $\theta_i^{\ast}[k]$ de cada motor i, no instante k. Os trabalhos futuros a serem desenvolvidos na plataforma podem definir uma marcha adequada, ou utilizar a desenvolvida em \cite{tcc:porphirio:2017}, e utilizá-la no presente sistema para definir o parâmetro $\theta_i^{\ast}[k]$. Os tempos de amostragem e de resposta das patas, neste caso, deverão ser analisados e possivelmente modificados para se adequar melhor às necessidades de cada marcha.

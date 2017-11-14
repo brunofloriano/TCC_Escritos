@@ -62,9 +62,13 @@
 \contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{58}
 \contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{60}
 \contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{61}
-\contentsline {section}{\numberline {4.5}Conclusões}{63}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{65}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{66}
-\contentsline {chapter}{{Anexos}}{68}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{69}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{70}
+\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{61}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{62}
+\contentsline {subsection}{\numberline {4.4.2}Testes finais}{64}
+\contentsline {section}{\numberline {4.5}Conclusões}{66}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{68}
+\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{69}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{70}
+\contentsline {chapter}{{Anexos}}{72}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{73}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{74}
