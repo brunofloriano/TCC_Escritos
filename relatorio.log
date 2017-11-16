@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  14 NOV 2017 15:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  15 NOV 2017 22:49
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -1121,161 +1121,235 @@ Package pdftex.def Info: Figuras/robo_real1.png used on input line 240.
 File: Figuras/Queda_Pitch_F_1.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Pitch_F_1.jpg>
-Package pdftex.def Info: Figuras/Queda_Pitch_F_1.jpg used on input line 259.
+Package pdftex.def Info: Figuras/Queda_Pitch_F_1.jpg used on input line 262.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
 <Figuras/Queda_Pitch_F_2.jpg, id=337, 562.1pt x 418.56375pt>
 File: Figuras/Queda_Pitch_F_2.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Pitch_F_2.jpg>
-Package pdftex.def Info: Figuras/Queda_Pitch_F_2.jpg used on input line 259.
+Package pdftex.def Info: Figuras/Queda_Pitch_F_2.jpg used on input line 262.
 (pdftex.def)             Requested size: 139.30617pt x 103.73375pt.
 
 <Figuras/Queda_Pitch_F_3.jpg, id=338, 562.1pt x 421.575pt>
 File: Figuras/Queda_Pitch_F_3.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Pitch_F_3.jpg>
-Package pdftex.def Info: Figuras/Queda_Pitch_F_3.jpg used on input line 259.
+Package pdftex.def Info: Figuras/Queda_Pitch_F_3.jpg used on input line 262.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Queda_Todos1.jpg, id=339, 562.1pt x 421.575pt>
+File: Figuras/Queda_Todos1.jpg Graphic file (type jpg)
+
+<use Figuras/Queda_Todos1.jpg>
+Package pdftex.def Info: Figuras/Queda_Todos1.jpg used on input line 278.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Queda_Todos2.jpg, id=340, 562.1pt x 421.575pt>
+File: Figuras/Queda_Todos2.jpg Graphic file (type jpg)
+
+<use Figuras/Queda_Todos2.jpg>
+Package pdftex.def Info: Figuras/Queda_Todos2.jpg used on input line 278.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Queda_Todos3.jpg, id=341, 562.1pt x 421.575pt>
+File: Figuras/Queda_Todos3.jpg Graphic file (type jpg)
+
+<use Figuras/Queda_Todos3.jpg>
+Package pdftex.def Info: Figuras/Queda_Todos3.jpg used on input line 278.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
  [61 <./Figuras/Queda_Pitch_F_1.jpg> <./Figuras/Queda_Pitch_F_2.jpg> <./Figuras
-/Queda_Pitch_F_3.jpg>]
-<Figuras/taud_001R.jpg, id=343, 562.1pt x 421.575pt>
+/Queda_Pitch_F_3.jpg>] [62 <./Figuras/Queda_Todos1.jpg> <./Figuras/Queda_Todos2
+.jpg> <./Figuras/Queda_Todos3.jpg>]
+<Figuras/taud_001R.jpg, id=349, 562.1pt x 421.575pt>
 File: Figuras/taud_001R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_001R.jpg>
-Package pdftex.def Info: Figuras/taud_001R.jpg used on input line 288.
+Package pdftex.def Info: Figuras/taud_001R.jpg used on input line 312.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/taud_001F.jpg, id=344, 562.1pt x 421.575pt>
+<Figuras/taud_001F.jpg, id=350, 562.1pt x 421.575pt>
 File: Figuras/taud_001F.jpg Graphic file (type jpg)
 
 <use Figuras/taud_001F.jpg>
-Package pdftex.def Info: Figuras/taud_001F.jpg used on input line 288.
+Package pdftex.def Info: Figuras/taud_001F.jpg used on input line 312.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
- [62 <./Figuras/taud_001R.jpg> <./Figuras/taud_001F.jpg>] <Figuras/taud_005_R.j
-pg, id=348, 562.1pt x 421.575pt>
+ [63 <./Figuras/taud_001R.jpg> <./Figuras/taud_001F.jpg>] <Figuras/taud_005_R.j
+pg, id=354, 562.1pt x 421.575pt>
 File: Figuras/taud_005_R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_005_R.jpg>
-Package pdftex.def Info: Figuras/taud_005_R.jpg used on input line 305.
+Package pdftex.def Info: Figuras/taud_005_R.jpg used on input line 327.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/taud_005_P.jpg, id=349, 562.1pt x 421.575pt>
+<Figuras/taud_005_P.jpg, id=355, 562.1pt x 421.575pt>
 File: Figuras/taud_005_P.jpg Graphic file (type jpg)
 
 <use Figuras/taud_005_P.jpg>
-Package pdftex.def Info: Figuras/taud_005_P.jpg used on input line 305.
+Package pdftex.def Info: Figuras/taud_005_P.jpg used on input line 327.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/taud_010_R.jpg, id=350, 562.1pt x 421.575pt>
+<Figuras/taud_010_R.jpg, id=356, 562.1pt x 421.575pt>
 File: Figuras/taud_010_R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_010_R.jpg>
-Package pdftex.def Info: Figuras/taud_010_R.jpg used on input line 320.
+Package pdftex.def Info: Figuras/taud_010_R.jpg used on input line 342.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/taud_010_P.jpg, id=351, 562.1pt x 421.575pt>
+<Figuras/taud_010_P.jpg, id=357, 562.1pt x 421.575pt>
 File: Figuras/taud_010_P.jpg Graphic file (type jpg)
 
 <use Figuras/taud_010_P.jpg>
-Package pdftex.def Info: Figuras/taud_010_P.jpg used on input line 320.
+Package pdftex.def Info: Figuras/taud_010_P.jpg used on input line 342.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/taud_030_R.jpg, id=352, 562.1pt x 421.575pt>
+<Figuras/taud_030_R.jpg, id=358, 562.1pt x 421.575pt>
 File: Figuras/taud_030_R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_030_R.jpg>
-Package pdftex.def Info: Figuras/taud_030_R.jpg used on input line 331.
+Package pdftex.def Info: Figuras/taud_030_R.jpg used on input line 353.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/taud_030_P.jpg, id=353, 562.1pt x 421.575pt>
+<Figuras/taud_030_P.jpg, id=359, 562.1pt x 421.575pt>
 File: Figuras/taud_030_P.jpg Graphic file (type jpg)
 
 <use Figuras/taud_030_P.jpg>
-Package pdftex.def Info: Figuras/taud_030_P.jpg used on input line 331.
+Package pdftex.def Info: Figuras/taud_030_P.jpg used on input line 353.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
- [63 <./Figuras/taud_005_R.jpg> <./Figuras/taud_005_P.jpg>] <Figuras/final_dire
-ita.jpg, id=357, 562.1pt x 421.575pt>
+ [64 <./Figuras/taud_005_R.jpg> <./Figuras/taud_005_P.jpg>] [65 <./Figuras/taud
+_010_R.jpg> <./Figuras/taud_010_P.jpg> <./Figuras/taud_030_R.jpg> <./Figuras/ta
+ud_030_P.jpg>]
+<Figuras/taup_01R.jpg, id=366, 562.1pt x 421.575pt>
+File: Figuras/taup_01R.jpg Graphic file (type jpg)
+ <use Figuras/taup_01R.jpg>
+Package pdftex.def Info: Figuras/taup_01R.jpg used on input line 395.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/taup_01P.jpg, id=367, 562.1pt x 421.575pt>
+File: Figuras/taup_01P.jpg Graphic file (type jpg)
+ <use Figuras/taup_01P.jpg>
+Package pdftex.def Info: Figuras/taup_01P.jpg used on input line 395.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/taup_03R.jpg, id=368, 562.1pt x 421.575pt>
+File: Figuras/taup_03R.jpg Graphic file (type jpg)
+ <use Figuras/taup_03R.jpg>
+Package pdftex.def Info: Figuras/taup_03R.jpg used on input line 408.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/taup_03P.jpg, id=369, 562.1pt x 421.575pt>
+File: Figuras/taup_03P.jpg Graphic file (type jpg)
+ <use Figuras/taup_03P.jpg>
+Package pdftex.def Info: Figuras/taup_03P.jpg used on input line 408.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/taup_05R.jpg, id=370, 562.1pt x 421.575pt>
+File: Figuras/taup_05R.jpg Graphic file (type jpg)
+ <use Figuras/taup_05R.jpg>
+Package pdftex.def Info: Figuras/taup_05R.jpg used on input line 419.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/taup_05P.jpg, id=371, 562.1pt x 421.575pt>
+File: Figuras/taup_05P.jpg Graphic file (type jpg)
+ <use Figuras/taup_05P.jpg>
+Package pdftex.def Info: Figuras/taup_05P.jpg used on input line 419.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+[66 <./Figuras/taup_01R.jpg> <./Figuras/taup_01P.jpg>]
+<Figuras/taup_07R.jpg, id=375, 562.1pt x 421.575pt>
+File: Figuras/taup_07R.jpg Graphic file (type jpg)
+ <use Figuras/taup_07R.jpg>
+Package pdftex.def Info: Figuras/taup_07R.jpg used on input line 430.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/taup_07P.jpg, id=376, 562.1pt x 421.575pt>
+File: Figuras/taup_07P.jpg Graphic file (type jpg)
+ <use Figuras/taup_07P.jpg>
+Package pdftex.def Info: Figuras/taup_07P.jpg used on input line 430.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+[67 <./Figuras/taup_03R.jpg> <./Figuras/taup_03P.jpg> <./Figuras/taup_05R.jpg> 
+<./Figuras/taup_05P.jpg>]
+<Figuras/final_direita.jpg, id=381, 562.1pt x 421.575pt>
 File: Figuras/final_direita.jpg Graphic file (type jpg)
 
 <use Figuras/final_direita.jpg>
-Package pdftex.def Info: Figuras/final_direita.jpg used on input line 346.
+Package pdftex.def Info: Figuras/final_direita.jpg used on input line 472.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/final_direita2.jpg, id=358, 562.1pt x 421.575pt>
+<Figuras/final_direita2.jpg, id=382, 562.1pt x 421.575pt>
 File: Figuras/final_direita2.jpg Graphic file (type jpg)
 
 <use Figuras/final_direita2.jpg>
-Package pdftex.def Info: Figuras/final_direita2.jpg used on input line 346.
+Package pdftex.def Info: Figuras/final_direita2.jpg used on input line 472.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
- [64 <./Figuras/taud_010_R.jpg> <./Figuras/taud_010_P.jpg> <./Figuras/taud_030_
-R.jpg> <./Figuras/taud_030_P.jpg>]
-<Figuras/final_esquerda.jpg, id=362, 562.1pt x 421.575pt>
+ [68 <./Figuras/taup_07R.jpg> <./Figuras/taup_07P.jpg>] <Figuras/final_esquerda
+.jpg, id=386, 562.1pt x 421.575pt>
 File: Figuras/final_esquerda.jpg Graphic file (type jpg)
 
 <use Figuras/final_esquerda.jpg>
-Package pdftex.def Info: Figuras/final_esquerda.jpg used on input line 365.
+Package pdftex.def Info: Figuras/final_esquerda.jpg used on input line 487.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/final_esquerda2.jpg, id=363, 562.1pt x 421.575pt>
+<Figuras/final_esquerda2.jpg, id=387, 562.1pt x 421.575pt>
 File: Figuras/final_esquerda2.jpg Graphic file (type jpg)
 
 <use Figuras/final_esquerda2.jpg>
-Package pdftex.def Info: Figuras/final_esquerda2.jpg used on input line 365.
+Package pdftex.def Info: Figuras/final_esquerda2.jpg used on input line 487.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/final_frente1.jpg, id=364, 562.1pt x 421.575pt>
+<Figuras/final_frente1.jpg, id=388, 562.1pt x 421.575pt>
 File: Figuras/final_frente1.jpg Graphic file (type jpg)
 
 <use Figuras/final_frente1.jpg>
-Package pdftex.def Info: Figuras/final_frente1.jpg used on input line 376.
+Package pdftex.def Info: Figuras/final_frente1.jpg used on input line 499.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/final_frente2.jpg, id=365, 562.1pt x 421.575pt>
+<Figuras/final_frente2.jpg, id=389, 562.1pt x 421.575pt>
 File: Figuras/final_frente2.jpg Graphic file (type jpg)
 
 <use Figuras/final_frente2.jpg>
-Package pdftex.def Info: Figuras/final_frente2.jpg used on input line 376.
+Package pdftex.def Info: Figuras/final_frente2.jpg used on input line 499.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
- [65 <./Figuras/final_direita.jpg> <./Figuras/final_direita2.jpg> <./Figuras/fi
+ [69 <./Figuras/final_direita.jpg> <./Figuras/final_direita2.jpg> <./Figuras/fi
 nal_esquerda.jpg> <./Figuras/final_esquerda2.jpg>] <Figuras/final_tras1.jpg, id
-=369, 562.1pt x 421.575pt>
+=393, 562.1pt x 421.575pt>
 File: Figuras/final_tras1.jpg Graphic file (type jpg)
 
 <use Figuras/final_tras1.jpg>
-Package pdftex.def Info: Figuras/final_tras1.jpg used on input line 391.
+Package pdftex.def Info: Figuras/final_tras1.jpg used on input line 514.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
-<Figuras/final_tras2.jpg, id=370, 562.1pt x 421.575pt>
+<Figuras/final_tras2.jpg, id=394, 562.1pt x 421.575pt>
 File: Figuras/final_tras2.jpg Graphic file (type jpg)
 
 <use Figuras/final_tras2.jpg>
-Package pdftex.def Info: Figuras/final_tras2.jpg used on input line 391.
+Package pdftex.def Info: Figuras/final_tras2.jpg used on input line 514.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
- [66 <./Figuras/final_frente1.jpg> <./Figuras/final_frente2.jpg>]) [67 <./Figur
-as/final_tras1.jpg> <./Figuras/final_tras2.jpg>]
+ [70 <./Figuras/final_frente1.jpg> <./Figuras/final_frente2.jpg> <./Figuras/fin
+al_tras1.jpg> <./Figuras/final_tras2.jpg>])
+[71]
 \openout2 = `cap_Conclusoes.aux'.
 
-
-(cap_Conclusoes.tex
+ (cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-[68
+[72
 
 
 
-]) [69] (relatorio.bbl [70
+]) [73] (relatorio.bbl [74
 
 
-]) [71]
+]) [75]
 \c@noAnexo=\count118
- [72
+ [76
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [73
+) [77
 
 
 ]
@@ -1283,7 +1357,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [74
+) [78
 
 
 
@@ -1299,10 +1373,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6127 strings out of 493334
- 87055 string characters out of 3139252
- 158820 words of memory out of 3000000
- 9330 multiletter control sequences out of 15000+200000
+ 6191 strings out of 493334
+ 88456 string characters out of 3139252
+ 158902 words of memory out of 3000000
+ 9383 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1340,9 +1414,9 @@ c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on relatorio.pdf (86 pages, 6924606 bytes).
+Output written on relatorio.pdf (90 pages, 7177035 bytes).
 PDF statistics:
- 1205 PDF objects out of 1440 (max. 8388607)
+ 1227 PDF objects out of 1440 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 421 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 476 words of extra memory for PDF output out of 10000 (max. 10000000)
 
