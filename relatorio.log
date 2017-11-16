@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  15 NOV 2017 22:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  16 NOV 2017 11:42
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -1274,42 +1274,42 @@ Package pdftex.def Info: Figuras/taup_07P.jpg used on input line 430.
 File: Figuras/final_direita.jpg Graphic file (type jpg)
 
 <use Figuras/final_direita.jpg>
-Package pdftex.def Info: Figuras/final_direita.jpg used on input line 472.
+Package pdftex.def Info: Figuras/final_direita.jpg used on input line 474.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
 <Figuras/final_direita2.jpg, id=382, 562.1pt x 421.575pt>
 File: Figuras/final_direita2.jpg Graphic file (type jpg)
 
 <use Figuras/final_direita2.jpg>
-Package pdftex.def Info: Figuras/final_direita2.jpg used on input line 472.
+Package pdftex.def Info: Figuras/final_direita2.jpg used on input line 474.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
  [68 <./Figuras/taup_07R.jpg> <./Figuras/taup_07P.jpg>] <Figuras/final_esquerda
 .jpg, id=386, 562.1pt x 421.575pt>
 File: Figuras/final_esquerda.jpg Graphic file (type jpg)
 
 <use Figuras/final_esquerda.jpg>
-Package pdftex.def Info: Figuras/final_esquerda.jpg used on input line 487.
+Package pdftex.def Info: Figuras/final_esquerda.jpg used on input line 489.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
 <Figuras/final_esquerda2.jpg, id=387, 562.1pt x 421.575pt>
 File: Figuras/final_esquerda2.jpg Graphic file (type jpg)
 
 <use Figuras/final_esquerda2.jpg>
-Package pdftex.def Info: Figuras/final_esquerda2.jpg used on input line 487.
+Package pdftex.def Info: Figuras/final_esquerda2.jpg used on input line 489.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
 <Figuras/final_frente1.jpg, id=388, 562.1pt x 421.575pt>
 File: Figuras/final_frente1.jpg Graphic file (type jpg)
 
 <use Figuras/final_frente1.jpg>
-Package pdftex.def Info: Figuras/final_frente1.jpg used on input line 499.
+Package pdftex.def Info: Figuras/final_frente1.jpg used on input line 501.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
 <Figuras/final_frente2.jpg, id=389, 562.1pt x 421.575pt>
 File: Figuras/final_frente2.jpg Graphic file (type jpg)
 
 <use Figuras/final_frente2.jpg>
-Package pdftex.def Info: Figuras/final_frente2.jpg used on input line 499.
+Package pdftex.def Info: Figuras/final_frente2.jpg used on input line 501.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
  [69 <./Figuras/final_direita.jpg> <./Figuras/final_direita2.jpg> <./Figuras/fi
 nal_esquerda.jpg> <./Figuras/final_esquerda2.jpg>] <Figuras/final_tras1.jpg, id
@@ -1317,21 +1317,36 @@ nal_esquerda.jpg> <./Figuras/final_esquerda2.jpg>] <Figuras/final_tras1.jpg, id
 File: Figuras/final_tras1.jpg Graphic file (type jpg)
 
 <use Figuras/final_tras1.jpg>
-Package pdftex.def Info: Figuras/final_tras1.jpg used on input line 514.
+Package pdftex.def Info: Figuras/final_tras1.jpg used on input line 516.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
 
 <Figuras/final_tras2.jpg, id=394, 562.1pt x 421.575pt>
 File: Figuras/final_tras2.jpg Graphic file (type jpg)
 
 <use Figuras/final_tras2.jpg>
-Package pdftex.def Info: Figuras/final_tras2.jpg used on input line 514.
+Package pdftex.def Info: Figuras/final_tras2.jpg used on input line 516.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Queda_Diagonal1.jpg, id=395, 562.1pt x 421.575pt>
+File: Figuras/Queda_Diagonal1.jpg Graphic file (type jpg)
+
+<use Figuras/Queda_Diagonal1.jpg>
+Package pdftex.def Info: Figuras/Queda_Diagonal1.jpg used on input line 527.
+(pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
+
+<Figuras/Queda_Diagonal2.jpg, id=396, 562.1pt x 421.575pt>
+File: Figuras/Queda_Diagonal2.jpg Graphic file (type jpg)
+
+<use Figuras/Queda_Diagonal2.jpg>
+Package pdftex.def Info: Figuras/Queda_Diagonal2.jpg used on input line 527.
 (pdftex.def)             Requested size: 139.30617pt x 104.48004pt.
  [70 <./Figuras/final_frente1.jpg> <./Figuras/final_frente2.jpg> <./Figuras/fin
 al_tras1.jpg> <./Figuras/final_tras2.jpg>])
-[71]
+[71 <./Figuras/Queda_Diagonal1.jpg> <./Figuras/Queda_Diagonal2.jpg>]
 \openout2 = `cap_Conclusoes.aux'.
 
- (cap_Conclusoes.tex
+
+(cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
 [72
 
@@ -1373,10 +1388,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6191 strings out of 493334
- 88456 string characters out of 3139252
- 158902 words of memory out of 3000000
- 9383 multiletter control sequences out of 15000+200000
+ 6202 strings out of 493334
+ 88774 string characters out of 3139252
+ 158914 words of memory out of 3000000
+ 9392 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,990b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1414,9 +1429,9 @@ c/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on relatorio.pdf (90 pages, 7177035 bytes).
+Output written on relatorio.pdf (90 pages, 7228662 bytes).
 PDF statistics:
- 1227 PDF objects out of 1440 (max. 8388607)
+ 1229 PDF objects out of 1440 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 476 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 486 words of extra memory for PDF output out of 10000 (max. 10000000)
 
