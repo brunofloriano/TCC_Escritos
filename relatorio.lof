@@ -1,6 +1,6 @@
 \select@language {brazilian}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Robô quadrúpede \emph {BigDog} desenvolvido pela empresa Boston Dynamics}}{2}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Robô quadrúpede \emph {BigDog} desenvolvido pela empresa Boston Dynamics (Fonte: \cite {article:raibert:0000})}}{2}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Robô quadrúpede HyQ}}{3}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Robô quadrúpede de entretenimento AIBO da Sony}}{4}
 \addvspace {10\p@ }
@@ -69,61 +69,63 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{57}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{57}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{57}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Teste de Queda para a direita com $K_{R} = 1$}}{59}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{59}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{59}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Teste de Queda para a direita com $K_{R} = 1.5$}}{59}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{59}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{59}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{59}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Posição do robô após a correção do distúrbio}}{60}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Teste de Queda para a frente com $K_{F} = 1.5$}}{61}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Postura após distúrbio com $K_{down} = -1$}}{58}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Postura após distúrbio com $K_{down} = -0.4$}}{59}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Teste de Queda para a direita com $K_{R} = 1$}}{60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{60}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Teste de Queda para a direita com $K_{R} = 1.5$}}{61}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{61}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{61}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{61}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Teste de Queda em todos os sentidos}}{62}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{61}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{61}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Posição do robô após a correção do distúrbio}}{61}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Teste de Queda para a frente com $K_{F} = 1.5$}}{62}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{62}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{62}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{62}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Teste de Queda com $\tau _d = 0.01$}}{63}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{63}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{63}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Teste de Queda com $\tau _d = 0.05$}}{64}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{64}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{64}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Teste de Queda com $\tau _d = 0.1$}}{65}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Teste de Queda em todos os sentidos}}{63}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{63}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{63}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{63}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Teste de Queda com $\tau _d = 0.01$}}{65}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{65}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{65}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Teste de Queda com $\tau _d = 0.3$}}{65}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Teste de Queda com $\tau _d = 0.05$}}{65}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{65}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{65}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Teste de Queda com $\tau _p = 0.1$}}{66}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Teste de Queda com $\tau _d = 0.1$}}{66}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{66}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{66}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Teste de Queda com $\tau _p = 0.3$}}{67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{67}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Teste de Queda com $\tau _p = 0.5$}}{67}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{67}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{67}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Teste de Queda com $\tau _p = 0.7$}}{68}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Teste de Queda com $\tau _d = 0.3$}}{66}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{66}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{66}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Teste de Queda com $\tau _p = 0.1$}}{68}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{68}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{68}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Teste de Queda para a direita com Paralelismo}}{69}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Teste de Queda com $\tau _p = 0.3$}}{68}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{68}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{68}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Teste de Queda com $\tau _p = 0.5$}}{69}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{69}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{69}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Teste de Queda para a esquerda com Paralelismo}}{69}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Teste de Queda com $\tau _p = 0.7$}}{69}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{69}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{69}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Teste de Queda para frente com Paralelismo}}{70}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Teste de Queda para a direita com Paralelismo}}{70}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{70}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{70}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Teste de Queda para a trás com Paralelismo}}{70}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{70}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{70}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Teste de Queda para na diagonal com Paralelismo}}{71}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Teste de Queda para a esquerda com Paralelismo}}{71}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{71}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{71}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Teste de Queda para frente com Paralelismo}}{71}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{71}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{71}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Teste de Queda para a trás com Paralelismo}}{72}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{72}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{72}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Teste de Queda para na diagonal com Paralelismo}}{72}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{72}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{72}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

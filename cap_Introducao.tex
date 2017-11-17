@@ -16,52 +16,74 @@ Neste sentido, os robôs quadrúpedes podem, por exemplo, ser amplamente utilizado
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Figuras/BigDog}
-	\caption{Robô quadrúpede \emph{BigDog} desenvolvido pela empresa Boston Dynamics}
+	\caption{Robô quadrúpede \emph{BigDog} desenvolvido pela empresa Boston Dynamics (Fonte: \cite{article:raibert:0000})}
 	\label{fig:bigdog}
 \end{figure}
 
 
-Outra possível aplicação desta tecnologia é a substituição de seres humanos em atividades de risco tais como busca e resgate, construção, recuperação de ambientes em que houve desastre e exploração de ambientes inóspitos ou de difícil acesso. Estes são alguns objetivos traçados pelo Instituto Italiano de Tecnologia (Istituto Italiano di Tecnologia) no desenvolvimento do HyQ, um robô quadrúpede com atuadores hidráulicos e elétricos \cite{article:semini:2011, site:hyq}. A Figura \ref{fig:hyq} mostra tal robô construido.
+Outra possível aplicação desta tecnologia é a substituição de seres humanos em atividades de risco tais como busca e resgate, construção, recuperação de ambientes em que houve desastre e exploração de ambientes inóspitos ou de difícil acesso. Estes são alguns objetivos traçados pelo Instituto Italiano de Tecnologia \footnotemark (Istituto Italiano di Tecnologia) no desenvolvimento do HyQ, um robô quadrúpede com atuadores hidráulicos e elétricos \cite{article:semini:2011}. A Figura \ref{fig:hyq} mostra tal robô construido.
+
+\footnotetext{http://new.semini.ch/research/hyq-robot/}
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/HyQ}
-	\caption{Robô quadrúpede HyQ}
+	\caption[Robô quadrúpede HyQ]{Robô quadrúpede HyQ (Fonte:
+	\footnotemark)}
 	\label{fig:hyq}
 \end{figure}
-
-
 
 Por fim, os quadrúpedes podem, ainda, ter como finalidade o entretenimento. Robôs como o AIBO, desenvolvido pela empresa japonesa Sony, são animais de estimação virtuais que visam o lazer \cite{article:sousa:2010}. Podemos observar uma imagem do AIBO na Figura \ref{fig:aibo}.
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.3\textwidth]{Figuras/AIBO}
-	\caption{Robô quadrúpede de entretenimento AIBO da Sony}
+	\caption[Robô quadrúpede de entretenimento AIBO da Sony]{Robô quadrúpede de entretenimento AIBO da Sony (Fonte: \footnotemark)}
 	\label{fig:aibo}
 \end{figure}
-
 
 Porém, para que um robô quadrúpede possa desenvolver as aplicações acima mencionadas, cumprindo os requisitos de suas funções, é necessário que, além de conseguir se movimentar de forma não cadenciada, isto é, garantindo um movimento contínuo, ele mantenha o equilíbrio de seu corpo, evitando o tombamento e garantindo a estabilidade. Dessa forma, manter a estabilidade permite que o sistema seja robusto contra distúrbios externos como empurrões ou ventos e contra irregulares no terreno como buracos e rugosidades.
 
 Justamente pela importância da análise de estabilidade em robôs quadrúpedes que seu estudo começou logo em 1968 com os trabalhos de McGhee e Frank \cite{article:mcghee:1968} sobre estabilidade estática e vêm se estendendo até os dias atuais com novos modelos e experimentos para análise de como robôs quadrúpedes podem se manter estáveis ainda que em alta velocidade ou em terrenos irregulares.
 
-\section{Definição do problema}
+\section{Motivação}%Definição do problema}
 %Aqui o problema é definido.
 
 Desde 2005, alunos e professores de Engenharia Elétrica e de Engenharia Mecatrônica da Universidade de Brasília (UnB) vêm desenvolvendo e aprimorando uma plataforma quadrúpede no Laboratório de Robótica e Automação (LARA). Desde então, várias abordagens já foram trabalhadas na plataforma, passando por diversas modificações em seus componentes \cite{tcc:santos:2016}. Contudo, pouco foi trabalhada a questão referente ao controle de estabilidade do robô.
+
+Como mencionado anteriormente, o controle de estabilidade em uma plataforma tal qual o quadrúpede é de grande importância para que esta seja utilizada em aplicações reais. Isto se dá pois, em condições reais de aplicação, o robô pode se deparar com vários obstáculos que o impeçam ou dificultem sua locomoção, ou mesmo que o faça tombar. Desta forma, o controle de equilíbrio é fundamental para aplicações reais.
+
+O robô quadrúpede construído no LARA teve trabalhos de reestruturação nos últimos anos, em que foram adicionados novos componentes como acelerômetro, placas de \emph{Arduino} e \emph{Raspberry Pi}, sensores de força e novos motores para as juntas. Além disso, o último trabalho nele desenvolvido adicionou quatro diferentes estilos de marchas de locomoção, baseados em algoritmos genéticos \cite{tcc:porphirio:2017}.
+
+No entanto, não foi trabalhado, até então, o controle de equilíbrio de tal plataforma. Uma vez que este controle é de fundamental importância para a utilização da plataforma em ambientes reais, suscetíveis a distúrbios e irregularidades, o presente trabalho busca desenvolver e implementar um sistema que permita que o robô se estabilize frente a tais perturbações. Além disso, a reestruturação realizada em trabalhos anteriores a este possibilitou que o controle aqui desenvolvido fosse implementado de forma mais significativa. Em especial a adição do acelerômetro e de motores mais robustos foram essenciais para o trabalho aqui desenvolvido.
+
+Portanto, este trabalho foi concebido com o intuito de desenvolver e implementar um controle de estabilidade que permita que o robô corrija possíveis perturbações seja durante a sua marcha, seja enquanto esteja parado.
 
 
 \section{Objetivos do projeto}
 %Nesta seção, deve-se deixar claro quais são os objetivos do projeto.
 
-Atualmente a plataforma quadrúpede do LARA apresenta um movimento balístico satisfatório, desenvolvido por Porphirio e Santana \cite{tcc:porphirio:2017}, isto é, o robô apresenta capacidade de se locomover de forma não cadenciada, mas não possui um sistema de controle de equilíbrio que permita a este manter-se estável com a aplicação de distúrbios externos.
+Atualmente a plataforma quadrúpede do LARA apresenta um movimento balístico satisfatório, baseado em algoritmos genéticos, desenvolvido por Porphirio e Santana \cite{tcc:porphirio:2017}, isto é, o robô apresenta capacidade de se locomover de forma não cadenciada, mas não possui um sistema de controle de equilíbrio que permita a este manter-se estável com a aplicação de distúrbios externos, seja durante o movimento, seja parado.
 
-Dessa forma, os objetivos deste trabalho são desenvolver um sistema de equilíbrio para a plataforma quadrúpede baseada nas leituras do acelerômetro disponível no robô, implementá-lo em seu sistema embarcado e realizar experimentos para verificar a resposta ao distúrbio.
+%Dessa forma, os objetivos deste trabalho são desenvolver um sistema de equilíbrio para a plataforma quadrúpede baseada nas leituras do acelerômetro disponível no robô, implementá-lo em seu sistema embarcado e realizar experimentos para verificar a resposta ao distúrbio.
+
+O principal objetivo deste trabalho é utilizar os recursos já presentes na plataforma quadrúpede do LARA para desenvolver e implementar um controle de equilíbrio que permita a este manter a sua estabilidade, sem tombar, mesmo com a presença de distúrbios externos, como empurrões. Fundamentalmente, espera-se que a utilização do acelerômetro do robô permita fazer as medições necessárias para a detecção do distúrbio e aplicar estes dados para a determinação da resposta mais adequada de cada perna para a correta correção das perturbações.
+
+Além disso, como estamos pensando em ambientes reais de funcionamento do robô, deseja-se que a estabilidade seja mantida não apenas enquanto o robô esteja parado mas também que este mantenha sua marcha inalterada, mantendo, assim, o seu movimento após a correção do distúrbio.
+
+%=====>Por fim, espera-se que os parâmtros de controle possam ser determidaos empiricamente através de testes reais na platforma, visando a adequação do controle ao ambiente real de aplicaçao e aos dispositivos presentes no robô.
+
+
 
 \section{Apresentação do manuscrito}
 
 No capítulo \ref{CapRevisaoBibliografica} é feita uma revisão bibliográfica sobre o tema de estudo. Em seguida, o capítulo \ref{CapDesenvolvimento} descreve a metodologia empregada no desenvolvimento do projeto. Resultados experimentais são discutidos no capítulo \ref{CapExperimentos}, seguido das conclusões no capítulo \ref{CapConclusoes}. Os anexos contém material complementar.
 
- 
 
+\footnotetext{http://new.semini.ch/research/hyq-robot/}
+
+
+
+
+
+\footnotetext{http://www.sony-aibo.com/}
