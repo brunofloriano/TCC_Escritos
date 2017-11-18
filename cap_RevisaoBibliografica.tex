@@ -4,31 +4,36 @@
 \chapter{Revisão Bibliográfica}\label{CapRevisaoBibliografica}
 
 % Resumo opcional. Comentar se não usar.
-\resumodocapitulo{Resumo opcional.}
+%\resumodocapitulo{Resumo opcional.}
 
 \section{Introdução}
 
-Como mencionado no Capítulo \ref{CapIntro}, os estudos de estabilidade em robôs com pernas, em especial de robôs quadrúpedes, começaram em 1968 com os trabalhos de McGhee e Frank com a definição de estabilidade estática \cite{article:mcghee:1968}. Com o passar do tempo, novas definições para a estabilidade estática foram sendo desenvolvidas, ao mesmo tempo que os estudos de estabilidade dinâmica começaram a ser feitos \cite{book}.
+Como mencionado no Capítulo \ref{CapIntro}, os estudos de estabilidade em robôs com pernas, em especial de robôs quadrúpedes, começaram em 1968 com os trabalhos de McGhee e Frank com a definição de estabilidade estática \cite{article:mcghee:1968}. Com o passar do tempo, novas definições para a estabilidade estática foram sendo desenvolvidas, ao mesmo tempo que os estudos de estabilidade dinâmica começaram a ser concebidos \cite{book}.
 
-Desde então, diversos métodos de controle de estabilidade tem sido trabalhados na construção de robôs	quadrúpedes, desde modelos cinemáticos, utilizando apenas as posições e velocidades do robô, até modelos dinâmicos mais complexos, que analisam as forças e momentos atuantes sobre o robô.
+Desde então, diversos métodos de controle de estabilidade tem sido trabalhados na construção de robôs	quadrúpedes, desde modelos cinemáticos, utilizando apenas as posições e velocidades do robô, até modelos dinâmicos mais complexos, que analisam as forças e momentos atuantes sobre ele.
+
+Neste capítulo, apresentaremos os principais trabalhos já desenvolvidos nesta área que foram encontrados na literatura. Selecionou-se os trabalhos que se mostraram mais relevantes para o projeto concebido para ser implementado no robô do LARA, incluindo artigos com desenvolvimentos similares ou com uma abordagens teóricas pertinentes para serem estudadas sobre assunto.
+
+Além disso, selecionou-se trabalhos que, apesar de não serem utilizados diretamente neste projeto, demonstram a situação passada e atual do estado da arte do controle de equilíbrio de robôs quadrúpedes.
+ 	
 
 
 
 \section{Estabilidade Estática} \label{sec:estabilidade_estatica}
 
-A estabilidade estática tem como principal característica a independência de fatores dinâmicos, isto é, ela não considera a atuação de forças externas, com exceção da gravidade, de momentos resultantes ou de componentes inerciais. Porém, conforme o robô aumenta sua velocidade os efeitos dinâmicos sobre o mesmo passam a ficar cada vez mais relevantes de forma que a estabilidade estática não garante o equilíbrio da máquina. Da mesma forma, o aumento de carga sobre o robô ou a presença de superfícies irregulares ou inclinadas tornam este tipo de controle mais ineficiente.
+A estabilidade estática tem como principal característica a independência de fatores dinâmicos, isto é, ela não considera a atuação de forças externas, com exceção da gravidade, de momentos resultantes ou de componentes inerciais. Porém, conforme o robô aumenta sua velocidade os efeitos dinâmicos sobre o mesmo passam a ficar cada vez mais relevantes, de forma que a estabilidade estática não garante o equilíbrio da máquina. Da mesma forma, o aumento de carga sobre o robô ou a presença de superfícies irregulares ou inclinadas tornam este tipo de controle mais ineficiente.
 
-Contudo, estudar a estabilidade estática ainda é de suma importância no controle de equilíbrio de quadrúpedes, seja para melhor entendimento de todo o escopo deste estudo, seja pra aplicações restritas onde a aplicação da estabilidade estática seja suficiente para cumprir os requisitos propostos.
+Contudo, estudar a estabilidade estática ainda é de suma importância no controle de equilíbrio de quadrúpedes, seja para o melhor entendimento de todo o escopo deste estudo, seja pra aplicações restritas onde a aplicação da estabilidade estática seja suficiente para cumprir os requisitos propostos.
 
 \subsection{Métodos Geométricos}
 
 Os métodos geométricos utilizam a geometria proveniente da configuração das patas do robô a cada instante para definir a sua estabilidade e o quão perto dele se tornar instável (a margem de estabilidade).
 
-Segundo McGhee e Frank \cite{article:mcghee:1968} um robô movido a patas sobre uma superfície horizontal é estaticamente estável se e somente se a projeção vertical do centro de gravidade (COG) da máquina está dentro do polígono de suporte, onde este é definido como o polígono convexo formado pela conexão das patas em contato com o solo. Podemos observar na Figura \ref{fig:poligonos} alguns possíveis polígonos de suporte formados por um robô quadrúpede durante sua caminhada. Na Figura \ref{fig:poligonos}(a) uma das patas não está em contato com o solo, de forma que o polígono resultante é um triângulo. Na Figura \ref{fig:poligonos}(b), todas as patas estão em contado com o solo, mas as patas 1 e 3 se encontram mais próximas, formando um trapézio. Por fim, na Figura \ref{fig:poligonos}(c), todas as patas estão em contato com o solo mas 1 e 3 estão mais afastadas, formando, dessa forma, um paralelogramo.
+Segundo McGhee e Frank \cite{article:mcghee:1968} um robô movido a patas sobre uma superfície horizontal é estaticamente estável se e somente se a projeção vertical do centro de gravidade (COG) da máquina está dentro do polígono de suporte. Este, por sua vez, é definido como o polígono convexo formado pela conexão das patas em contato com o solo. Podemos observar na Figura \ref{fig:poligonos} alguns possíveis polígonos de suporte formados por um robô quadrúpede durante sua caminhada. Na Fig. \ref{fig:poligonos}(a) uma das patas não está em contato com o solo, de forma que o polígono resultante é um triângulo. Na Fig. \ref{fig:poligonos}(b), todas as patas estão em contato com o solo, mas as patas 1 e 3 se encontram mais próximas, formando um trapézio. Por fim, na Fig. \ref{fig:poligonos}(c), todas as patas estão em contato com o solo mas 1 e 3 estão mais afastadas, formando, dessa forma, um paralelogramo.
 
-Em todos os casos da Figura \ref{fig:poligonos} a projeção do centro de gravidade está dentro do polígono, indicando que o robô encontra-se estaticamente estável.
+Em todos os casos da Fig. \ref{fig:poligonos}, a projeção do centro de gravidade está dentro do polígono, indicando que o robô encontra-se estaticamente estável.
 
-Além da definição de estabilidade, McGhee e Frank apresentam em \cite{article:mcghee:1968} a definição de margem de estabilidade. Para este caso, ela é definida como a menor distância entre a projeção do COG e qualquer ponto da fronteira do polígono. Dessa forma, por exemplo, a margem de estabilidade da Figura \ref{fig:poligonos}(a) é menor que da Figura \ref{fig:poligonos}(c) pois no primeiro caso a projeção do COG se encontra bem mais próximo de uma das fronteiras do polígono.
+Além da definição de estabilidade, McGhee e Frank apresentam em \cite{article:mcghee:1968} a definição de margem de estabilidade. Para este caso, ela é definida como a menor distância entre a projeção do COG e qualquer ponto da fronteira do polígono. Dessa forma, por exemplo, a margem de estabilidade da Fig. \ref{fig:poligonos}(a) é menor que da Fig. \ref{fig:poligonos}(c) pois no primeiro caso a projeção do COG se encontra bem mais próxima de uma das fronteiras do polígono.
 
 
 
@@ -41,7 +46,7 @@ Posteriormente, novas difinições foram feitas para a margem de estabilidade está
 		\subfigure[Todas as pernas no sobre o solo com patas próximas]{\includegraphics[width=0.4\textwidth]{Figuras/Poligono2}}}
 	\subfigure[Todas as pernas no sobre o solo com patas afastadas]{\includegraphics[width=0.45\textwidth]{Figuras/Poligono3}
 	}
-	\caption{Polígonos de Suporte de um robô quadrúpede}
+	\caption{Polígonos de Suporte de um robô quadrúpede (Fonte: \cite{article:mcghee:1968})}
 	\label{fig:poligonos}
 \end{figure}
 
@@ -50,7 +55,7 @@ Um outro exemplo é a Margem de Estabilidade Longitudinal de Caranguejo ($S_{CLSM
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Margemlongitudinal}
-	\caption{Margens de Estabilidade Longitudinal e de Caranguejo}
+	\caption{Margens de Estabilidade Longitudinal e de Caranguejo (Fonte: \cite{book})}
 	\label{fig:margemlongitudinal}
 \end{figure}
 
@@ -58,17 +63,17 @@ Um outro exemplo é a Margem de Estabilidade Longitudinal de Caranguejo ($S_{CLSM
 
 Os métodos energéticos calculam a energia necessária para tombar o robô para definir sua margem de estabilidade e, consequentemente, se ele se encontra instável ou não.
 
-Proposto em 1985 por Messuri, a Margem de Estabilidade por Energia ($S_{ESM}$) é definida como a energia potencial mínima necessária para tombar o robô ao redor de uma das fronteiras do polígono de suporte \cite{book}. Dessa forma, podemos escrever matematicamente essa relação como:
+Proposto em 1985 por Messuri, a Margem de Estabilidade por Energia ($S_{ESM}$) é definida como a energia potencial mínima necessária para tombar o robô ao redor de uma das fronteiras do polígono de suporte \cite{book}. Dessa forma, podemos escrever matematicamente essa relação como
 
 \begin{eqnarray}
 S_{ESM}  = \min_{i}^{n_s}(mgh_i),
 \end{eqnarray}
 
-em que $m$ é a massa do robô, $g$ é a gravidade, $i$ denota qual segmento do polígono de suporte é considerado, $n_s$ é o número de pernas de suporte e $h_i$ é a variação da altura do COG durante o tombamento.
+\noindent em que $m$ é a massa do robô, $g$ é a gravidade, $i$ denota qual segmento do polígono de suporte é considerado, $n_s$ é o número de pernas de suporte e $h_i$ é a variação da altura do COG durante o tombamento.
 
 É interessante notar que, como este método ainda trata-se de estabilidade estática, apenas a gravidade é considerada e, por isso, para este caso, a energia potencial é a única componente energética que contribuiria para o tombamento do robô.
 
-Em 1998, Hirose \emph{et al.} definiram a Margem de Estabilidade por Energia Normalizada ($S_{NESM}$) como a $S_{ESM}$ normalizada com o peso do robô, de forma que a unidade mantenha-se igual à proposta pelos métodos geométricos (unidade de comprimento). Por conseguinte, a margem normalizada pode escrita como:
+Em 1998, Hirose \emph{et al.} definiram a Margem de Estabilidade por Energia Normalizada ($S_{NESM}$) como a $S_{ESM}$ normalizada com o peso do robô, de forma que a unidade mantenha-se igual à proposta pelos métodos geométricos (unidade de comprimento) \cite{book}. Por conseguinte, a margem normalizada pode escrita como
 
 \begin{eqnarray}
 S_{NESM} = \frac{S_{ESM}}{mg}  = \min_{i}^{n_s}(h_i).
@@ -88,13 +93,13 @@ Esta definição foi modificada posteriormente assim como a sua nomenclatura. Kang
 
 \subsection{Margem de Estabilidade Dinâmica}
 
-Quando o robô porventura sofre a ação de um distúrbio suficientemente forte para fazê-lo iniciar um processo de tombamento, algumas patas podem perder o contato com o chão e provocar uma rotação ao redor de um eixo, como pode ser observado na Figura \ref{fig:dinamico1}. Quando isto acontece, o sistema de controle deve gerar uma força resultante $F_{R}$ e um momento resultante $M_{R}$ para poder contrabalancear os distúrbios externos que provocaram o desequilíbrio inicial. Dessa forma, o momento total, $M_i$, gerado através de $F_{R}$ e de $M_{R}$, deve ser suficiente para garantir essa compensação, caso contrário o sistema será considero instável.
+Quando o robô porventura sofre a ação de um distúrbio suficientemente forte para fazê-lo iniciar um processo de tombamento, algumas patas podem perder o contato com o chão e provocar uma rotação ao redor de um eixo, como pode ser observado na Figura \ref{fig:dinamico1}. Quando isto acontece, o sistema de controle deve gerar uma força resultante $F_{R}$ e um momento resultante $M_{R}$ para poder contrabalancear os distúrbios externos que provocaram o desequilíbrio inicial. Dessa forma, o momento total, $M_i$, gerado através de $F_{R}$ e de $M_{R}$, deve ser suficiente para garantir essa compensação, caso contrário o sistema será considerado instável.
 
 
-\begin{figure} [t]
+\begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Dinamico1}
-	\caption{Robô prestes a tombar}
+	\caption{Robô prestes a tombar (Fonte: \cite{book})}
 	\label{fig:dinamico1}
 \end{figure}
 
@@ -104,17 +109,17 @@ Desse modo, Lin e Song, em 1993, definiram como Margem de Estabilidade Dinâmica 
 S_{DSM} = \min\bigg(\frac{M_i}{mg}\bigg) = \min\bigg(\frac{e_i\cdot(F_R \times P_i + M_R)}{mg}\bigg),
 \end{eqnarray}
 
-na qual $P_i$ é o vetor de posição do COG até a i-ésima pata e $e_i$ é o vetor unitário que circunda o polígono de suporte na direção horária. Estes parâmetros podem ser observados com maior clareza na Figura \ref{fig:dinamico1}.
+\noindent na qual $P_i$ é o vetor de posição do COG até a i-ésima pata e $e_i$ é o vetor unitário que circunda o polígono de suporte na direção horária. Estes parâmetros podem ser observados com maior clareza na Figura \ref{fig:dinamico1}.
 
 \subsection{Margem Normalizada de Estabilidade Dinâmica por Energia}
 
-Assim como foi feito no caso estático, podemos analisar a estabilidade dinâmica por uma perspectiva energética. Porém, para este modelo, considera-se, além da força gravitacional, forças e momentos aplicados externamente, além da energia cinética representando a inércia do sistema. Do mesmo modo, a Margem Normalizada de Estabilidade Dinâmica por Energia ($S_{NDESM}$) é definida como a menor energia necessária para se tombar o robô ao redor do polígono de suporte:
+Assim como foi feito no caso estático, podemos analisar a estabilidade dinâmica por uma perspectiva energética. Porém, para este modelo, considera-se, além da força gravitacional, forças e momentos aplicados externamente, além da energia cinética representando a inércia do sistema. Do mesmo modo, a Margem Normalizada de Estabilidade Dinâmica por Energia ($S_{NDESM}$) é definida como a menor energia necessária para se tombar o robô ao redor do polígono de suporte, ou seja
 
 \begin{eqnarray}
 S_{NDESM} = \frac{\min(E_i)}{mg},
 \end{eqnarray}
 
-em que $E_i$ é a energia necessária para se tombar o robô através da i-ésima borda do polígono de suporte. Ela pode ser calculada através da seguinte equação:
+\noindent em que $E_i$ é a energia necessária para se tombar o robô através da i-ésima borda do polígono de suporte. Ela pode ser calculada através da seguinte equação:
 
 \begin{eqnarray}
 E_i = mg|R| (\cos(\phi)-\cos(\varphi))\cos(\Psi)+(F_{RI}\cdot t)|R|\theta + (M_R\cdot e_i)\theta - \frac{1}{2}I_i\omega^2_i.
@@ -122,32 +127,36 @@ E_i = mg|R| (\cos(\phi)-\cos(\varphi))\cos(\Psi)+(F_{RI}\cdot t)|R|\theta + (M_R
 
 Nessa relação, $R$ é o vetor ortogonal à i-ésima borda do polígono de suporte que aponta para o COG, $F_{RI}$ é a componente não gravitacional das forças resultantes $F_R$, $I_i$ é o momento de inércia do robô ao redor da i-ésima borda, $\omega_i$ é a velocidade angular do COG , $\Psi$ é o ângulo de inclinação da i-ésima borda do polígono de suporte, $\varphi$ é o ângulo de rotação necessário para posicionar o COG no plano vertical, $\phi$ é o ângulo entre o plano vertical e o plano crítico, $\theta$ é a soma de $\varphi$ e $\phi$, e $t$ é o vetor unitário tangencial à trajetória do COG. A Figura \ref{fig:dinamico2} mostra o esquemático geométrico para a determinação de tais parâmetros.
 
-As seções a seguir apresentam alguns outros métodos dinâmicos para o controle de estabilidade. Eles são considerados dinâmicos por considerarem a aplicação de forças externas e momentos resultantes, porém não utilizam, necessariamente, os métodos de análise de margem de estabilidade como o descrito nesta seção.
+Estes foram, portanto, alguns dos estudos inicialmente desenvolvidos para analisar a estabilidade de um robô quadrúpede. Nestes trabalhos, foram concebidas e formuladas definições fundamentais para este estudo, incluindo abordagens geométricas e energéticas, assim como dinâmicas.
+
+As seções a seguir apresentam alguns outros métodos dinâmicos para a análise da estabilidade. Eles são classificados como tal por considerarem a aplicação de forças externas e momentos resultantes, porém não utilizam, necessariamente, os métodos de análise de margem de estabilidade como os descritos nesta seção.
+
+Além disso, as propostas a seguir não apenas discutem a estabilidade do robô como sugerem e desenvolvem técnicas para o seu controle.
 
 \section{Algoritmo de Posicionamento de Pata}
 
-Em 1986, Raibert \emph{et al.} propuseram uma abordagem diferente para o controle de estabilidade de robôs movidos a pernas \cite{article:raibert:1986, article:meng:2015}. O Algoritmo de Posicionamento de Pata (\emph{Foot Placement Algorithm - FPA}) utiliza os algoritmos de robôs com uma perna e os estende para múltiplas pernas através do conceito de perna virtual. Um exemplo de robô com uma perna pode ser visto na Figura \ref{fig:umaperna}. Dessa forma, o controle de equilíbrio pode ser dividido em três partes: altura de pulo, postura do corpo e velocidade direta de corrida. Até os dias atuais, esse conceito é utilizado em robôs como o \emph{BigDog} \cite{article:raibert:0000}.
+Em 1986, Raibert \emph{et al.} propuseram uma abordagem diferente para o controle de estabilidade de robôs movidos a pernas \cite{article:raibert:1986, article:meng:2015}. O Algoritmo de Posicionamento de Pata (\emph{Foot Placement Algorithm - FPA}) utiliza os algoritmos de robôs com uma perna, já desenvolvidos anteriormente, e os estende para múltiplas patas através do conceito de perna virtual. Um exemplo de robô com uma perna pode ser visto na Figura \ref{fig:umaperna}. Dessa forma, o controle de equilíbrio pode ser dividido em três partes: altura de pulo, postura do corpo e velocidade direta de corrida, conceitos advindos do controle de robôs com uma perna. Até os dias atuais, este conceito é utilizado em robôs como o \emph{BigDog} \cite{article:raibert:0000}.
 
 
 
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Dinamico2}
-	\caption{Esquemático dos parâmetros geométricos durante o tombo}
+	\caption{Esquemático dos parâmetros geométricos durante o tombo (Fonte: \cite{book})}
 	\label{fig:dinamico2}
 \end{figure}
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Umaperna}
-	\caption{Robô de uma perna}
+	\caption[Robô de uma perna]{Robô de uma perna (Fonte: \footnotemark)}
 	\label{fig:umaperna}
 \end{figure}
 
 \subsection{Algoritmos de Uma Perna}
 Em robôs de uma perna como o da Figura \ref{fig:umaperna}, o sistema é dividido em corpo e perna, com um quadril tipo dobradiça separando-os. Um atuador gera um torque no quadril e outro proporciona movimento axial na perna. Uma mola é adicionada em série com o atuador axial de modo que o sistema de controle possa excitar o sistema massa-mola gerando o movimento desejado. Dessa forma, podemos dividir o controle de equilíbrio em três:
 
-\paragraph{Altura de Pulo:} O sistema de controle entrega um impulso vertical, através do atuador axial, regulando a altura que a máquina chega. Dessa forma, pode-se regular a amplitude do movimento e, consequentemente, manter o ciclo de oscilação governado pelo sistema massa-mola. Assim, parte da energia para cada salto é recuperada pela mola.
+\paragraph{Altura de Pulo:} O sistema de controle entrega um impulso vertical, através do atuador axial, regulando a altura que a máquina atinge. Dessa forma, pode-se regular a amplitude do movimento e, consequentemente, manter o ciclo de oscilação governado pelo sistema massa-mola. Assim, parte da energia para cada salto é recuperada pela mola.
 
 \paragraph{Postura do Corpo:} O sistema de controle gera um torque sobre o quadril (entre o corpo e a perna) durante a fase de contato com o solo para manter o corpo numa posição ereta. O torque aplicado será dado por
 
@@ -155,20 +164,22 @@ Em robôs de uma perna como o da Figura \ref{fig:umaperna}, o sistema é dividido 
 \tau = -k_p(\phi-\phi_d) - k_v(\dot{\phi}),
 \end{eqnarray}
 
-em que $\tau$ é o torque aplicado na dobradiça do quadril, $k_p$ e $k_v$ são ganhos, $\phi$ é a inclinação do corpo, $\phi_d$ é a inclinação desejada do corpo e $\dot{\phi}$ é a taxa de variação da inclinação do corpo.
+\noindent em que $\tau$ é o torque aplicado na dobradiça do quadril, $k_p$ e $k_v$ são ganhos, $\phi$ é a inclinação do corpo, $\phi_d$ é a inclinação desejada do corpo e $\dot{\phi}$ é a taxa de variação da inclinação do corpo.
 
-\paragraph{Velocidade Direta de Corrida:} Durante a fase de voo, o sistema de controle manipula a posição que a pata irá atingir o solo possibilitando, dessa forma, o controle da velocidade de corrida. Definindo \emph{CG Print} como o conjunto de pontos no chão por quais o centro de massa do corpo irá passar durante o contato com o solo podemos identificar que, se a pata pousar no centro do \emph{CG Print} (o chamado ponto neutro), não haverá aceleração. Do contrário, um posicionamento da pata após o ponto neutro irá causar uma desaceleração e, com a pata posicionada antes do ponto neutro, o robô sofrerá uma aceleração. Podemos observar uma imagem do \emph{CG Print} na Figura \ref{fig:cgprint}. Esta relação pode ser descrita pela seguinte equação:
+\paragraph{Velocidade Direta de Corrida:} Durante a fase de voo, o sistema de controle manipula a posição que a pata irá atingir o solo possibilitando, dessa forma, o controle da velocidade de corrida. Definindo \emph{CG Print} como o conjunto de pontos no chão por quais o centro de massa do corpo irá passar durante o contato com o solo podemos identificar que, se a pata pousar no centro do \emph{CG Print} (o chamado ponto neutro), não haverá aceleração. Do contrário, um posicionamento da pata após o ponto neutro irá causar uma desaceleração e, com a pata posicionada antes do ponto neutro, o robô sofrerá uma aceleração. Podemos observar uma imagem do \emph{CG Print} na Figura \ref{fig:cgprint}. Esta relação pode ser descrita por
+
+\footnotetext{http://www.ritsumei.ac.jp/se/~gen/Kenken/kenken\_en.htm}
 
 \begin{eqnarray} \label{eq:onelegged}
 x_f = \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}),
 \end{eqnarray}
 
-de modo que $x_f$ é o posicionamento do pé na direção do movimento, com relação à projeção do centro de gravidade, $\dot{x}$ é a velocidade atual do movimento, $\dot{x_d}$ é a velocidade desejada, $T_S$ é a duração do período de suporte (enquanto a pata ainda está em contato com o solo) e $k_{\dot{x}}$ é um ganho de velocidade.
+\noindent de modo que $x_f$ é o posicionamento do pé na direção do movimento, com relação à projeção do centro de gravidade, $\dot{x}$ é a velocidade atual do movimento, $\dot{x_d}$ é a velocidade desejada, $T_S$ é a duração do período de suporte (enquanto a pata ainda está em contato com o solo) e $k_{\dot{x}}$ é um ganho de velocidade.
 
-\begin{figure} [b]
+\begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/CGPrint}
-	\caption{\emph{CG Print} de um robô de uma perna}
+	\caption{\emph{CG Print} de um robô de uma perna (Fonte: \cite{article:raibert:1986})}
 	\label{fig:cgprint}
 \end{figure}
 
@@ -176,22 +187,22 @@ Obtido $x_f$, uma transformação cinemática calcula o ângulo que a junta deve for
 
 \subsection{Marcha de uma pata}
 
-Considerando um robô com mais de uma pata, podemos definir como Marcha de uma Pata (\emph{One foot gait}) como uma marcha em que apenas uma perna oferece suporte por vez e que as fases de suporte e de voo ocorrem de forma alternada. Para o caso de quadrúpedes, por exemplo, é necessário que o sistema de controle alterne as patas a serem utilizadas de forma que a perna atualmente em contato com o solo proporcione o impulso vertical para manter o movimento enquanto sua respectiva dobradiça providencia o torque para correção da postura e a próxima pata se prepara para aterrissar no local adequado à velocidade desejada. Dessa forma, o sistema estaria provendo as três parte do controle.
+Considerando um robô com mais de uma pata, podemos definir Marcha de uma Pata (\emph{One foot gait}) como uma marcha em que apenas uma perna oferece suporte por vez de modo que as fases de suporte e de voo ocorrem de forma alternada entre elas. Para o caso de quadrúpedes, por exemplo, tal alternância é utilizada de forma que a perna atualmente em contato com o solo proporcione o impulso vertical para manter o movimento enquanto sua respectiva dobradiça providencia o torque para correção da postura. Concomitantemente, a pata em voo se prepara para aterrissar no local adequado à velocidade desejada. Dessa forma, o sistema estaria provendo as três partes do controle.
 
 O problema que surge com esta configuração é que as pernas devem estar muito próximas do ponto neutro, o que, além de dificultar o design do robô, pode causar interferências de uma perna com outra. A solução adotada por Raibert \emph{et al.}, foi de utilizar o conceito de pernas virtuais.
 
 \subsection{Pernas Virtuais}
 
-O conceito de pernas virtuais trata-se da coordenação de pares de pernas funcionando ao mesmo tempo de forma que pode-se representar tal par como uma perna equivalente. O par de pernas e a perna virtual exercem a mesma força e momento sobre o corpo, portanto, ambas as configurações geram os mesmos efeitos sobre este. A Figura \ref{fig:pernasvirtuais} demonstra a representação de um par de pernas em uma perna virtual.
+O conceito de pernas virtuais trata-se da coordenação de pares de pernas funcionando ao mesmo tempo, de forma que pode-se representar tal par como uma única perna equivalente. O par de pernas e a perna virtual, por definição, exercem a mesma força e momento sobre o corpo, portanto, ambas as configurações geram os mesmos efeitos sobre este. A Figura \ref{fig:pernasvirtuais} demonstra a representação de um par de pernas em uma perna virtual.
 
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/PernasVirtuais}
-	\caption{Perna Virtual}
+	\caption{Perna Virtual (Fonte: \cite{article:raibert:1986})}
 	\label{fig:pernasvirtuais}
 \end{figure}
 
-Nos quadrúpedes, a coordenação de pares de pernas podem ser feitas em três diferentes maneiras: pernas diagonais, gerando o movimento conhecido como trote, pernas laterais, gerando o passo e pernas traseiras e dianteiras, gerando o salto. Podemos ver na Figura \ref{fig:pernasvirtuais2} as pernas virtuais equivalentes para cada tipo de marcha.
+Nos quadrúpedes, a coordenação de pares de pernas pode ser feita em três diferentes maneiras: pernas diagonais, gerando o movimento conhecido como trote, pernas laterais, gerando o passo e pernas traseiras e dianteiras, gerando o salto. Podemos ver na Figura \ref{fig:pernasvirtuais2} as pernas virtuais equivalentes para cada tipo de marcha.
 
 \begin{figure} [t]
 	\centering
@@ -200,7 +211,7 @@ Nos quadrúpedes, a coordenação de pares de pernas podem ser feitas em três difer
 	\label{fig:pernasvirtuais2}
 \end{figure}
 
-Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação \ref{eq:onelegged} para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e podem se mover em duas dimensões, obtendo, dessa forma:
+Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação (\ref{eq:onelegged}) para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e podem se mover em duas dimensões, obtendo, dessa forma:
 
 \begin{eqnarray}
 x_{f,d} = \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}), \\

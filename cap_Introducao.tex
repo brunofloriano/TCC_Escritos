@@ -3,7 +3,7 @@
 \chapter{Introdução}\label{CapIntro}
 
 % Resumo opcional. Comentar se não usar.
-\resumodocapitulo{Este capítulo apresenta a principal motivação do trabalho de graduação. Os objetivos são claramente apresentados, visando assim satisfazer um conjunto de características prescritas para este trabalho. Por fim, o manuscrito é apresentado. (Este resumo é opcional)}
+%\resumodocapitulo{Este capítulo apresenta a principal motivação do trabalho de graduação. Os objetivos são claramente apresentados, visando assim satisfazer um conjunto de características prescritas para este trabalho. Por fim, o manuscrito é apresentado. (Este resumo é opcional)}
 
 \section{Contextualização}
 
@@ -55,6 +55,8 @@ Como mencionado anteriormente, o controle de estabilidade em uma plataforma tal 
 
 O robô quadrúpede construído no LARA teve trabalhos de reestruturação nos últimos anos, em que foram adicionados novos componentes como acelerômetro, placas de \emph{Arduino} e \emph{Raspberry Pi}, sensores de força e novos motores para as juntas. Além disso, o último trabalho nele desenvolvido adicionou quatro diferentes estilos de marchas de locomoção, baseados em algoritmos genéticos \cite{tcc:porphirio:2017}.
 
+\footnotetext{http://new.semini.ch/research/hyq-robot/}
+
 No entanto, não foi trabalhado, até então, o controle de equilíbrio de tal plataforma. Uma vez que este controle é de fundamental importância para a utilização da plataforma em ambientes reais, suscetíveis a distúrbios e irregularidades, o presente trabalho busca desenvolver e implementar um sistema que permita que o robô se estabilize frente a tais perturbações. Além disso, a reestruturação realizada em trabalhos anteriores a este possibilitou que o controle aqui desenvolvido fosse implementado de forma mais significativa. Em especial a adição do acelerômetro e de motores mais robustos foram essenciais para o trabalho aqui desenvolvido.
 
 Portanto, este trabalho foi concebido com o intuito de desenvolver e implementar um controle de estabilidade que permita que o robô corrija possíveis perturbações seja durante a sua marcha, seja enquanto esteja parado.
@@ -67,23 +69,35 @@ Atualmente a plataforma quadrúpede do LARA apresenta um movimento balístico sati
 
 %Dessa forma, os objetivos deste trabalho são desenvolver um sistema de equilíbrio para a plataforma quadrúpede baseada nas leituras do acelerômetro disponível no robô, implementá-lo em seu sistema embarcado e realizar experimentos para verificar a resposta ao distúrbio.
 
+\footnotetext{http://www.sony-aibo.com/}
+
 O principal objetivo deste trabalho é utilizar os recursos já presentes na plataforma quadrúpede do LARA para desenvolver e implementar um controle de equilíbrio que permita a este manter a sua estabilidade, sem tombar, mesmo com a presença de distúrbios externos, como empurrões. Fundamentalmente, espera-se que a utilização do acelerômetro do robô permita fazer as medições necessárias para a detecção do distúrbio e aplicar estes dados para a determinação da resposta mais adequada de cada perna para a correta correção das perturbações.
 
 Além disso, como estamos pensando em ambientes reais de funcionamento do robô, deseja-se que a estabilidade seja mantida não apenas enquanto o robô esteja parado mas também que este mantenha sua marcha inalterada, mantendo, assim, o seu movimento após a correção do distúrbio.
 
-%=====>Por fim, espera-se que os parâmtros de controle possam ser determidaos empiricamente através de testes reais na platforma, visando a adequação do controle ao ambiente real de aplicaçao e aos dispositivos presentes no robô.
+Por fim, espera-se que os parâmetros de controle possam ser determinados empiricamente através de testes reais na plataforma, visando a adequação do controle ao ambiente real de aplicação e aos dispositivos e configurações presentes no robô.
 
+\section{Resultados obtidos}
+
+Os resultados obtidos ao final do presente trabalho estão em conformidade com a maioria dos objetivos traçados anteriormente. Foi possível desenvolver um controle de equilíbrio apropriado para a plataforma quadrúpede trabalhada garantindo, dessa forma, que o robô efetivamente corrigisse os distúrbios nele aplicados. Apesar de algumas alterações terem sido necessárias durante o desenvolvimento deste trabalho, a concepção original do controlador gerou os parâmetros fundamentais para a correção das perturbações.
+
+Dessa forma, o desenvolvimento, concomitante com os experimentos reais no robô, permitiu a adequação do controle proposto com as condições do ambiente e da plataforma através de parâmetros determinados empiricamente.
+
+%Além disso, visando a integração do controle de equilíbrio com um sistema de implementação de marchas de locomoção, adaptou-se o controle proposto para que o robô volte a uma determinada posição desejada, após o fim da correção do distúrbio. Dessa forma, se desejado que o robô se locomova basta que o sistema de geração de marchas defina a posição desejada para cada junta e o controlador a aplicará. Se houver alguma perturbação esta será corrigida e, em seguida, a marcha voltará ao normal. 
+
+%Tal sistema foi implementado inicialmente considerando a posição desejada como a posição inicial. Dessa forma, ao final de cada distúrbio o robô volta à posição inicial e se mantêm parado nesta postura. Os experimentos neste cenário foram bem sucedidos pois o robô era capaz de voltar à posição inicial após o distúrbio.
+
+%No entanto, ao realizar experimentos para efetivamente fazer a integração com as marchas desenvolvidas em trabalhos anteriores, não obtivemos resultados positivos. O motivo disto, em grande parte, se deu pelo tempo de amostragem utilizado no controlador, incompatível, a princípio, com a marcha desenvolvida.
+
+Além disso, adaptou-se o controle proposto para que o robô volte a uma determinada posição desejada, após o fim da correção do distúrbio. Isso permite que, após a estabilidade ser alcançada, o robô se mantenha em uma mesma posição de sustentação ou mesmo que a marcha de locomoção se mantenha constante. O que determina qual cenário será aplicado em regime permanente é a posição desejada (referência) a cada instante de tempo.
+
+Tal sistema foi implementado inicialmente considerando a posição desejada como a posição inicial. Dessa forma, ao final de cada distúrbio o robô volta à postura inicialmente adotada e assim se mantêm parado. Os experimentos neste cenário foram bem sucedidos pois o robô foi capaz de voltar adequadamente à posição inicial após o distúrbio.
+
+No entanto, ao realizar experimentos para efetivamente fazer a integração com as marchas desenvolvidas em trabalhos anteriores, não obtivemos resultados positivos. O motivo disto, em grande parte, se deu pelo tempo de amostragem utilizado no controlador, incompatível, a princípio, com a marcha desenvolvida.
 
 
 \section{Apresentação do manuscrito}
 
-No capítulo \ref{CapRevisaoBibliografica} é feita uma revisão bibliográfica sobre o tema de estudo. Em seguida, o capítulo \ref{CapDesenvolvimento} descreve a metodologia empregada no desenvolvimento do projeto. Resultados experimentais são discutidos no capítulo \ref{CapExperimentos}, seguido das conclusões no capítulo \ref{CapConclusoes}. Os anexos contém material complementar.
+%No capítulo \ref{CapRevisaoBibliografica} é feita uma revisão bibliográfica sobre o tema de estudo. Em seguida, o capítulo \ref{CapDesenvolvimento} descreve a metodologia empregada no desenvolvimento do projeto. Resultados experimentais são discutidos no capítulo \ref{CapExperimentos}, seguido das conclusões no capítulo \ref{CapConclusoes}. Os anexos contém material complementar.
 
-
-\footnotetext{http://new.semini.ch/research/hyq-robot/}
-
-
-
-
-
-\footnotetext{http://www.sony-aibo.com/}
+No capítulo \ref{CapRevisaoBibliografica} é apresentada a fundamentação teórica relacionada com o estudo de controle de equilíbrio de robôs quadrúpedes. Além disso, apresentar-se-á os trabalhos relacionados a este tema na literatura estudada, incluindo os casos que foram interpretados como os mais relevantes para a concepção adotada neste trabalho assim como os desenvolvimentos mais recentes nesta área. Em seguida, o capítulo \ref{CapDesenvolvimento} descreve a metodologia empregada no desenvolvimento do projeto, incluindo a apresentação dos equipamentos mais relevantes que foram utilizados e da formulação do controle em si. Resultados experimentais são discutidos no capítulo \ref{CapExperimentos}, com a indicação de como foram realizados tais procedimentos. Por fim, as conclusões do trabalho são discutidas no capítulo \ref{CapConclusoes}. Os anexos contém material complementar.

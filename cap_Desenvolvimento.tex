@@ -344,7 +344,7 @@ A_j & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
 
 \noindent Isto é, se a velocidade detectada ocorrer no sentido j (em que j pode ser igual a R, L, F ou B, dependendo do sentido da queda do robô), o ganho referente a este sentido será diferente de zero e igual ao ganho de resposta, $A_j$, a ser caracterizado empiricamente. Caso não seja detectado nenhum distúrbio no sentido j o ganho referente àquela direção será igual a zero.
 
-Os testes realizados na plataforma indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
+Os testes realizados na plataforma indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos, como será melhor abordado no capítulo \ref{CapExperimentos}.
 
 \subsection{Juntas do Tipo Joelho}
 
@@ -359,7 +359,7 @@ A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem c
 	\label{fig:aterrissagem}
 \end{figure}
 
-Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes que o valor mais adequado para $K_{down}$ é -0.4. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem. Os demais motores que a corrigem não sofrem influências relevantes por movimentarem a parte de cima da pata e, portanto, pode ser caracterizados com $K_{up} = 1$.
+Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes, a serem descritos nos resultados, que o valor mais adequado para $K_{down}$ é -0.4 quando $K_{up}$ é normalizado com valor unitário. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem.
 
 \subsection{Paralelismo com a Posição Desejada} \label{sec:paralelismo}
 Determinados os ganhos $K_i$ de todos os motores, o controle de estabilidade está apto a corrigir os distúrbios, conforme será melhor abordados no capítulo dos Resultados. No entanto, o controle proposto até aqui, caracterizado pela equação \ref{eq:controle_posicao_discreto}, aplica uma determinada posição $\theta_i$ em cada junta e não a modifica mais até a ocorrência de um novo distúrbio. Isto resulta na permanência do robô na posição de correção, mesmo após o fim do distúrbio.
