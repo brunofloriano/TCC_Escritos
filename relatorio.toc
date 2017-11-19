@@ -33,44 +33,45 @@
 \contentsline {subsection}{\numberline {2.7.3}Modelo Cinemático Inverso}{26}
 \contentsline {subsection}{\numberline {2.7.4}Aplicações}{26}
 \contentsline {section}{\numberline {2.8}Controle de Estabilidade Empírico}{30}
-\contentsline {chapter}{\numberline {3}Desenvolvimento}{32}
-\contentsline {section}{\numberline {3.1}Introdu\c {c}\~{a}o}{32}
-\contentsline {section}{\numberline {3.2}Arquitetura do Robô}{32}
-\contentsline {subsection}{\numberline {3.2.1}Motores}{33}
-\contentsline {subsection}{\numberline {3.2.2}Sistema Embarcado}{35}
-\contentsline {section}{\numberline {3.3}gDataLogger}{36}
-\contentsline {section}{\numberline {3.4}Thread Periódica}{36}
-\contentsline {section}{\numberline {3.5}Controle de Estabilidade}{38}
-\contentsline {subsection}{\numberline {3.5.1}Abordagem Inicial}{39}
-\contentsline {subsection}{\numberline {3.5.2}Filtro}{40}
-\contentsline {subsection}{\numberline {3.5.3}Torque no Modo Velocidade}{41}
-\contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{41}
-\contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{41}
-\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{43}
-\contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{45}
-\contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{46}
-\contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{50}
-\contentsline {section}{\numberline {3.7}Conclusão}{50}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{52}
-\contentsline {section}{\numberline {4.1}Introdução}{52}
-\contentsline {section}{\numberline {4.2}Modo Velocidade}{52}
-\contentsline {subsection}{\numberline {4.2.1}Medição}{52}
-\contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{54}
-\contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{55}
-\contentsline {section}{\numberline {4.3}Modo Posição}{58}
-\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{58}
-\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{58}
-\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{60}
-\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{63}
-\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{64}
-\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{65}
-\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{65}
-\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{68}
-\contentsline {subsection}{\numberline {4.4.2}Testes finais}{69}
-\contentsline {section}{\numberline {4.5}Conclusões}{73}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{75}
-\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{76}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{77}
-\contentsline {chapter}{{Anexos}}{79}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{80}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{81}
+\contentsline {section}{\numberline {2.9}Conclusão}{31}
+\contentsline {chapter}{\numberline {3}Desenvolvimento}{33}
+\contentsline {section}{\numberline {3.1}Introdu\c {c}\~{a}o}{33}
+\contentsline {section}{\numberline {3.2}Arquitetura do Robô}{33}
+\contentsline {subsection}{\numberline {3.2.1}Motores}{34}
+\contentsline {subsection}{\numberline {3.2.2}Sistema Embarcado}{36}
+\contentsline {section}{\numberline {3.3}gDataLogger}{37}
+\contentsline {section}{\numberline {3.4}Thread Periódica}{37}
+\contentsline {section}{\numberline {3.5}Controle de Estabilidade}{39}
+\contentsline {subsection}{\numberline {3.5.1}Abordagem Inicial}{40}
+\contentsline {subsection}{\numberline {3.5.2}Filtro}{41}
+\contentsline {subsection}{\numberline {3.5.3}Torque no Modo Velocidade}{42}
+\contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{42}
+\contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{42}
+\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{44}
+\contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{46}
+\contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{47}
+\contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{51}
+\contentsline {section}{\numberline {3.7}Conclusão}{51}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{53}
+\contentsline {section}{\numberline {4.1}Introdução}{53}
+\contentsline {section}{\numberline {4.2}Modo Velocidade}{53}
+\contentsline {subsection}{\numberline {4.2.1}Medição}{53}
+\contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{55}
+\contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{56}
+\contentsline {section}{\numberline {4.3}Modo Posição}{59}
+\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{59}
+\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{59}
+\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{61}
+\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{64}
+\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{65}
+\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{66}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{66}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{69}
+\contentsline {subsection}{\numberline {4.4.2}Testes finais}{70}
+\contentsline {section}{\numberline {4.5}Conclusões}{74}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{76}
+\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{77}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{78}
+\contentsline {chapter}{{Anexos}}{80}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{81}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{82}

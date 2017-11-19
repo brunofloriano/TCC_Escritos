@@ -388,14 +388,14 @@ O controle é feito baseado nas forças de reação em cada pata. Cada força, por su
 \tau = J^T(f_{vsd}+f_{bal}\hat{k}),
 \end{eqnarray} 
 
-em que $J^T$ é a transposta da matriz Jacobiana dos pontos finais de cada pata em relação aos ângulos das juntas. O cálculo dessa matriz será melhor abordada nas seções seguintes. Já $\hat{k}$ refere-se ao vetor unitário na direção vertical.
+\noindent em que $J^T$ é a transposta da matriz Jacobiana dos pontos finais de cada pata em relação aos ângulos das juntas. O cálculo dessa matriz será melhor abordada nas seções seguintes. Já $\hat{k}$ refere-se ao vetor unitário na direção vertical.
 
 O sistema de controle, dessa forma, pode ser implementado conforme o diagrama de blocos da Figura \ref{fig:lar3}.
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/LAR3}
-	\caption{Diagrama de Blocos do Sistema de Controle}
+	\caption{Diagrama de Blocos do Sistema de Controle (Fonte: \cite{article:won:2009})}
 	\label{fig:lar3}
 \end{figure}
 
@@ -404,18 +404,18 @@ O sistema de controle, dessa forma, pode ser implementado conforme o diagrama de
 	\mbox{
 	\subfigure[Sistemas de coordenadas e ângulos adotados]{\includegraphics[width=0.35\textwidth]{Figuras/LAR4a}}\quad\quad
 	\subfigure[Forças e momentos atuantes no quadrúpede]{\includegraphics[width=0.32\textwidth]{Figuras/LAR4b}}}
-	\caption{Parâmetros de um quadrúpede em instabilidade}
+	\caption{Parâmetros de um quadrúpede em instabilidade (Fonte: \cite{article:won:2009})}
 	\label{fig:lar4}
 \end{figure}
 
-Adotando o sistema de coordenada e ângulos conforme o mostrado na Figura \ref{fig:lar4}(a) podemos estabelecer as relações necessárias para os cálculos da dinâmica a ser controlada. A ideia do controle é redistribuir os torques aplicados de modo que o robô possa recuperar a postura corporal quando sofre um momento de instabilidade. Conforme ilustrado pela Figura \ref{fig:lar4}(b) as forças de reação exercídas sobre as patas do quadrúpede geram um momento diferente de zero levando o robô à instabilidade. Este momento irá causar erros nos ângulos de rolagem e arfagem assim como em suas velocidades. Dessa forma, o sistema de controle pode ser modelado como um sistema de mola amortecido da seguinte forma:
+Adotando o sistema de coordenadas e ângulos conforme o mostrado na Figura \ref{fig:lar4}(a) podemos estabelecer as relações necessárias para os cálculos da dinâmica a ser controlada. A ideia do controle é redistribuir os torques aplicados de modo que o robô possa recuperar a postura corporal quando sofre um momento de instabilidade. Conforme ilustrado pela Figura \ref{fig:lar4}(b) as forças de reação exercídas sobre as patas do quadrúpede geram um momento diferente de zero levando o robô à instabilidade. Este momento irá causar erros nos ângulos de rolagem e arfagem assim como em suas velocidades. Dessa forma, o sistema de controle pode ser modelado como um sistema com mola amortecido na forma de
 
 \begin{eqnarray}
 \tau_{\phi} = k_{p,x}\Delta\phi + k_{d,x}\Delta\dot{\phi},\\
 \tau_{\theta} = -(k_{p,y}\Delta\theta + k_{d,y}\Delta\dot{\theta}),
 \end{eqnarray}
 
-de modo que $\tau_{\phi}$ e $\tau_{\theta}$ são os torques que devem ser aplicados para corrigir, respectivamente, os ângulos de rolagem e arfagem, $\Delta \phi$ e $\Delta \theta$ são os erros associados ao movimento de rolagem e arfagem, respectivamente, ou seja, o quanto eles diferem da situação de estabilidade. Por fim, $k_{p,x}$, $k_{p,y}$, $k_{d,x}$ e $k_{d,y}$ são ganhos.
+\noindent de modo que $\tau_{\phi}$ e $\tau_{\theta}$ são os torques que devem ser aplicados para corrigir, respectivamente, os ângulos de rolagem e arfagem, $\Delta \phi$ e $\Delta \theta$ são os erros associados ao movimento de rolagem e arfagem, respectivamente, ou seja, o quanto eles diferem da situação de estabilidade. Por fim, $k_{p,x}$, $k_{p,y}$, $k_{d,x}$ e $k_{d,y}$ são ganhos.
 
 Portanto a componente de força associada ao controle de equilíbrio do quadrúpede será dado pela soma das forças que gerarão o torque acima descrito. Dessa forma
 
@@ -423,14 +423,14 @@ Portanto a componente de força associada ao controle de equilíbrio do quadrúpede
 f_{bal} = f_{\phi,l} + f_{\theta,l} = \frac{k_{p,x}\Delta\phi + k_{d,x}\Delta\dot{\phi}}{r_{y,l}} - \frac{k_{p,y}\Delta\theta + k_{d,y}\Delta\dot{\theta}}{r_{x,l}},
 \end{eqnarray}
 
-em que $f_{\phi,l}$ e $f_{\theta,l}$ são as forças de reação para compensar os ângulos de rolagem e arfagem, respectivamente, $r_{x,l}$ e $r_{y,l}$ são as componentes x e y, respectivamente, do vetor que vai do centro de massa do robô até a pata de índice $l$.
+\noindent em que $f_{\phi,l}$ e $f_{\theta,l}$ são as forças de reação para compensar os ângulos de rolagem e arfagem, respectivamente, $r_{x,l}$ e $r_{y,l}$ são as componentes x e y, respectivamente, do vetor que vai do centro de massa do robô até a pata de índice $l$.
 
-Por fim, um algoritmo é criado utilizando a medição do LAR para determinar a trajetória de caminhada que compensa a instabilidade do robô. Tal algoritmo tem a seguinte forma: caso o valor do LAR diminua procura-se a pata que está em desacordo, o controle de postura é acionado para corrigir a instabilidade, caso o LAR não tenha aumentado, retorna-se para a busca pela pata em desacordo, caso o LAR tenha aumentado o algoritmo termina. Este processo pode ser descrito pelo diagrama mostrado na Figura \ref{fig:lar5}.
+Por fim, um algoritmo é criado utilizando a medição do LAR para determinar a trajetória de caminhada que compensa a instabilidade do robô. Tal algoritmo tem a seguinte forma: caso o valor do LAR diminua procura-se a pata que está em desacordo. Em seguida, o controle de postura é acionado para corrigir a instabilidade. Caso o LAR não tenha aumentado, retorna-se para a busca pela pata em desacordo, caso contrário o algoritmo termina. Este processo pode ser descrito pelo diagrama mostrado na Figura \ref{fig:lar5}.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/LAR5}
-	\caption{Algoritmo para controle de estabilidade utilizando o LAR}
+	\caption{Algoritmo para controle de estabilidade utilizando o LAR (Fonte: \cite{article:won:2009})}
 	\label{fig:lar5}
 \end{figure}
 
@@ -454,13 +454,13 @@ Nesta relação, $x_0$, $y_0$ e $z_0$ são vetores unitário referentes ao sistema d
 p_0 = R_1^0 \cdot p_1.
 \end{eqnarray}
 
-Agora, considere que os dois sistemas de coordenadas referidos acima se encontram com a mesma orientação, ou seja $R_1^0 = I$, onde $I$ é a matriz identidade, mas transladados entre si. Podemos representar o ponto $p_1$ no sistema de coordenadas  $X_0 \times Y_0 \times Z_0$ como
+Agora, considere que os dois sistemas de coordenadas referidos acima se encontram com a mesma orientação, ou seja $R_1^0 = I$, em que $I$ é a matriz identidade, mas transladados entre si. Podemos representar o ponto $p_1$ no sistema de coordenadas  $X_0 \times Y_0 \times Z_0$ como
 
 \begin{eqnarray}
 p_0 = p_1 + d_1^0,
 \end{eqnarray}
 
-em que $d_1^0$ é o vetor que vai da origem $O_0$ até a origem $O_1$ de cada sistema de coordenadas.
+\noindent em que $d_1^0$ é o vetor que vai da origem $O_0$ até a origem $O_1$ de cada sistema de coordenadas.
 
 \subsubsection{Tranformação Homogênia}
 Um ponto $p = \begin{bmatrix}
@@ -473,9 +473,9 @@ p_x & p_y & p_z
 \end{bmatrix},
 \end{eqnarray}
 
-sendo que $p_x = \frac{\tilde{p}_x}{\omega}$, $p_y = \frac{\tilde{p}_y}{\omega}$ e $p_z = \frac{\tilde{p}_z}{\omega}$. A variável $\omega$ é um fator escalar que, para este caso, será considerado como unitário.
+\noindent sendo que $p_x = \frac{\tilde{p}_x}{\omega}$, $p_y = \frac{\tilde{p}_y}{\omega}$ e $p_z = \frac{\tilde{p}_z}{\omega}$. A variável $\omega$ é um fator escalar que, para este caso, será considerado como unitário.
 
-Isto posto, podemos unificar as relações de rotação e translação em uma única transformação homogênea, representada pela seguinte matriz:
+Isto posto, podemos unificar as relações de rotação e translação em uma única transformação homogênea, representada pela matriz
 
 \begin{eqnarray}
 H = \begin{bmatrix}
@@ -483,20 +483,22 @@ R & d \\ 0_{1\times 3} & 1
 \end{bmatrix},
 \end{eqnarray}
 
-em que $R$ é a matriz de rotação, $d$ é o vetor de translação e $0_{1 \times 3}$ é o vetor linha $\begin{bmatrix}
+\noindent em que $R$ é a matriz de rotação, $d$ é o vetor de translação e $0_{1 \times 3}$ é o vetor linha $\begin{bmatrix}
 0 & 0 & 0
 \end{bmatrix}$.	Portanto, uma transformação homogênea, composta por rotação e translação, de um sistema de coordenadas $S_1$ para um sistema de coordenadas $S_0$ é dada por
 
 \begin{eqnarray}
-\tilde{p}_0 = H_1^0 \tilde{p}_1.
+\tilde{p}_0 = H_1^0 \tilde{p}_1,
 \end{eqnarray}
+
+\noindent em que $\tilde{p}_0$ é um ponto do sistema $S_0$ e $\tilde{p}_1$, a representação deste mesmo ponto no sistema $S_1$.
 
 Podemos utilizar, ainda, uma notação simplificada $H_i$ ($i\in \mathbb{Z}$) para representar uma transformação homogênea do sistema de coordenadas $S_i$ para o sistema de coordenadas $S_{i-1}$.
 
 \subsubsection{Modelo Geométrico em Robôs Manipuladores}
 O modelo geométrico consiste na aquisição das posições dos efetuadores finais (neste caso, das patas do robô) em função das variáveis das juntas.
 
-Considere que a matriz $H_m^0 (q,\lambda)$ representa uma transformação homogênea que possibilita a aquisição das posições e orientações de um efetuador com $m$ graus de liberdade em função do vetor ($q$), das varáveis de juntas e do vetor $\lambda$ composto pelas dimensões físicas do robô. Dessa forma, desconsiderando a orientação do efetuador (assume-se que esta é irrelevante para este estudo), podemos obter sua posição $\xi$, em coordenadas homogêneas, através da seguinte equação:
+Considere que a matriz $H_m^0 (q,\lambda)$ representa uma transformação homogênea que possibilita a aquisição das posições e orientações de um efetuador com $m$ graus de liberdade em função do vetor ($q$), das varáveis de juntas e do vetor $\lambda$ composto pelas dimensões físicas do robô. Dessa forma, desconsiderando a orientação do efetuador (assume-se que esta é irrelevante para este estudo), podemos obter sua posição $\xi$, em coordenadas homogêneas, através da seguinte equação
 
 \begin{eqnarray} \label{eq:geometrico}
 \xi = g(q,\lambda) = H_m^0 \begin{bmatrix}
@@ -504,7 +506,7 @@ Considere que a matriz $H_m^0 (q,\lambda)$ representa uma transformação homogêne
 \end{bmatrix},
 \end{eqnarray}
 
-sendo que g representa uma função do vetor $q$ e dos parâmetros geométricos incluídos em $\lambda$.
+\noindent sendo que g representa uma função do vetor $q$ e dos parâmetros geométricos incluídos em $\lambda$.
 
 \subsection{Modelo Cinemático}
 O modelo cinemático relaciona as velocidades dos efetuadores como uma função das variáveis das juntas. Se derivarmos a equação (\ref{eq:geometrico}) com respeito ao tempo, obteremos, pela regra da cadeia, que
@@ -513,13 +515,13 @@ O modelo cinemático relaciona as velocidades dos efetuadores como uma função das
 \dot{\xi} = \frac{\partial g}{\partial q} \frac{\mathrm d q}{\mathrm dt}.
 \end{eqnarray}
 
-Se definirmos $\frac{\partial g}{\partial q}$ como a matriz Jacobiana $J$, obteremos o modelo cinemático:
+Se definirmos $\frac{\partial g}{\partial q}$ como a matriz Jacobiana $J$, obteremos o modelo cinemático
 
 \begin{eqnarray} \label{eq:cinematico}
 \dot{\xi} = J\dot{q},
 \end{eqnarray}
 
-de forma que a matriz Jacobiana será dada por:
+\noindent de forma que a matriz Jacobiana será dada por
 
 \begin{eqnarray}
 J = \frac{\partial g(q,\lambda)}{\partial q} = 
@@ -531,7 +533,7 @@ J = \frac{\partial g(q,\lambda)}{\partial q} =
 \end{eqnarray}
 
 \subsection{Modelo Cinemático Inverso}
-O modelo cinemático inverso busca descrever a velocidade das juntas como uma função da velocidade dos efetuadores. Para isso, temos que modificar a equação \ref{eq:cinematico} de modo a isolar $\dot{q}$. Como $J$ não é, necessariamente, uma matriz quadrada, a aplicação de sua inversa não será possível. Para poder fazer isto utilizaremos a matriz pseudo-inversa de $J$ da seguinte forma:
+O modelo cinemático inverso busca descrever a velocidade das juntas como uma função da velocidade dos efetuadores. Para isso, deve-se modificar a equação (\ref{eq:cinematico}) de modo a isolar $\dot{q}$. Como $J$ não é, necessariamente, uma matriz quadrada, a aplicação de sua inversa não será possível. Para poder fazer isto utilizaremos a matriz pseudo-inversa de $J$ da seguinte forma:
 
 \begin{eqnarray}
 J\dot{q} = \dot{\xi}, \nonumber \\
@@ -540,7 +542,7 @@ J^T J \dot{q} = J^T \dot{\xi}, \nonumber \\
 \dot{q} = J^\dagger \dot{\xi}. \label{eq:inversa}
 \end{eqnarray}
 
-Nestas relações, $J^\dagger = (J^TJ)^-1 J^T$ é a matriz pseudo-inversa de $J$. 
+\noindent Nestas relações, $J^\dagger = (J^TJ)^-1 J^T$ é a matriz pseudo-inversa de $J$. 
 
 A utilização da matriz pseudo-inversa, no entanto, pode apresentar graves problemas numéricos, especialmente caso haja singularidades em $J$. Isto decorre do fato que este sistema pode apresentar mais de uma solução, especialmente considerando casos com redundância nos graus de liberdade de um segmento (por exemplo vários atuadores em uma perna). Nestes casos, mais de uma configuração dos efetuadores acarretaria na mesma posição do efetuador final \cite{tcc:souto:2007, article:runbin:2013}. Na seção seguinte será apresentado, além de alguns exemplos de utilização dos modelos cinemático e cinemático inverso, algumas possíveis soluções para este problema.
 
@@ -560,19 +562,19 @@ O sistema de controle deve, para estes fins, levar $c_x$ (a componente de $c$ na
 G_v = \frac{\Delta \dot{c}_x}{\Delta \dot{q}_2},  \\ G_{\omega} = \frac{\Delta \dot{\phi}}{\Delta \dot{q}_2},
 \end{eqnarray}
 
-em que $G_v$ é denominado de ganho de velocidade linear e $G_{\omega}$ é denominado de ganho de velocidade angular. O símbolo $\Delta$ indica uma variação tipo degrau da subsequente variável.
+\noindent em que $G_v$ é denominado de ganho de velocidade linear e $G_{\omega}$ é denominado de ganho de velocidade angular. O símbolo $\Delta$ indica uma variação tipo degrau da subsequente variável.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.5\linewidth]{Figuras/ganho1}
-	\caption{Modelo utilizado por Featherstone}
+	\caption{Modelo utilizado por Featherstone (Fonte: \cite{article:featherstone:2016})}
 	\label{fig:ganho}
 \end{figure}
 
 
 O autor aponta três métodos distintos para poder calcular a relação entre $q_2$ e $c_x$, possibilitando, assim, a determinação do ganho $G_v$. Para os propósitos deste estudo daremos foco apenas em um destes métodos, o Jacobiano do centro de massa.
 
-Utilizando a equação \ref{eq:cinematico} podemos mapear diretamente a velocidade do centro de massa com a velocidade das juntas se substituirmos $\xi$ por $c$ e utilizarmos uma matriz $J$ adequada para tal mapeamento. Dessa forma, temos que
+Utilizando a equação (\ref{eq:cinematico}) podemos mapear diretamente a velocidade do centro de massa com a velocidade das juntas se substituirmos $\xi$ por $c$ e utilizarmos uma matriz $J$ adequada para tal mapeamento. Dessa forma, temos que
 
 \begin{eqnarray}
 \Delta \dot{c} = J \Delta \dot{q} = J \begin{bmatrix}
@@ -584,10 +586,10 @@ Se considerarmos uma variação unitária em $\dot{q}_2$ e soubermos o valor de $\D
 
 Um exemplo da utilização do modelo cinemático inverso está nos trabalhos de RunBin \emph{et al.} de 2013 \cite{article:runbin:2013}. Estes, especificamente, buscam modelar um sistema de controle para um quadrúpede com graus de liberdade redundantes (4 juntas em cada perna) baseado na cinemática inversa. O modelo do robô desenvolvido pode ser observado na Figura \ref{fig:quadrupededof}.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/quadrupededof}
-	\caption{Quadrúpede com total de 16 graus de liberdade}
+	\caption{Quadrúpede com total de 16 graus de liberdade (Fonte: \cite{article:runbin:2013})}
 	\label{fig:quadrupededof}
 \end{figure}
 
@@ -596,7 +598,7 @@ O controle do quadrúpede, de modo geral, pode ser dividido em duas partes: o con
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Figuras/realimentacao}
-	\caption{Sistema de realimentação para controle de marcha e de postura}
+	\caption{Sistema de realimentação para controle de marcha e de postura (Fonte: \cite{article:runbin:2013})}
 	\label{fig:realimentacao}
 \end{figure}
 
@@ -605,11 +607,11 @@ Para este trabalho, analisaremos apenas o controle de postura, em que é aplicado
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/pernaredundante}
-	\caption{Modelo geométrico de uma perna com 4 graus de liberdade}
+	\caption{Modelo geométrico de uma perna com 4 graus de liberdade (Fonte: \cite{article:runbin:2013})}
 	\label{fig:pernaredundante}
 \end{figure}
 
-Esta configuração nos dá:
+Esta configuração nos dá que
 
 \begin{eqnarray}
 \begin{bmatrix}
@@ -619,7 +621,7 @@ r_1 \cos \theta_1 + r_2 \cos (\theta_1 + \theta_2)+ r_3 \cos (\theta_1 + \theta_
 \end{bmatrix},
 \end{eqnarray}
 
-em que $x$ e $z$ são as componentes das coordenadas do efetuador final, $r_1$, $r_2$ e $r_3$ são segmentos da perna que vão de uma junta até outra e $\theta_1$, $\theta_2$ e $\theta_3$ são os ângulos das juntas. Deste modo, a matrix Jacobiana pode ser calculada como
+\noindent em que $x$ e $z$ são as componentes das coordenadas do efetuador final, $r_1$, $r_2$ e $r_3$ são segmentos da perna que vão de uma junta até outra e $\theta_1$, $\theta_2$ e $\theta_3$ são os ângulos das juntas. Deste modo, a matrix Jacobiana pode ser calculada como
 
 \begin{eqnarray}
 J = \begin{bmatrix}
@@ -627,9 +629,9 @@ J_{11} & J_{12} & J_{13} \\ J_{21} & J_{22} & J_{23}
 \end{bmatrix}.
 \end{eqnarray}
 
-Nesta relação, os parâmetros da primeira linha serão iguais à derivada de $x$ com relação a $\theta_1$, $\theta_2$ e $\theta_3$, nessa ordem, e da segunda linha, iguais à derivada de $z$ com relação a $\theta_1$, $\theta_2$ e $\theta_3$.
+Nesta relação, os parâmetros da primeira linha serão iguais à derivada de $x$ com relação a $\theta_1$, $\theta_2$ e $\theta_3$, nessa ordem, e da segunda linha, iguais à derivada de $z$ com relação a $\theta_1$, $\theta_2$ e $\theta_3$, respectivamente.
 
-Uma vez obtido o Jacobiano, os autores propõe três métodos distintos para calcular os ângulos das juntas. O primeiro é o cálculo da matriz pseudo-inversa, conforme foi abordado anteriormente, culminando na equação \ref{eq:inversa}. A diferença é que do lado direito da equação, os autores adicionam o termo $k(I-J^{\dagger}J*g)$, onde $I$ é a matriz identidade, e $g$ é uma velocidade de auto-locomoção. Este novo termo se trata da solução  da equação linear homogênea enquanto que o primeiro termo é a solução normal mínima.
+Uma vez obtido o Jacobiano, os autores propõem três métodos distintos para calcular os ângulos das juntas. O primeiro é o cálculo da matriz pseudo-inversa, conforme foi abordado anteriormente, culminando na equação (\ref{eq:inversa}). A diferença é que do lado direito da equação, os autores adicionam o termo $k(I-J^{\dagger}J*g)$, em que $I$ é a matriz identidade, e $g$ é uma velocidade de auto-locomoção. Este novo termo se trata da solução  da equação linear homogênea enquanto que o primeiro termo é a solução normal mínima.
 
 O segundo método é o da Menor Norma Ponderada (\emph{Weighted least-norm - WLN}). Neste método, utilizado para minimizar a velocidade das juntas, defini-se um novo vetor de velocidade das juntas ($\dot{\theta}_W$), normalizado por uma matriz simétrica e positiva $W$. Então, realiza-se algumas transformações de modo a obter uma nova matriz Jacobiana para o novo sistema. Com isso, o resultado final será dado por
 
@@ -645,7 +647,7 @@ Muitos dos trabalhos anteriores utilizam sistemas de realimentação para fazer co
 
 A ideia desta seção é discutir, com maior foco, sobre este controle, baseado em dados empíricos coletados.
 
-Em 2010, Sousa \emph{et al.}, desenvolveram um sistema de controle de postura baseado na leitura de diversos sensores. Com uma topologia inspirada nas respostas biológicas de animais, os autores deste estudo propuseram um sistema de controle de postura independente do sistema de locomoção, havendo interação apenas quando necessário. O controle de postura seria construído com base em cada estímulo medido e uma resposta adequada seria produzida para corrigir aquela variável. O modelo de controle é integrado com um \emph{Central Pattern Generators (CPG)} para gerar a resposta desejada.
+Em 2010, Sousa \emph{et al.}, desenvolveram um sistema de controle de postura baseado na leitura de diversos sensores \cite{article:sousa:2010}. Com uma topologia inspirada nas respostas biológicas de animais, os autores deste estudo propuseram um sistema de controle de postura independente do sistema de locomoção, havendo interação apenas quando necessário. O controle de postura seria construído com base em cada estímulo medido e uma resposta adequada seria produzida para corrigir aquela variável. O modelo de controle é integrado com um \emph{Central Pattern Generators (CPG)} para gerar a resposta desejada.
 
 A plataforma quadrúpede AIBO, da Sony (que pode ser vista na Figura \ref{fig:aibo}) é utilizada para o estudo, uma vez que esta possui um acelerômetro de três eixos e um sensor de força em cada pata.
 
@@ -654,7 +656,7 @@ O controle de postura proposto se baseia na integração de diversos aspectos sens
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/respostassensoriais}
-	\caption{Medições Empíricas e suas Respectivas Respostas}
+	\caption{Medições Empíricas e suas Respectivas Respostas (Fonte: \cite{article:sousa:2010})}
 	\label{fig:respostassensoriais}
 \end{figure}
 
@@ -664,7 +666,7 @@ Desse modo, se $y_{i,p}$ é a resposta de correção total da junta $p$, da perna $
 y_{i,p} = f_{roll,i,p} + f_{pitch,i,p} + f_{COM,i,p} + f_{force,i,p} + f_{touch,i,p} + f_{disperser,i,p} + f_{reset,i,p},
 \end{eqnarray}
 
-em que $f$ é a resposta proveniente de cada dado sensorial apresentado na Figura \ref{fig:respostassensoriais}.
+\noindent em que $f$ é a resposta proveniente de cada dado sensorial apresentado na Figura \ref{fig:respostassensoriais}.
 
 Para este estudo, as respostas mais relevantes são as dos ângulos de rolagem e arfagem e são dadas por
 
@@ -673,4 +675,15 @@ f_{roll,i,p} = k_{roll}f_i(\phi_{roll}), \\
 f_{pitch,i,p} = k_{pitch}f_i(\phi_{pitch}),
 \end{eqnarray}
 
-de modo que $k_{roll}$ e $k_{pitch}$ são ganhos estáticos que definem a velocidade de convergência da resposta à situação de equilíbrio, $\phi_{roll}$ e $\phi_{pitch}$ são os ângulos medidos de rolagem e arfagem, respectivamente, e $f_i$ é uma função linear utilizada para eliminar o ruído do sensor e pode ser positiva ou negativa, dependendo da contribuição da junta para aquela variável.
+\noindent de modo que $k_{roll}$ e $k_{pitch}$ são ganhos estáticos que definem a velocidade de convergência da resposta à situação de equilíbrio, $\phi_{roll}$ e $\phi_{pitch}$ são os ângulos medidos de rolagem e arfagem, respectivamente, e $f_i$ é uma função linear utilizada para eliminar o ruído do sensor e pode ser positiva ou negativa, dependendo da contribuição da junta para aquela variável.
+
+\section{Conclusão}
+Neste capítulo, foram apresentados os principais trabalhos estudados sobre o tema de controle de equilíbrio de robôs quadrúpedes. Apresentou-se desenvolvimentos concebidos desde o início do estudo deste tema até o cenário atual. Por esse motivo, várias abordagens diferentes foram estudadas, incluindo métodos empíricos, dinâmicos, cinemáticos e geométricos.
+
+A metodologia que será aplicada no desenvolvimento deste trabalho, como será melhor abordada no capítulo \ref{CapDesenvolvimento}, apresenta uma abordagem principalmente composta por elementos cinemáticos. Além disso, a componente empírica também terá um foco fundamental ao longo do desenvolvimento do projeto. Apesar de que o controle a ser implementado não considera fatores dinâmicos como torques e momentos, alguns dos conceitos utilizados nos trabalhos com estes modelos podem ser aplicados.
+
+Neste sentido, o controle de estabilidade será realizado em grande parte com um controle de velocidades. Assim como em \cite{article:raibert:1986, article:won:2009,article:featherstone:2016}, a concepção inicial deste trabalho se baseou nas velocidades dos ângulos de rolagem e arfagem do corpo do robô para a caracterização do distúrbio gerador da instabilidade e, consequentemente, do seu uso para a determinação das respostas necessárias para a devida correção. Alguns destes trabalhos (e.g. \cite{article:raibert:1986, article:won:2009}) fazem tal correção através da aplicação de torques. Neste caso, porém, esta será realizada pela imposição de velocidades em cada junta, de forma proporcional à perturbação sofrida.
+
+Assim como nos trabalhos já citados e em \cite{article:sousa:2010}, a presença de ganhos relacionando às variáveis de rolagem e arfagem serão essenciais para a resposta de correção ao distúrbio. Em especial, o controle proposto neste trabalho se assemelha ao desenvolvido em \cite{article:sousa:2010}, uma vez que a velocidade de cada junta deve ser proporcional ao distúrbio por um ganho específico e empiricamente determinado. Para tal, a medição através de sensores, como o acelerômetro e sensores de força é essencial para o controle desenvolvido. Este último aspecto segue as mesmas características dos trabalhos de \cite{article:raibert:0000}.
+
+Por fim, a determinação de outras características do movimento de cada pata, como sincronia e direção, são implementados com base na teoria desenvolvida em \cite{article:mcghee:1968,article:raibert:1986}. Neste sentido algumas patas devem se locomover em sincronia, assim como nos conceitos de pernas virtuais, em uma direção determinada de modo a garantir uma margem de estabilidade estática suficiente para que o equilíbrio do robô seja mantido.
