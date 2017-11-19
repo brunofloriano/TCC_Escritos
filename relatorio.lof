@@ -14,15 +14,15 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Robô de uma perna}}{13}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces \emph {CG Print} de um robô de uma perna (Fonte: \cite {article:raibert:1986})}}{14}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Perna Virtual (Fonte: \cite {article:raibert:1986})}}{14}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Pernas virtuais para cada marcha}}{15}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Vistas do quadrúpede com 6 graus de liberdade}}{16}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Modelo SLIP}}{17}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Modelo para controle de arfagem e rolagem}}{18}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Modelo de quadrúpede apoiado em pernas diagonais}}{19}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Modelo das relações de ângulo entre perna e corpo}}{20}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Estrutura do sistema de controle}}{20}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Sincronia em marcha quadrúpede}}{21}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Representação da Dessincronização das Pernas}}{21}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Pernas virtuais para cada marcha (Fonte: \cite {article:raibert:1986})}}{15}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Vistas do quadrúpede com 6 graus de liberdade (Fonte: \cite {article:li:2014})}}{16}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Modelo SLIP (Fonte: \cite {article:li:2014})}}{17}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Modelo para controle de arfagem e rolagem (Fonte: \cite {article:li:2014})}}{18}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Modelo de quadrúpede apoiado em pernas diagonais (Fonte: \cite {article:meng:2015})}}{19}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Modelo das relações de ângulo entre perna e corpo (Fonte: \cite {article:meng:2015})}}{20}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Estrutura do sistema de controle (Fonte: \cite {article:meng:2015})}}{20}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Sincronia em marcha quadrúpede (Fonte: \cite {article:won:2009})}}{21}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Representação da Dessincronização das Pernas (Fonte: \cite {article:won:2009})}}{21}
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Diagrama de Blocos do Sistema de Controle}}{22}
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Parâmetros de um quadrúpede em instabilidade}}{22}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistemas de coordenadas e ângulos adotados}}}{22}

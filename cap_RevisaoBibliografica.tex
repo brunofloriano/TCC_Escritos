@@ -207,65 +207,65 @@ Nos quadrúpedes, a coordenação de pares de pernas pode ser feita em três diferen
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/PernasVirtuais2}
-	\caption{Pernas virtuais para cada marcha}
+	\caption{Pernas virtuais para cada marcha (Fonte: \cite{article:raibert:1986})}
 	\label{fig:pernasvirtuais2}
 \end{figure}
 
-Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação (\ref{eq:onelegged}) para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e podem se mover em duas dimensões, obtendo, dessa forma:
+Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação (\ref{eq:onelegged}) para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e pode se mover em duas dimensões, obtendo, dessa forma a expressão
 
 \begin{eqnarray}
 x_{f,d} = \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}), \\
 y_{f,d} = \frac{\dot{y}T_S}{2} + k_{\dot{y}}(\dot{y}-\dot{y_d}),
 \end{eqnarray}
 
-em que $x_{f,d}$ e $y_{f,d}$ são os posicionamentos das patas virtuais na direção de cada dimensão, com relação à projeção do centro de gravidade, $\dot{x}$ e $\dot{y}$ são as velocidades atuais do movimento, $\dot{x_d}$ e $\dot{y_d}$ são as velocidades desejadas, $T_S$ é a duração do período de suporte (enquanto a pata ainda está em contato com o solo) e $k_{\dot{x}}$ e $k_{\dot{y}}$ são ganhos de velocidade.
+\noindent em que $x_{f,d}$ e $y_{f,d}$ são os posicionamentos das patas virtuais na direção de cada dimensão, com relação à projeção do centro de gravidade, $\dot{x}$ e $\dot{y}$ são as velocidades atuais do movimento, $\dot{x_d}$ e $\dot{y_d}$ são as velocidades desejadas, $T_S$ é a duração do período de suporte (enquanto a pata ainda está em contato com o solo) e $k_{\dot{x}}$ e $k_{\dot{y}}$ são ganhos de velocidade.
 
-Para controlar a postura do corpo, o sistema atua nos ângulos de rolagem e arfagem aplicando torques sobre os quadris virtuais durante o período de suporte usando servos lineares, através das seguintes equações:
+Para controlar a postura do corpo, o sistema atua nos ângulos de rolagem e arfagem aplicando torques sobre os quadris virtuais durante o período de suporte usando servos lineares, através das expressões
 
 \begin{eqnarray}
 u_x = -k_{p,x}(\phi_P-\phi_{P,d}) - k_{v,x}(\dot{\phi_P}) - k_{f,x}(f_x), \\
 u_y = -k_{p,y}(\phi_R-\phi_{R,d}) - k_{v,y}(\dot{\phi_R}) - k_{f,y}(f_y),
 \end{eqnarray}
 
-de modo que $u_x$ e $u_y$ são os sinais de saída dos atuadores, $\phi_P$ e $\phi_R$ são os ângulos de arfagem e rolagem, respectivamente, $\phi_{P,d}$ e $\phi_{R,d}$ são os ângulos desejados de arfagem e rolagem, respectivamente, $f_x$ e $f_y$ são as forças entregues pelos atuadores do quadril e $k_p$, $k_v$ e $k_f$ são ganhos.
+\noindent de modo que $u_x$ e $u_y$ são os sinais de saída dos atuadores, $\phi_P$ e $\phi_R$ são os ângulos de arfagem e rolagem, respectivamente, $\phi_{P,d}$ e $\phi_{R,d}$ são os ângulos desejados de arfagem e rolagem, respectivamente, $f_x$ e $f_y$ são as forças entregues pelos atuadores do quadril e $k_p$, $k_v$ e $k_f$ são ganhos.
 
 \subsection{Exemplo de Aplicação}
 
-Este modelo já foi utilizado na modelagem de robôs quadrúpedes de diversas maneiras \cite{article:meng:2015} e um exemplo pode ser encontrado nos trabalhos de Li \emph{et al.} \cite{article:li:2014}. Nestes, os modelos de Raibert são utilizados em conjunto com o modelo do Pêndulo Invertido com Massa-Mola (\emph{Spring Loaded Inverted Pendulum}) para poder obter mais detalhes dinâmicos, como por exemplo, para robôs com 6 graus de liberdade. Ao fazer isso, pode-se aumentar a robustez do trote e suavizar e estabilizar a corrida do quadrúpede. A Figura \ref{fig:slip} mostra diversas vistas do modelo deste robô.
+Este modelo já foi utilizado na modelagem de robôs quadrúpedes de diversas maneiras \cite{article:meng:2015} e um exemplo pode ser encontrado nos trabalhos de Li \emph{et al.} \cite{article:li:2014}. Nestes, os modelos de Raibert são utilizados em conjunto com o modelo do Pêndulo Invertido com Massa-Mola (\emph{Spring Loaded Inverted Pendulum}) para poder obter mais detalhes dinâmicos, como por exemplo, para robôs com 6 graus de liberdade. Ao fazer isso, pode-se aumentar a robustez do trote além de suavizar e estabilizar a corrida do quadrúpede. A Figura \ref{fig:slip} mostra diversas vistas do modelo deste robô.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/SLIP}
-	\caption{Vistas do quadrúpede com 6 graus de liberdade}
+	\caption{Vistas do quadrúpede com 6 graus de liberdade (Fonte: \cite{article:li:2014})}
 	\label{fig:slip}
 \end{figure}
 
-Assim como em \cite{article:raibert:1986} o modelo proposto em \cite{article:li:2014} utiliza o conceito de pernas virtuais para implementar uma marcha de trote (pernas diagonais se movimentando em pares) atuando, virtualmente, como um bípede. Neste caso, o modelo dinâmico utilizado, baseado no modelo SLIP, pode ser descrito através das equações:
+Assim como em \cite{article:raibert:1986} o modelo proposto em \cite{article:li:2014} utiliza o conceito de pernas virtuais para implementar uma marcha de trote (pernas diagonais se movimentando em pares) atuando, virtualmente, como um bípede. Neste caso, o modelo dinâmico utilizado, baseado no modelo SLIP, pode ser descrito através das equações
 
 \begin{eqnarray}
 M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} = -Mg\cos\theta,\\
 \frac{\mathrm d}{\mathrm d t} \left(Mr^2 \dot{\theta} \right) = Mgr\sin\theta,
 \end{eqnarray}
 
-em que $M$ é a massa do corpo, $K$ é o coeficiente elástico da mola, $r$ é o comprimento da perna, $r_0$ é o comprimento inicial da perna, $\theta$ é o ângulo em relação ao plano vertical, $g$ é a gravidade e $\dot{\theta}$ é a velocidade angular da perna. O modelo utilizando para determinação de tais parâmetros pode ser visto na Figura \ref{fig:slip2}.
+\noindent em que $M$ é a massa do corpo, $K$ é o coeficiente elástico da mola, $r$ é o comprimento da perna, $r_0$ é o comprimento inicial da perna, $\theta$ é o ângulo em relação ao plano vertical, $g$ é a gravidade e $\dot{\theta}$ é a velocidade angular da perna. O modelo utilizando para determinação de tais parâmetros pode ser visto na Figura \ref{fig:slip2}.
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.3\textwidth]{Figuras/SLIP2}
-	\caption{Modelo SLIP}
+	\caption{Modelo SLIP (Fonte: \cite{article:li:2014})}
 	\label{fig:slip2}
 \end{figure}
 
-Por sua vez, o algoritmo de controle utilizado para regular a corrida e o salto é uma variação do modelo de Raibert e é dado da seguinte forma:
+Por sua vez, o algoritmo de controle utilizado para regular a corrida e o salto é uma variação do modelo de Raibert e é dado como
 
 \begin{eqnarray} 
 \theta_s = \arcsin(\frac{v_xT_s}{2l_0}) + k_p(v_x-v_{xt}) + k_i\sum_{step}(v_x-v_{xt}) \label{eq:slip2},\\
 l_u = l_{u0} + C(v_z-v_{zt}) \label{eq:slip3},
 \end{eqnarray}
 
-em que $\theta_s$ é o ângulo de toque (complemento de $\theta$, da Figura \ref{fig:slip2}), $l_u$ é o comprimento do atuador, $T_s$ é o período da fase de suporte, $l_0$ é o comprimento inicial da perna, $v_x$ e $v_z$ são as velocidades na direção do movimento e na direção vertical, respectivamente, $v_{xt}$ e $v_{zt}$ são as velocidades desejadas, $l_{u0}$ é o comprimento inicial do atuador e $k_p$, $k_i$ e $C$ são parâmetros constantes.
+\noindent em que $\theta_s$ é o ângulo de toque (complemento de $\theta$, da Figura \ref{fig:slip2}), $l_u$ é o comprimento do atuador, $T_s$ é o período da fase de suporte, $l_0$ é o comprimento inicial da perna, $v_x$ e $v_z$ são as velocidades na direção do movimento e na direção vertical, respectivamente, $v_{xt}$ e $v_{zt}$ são as velocidades desejadas, $l_{u0}$ é o comprimento inicial do atuador e $k_p$, $k_i$ e $C$ são parâmetros constantes.
 
-Dessa forma, o algoritmo de controle utiliza a equação \ref{eq:slip2} para determinar os ângulos que devem ser aplicados em cada junta para proporcionar o movimento lateral e direto desejado. A equação \ref{eq:slip3}, por sus vez, determina a ação dos atuadores axiais.
+Dessa forma, o algoritmo de controle utiliza a equação (\ref{eq:slip2}) para determinar os ângulos que devem ser aplicados em cada junta para proporcionar o movimento lateral e longitudinal desejado. A equação (\ref{eq:slip3}), por sus vez, determina a ação dos atuadores axiais, gerando movimento vertical.
 
 Já o controle dos ângulos de rolagem e arfagem utiliza um modelo simplificado como o da Figura \ref{fig:slip3}. Este modelo pode ser descrito por
 
@@ -274,7 +274,7 @@ Já o controle dos ângulos de rolagem e arfagem utiliza um modelo simplificado co
 J\ddot{\beta} = \tau_b + \tau_f + (F_2 - F_1)\cdot l_1/2,
 \end{eqnarray}
 
-em que J é o momento de inércia do torso do robô, $\beta$ é o ângulo de postura, $\ddot{\beta}$ é a aceleração angular de $\beta$, $F_1$ e $F_2$ são as forças de contato das patas, $l_1$ é a distância entre as duas juntas e $\tau_b$ e $\tau_f$ são os torque de saída das juntas.
+\noindent em que J é o momento de inércia do torso do robô, $\beta$ é o ângulo de postura, $\ddot{\beta}$ é a aceleração angular de $\beta$, $F_1$ e $F_2$ são as forças de contato das patas, $l_1$ é a distância entre as duas juntas e $\tau_b$ e $\tau_f$ são os torque de saída das juntas.
 
 Pode-se considerar o corpo como um sistema amortecido com mola de forma que o algoritmo de controle pode ser descrito como
 
@@ -282,18 +282,18 @@ Pode-se considerar o corpo como um sistema amortecido com mola de forma que o al
 J\ddot{\beta} = -k_{p\beta}(\beta-\beta_d) - k_{d\beta}\dot{\beta},
 \end{eqnarray}
 
-de modo que $k_{p\beta}$ é a rigidez da mola equivalente, $k_{d\beta}$ é o amortecimento e $\beta_d$ é o ângulo desejado. Este configura um sistema de segunda ordem e é dado pela seguinte função de transferência:
+\noindent de modo que $k_{p\beta}$ é a rigidez da mola equivalente, $k_{d\beta}$ é o amortecimento e $\beta_d$ é o ângulo desejado. Este configura um sistema de segunda ordem e é dado pela função de transferência
 
 \begin{eqnarray}
 \frac{\beta(s)}{\beta_d(s)} = \frac{\omega_n}{s^2+2\xi\omega_n s+\omega_n^2} = \frac{2k_{p\beta}/J}{s^2+2k_{d\beta}s/J + 2k_{p\beta}/J},
 \end{eqnarray}
 
-sendo que $\xi$ é a razão de amortecimento e $\omega_n$ é a frequência natural do sistema de segunda ordem.
+\noindent sendo que $\xi$ é a razão de amortecimento e $\omega_n$ é a frequência natural do sistema de segunda ordem.
 
-\begin{figure} [h]
+\begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/SLIP3}
-	\caption{Modelo para controle de arfagem e rolagem}
+	\caption{Modelo para controle de arfagem e rolagem (Fonte: \cite{article:li:2014})}
 	\label{fig:slip3}
 \end{figure}
 
@@ -306,18 +306,18 @@ Em um quadrúpede apoiado em suas pernas diagonais podemos assumir que as pernas 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Balanco1}
-	\caption{Modelo de quadrúpede apoiado em pernas diagonais}
+	\caption{Modelo de quadrúpede apoiado em pernas diagonais (Fonte: \cite{article:meng:2015})}
 	\label{fig:balanco1}
 \end{figure}
 
-Se $\theta_{corpo}$ é o ângulo de arfagem, $\theta_{FS}$ e $\theta_{HS}$ são, respectivamente, os ângulos da perna dianteira e traseira e todos podem ser medidos através de sensores, podemos definir uma relação da seguinte forma:
+Se $\theta_{corpo}$ é o ângulo de arfagem, $\theta_{FS}$ e $\theta_{HS}$ são, respectivamente, os ângulos da perna dianteira e traseira e todos podem ser medidos através de sensores, podemos definir uma relação com a forma
 
 \begin{eqnarray}
 \theta_F = \theta_{FS} - \theta_{corpo},\\
 \theta_H = \theta_{HS} - \theta_{corpo},
 \end{eqnarray}
 
-em que $\theta_F$ é o ângulo entre a perna dianteira e a direção da gravidade e $\theta_H$ é o ângulo entre a perna traseira e a direção da gravidade. Esta relação pode ser exemplificada pela Figura \ref{fig:balanco2}.
+\noindent em que $\theta_F$ é o ângulo entre a perna dianteira e a direção da gravidade e $\theta_H$ é o ângulo entre a perna traseira e a direção da gravidade. Esta relação pode ser exemplificada pela Figura \ref{fig:balanco2}.
 
 O modelo dinâmico utilizado é baseado na equação de Lagrange, uma alternativa à Lei de Newton particularmente conveniente para sistemas com vários graus de liberdade ou com sistema de coordenadas muito complexo. Ela é dada por
 
@@ -325,13 +325,13 @@ O modelo dinâmico utilizado é baseado na equação de Lagrange, uma alternativa à 
 \frac{\mathrm d}{\mathrm d t} \left(\frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = S\tau,
 \end{eqnarray}
 
-sendo que, para este caso, $q = \begin{bmatrix}
+\noindent sendo que, para este caso, $q = \begin{bmatrix}
 \theta_F & \theta_H & \theta_{corpo}
 \end{bmatrix}$, $S = \begin{bmatrix}
 1 & 0 & -1 \\ 0 & 1 & -1
 \end{bmatrix}^T$ e $\tau = \begin{bmatrix}
 \tau_F \\ \tau_H
-\end{bmatrix}$ sendo que $\tau_F$ e $\tau_H$ são os torques exercidos pelo atuador dianteiro e traseiro, respectivamente. 
+\end{bmatrix}$ de modo que $\tau_F$ e $\tau_H$ são os torques exercidos pelo atuador dianteiro e traseiro, respectivamente. 
 
 Dessa forma, o controle de balanço para este modelo será realizado com base na seguinte definição de variáveis de estado: $X = \begin{bmatrix}
 \theta_F & \dot{\theta}_F & \theta_H & \dot{\theta}_H & \theta_{corpo} & \dot{\theta}_{corpo}
@@ -340,7 +340,7 @@ Dessa forma, o controle de balanço para este modelo será realizado com base na s
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Balanco2}
-	\caption{Modelo das relações de ângulo entre perna e corpo}
+	\caption{Modelo das relações de ângulo entre perna e corpo (Fonte: \cite{article:meng:2015})}
 	\label{fig:balanco2}
 \end{figure}
 
@@ -348,19 +348,19 @@ Dessa forma, o controle de balanço para este modelo será realizado com base na s
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Balanco3}
-	\caption{Estrutura do sistema de controle}
+	\caption{Estrutura do sistema de controle (Fonte: \cite{article:meng:2015})}
 	\label{fig:balanco3}
 \end{figure}
 
 \section{Razão de Aterrissagem em Acordo}
 Uma forma alternativa de mensurar a estabilidade dinâmica em robôs quadrúpedes foi proposta em 2009 por Won \emph{et al.}, denominada Razão de Aterrissagem em Acordo (\emph{Landing Accordance Ration - LAR}) \cite{article:won:2009}.
 
-Em uma marcha quadrúpede do tipo trote os membros diagonalmente dispostos se movem em pares, idealmente em sincronia, como pode ser exemplificado graficamente pela Figura \ref{fig:lar}. Onde LF e RF referem-se, respectivamente, às pernas esquerda e direita da frente enquanto que LH e RH referem-se, respectivamente, às pernas esquerda e direita da parte traseira do robô. O gráfico mostra quais pernas estão em contato com o solo em função do tempo.
+Em uma marcha quadrúpede do tipo trote os membros diagonalmente dispostos se movem em pares, idealmente em sincronia, como pode ser exemplificado graficamente pela Figura \ref{fig:lar}. Nela, LF e RF referem-se, respectivamente, às pernas esquerda e direita da frente enquanto que LH e RH referem-se, respectivamente, às pernas esquerda e direita da parte traseira do robô. O gráfico mostra quais pernas estão em contato com o solo em função do tempo.
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/LAR}
-	\caption{Sincronia em marcha quadrúpede}
+	\caption{Sincronia em marcha quadrúpede (Fonte: \cite{article:won:2009})}
 	\label{fig:lar}
 \end{figure}
 
@@ -369,7 +369,7 @@ No entanto, durante a ação real do robô, pode haver um desacordo entre os pares 
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/LAR2}
-	\caption{Representação da Dessincronização das Pernas}
+	\caption{Representação da Dessincronização das Pernas (Fonte: \cite{article:won:2009})}
 	\label{fig:lar2}
 \end{figure}
 
@@ -379,7 +379,7 @@ Dessa forma, sabendo que em marchas tipo trote estáveis a aterrissagem deve ser 
 \lambda = \frac{t - t_{td}}{t},
 \end{eqnarray}
 
-em que $\lambda$ representa o LAR e $t$ é o período de suporte, ou seja, o tempo que aquele par de pernas fica em contato com o solo.
+\noindent em que $\lambda$ representa o LAR e $t$ é o período de suporte, ou seja, o tempo que aquele par de pernas fica em contato com o solo.
 
 \subsection{Controle e Planejamento de Marcha}
 O controle é feito baseado nas forças de reação em cada pata. Cada força, por sua vez, é dividida em uma componente para a geração da trajetória de caminhada ($f_{vsd}$) e outra para o equilíbrio dinâmico ($f_{bal}$). Dessa forma o torque que deve ser exercido é dado por
