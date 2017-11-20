@@ -4,7 +4,7 @@
 \chapter{Desenvolvimento}\label{CapDesenvolvimento}
 
 % Resumo opcional. Comentar se não usar.
-\resumodocapitulo{Resumo opcional.}
+%\resumodocapitulo{Resumo opcional.}
 
 \section{Introdu\c{c}\~{a}o}
 
@@ -29,34 +29,36 @@ O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode
 	\label{fig:robo1}
 \end{figure}
 
-A identificação numérica (de 1 a 12) de cada motor pode ser organizada de acordo com sua pata e o distúrbio que corrige conforme a Tabela 1.
+A identificação numérica (de 1 a 12) de cada motor pode ser organizada de acordo com sua pata e o distúrbio que corrige conforme a Tabela \ref{TabIdMotores}.
 
 \subsection{Motores}
 Os motores utilizados na plataforma são do modelo RX-28 da DYNAMIXEL como o da Figura \ref{fig:motor} \cite{tcc:santos:2016}. Este motor, conforme indicado em seu manual\footnote{http://support.robotis.com/en/product/actuator/dynamixel/rx\_series/rx-28.htm\#Actuator\_Address\_06}, possui dois modos de operação: o modo posição (\emph{joint mode}) e o modo velocidade (\emph{wheel mode}).
 
 O modo posição possibilita a determinação da posição ângular de cada junta através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 9 bits (ou 1024 níveis de quantização) para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever a posição angular desejada com uma resolução de aproximadamente $0.2933^o$. Portanto, a relação entre a posição desejada, em graus, e o valor quantizado que deve ser escrito na memória é
 
-\begin{center}
-	Tabela 1: Identificação dos motores
-	\\
-	\begin{tabular}[b]{ | l | c | r |}
-		\hline
-		Identificação do motor & Perna & Movimento de Correção \\ \hline
-		1 & 3 & Rolagem \\ \hline
-		2 & 3 & Arfagem \\ \hline
-		3 & 3 & Arfagem (joelho) \\ \hline
-		4 & 4 & Rolagem \\ \hline
-		5 & 4 & Arfagem \\ \hline
-		6 & 4 & Arfagem (joelho) \\ \hline
-		7 & 1 & Rolagem \\ \hline
-		8 & 1 & Arfagem \\ \hline
-		9 & 1 & Arfagem (joelho) \\ \hline
-		10 & 2 & Rolagem \\ \hline
-		11 & 2 & Arfagem \\ \hline
-		12 & 2 & Arfagem (joelho) \\
-		\hline
-	\end{tabular}
-\end{center}
+\begin{table}[h]
+	\caption{Identificação dos motores}
+	\label{TabIdMotores}
+	\begin{center}
+		\begin{tabular}[b]{ | l | c | r |}
+			\hline
+			Identificação do motor & Pata & Movimento de Correção \\ \hline
+			1 & 3 & Rolagem \\ \hline
+			2 & 3 & Arfagem \\ \hline
+			3 & 3 & Arfagem (joelho) \\ \hline
+			4 & 4 & Rolagem \\ \hline
+			5 & 4 & Arfagem \\ \hline
+			6 & 4 & Arfagem (joelho) \\ \hline
+			7 & 1 & Rolagem \\ \hline
+			8 & 1 & Arfagem \\ \hline
+			9 & 1 & Arfagem (joelho) \\ \hline
+			10 & 2 & Rolagem \\ \hline
+			11 & 2 & Arfagem \\ \hline
+			12 & 2 & Arfagem (joelho) \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \newpage
 
@@ -93,12 +95,12 @@ O modo velocidade, por outro lado, permite a escrita da velocidade que o motor i
 B_{\omega} = \frac{1023}{6.91}|\omega_i| + 1024u(-\omega_i) = 148|\omega_i| + 1024u(-\omega_i),
 \end{eqnarray}
 
-\noindent em que a função u(x) é a função degrau. Ou seja, no caso da equação \ref{eq:velocidade_quant}, se $\omega_i$ for maior que 0 (sentido anti-horário) então o décimo bit de $B_{\omega}$ será igual a zero e se $\omega_i$ for menor que zero (sentido horário), então adicionar-se-a 1024 ao valor que define o módulo, de forma que o décimo bit seja configurado como 1. O caso em que $\omega_i$ é igual a zero não afeta a análise da função degrau uma vez que, se os 9 bit menos significativos forem 0 o motor não irá gerar qualquer movimento, independentemente do valor do décimo bit. 
+\noindent em que u é a função degrau. Ou seja, no caso da equação \ref{eq:velocidade_quant}, se $\omega_i$ for maior que 0 (sentido anti-horário) então o décimo bit de $B_{\omega}$ será igual a zero e se $\omega_i$ for menor que zero (sentido horário), então adicionar-se-á 1024 ao valor que define o módulo, de forma que o décimo bit seja configurado como 1. O caso em que $\omega_i$ é igual a zero não afeta a análise da função degrau uma vez que, se os 9 bit menos significativos forem 0 o motor não irá gerar qualquer movimento, independentemente do valor do décimo bit. 
 
 Segundo o manual, para definir qual o modo de operação será utilizado, deve-se alterar os ângulos limites de cada motor, permitindo ou não que o movimento seja limitado. Dessa forma, para selecionar o modo velocidade, os ângulos mínimo e máximo devem ser ambos iguais a zero. Consequentemente, o sistema identifica que não deve haver restrição de movimento. Já para selecionar o modo posição, nenhum dos dois pode ser zero, havendo, dessa maneira, uma restrição do movimento. Para garantir a maior abrangência do movimento de cada motor no modo posição, pode-se definir o ângulo mínimo como 1 (valor quantizado) e o ângulo máximo como 1023. A definição dos ângulos mínimo e máximo pode ser realizada através dos bytes de 6 a 9 da memória.
 
 \subsection{Sistema Embarcado}
-Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele, então, envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o \emph{Arduino} envia não apenas os dados dos três eixos (X,Y e Z) mas também os ângulos correspondentes de rolagem e arfagem já calculados.
+Os principais dispositivos do sistema embarcado são o \emph{Raspberry Pi} e o \emph{Arduino}. O \emph{Arduino} foi configurado, nos trabalhos anteriores com a plataforma, para receber os dados de sensoriamento do robô, que incluem os sensores de força presentes em cada pata e o acelerômetro. Ele, então, envia para o \emph{Raspberry Pi}, via comunicação serial, estes dados já com um tratamento inicial \cite{tcc:porphirio:2017}. No caso específico do acelerômetro, o \emph{Arduino} envia, não apenas os dados dos três eixos (X,Y e Z), mas também os ângulos correspondentes de rolagem e arfagem já calculados.
 
 \footnotetext{http://support.robotis.com/en/product/actuator/dynamixel/rx\_series/rx-28.htm\#Actuator\_Address\_06}
 
@@ -113,12 +115,12 @@ Tais ângulos possibilitam caracterizar a orientação do robô no espaço, indicando
 	\label{fig:angulos}
 \end{figure}
 
-O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
+O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código desenvolvido em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
 
 \section{gDataLogger}
-O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo Borges para que os dados adquiridos durante o processo (como os ângulos de rolagem e arfagem, a posição dos motores e etc) sejam armazenados em um arquivo com extensão .mat para a posterior leitura pelo software \emph{Matlab}.
+O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo Borges para que os dados adquiridos durante o processo (como os ângulos de rolagem e arfagem, a posição dos motores e etc) sejam armazenados em um arquivo com extensão .mat para a posterior leitura através do software \emph{Matlab}.
 
-O \emph{gDataLogger} foi acoplado no código desenvolvido para o recolhimento e análise dos dados de cada experimento do controle de estabilidade. As principais funções para realizar tal recolhimento são: declarar as variáveis, inserir um valor na variável, atualizar o programa e fechá-lo. Além disso, foi desenvolvido um código no próprio \emph{Matlab} para recolher as informações de cada arquivo .mat, organizá-las e, por fim, plotá-las em um gráfico de forma adequada para a análise.
+O \emph{gDataLogger} foi acoplado ao código desenvolvido para o recolhimento e análise dos dados de cada experimento do controle de estabilidade. As principais funções para realizar tal recolhimento são: declarar as variáveis, inserir um valor na variável, atualizar o programa e fechá-lo. Além disso, foi desenvolvido um código no próprio \emph{Matlab} para recolher as informações de cada arquivo .mat, organizá-las e, por fim, plotá-las em um gráfico de forma adequada para a análise.
 
 \begin{figure} [h]
 	\centering
@@ -138,7 +140,7 @@ Desta forma, a implementação do controle de estabilidade como uma thread periódi
 
 O valor de $T_{am}$ foi, a princípio, estipulado como 0.1 segundos. Porém, percebeu-se através de diversos testes, e com auxílio do gDataLogger para a medição do tempo, que a leitura da própria função de controle (linha a linha do código) durava cerca de 35 a 40 ms. Este tempo representa aproximadamente 40\% do tempo de amostragem proposto sendo, dessa forma, uma valor bastante elevado e que pode prejudicar a dinâmica do sistema em tempo real. Por este motivo, estabeleceu-se que a leitura do código não deveria exceder em 20\% o tempo de amostragem.
 
-Após várias testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-las. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0.2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
+Após vários testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-los. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0.2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
 
 \section{Controle de Estabilidade}
 O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle consiste na utilização de sensores para a aquisição das informações do estado atual do robô e a subsequente aplicação de respostas aos motores baseadas nestes dados. Mais especificamente, a resposta de cada motor i (em que i varia entre 1 e 12) será dada pela multiplicação do distúrbio detectado pelos sensores por um ganho $K_i$ obtido empiricamente para cada junta. 
@@ -146,30 +148,30 @@ O princípio do controle de estabilidade adotado pelo presente trabalho se baseia
 Para a implementação do controle desejado, o sensoriamento será feito através do acelerômetro, responsável pela detecção de distúrbios no robô que possam gerar os movimentos indesejados de rolagem, $d_{roll}$ (queda para direita ou esquerda) ou arfagem, $d_{pitch}$ (queda para frente ou para trás). Então, a resposta da i-ésima junta para compensar tal movimento será dada por
 
 \begin{eqnarray} \label{eq:des_inicial}
-q_i(t) = \pm K_id_{roll/pitch},
+q_i(t) = \pm K_id_{roll/pitch}(t),
 \end{eqnarray}
 
 \noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta e $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro\footnote{A notação $X_{roll/pitch}$, que será utilizada neste trabalho, indica que o termo pode ser substituído por $X_{roll}$ ou $X_{pitch}$ dependendo do motor em questão. Por exemplo, o motor 1 corrige o movimento de rolagem então os termos $X_{roll/pitch}$ serão substituídos por $X_{roll}$.}.
 
 O sinal de $q_i(t)$ será determinado empiricamente de modo que a resposta da i-ésima junta seja tal que gere um movimento final no robô que se oponha ao movimento gerado pelo distúrbio. Por exemplo, se o acelerômetro detecta uma queda para à esquerda do robô, as juntas responsáveis pela rolagem devem se movimentar no sentido tal que o robô sofra um movimento para a direita.
 
-Podemos observar que a equação \ref{eq:des_inicial} é muito semelhante com a equação \ref{} de \cite{article:sousa:2010}. Como a abordagem a ser utilizada também é empírica na determinação de $K_i$, incorporaremos o sinal $\pm$ ao ganho,  assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim, $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
+Podemos observar que a equação (\ref{eq:des_inicial}) é muito semelhante com as equações (\ref{empirico1}) e (\ref{empirico2}) de \cite{article:sousa:2010}. Como a abordagem a ser utilizada também é empírica na determinação de $K_i$, incorporaremos o sinal $\pm$ ao ganho,  assumindo, dessa forma, que determinaremos o sinal através do parâmtero $K_i$. Assim, $K_i$ será positivo ou negativo dependendo do sentido necessário de cada junta para corrigir o distúrbio.
 
 O distúrbio, $d_{roll/pitch}$, por sua vez, será tratado no presente trabalho como a diferença entre o valor de referência desejado para aquela quantidade (posição ou velocidade) e o valor atual da mesma (medida pelo acelerômetro). Isto se representará como
 
 \begin{eqnarray}
-d_{roll/pitch} = r_{roll/pitch} - m_{roll/pitch},
+d_{roll/pitch}(t) = r_{roll/pitch}(t) - m_{roll/pitch}(t),
 \end{eqnarray}
 
 \noindent em que $r_{roll/pitch}$ é o valor de referência, que no geral será igual a zero, e $m_{roll/pitch}$ é o valor medido a cada instante de amostragem. A equação, portanto, que resume a ideia básica do controle proposto é
 
 \begin{eqnarray} \label{eq:basica_final}
-q_i(t) = K_i(r_{roll/pitch} - m_{roll/pitch}).
+q_i(t) = K_i(r_{roll/pitch}(t) - m_{roll/pitch}(t)).
 \end{eqnarray}
 
 \noindent O sistema básico acima descrito pode ser melhor visualizado pela Figura \ref{fig:diagrama1}.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/Diagrama1}
 	\caption{Diagrama de Blocos do Sistema Básico}
@@ -178,22 +180,22 @@ q_i(t) = K_i(r_{roll/pitch} - m_{roll/pitch}).
 
 
 \subsection{Abordagem Inicial}
-A ideia inicial para o controle de estabilidade se baseia na utilização de velocidades ao invés de posições e, portanto, do modo velocidade dos motores. Esta abordagem se justifica pela necessidade de uma resposta rápida e não cadenciada das juntas. Consequentemente, os termos da equação \ref{eq:basica_final} serão caracterizados como velocidades, isto é, $r_{roll/pitch}$ será a velocidade angular desejada para a rolagem ou arfagem e $m_{roll/pitch}$, a velocidade atualmente medida para estes movimentos, que reescreveremos como $\omega_{roll/pitch}$. Da mesma forma, $q_i(t)$ será descrito como a velocidade do motor i no instante t, ou seja, $\omega_i(t)$. Remodelando a equação \ref{eq:des_inicial} para as novas definções tem-se
+A ideia inicial para o controle de estabilidade se baseia na utilização de velocidades e, portanto, do modo velocidade dos motores, ao invés de posições. Esta abordagem se justifica pela necessidade de uma resposta não cadenciada das juntas. Consequentemente, os termos da equação (\ref{eq:basica_final}) serão caracterizados como velocidades, isto é, $r_{roll/pitch}$ será a velocidade angular desejada para a rolagem ou arfagem, $\omega_r$, e $m_{roll/pitch}$, a velocidade atualmente medida para estes movimentos, que reescreveremos como $\omega_{roll/pitch}$. Da mesma forma, $q_i(t)$ será descrito como a velocidade do motor i no instante t, ou seja, $\omega_i(t)$. Remodelando a equação (\ref{eq:des_inicial}) para as novas definções tem-se
 
 \begin{eqnarray}
-\omega_i(t) = K_i(r_{roll/pitch} - \omega_{roll/pitch}).
+\omega_i(t) = K_i(\omega_{r}(t) - \omega_{roll/pitch}(t)).
 \end{eqnarray}
 
-Como deseja-se a estabilidade do robô, $r_{roll/pitch}$ será estipulado como igual a zero, uma vez que movimentações que provocam rolagem ou arfagem podem levá-lo à queda. Dessa forma, a equação anterior resultará em
+Como deseja-se a estabilidade do robô, $\omega_{r}$ será estipulado como igual a zero, uma vez que movimentações que provocam rolagem ou arfagem podem levá-lo à queda. Dessa forma, a equação anterior resultará em
 
 \begin{eqnarray}
-\omega_i(t) = K_i( - \omega_{roll/pitch}).
+\omega_i(t) = K_i( - \omega_{roll/pitch}(t)).
 \end{eqnarray}
 
 Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, deve ser feita uma derivação para obter as velocidades $\omega_{roll/pitch}$. Dessa forma
 
 \begin{eqnarray} \label{eq:controle_velocidade}
-\omega_i(t) = -K_i \frac{\mathrm d}{\mathrm d t} \left( \theta_{roll/pitch} \right),
+\omega_i(t) = -K_i \frac{\mathrm d}{\mathrm d t} \left( \theta_{roll/pitch}(t) \right),
 \end{eqnarray}
 
 \noindent em que $\theta_{roll/pitch}$ é o ângulo de rolagem ou arfagem medido pelo acelerômetro. O diagrama de blocos resultante desta configuração pode ser visualizado na Figura \ref{fig:diagrama2}.
@@ -205,10 +207,10 @@ Como o acelerômetro entrega apenas os ângulos de rolagem e arfagens medidos, dev
 	\label{fig:diagrama2}
 \end{figure}
 
-Uma vez que o sistema está digitalizado, as equações devem ser discretizadas com o tempo de amostragem $T_{am}$. A equação \ref{eq:controle_velocidade} discretizada, portanto, resulta em
+Uma vez que o sistema está digitalizado, as equações devem ser discretizadas com o tempo de amostragem $T_{am}$. A equação (\ref{eq:controle_velocidade}) discretizada, portanto, resulta em
 
 \begin{eqnarray} \label{eq:controle_velocidade_discreto}
-\omega_i[k] = -K_i \frac{\theta_{roll/pitch}[k] - \theta_{roll/pitch}[k-1]}{T_{am}}.
+\omega_i[k] = -K_i \left(\frac{\theta_{roll/pitch}[k] - \theta_{roll/pitch}[k-1]}{T_{am}}\right).
 \end{eqnarray}
 
 \subsection{Filtro}
@@ -223,6 +225,8 @@ A equação que descreve o filtro de forma discretizada é
 \begin{eqnarray} \label{eq:filtro}
 A_{out}[k] = \frac{1}{1+T_{am}2\pi f_c}A_{out}[k-1] + \frac{T_{am}2\pi f_c}{1+T_{am}2\pi f_c}A_{in}[k].
 \end{eqnarray}
+
+\noindent em que $A_{out}$ é a saída do filtro e $A_{in}$ é a sua entrada.
 
 Como a frequência de amostragem $f_{am} = \frac{1}{T_{am}} = 5Hz$, é razoável estipular a frequência de corte do filtro com o valor de 1Hz. Como $T_{am} = 0.2$ e $f_c = 1$ a equação \ref{eq:filtro} resulta em
 

@@ -1,7 +1,7 @@
 %TCIDATA{LaTeXparent=0,0,relatorio.tex}
                       
                      
-\chapter{Revisão Bibliográfica}\label{CapRevisaoBibliografica}
+\chapter{Fundamentação Teórica}\label{CapRevisaoBibliografica}%Revisão Bibliográfica}\label{CapRevisaoBibliografica}
 
 % Resumo opcional. Comentar se não usar.
 %\resumodocapitulo{Resumo opcional.}
@@ -671,8 +671,8 @@ y_{i,p} = f_{roll,i,p} + f_{pitch,i,p} + f_{COM,i,p} + f_{force,i,p} + f_{touch,
 Para este estudo, as respostas mais relevantes são as dos ângulos de rolagem e arfagem e são dadas por
 
 \begin{eqnarray}
-f_{roll,i,p} = k_{roll}f_i(\phi_{roll}), \\
-f_{pitch,i,p} = k_{pitch}f_i(\phi_{pitch}),
+f_{roll,i,p} = k_{roll}f_i(\phi_{roll})\label{empirico1},  \\
+f_{pitch,i,p} = k_{pitch}f_i(\phi_{pitch}) \label{empirico2},
 \end{eqnarray}
 
 \noindent de modo que $k_{roll}$ e $k_{pitch}$ são ganhos estáticos que definem a velocidade de convergência da resposta à situação de equilíbrio, $\phi_{roll}$ e $\phi_{pitch}$ são os ângulos medidos de rolagem e arfagem, respectivamente, e $f_i$ é uma função linear utilizada para eliminar o ruído do sensor e pode ser positiva ou negativa, dependendo da contribuição da junta para aquela variável.
@@ -680,10 +680,10 @@ f_{pitch,i,p} = k_{pitch}f_i(\phi_{pitch}),
 \section{Conclusão}
 Neste capítulo, foram apresentados os principais trabalhos estudados sobre o tema de controle de equilíbrio de robôs quadrúpedes. Apresentou-se desenvolvimentos concebidos desde o início do estudo deste tema até o cenário atual. Por esse motivo, várias abordagens diferentes foram estudadas, incluindo métodos empíricos, dinâmicos, cinemáticos e geométricos.
 
-A metodologia que será aplicada no desenvolvimento deste trabalho, como será melhor abordada no capítulo \ref{CapDesenvolvimento}, apresenta uma abordagem principalmente composta por elementos cinemáticos. Além disso, a componente empírica também terá um foco fundamental ao longo do desenvolvimento do projeto. Apesar de que o controle a ser implementado não considera fatores dinâmicos como torques e momentos, alguns dos conceitos utilizados nos trabalhos com estes modelos podem ser aplicados.
+A metodologia que será aplicada no desenvolvimento deste trabalho, como será melhor abordado no capítulo \ref{CapDesenvolvimento}, apresenta uma abordagem composta, principalmente, por elementos cinemáticos. Além disso, a componente empírica também terá um foco fundamental ao longo do desenvolvimento do projeto. Apesar de que o controle a ser implementado não considera fatores dinâmicos como torques e momentos, alguns dos conceitos utilizados nos trabalhos com estes modelos podem ser aplicados.
 
 Neste sentido, o controle de estabilidade será realizado em grande parte com um controle de velocidades. Assim como em \cite{article:raibert:1986, article:won:2009,article:featherstone:2016}, a concepção inicial deste trabalho se baseou nas velocidades dos ângulos de rolagem e arfagem do corpo do robô para a caracterização do distúrbio gerador da instabilidade e, consequentemente, do seu uso para a determinação das respostas necessárias para a devida correção. Alguns destes trabalhos (e.g. \cite{article:raibert:1986, article:won:2009}) fazem tal correção através da aplicação de torques. Neste caso, porém, esta será realizada pela imposição de velocidades em cada junta, de forma proporcional à perturbação sofrida.
 
-Assim como nos trabalhos já citados e em \cite{article:sousa:2010}, a presença de ganhos relacionando às variáveis de rolagem e arfagem serão essenciais para a resposta de correção ao distúrbio. Em especial, o controle proposto neste trabalho se assemelha ao desenvolvido em \cite{article:sousa:2010}, uma vez que a velocidade de cada junta deve ser proporcional ao distúrbio por um ganho específico e empiricamente determinado. Para tal, a medição através de sensores, como o acelerômetro e sensores de força é essencial para o controle desenvolvido. Este último aspecto segue as mesmas características dos trabalhos de \cite{article:raibert:0000}.
+Assim como nos trabalhos já citados e em \cite{article:sousa:2010}, a presença de ganhos relacionando às variáveis de rolagem e arfagem serão essenciais para a resposta de correção ao distúrbio. Em especial, o controle proposto neste trabalho se assemelha ao desenvolvido em \cite{article:sousa:2010}, uma vez que a velocidade de cada junta deve ser proporcional ao distúrbio por um ganho específico e empiricamente determinado. Para tal, a medição da configuração do robô através de sensores, como o acelerômetro e sensores de força, é essencial para o desenvolvimento empírico do sistema de controle. Este último aspecto segue as mesmas características dos trabalhos de \cite{article:raibert:0000}.
 
-Por fim, a determinação de outras características do movimento de cada pata, como sincronia e direção, são implementados com base na teoria desenvolvida em \cite{article:mcghee:1968,article:raibert:1986}. Neste sentido algumas patas devem se locomover em sincronia, assim como nos conceitos de pernas virtuais, em uma direção determinada de modo a garantir uma margem de estabilidade estática suficiente para que o equilíbrio do robô seja mantido.
+Por fim, a determinação de outras características do movimento de cada pata, como sincronia e direção, são implementadas com base na teoria desenvolvida em \cite{article:mcghee:1968,article:raibert:1986}. Neste sentido algumas patas devem se locomover em sincronia, assim como nos conceitos de pernas virtuais, em uma direção determinada de modo a garantir uma margem de estabilidade estática suficiente para que o equilíbrio do robô seja mantido.
