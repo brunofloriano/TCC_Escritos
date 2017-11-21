@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{46}
 \contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{47}
 \contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{51}
-\contentsline {section}{\numberline {3.7}Conclusão}{51}
+\contentsline {section}{\numberline {3.7}Conclusão}{52}
 \contentsline {chapter}{\numberline {4}Resultados Experimentais}{53}
 \contentsline {section}{\numberline {4.1}Introdução}{53}
 \contentsline {section}{\numberline {4.2}Modo Velocidade}{53}

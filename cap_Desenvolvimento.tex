@@ -245,12 +245,12 @@ O diagrama de blocos com filtro pode ser visualizado na Figura \ref{fig:diagrama
 
 \subsection{Torque no Modo Velocidade}
 
-Conforme será melhor aprofundado no capítulo de Resultados, após alguns testes, percebeu-se que os motores no modo velocidade não exibem torque suficiente para sustentar o próprio peso. Nestes casos, as juntas se movem facilmente por ações externas ao invés de manter a posição fixa (para velocidades nulas). Isto resulta em casos em que, mesmo sem distúrbio, as juntas acabam se movendo pela ação do peso do robô sobre elas e gerando, como resultado, a queda do robô.
+Conforme será melhor aprofundado no capítulo \ref{CapExperimentos}, após alguns testes, percebeu-se que os motores no modo velocidade não exibem torque suficiente para sustentar o próprio peso. Nestes casos, as juntas se movem facilmente por ações externas ao invés de manter a posição fixa (para velocidades nulas). Isto resulta em casos em que, mesmo sem distúrbio, as juntas acabam se movendo pela ação do peso do robô sobre elas e gerando, como resultado, a queda do robô.
 
 Por outro lado, o modo posição apresenta um torque elevado, de modo que ao determinar uma posição específica para cada junta, esta se mantém fixa e não cede facilmente a forças aplicadas externamente. Não foi encontrado ainda o motivo dessa diferença entre os dois modos de operação. Porém, uma vez reconhecida esta diferença, decidiu-se trabalhar no modo posição para obter um controle de estabilidade mais adequado.
 
 \subsection{Controle de Estabilidade no Modo Posição}
-Uma vez decidido pelo uso do modo posição dos motores ao invés do modo velocidade, algumas alterações ao modelo anteriormente proposto foram necessárias. A equação \ref{eq:controle_velocidade_discreto} determina qual a velocidade $\omega_i[k]$ que deve ser aplicada ao i-ésimo motor no instante k. No entanto, como passou-se a trabalhar no modo posição, a informação que deve ser enviada a cada motor é a sua posição e não a sua velocidade. Dessa forma, para obter a posição desejada de cada motor, basta integrar $\omega_i$. No cenário discretizado em que estamos trabalhando, portanto, a posição angular $\theta_i[k]$ de cada motor no instante k será dada por
+Uma vez decidido pelo uso do modo posição dos motores ao invés do modo velocidade, algumas alterações no modelo anteriormente proposto foram necessárias. A equação (\ref{eq:controle_velocidade_discreto}) determina qual a velocidade $\omega_i[k]$ que deve ser aplicada ao i-ésimo motor no instante k. No entanto, como passou-se a trabalhar no modo posição, a informação que deve ser enviada a cada motor é a sua posição e não a sua velocidade. Dessa forma, para obter a posição desejada de cada motor, basta integrar $\omega_i$. No cenário discretizado em que estamos trabalhando, portanto, a posição angular $\theta_i[k]$ de cada motor no instante k será dada por
 
 \begin{eqnarray} \label{eq:controle_posicao_discreto}
 \theta_i[k] = \theta_i[k-1] + T_{am}\omega_i[k] = \theta_i[k-1] -T_{am}K_i \left( \frac{\theta_{roll/pitch}[k] - \theta_{roll/pitch}[k-1]}{T_{am}}\right).
@@ -278,7 +278,7 @@ Da mesma forma, a correção do movimento de arfagem, como pode ser observado na F
 
 \footnotetext{No presente trabalho foram utilizados os subíndices R, L, B e F para indicar, respectivamente, os sentidos da direita (Right), esquerda (Left), para trás (Back) e para frente (Front).}
 
-No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho e motores de cima (ou não-joelho). Aos motores do tipo joelho, ilustrados pela Fig. \ref{fig:sincronia_pitch}(a) com a cor azul, serão atribuídos um ganho $K_{down}$, e aos motores de cima (em vermelho), um ganho $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{F}K_{up}$.
+No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho e motores de cima (ou não-joelho). Aos motores do tipo joelho, ilustrados pela Fig. \ref{fig:sincronia_pitch}(b) com a cor azul, serão atribuídos um ganho $K_{down}$, e aos motores de cima (em vermelho), um ganho $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{F}K_{up}$.
 
 \begin{figure} [t]
 	\centering
@@ -307,11 +307,11 @@ K_{8/11} = K_{F}K_{up},\nonumber\\
 K_{9/12} = K_{F}K_{down}.
 \end{eqnarray}
 
-\noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$ são igual ao valor do outro lado da igualdade.
+\noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$, ganhos dos motores m e n, respectivamente, são iguais ao valor do outro lado da igualdade.
 
 Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1.1 para a devida correção.
 
-A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais. 
+A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais na plataforma, com distúrbios em cada direção estudada, e será melhor detalhada no capítulo \ref{CapExperimentos}.
 
 \subsection{Sentido de Movimentação das Patas} \label{sentido_movimentacao}
 
@@ -330,9 +330,9 @@ O círculo escuro no centro da base do robô é a representação do seu Centro de Gr
 
 Na Fig. \ref{fig:quedas}(a), apresenta-se o caso em que um distúrbio é aplicado	na plataforma, anteriormente em repouso, de modo a movimentá-la para a direita do robô (movimento de rolagem). Podemos notar que essa perturbação resulta no deslocamento do centro de gravidade no plano transversal e, consequentemente, na movimentação de sua projeção para a direita. Como resultado, o valor da distância entre tal projeção e as patas da esquerda aumenta por um fator $\epsilon$, enquanto essa relação com as patas da direita diminui pelo mesmo fator.
 
-Dessa forma, considerando os teoremas abordados no item \ref{sec:estabilidade_estatica} deste trabalho, percebemos que a margem de estabilidade estática do robô é prejudicada, uma vez que ela passa a ser igual a $1-\epsilon$. Para fazer com que essa margem seja corrigida e evitar a instabilidade do robô, as patas da direita devem se mover para a direita. Isso faz com que a menor distância entre a projeção do COG e as bordas do retângulo formado pelas patas aumente e, com isso, a estabilidade seja atingida.
+Dessa forma, considerando os teoremas abordados no item \ref{sec:estabilidade_estatica} deste trabalho, percebemos que a margem de estabilidade estática do robô é prejudicada, uma vez que ela passa a ser igual a $1-\epsilon$. Além disso, nota-se que, para fazer com que essa margem seja corrigida e evitar a instabilidade do robô, as patas da direita devem se mover para a direita. Isso faz com que a distância entre a projeção do COG e as bordas da direita do retângulo formado pelas patas aumente e, com isso, a margem de estabilidade seja corrigida.
 
-Cabe aqui ressaltar que a movimentação das patas da esquerda não influencia a estabilidade neste caso pois, se elas se movessem para a esquerda, a margem de estabilidade não mudaria (uma vez que esta é definida como a menor distância) e, se elas se movessem para a direita, haveria o risco de se criar uma nova margem, porém, ainda menor do que $1-\epsilon$. Conclui-se, então, que apenas as patas da direita devem se mover e que têm de fazê-lo para a direita. O mesmo se aplica caso o movimento perturbador seja para a esquerda (caso em que apenas as patas da esquerda devem se mover para a esquerda).
+Cabe aqui ressaltar que a movimentação das patas da esquerda não influencia a estabilidade neste caso pois, se elas se movessem para a esquerda, a margem de estabilidade não mudaria (uma vez que esta é definida como a menor das distâncias descritas) e, se elas se movessem para a direita, haveria o risco de se criar uma nova margem, porém, ainda menor do que $1-\epsilon$. Conclui-se, então, que apenas as patas da direita devem se mover e que têm de fazê-lo para a direita. O mesmo se aplica caso o movimento perturbador seja para a esquerda (caso em que apenas as patas da esquerda devem se mover para a esquerda).
 
 A mesma análise pode ser realizada para o movimento de arfagem como pode ser observado na Fig. \ref{fig:quedas}(b). Analogamente ao caso anterior, na ocorrência de um distúrbio para a frente do robô apenas as patas dianteiras devem se movimentar e para frente, enquanto uma perturbação para trás deve ser corrigida com um movimento para trás das patas traseiras.
 
@@ -348,13 +348,13 @@ A_j & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
 
 \noindent Isto é, se a velocidade detectada ocorrer no sentido j (em que j pode ser igual a R, L, F ou B, dependendo do sentido da queda do robô), o ganho referente a este sentido será diferente de zero e igual ao ganho de resposta, $A_j$, a ser caracterizado empiricamente. Caso não seja detectado nenhum distúrbio no sentido j o ganho referente àquela direção será igual a zero.
 
-Os testes realizados na plataforma indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos, como será melhor abordado no capítulo \ref{CapExperimentos}.
+Como será melhor abordado no capítulo \ref{CapExperimentos}, os testes empíricos realizados na plataforma, com  aplicação de distúrbios, indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
 
 \subsection{Juntas do Tipo Joelho}
 
 As juntas do tipo joelho diferem das outras no que diz respeito ao seu sentido de deslocamento. Em tal caso, percebeu-se, que o mais adequado para estas juntas é que sigam o movimento contrário ao distúrbio. Isso ocorre porque, ao seguir este sentido, a junta do joelho orienta a pata a aterrissar na vertical. Podemos visualizar melhor os possíveis cenários de orientação desta junta durante a aterrissagem através da Figura \ref{fig:aterrissagem}.
 
-A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem correção de distúrbio, como referência. A Fig. \ref{fig:aterrissagem}(b), por sua vez, apresenta o caso em que a junta do joelho não muda sua configuração durante o distúrbio, ocasionando em uma aterrissagem diagonal. Dessa forma, a pata fica suscetível a deslizar horizontalmente. Já a Fig. \ref{fig:aterrissagem}(c) indica a configuração aproximada da pata quando o joelho se move em oposição ao distúrbio. É possível notar que a pata tem uma possibilidade mínima de deslizamento neste caso. Por fim, na Fig. \ref{fig:aterrissagem}(d), é possível visualizar a posição da pata quando o joelho se desloca no sentido do distúrbio. Neste cenário, a pata também pode sofrer o deslizamento horizontal, cedendo ao peso do robô ocasionando em sua queda.
+A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem correção de distúrbio, como referência. A Fig. \ref{fig:aterrissagem}(b), por sua vez, apresenta o caso em que a junta do joelho não muda sua configuração durante a correção do distúrbio, ocasionando em uma aterrissagem diagonal. Dessa forma, a pata fica suscetível a deslizar horizontalmente, sob influência do peso do robô. Já a Fig. \ref{fig:aterrissagem}(c) indica a configuração aproximada da pata quando o joelho se move em oposição ao distúrbio. É possível notar que a pata tem uma possibilidade mínima de deslizamento neste caso, devido à sua aterrissagem vertical. Por fim, na Fig. \ref{fig:aterrissagem}(d), é possível visualizar a posição da pata quando o joelho se desloca no sentido do distúrbio. Neste cenário, a pata também pode sofrer o deslizamento horizontal, cedendo ao peso do robô ocasionando em sua queda.
 
 \begin{figure} [b]
 	\centering
@@ -363,22 +363,24 @@ A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem c
 	\label{fig:aterrissagem}
 \end{figure}
 
-Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes, a serem descritos nos resultados, que o valor mais adequado para $K_{down}$ é -0.4 quando $K_{up}$ é normalizado com valor unitário. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem.
+Dessa forma, a diferenciação entre juntas do tipo joelho e não-joelho é utilizada apenas para adequar o movimento em conjunto destes motores para que, durante a correção do distúrbio, a pata aterrisse da forma mais vertical possível. Deste modo, é razoável assumir que a definição da resposta para a correção em si, seja dada apenas pelos fatores $K_B$ e $K_F$, enquanto $K_{up}$ e $K_{down}$ são apenas ponderações deste movimento para cada tipo de junta. Portanto, por simplicidade, podemos assumir $K_{up} = 1$, de forma que somente $K_{down}$ deva ser encontrado empiricamente. Neste caso, $K_{down}$ deverá ser negativo para seguir o movimento contrário ao motor de cima. Os teste para a determinação de seu valor serão abordados no capítulo \ref{CapExperimentos}.
+
+%Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes, a serem descritos nos resultados, que o valor mais adequado para $K_{down}$ é -0.4 quando $K_{up}$ é normalizado com valor unitário. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem.
 
 \subsection{Paralelismo com a Posição Desejada} \label{sec:paralelismo}
-Determinados os ganhos $K_i$ de todos os motores, o controle de estabilidade está apto a corrigir os distúrbios, conforme será melhor abordados no capítulo dos Resultados. No entanto, o controle proposto até aqui, caracterizado pela equação \ref{eq:controle_posicao_discreto}, aplica uma determinada posição $\theta_i$ em cada junta e não a modifica mais até a ocorrência de um novo distúrbio. Isto resulta na permanência do robô na posição de correção, mesmo após o fim do distúrbio.
+Determinados os ganhos $K_i$ de todos os motores, o controle de estabilidade está apto a corrigir os distúrbios, conforme será melhor abordado no capítulo \ref{CapExperimentos}. No entanto, o controle proposto até aqui, caracterizado pela equação (\ref{eq:controle_posicao_discreto}), aplica uma determinada posição $\theta_i$ em cada junta e não a modifica mais até a ocorrência de um novo distúrbio. Isto resulta na permanência do robô na posição de correção, mesmo após o fim da perturbação.
 
 A ação mais adequada para o quadrúpede é de, após a correção do distúrbio, cada junta voltar a uma posição desejada para o regime permanente. Dessa forma, se o robô estiver parado, deseja-se que ele volte à posição inicial após a correção. Da mesma maneira, caso a plataforma esteja em processo de marcha, ela deve continuar sua movimentação normalmente após a estabilidade ser alcançada.
 
-À vista disso, podemos remodelar o controle de equilíbrio com um novo diagrama de blocos, como o da Figura \ref{fig:diagrama5}. Podemos notar que, neste novo modelo, a posição desejada para cada junta é a soma de duas componentes: uma determinada pelo controle de estabilidade $G_1(s)$, que tem como entrada o distúrbio detectado pelo acelerômetro e a outra determinada pela posição desejada em regime permanente $\theta_i^{\ast}$. Esta será definida pelo geração de marchas da plataforma mas, inicialmente, será dada apenas pela posição inicial das juntas para que o robô permaneça parado.
+À vista disso, podemos remodelar o controle de equilíbrio com um novo diagrama de blocos, como o da Figura \ref{fig:diagrama5}. Podemos notar que, neste novo modelo, a posição desejada para cada junta é a soma de duas componentes: uma determinada pelo controle de estabilidade $G_1(s)$, que tem como entrada o distúrbio detectado pelo acelerômetro e a outra, determinada pela posição desejada em regime permanente $\theta_i^{\ast}$. Esta será definida pelo geração de marchas da plataforma mas, inicialmente, será dada apenas pela posição inicial das juntas para que o robô permaneça parado.
 
 Nesta remodelação, consideraremos $d_{roll/pitch}$ agora como o erro da posição angular dos ângulos de rolagem e arfagem detectados pelo acelerômetro, e não mais suas velocidades. Consequentemente
 
 \begin{eqnarray}
-d_{roll/pitch} = r_{roll/pitch} - \theta_{roll/pitch},
+d_{roll/pitch}(t) = \theta_{r}(t) - \theta_{roll/pitch}(t),
 \end{eqnarray}
 
-\noindent e, como deseja-se a estabilidade do robô, considerar-se-á $r_{roll/pitch} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
+\noindent em que $\theta_r$ é o ângulo de referência para rolagem e arfagem. Como deseja-se a estabilidade do robô, considerar-se-á $\theta_{r} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
 
 \begin{figure} [t]
 	\centering
@@ -388,7 +390,7 @@ d_{roll/pitch} = r_{roll/pitch} - \theta_{roll/pitch},
 \end{figure}
 
 \begin{eqnarray}
-d_{roll/pitch} =  - \theta_{roll/pitch}.
+d_{roll/pitch}(t) =  - \theta_{roll/pitch}(t).
 \end{eqnarray}
 
 A posição do i-ésimo motor, no domínio s será
@@ -403,7 +405,7 @@ Para determinar os controladores $G_1(s)$ e $G_2(s)$ mais adequados, analisaremo
 \lim_{t \to \infty} \theta_i(t) = \theta_i(\infty) =  \lim_{s \to 0} s\Theta_i(s)  = \lim_{s \to 0} s(G_1(s)D(s) + G_2(s)\Theta_i^{\ast}(s)).
 \end{eqnarray}
 
-Deseja-se que $\theta_i(\infty) = \theta_i^{\ast}(t)$. Para tal, a componente referente ao distúrbio $sG_1(s)D(s)$ deve ser anulada quando s tende a zero, enquanto a componente $sG_2(s)\Theta_i^{\ast}(s)$ deve ser igual a $\Theta_i^{\ast}(s)$, nesta mesma condição. Para que a primeira condição seja satisfeita, consideremos um distúrbio do tipo degrau, ou seja, $D(s) = \frac{D_k}{s}$, em que $D_k$ é a amplitude do degrau. Logo
+Deseja-se que $\theta_i(\infty) = \theta_i^{\ast}(t)$. Para tal, a componente referente ao distúrbio $sG_1(s)D(s)$ deve ser anulada quando s tende a zero, enquanto a componente $sG_2(s)\Theta_i^{\ast}(s)$ deve ser igual a $P_i^{\ast}$, a posição angular do motor i em regime permanente, nesta mesma condição. Para que a primeira condição seja satisfeita, consideremos um distúrbio do tipo degrau, ou seja, $D(s) = \frac{D_k}{s}$, em que $D_k$ é a amplitude do degrau. Logo
 
 \begin{eqnarray}
 sG_1(s)D(s) = D_k G_1(s).
@@ -423,13 +425,13 @@ G_1(s) = \frac{K_d s}{\tau_d s + 1},
 
 \noindent em que $\tau_d$ é a constante de tempo do controlador de estabilidade.
 
-Já para que a segunda condição seja atendida também consideraremos $\Theta_i^{\ast}(s)$ como um degrau, ou seja, $\Theta_i^{\ast}(s) = \frac{\Theta_i^{\ast}}{s}$, em que $\Theta_i^{\ast}$ é a amplitude do degrau. Dessa forma,
+Já para que a segunda condição seja atendida também consideraremos $\Theta_i^{\ast}(s)$ como um degrau, ou seja, $\Theta_i^{\ast}(s) = \frac{P_i^{\ast}}{s}$, em que $P_i^{\ast}$ é a amplitude do degrau e, portanto, o valor do ângulo desejado em regime permanente. Dessa forma,
 
 \begin{eqnarray}
-sG_2(s)\Theta_i^{\ast}(s) = G_2(s)\Theta_i^{\ast}.
+sG_2(s)\Theta_i^{\ast}(s) = G_2(s)P_i^{\ast}.
 \end{eqnarray}
 
-\noindent Para que a equação acima seja igual $\Theta_i^{\ast}$ quando s tender a zero, $G_2(s)$ deve ser igual 1 nessas condições. Podemos concluir, portanto, que esta componente depende que um ganho unitário seja garantido em DC. A resposta em frequências maiores determina apenas o tempo de resposta do sistema para que este atinja o valor final desejado. Por isso, podemos implmentar $G_2(s)$ como um filtro passa-baixas com ganho DC unitário e frequência de corte variável, a ser determinada empiricamente para obtenção da resposta mais adequada. Portanto
+\noindent Para que a equação acima seja igual $P_i^{\ast}$ quando s tender a zero, $G_2(s)$ deve ser igual 1 nessas condições. Podemos concluir, portanto, que esta componente depende que um ganho unitário seja garantido em DC. A resposta em frequências maiores determina apenas o tempo de resposta do sistema para que este atinja o valor final desejado. Por isso, podemos implmentar $G_2(s)$ como um filtro passa-baixas com ganho DC unitário e frequência de corte variável, a ser determinada empiricamente para obtenção da resposta mais adequada. Portanto
 
 \begin{eqnarray}
 G_2(s) = \frac{1}{\tau_p s + 1},
@@ -443,13 +445,13 @@ Portanto, a posição de cada motor será determinada, no domínio s, por
 \Theta_i(s) = \frac{K_d s}{\tau_d s + 1}D(s) + \frac{1}{\tau_p s + 1}\Theta_i^{\ast}(s).
 \end{eqnarray}
 
-\noindent Reorganizando a equação \ref{eq:tf_final} e passando-a para o domínio do tempo, podemos obter a equação diferencial que representa o sistema proposto como
+\noindent Reorganizando a equação (\ref{eq:tf_final}) e passando-a para o domínio do tempo, podemos obter a equação diferencial que representa o sistema proposto como
 
 \begin{eqnarray}
 \ddot{\theta_i}(t)\tau_d \tau_p + \dot{\theta_i}(t)(\tau_d + \tau_p) + \theta_i(t) = K_d \tau_p \ddot{d}(t) + K_d \dot{d}(t) + \tau_d \dot{\theta_i^{\ast}}(t) + \theta_i^{\ast}(t).
 \end{eqnarray}
 
-Para obter a equação do sistema discretizado, representar-se-á a quantidade $x(t)$ (em que x pode ser $\theta_i$, $d$ ou $\theta_i^{\ast}$) como $x[k]$ e as suas derivadas como
+Para obter a equação do sistema discretizado, representar-se-á uma quantidade $x(t)$ (em que x pode ser $\theta_i$, $d$ ou $\theta_i^{\ast}$) como $x[k]$ e as suas derivadas como
 
 \begin{eqnarray}
 \dot{x}(t) = \frac{x[k] - x[k-1]}{T_{am}}, \text{e} \nonumber \\ 
@@ -468,15 +470,15 @@ Dessa forma, a equação de diferenças do sistema discretizado será
 b[k] = d[k]\left(\gamma + \eta \right) + d[k-1]\left(-2 \gamma - \eta \right) + d[k-2]\left(2 \gamma \right) + \theta_i^{\ast}[k]\left(\lambda + 1\right) - \theta_i^{\ast}[k-1]\lambda,
 \end{eqnarray}
 
-e os coeficientes $\alpha$, $\beta$, $\gamma$, $\eta$ e $\lambda$ são dados por
+\noindent e os coeficientes $\alpha$, $\beta$, $\gamma$, $\eta$ e $\lambda$ são dados por
 
-\begin{eqnarray} \label{eq:coeficientes}
-\alpha = \frac{\tau_d \tau_p}{T_{am}^2}, \nonumber \\
-\beta = \frac{\left(\tau_d + \tau_p\right)}{T_{am}}, \nonumber \\
-\gamma = \frac{K_d \tau_p}{T_{am}^2}, \nonumber \\
-\eta = \frac{K_d}{T_{am}}, \text{e} \nonumber \\
-\lambda = \frac{\tau_d}{T_{am}}.
-\end{eqnarray}
+\begin{align} \label{eq:coeficientes}
+\alpha &= \frac{\tau_d \tau_p}{T_{am}^2}, \nonumber \\
+\beta &= \frac{\left(\tau_d + \tau_p\right)}{T_{am}}, \nonumber \\
+\gamma &= \frac{K_d \tau_p}{T_{am}^2}, \nonumber \\
+\eta &= \frac{K_d}{T_{am}}, \text{e} \nonumber \\
+\lambda &= \frac{\tau_d}{T_{am}}.
+\end{align}
 
 Portanto, o ângulo $\theta_i[k]$ que deverá ser enviado para cada motor i no instante k é dado por
 
@@ -484,13 +486,13 @@ Portanto, o ângulo $\theta_i[k]$ que deverá ser enviado para cada motor i no ins
 \theta_i[k] = \frac{b[k] - \theta_i[k-1]\left(-2 \alpha- \beta \right) - \theta_i[k-2]\alpha}{\alpha + \beta + 1}.
 \end{eqnarray}
 
-Para determinar o parâmetro $K_d$ do controlador, podemos observar comparativamente as equações \ref{eq:controle_posicao_discreto} e \ref{eq:tf_final}. No primeiro caso, é possível observar que a posição final de cada motor é dado pela soma de uma posição prévia a uma velocidade multiplicada pelo tempo de amostragem e uma constante adimensional. A análise dimensional, portanto, confere para a dimensão de posição angular. Já para o segundo caso, como já foi mencionado anteriormente, o distúrbio $D(s)$ é uma posição angular. A composição $sD(s)$, dessa forma, é a velocidade angular do distúrbio, assim como $\omega_{roll/pitch}$ da primeira equação. Assim, para que a resposta do controlador seja similar ao determinado anteriormente, $K_d$ deve ser a mesma constante multiplicando a velocidade, isto é, $K_i T_{am}$. Portanto,
+Para determinar o parâmetro $K_d$ do controlador, podemos observar comparativamente as equações (\ref{eq:controle_posicao_discreto}) e (\ref{eq:tf_final}). No primeiro caso, é possível observar que a posição final de cada motor é dado pela soma de uma posição prévia a uma velocidade multiplicada pelo tempo de amostragem e uma constante adimensional. A análise dimensional, portanto, confere para a dimensão de posição angular. Já para o segundo caso, como já foi mencionado anteriormente, o distúrbio $D(s)$ é uma posição angular. A composição $sD(s)$, dessa forma, é a velocidade angular do distúrbio, assim como $\omega_{roll/pitch}$ da primeira equação. Assim, para que a resposta do controlador seja similar ao determinado anteriormente, $K_d$ deve ser a mesma constante multiplicando a velocidade, isto é, $K_i T_{am}$. Portanto,
 
 \begin{eqnarray}
 K_d = K_i T_{am}.
 \end{eqnarray}
 
-Como já mencionado anteriormente, as constantes $\tau_d$ e $\tau_p$ serão determinada empiricamente através de testes reais na plataforma. Tais experimentos determinarão o tempo mais adequado de resposta para a correção de equilíbrio e para que o robô atinja a resposta em regime permanente. Uma vez que estes valores estiverem estipulados, todos os parâmetros da equação \ref{eq:coeficientes} estarão devidamente determinados.
+Como já mencionado anteriormente, as constantes $\tau_d$ e $\tau_p$ serão determinada empiricamente através de testes reais na plataforma. Tais experimentos determinarão o tempo mais adequado de resposta para a correção de equilíbrio e para que o robô atinja a resposta em regime permanente. Uma vez que estes valores estiverem estipulados, todos os parâmetros da equação (\ref{eq:coeficientes}) estarão devidamente determinados.
 
 \section{Estrutura Geral do Código}
 Podemos, então, condensar as principais informações descritas nas seções anteriores para resumir a estrutura básica do código desenvolvido para o controle de estabilidade. O código foi escrito em C++ e possui as funções \emph{main} e controle como os processos principais.
