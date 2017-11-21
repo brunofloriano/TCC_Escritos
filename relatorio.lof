@@ -77,7 +77,7 @@
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Teste de Queda para a direita com $K_{R} = 1.5$}}{63}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{63}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{63}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Rolagem e dos seus motores}}}{63}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Velocidade de Arfagem e dos seus motores}}}{63}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Posição do robô após a correção do distúrbio}}{63}
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Teste de Queda para a frente com $K_{F} = 1.5$}}{64}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos medidos}}}{64}
@@ -126,6 +126,7 @@
 \contentsline {figure}{\numberline {4.26}{\ignorespaces Teste de Queda para na diagonal com Paralelismo}}{74}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{74}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{74}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Teste de marcha no sistema com paralelismo}}{75}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

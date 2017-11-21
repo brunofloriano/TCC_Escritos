@@ -68,10 +68,11 @@
 \contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{66}
 \contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{69}
 \contentsline {subsection}{\numberline {4.4.2}Testes finais}{70}
-\contentsline {section}{\numberline {4.5}Conclusões}{74}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{76}
-\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{77}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{78}
-\contentsline {chapter}{{Anexos}}{80}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{81}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{82}
+\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{74}
+\contentsline {section}{\numberline {4.5}Conclusões}{75}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{77}
+\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{78}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{79}
+\contentsline {chapter}{{Anexos}}{81}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{82}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{83}
