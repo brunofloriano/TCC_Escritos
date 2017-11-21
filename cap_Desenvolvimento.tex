@@ -296,16 +296,16 @@ No entanto, há uma diferença para o caso da arfagem uma vez que os motores que f
 	\label{fig:sincronia_pitch}
 \end{figure}
 
-Assim, observando a Tabela 1, podemos determinar cada $K_i$:
+Assim, observando a Tabela \ref{TabIdMotores}, podemos determinar cada $K_i$:
 
-\begin{eqnarray} \label{eq:ganhos}
-K_{4/7} = K_{R},\nonumber\\
-K_{1/10} = K_{L},\nonumber\\
-K_{2/5} = K_{B}K_{up},\nonumber\\
-K_{3/6} = K_{B}K_{down},\nonumber\\
-K_{8/11} = K_{F}K_{up},\nonumber\\
-K_{9/12} = K_{F}K_{down}.
-\end{eqnarray}
+\begin{align} \label{eq:ganhos}
+K_{4/7} &= K_{R},\nonumber\\
+K_{1/10} &= K_{L},\nonumber\\
+K_{2/5} &= K_{B}K_{up},\nonumber\\
+K_{3/6} &= K_{B}K_{down},\nonumber\\
+K_{8/11} &= K_{F}K_{up},\nonumber \text{\space e}\\
+K_{9/12} &= K_{F}K_{down}.
+\end{align}
 
 \noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$, ganhos dos motores m e n, respectivamente, são iguais ao valor do outro lado da igualdade.
 
@@ -453,10 +453,10 @@ Portanto, a posição de cada motor será determinada, no domínio s, por
 
 Para obter a equação do sistema discretizado, representar-se-á uma quantidade $x(t)$ (em que x pode ser $\theta_i$, $d$ ou $\theta_i^{\ast}$) como $x[k]$ e as suas derivadas como
 
-\begin{eqnarray}
-\dot{x}(t) = \frac{x[k] - x[k-1]}{T_{am}}, \text{e} \nonumber \\ 
-\ddot{x}(t) = \frac{x[k] - 2x[k-1] + x[k-2]}{T_{am}^2}.
-\end{eqnarray}
+\begin{align}
+\dot{x}(t) &= \frac{x[k] - x[k-1]}{T_{am}}, \text{e} \nonumber \\ 
+\ddot{x}(t) &= \frac{x[k] - 2x[k-1] + x[k-2]}{T_{am}^2}.
+\end{align}
 
 Dessa forma, a equação de diferenças do sistema discretizado será
 

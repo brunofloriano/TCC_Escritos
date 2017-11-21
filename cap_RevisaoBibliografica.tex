@@ -211,21 +211,21 @@ Nos quadrúpedes, a coordenação de pares de pernas pode ser feita em três diferen
 	\label{fig:pernasvirtuais2}
 \end{figure}
 
-Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação (\ref{eq:onelegged}) para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e pode se mover em duas dimensões, obtendo, dessa forma a expressão
+Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação (\ref{eq:onelegged}) para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e pode se mover em duas dimensões, obtendo, dessa forma as expressões
 
-\begin{eqnarray}
-x_{f,d} = \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}), \\
-y_{f,d} = \frac{\dot{y}T_S}{2} + k_{\dot{y}}(\dot{y}-\dot{y_d}),
-\end{eqnarray}
+\begin{align}
+x_{f,d} &= \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}), \text{\space e} \\
+y_{f,d} &= \frac{\dot{y}T_S}{2} + k_{\dot{y}}(\dot{y}-\dot{y_d}),
+\end{align}
 
 \noindent em que $x_{f,d}$ e $y_{f,d}$ são os posicionamentos das patas virtuais na direção de cada dimensão, com relação à projeção do centro de gravidade, $\dot{x}$ e $\dot{y}$ são as velocidades atuais do movimento, $\dot{x_d}$ e $\dot{y_d}$ são as velocidades desejadas, $T_S$ é a duração do período de suporte (enquanto a pata ainda está em contato com o solo) e $k_{\dot{x}}$ e $k_{\dot{y}}$ são ganhos de velocidade.
 
 Para controlar a postura do corpo, o sistema atua nos ângulos de rolagem e arfagem aplicando torques sobre os quadris virtuais durante o período de suporte usando servos lineares, através das expressões
 
-\begin{eqnarray}
-u_x = -k_{p,x}(\phi_P-\phi_{P,d}) - k_{v,x}(\dot{\phi_P}) - k_{f,x}(f_x), \\
-u_y = -k_{p,y}(\phi_R-\phi_{R,d}) - k_{v,y}(\dot{\phi_R}) - k_{f,y}(f_y),
-\end{eqnarray}
+\begin{align}
+u_x &= -k_{p,x}(\phi_P-\phi_{P,d}) - k_{v,x}(\dot{\phi_P}) - k_{f,x}(f_x), \text{\space e}\\
+u_y &= -k_{p,y}(\phi_R-\phi_{R,d}) - k_{v,y}(\dot{\phi_R}) - k_{f,y}(f_y),
+\end{align}
 
 \noindent de modo que $u_x$ e $u_y$ são os sinais de saída dos atuadores, $\phi_P$ e $\phi_R$ são os ângulos de arfagem e rolagem, respectivamente, $\phi_{P,d}$ e $\phi_{R,d}$ são os ângulos desejados de arfagem e rolagem, respectivamente, $f_x$ e $f_y$ são as forças entregues pelos atuadores do quadril e $k_p$, $k_v$ e $k_f$ são ganhos.
 
@@ -242,10 +242,10 @@ Este modelo já foi utilizado na modelagem de robôs quadrúpedes de diversas manei
 
 Assim como em \cite{article:raibert:1986} o modelo proposto em \cite{article:li:2014} utiliza o conceito de pernas virtuais para implementar uma marcha de trote (pernas diagonais se movimentando em pares) atuando, virtualmente, como um bípede. Neste caso, o modelo dinâmico utilizado, baseado no modelo SLIP, pode ser descrito através das equações
 
-\begin{eqnarray}
-M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} = -Mg\cos\theta,\\
-\frac{\mathrm d}{\mathrm d t} \left(Mr^2 \dot{\theta} \right) = Mgr\sin\theta,
-\end{eqnarray}
+\begin{align}
+M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} &= -Mg\cos\theta, \text{\space e} \\
+\frac{\mathrm d}{\mathrm d t} \left(Mr^2 \dot{\theta} \right) &= Mgr\sin\theta,
+\end{align}
 
 \noindent em que $M$ é a massa do corpo, $K$ é o coeficiente elástico da mola, $r$ é o comprimento da perna, $r_0$ é o comprimento inicial da perna, $\theta$ é o ângulo em relação ao plano vertical, $g$ é a gravidade e $\dot{\theta}$ é a velocidade angular da perna. O modelo utilizando para determinação de tais parâmetros pode ser visto na Figura \ref{fig:slip2}.
 
@@ -258,10 +258,10 @@ M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} = -Mg\cos\theta,\\
 
 Por sua vez, o algoritmo de controle utilizado para regular a corrida e o salto é uma variação do modelo de Raibert e é dado como
 
-\begin{eqnarray} 
-\theta_s = \arcsin(\frac{v_xT_s}{2l_0}) + k_p(v_x-v_{xt}) + k_i\sum_{step}(v_x-v_{xt}) \label{eq:slip2},\\
-l_u = l_{u0} + C(v_z-v_{zt}) \label{eq:slip3},
-\end{eqnarray}
+\begin{align} 
+\theta_s &= \arcsin(\frac{v_xT_s}{2l_0}) + k_p(v_x-v_{xt}) + k_i\sum_{step}(v_x-v_{xt}) \label{eq:slip2}, \text{\space e}\\
+l_u &= l_{u0} + C(v_z-v_{zt}) \label{eq:slip3},
+\end{align}
 
 \noindent em que $\theta_s$ é o ângulo de toque (complemento de $\theta$, da Figura \ref{fig:slip2}), $l_u$ é o comprimento do atuador, $T_s$ é o período da fase de suporte, $l_0$ é o comprimento inicial da perna, $v_x$ e $v_z$ são as velocidades na direção do movimento e na direção vertical, respectivamente, $v_{xt}$ e $v_{zt}$ são as velocidades desejadas, $l_{u0}$ é o comprimento inicial do atuador e $k_p$, $k_i$ e $C$ são parâmetros constantes.
 
@@ -312,10 +312,10 @@ Em um quadrúpede apoiado em suas pernas diagonais podemos assumir que as pernas 
 
 Se $\theta_{corpo}$ é o ângulo de arfagem, $\theta_{FS}$ e $\theta_{HS}$ são, respectivamente, os ângulos da perna dianteira e traseira e todos podem ser medidos através de sensores, podemos definir uma relação com a forma
 
-\begin{eqnarray}
-\theta_F = \theta_{FS} - \theta_{corpo},\\
-\theta_H = \theta_{HS} - \theta_{corpo},
-\end{eqnarray}
+\begin{align}
+\theta_F &= \theta_{FS} - \theta_{corpo}, \text{\space e}\\
+\theta_H &= \theta_{HS} - \theta_{corpo},
+\end{align}
 
 \noindent em que $\theta_F$ é o ângulo entre a perna dianteira e a direção da gravidade e $\theta_H$ é o ângulo entre a perna traseira e a direção da gravidade. Esta relação pode ser exemplificada pela Figura \ref{fig:balanco2}.
 
@@ -410,10 +410,10 @@ O sistema de controle, dessa forma, pode ser implementado conforme o diagrama de
 
 Adotando o sistema de coordenadas e ângulos conforme o mostrado na Figura \ref{fig:lar4}(a) podemos estabelecer as relações necessárias para os cálculos da dinâmica a ser controlada. A ideia do controle é redistribuir os torques aplicados de modo que o robô possa recuperar a postura corporal quando sofre um momento de instabilidade. Conforme ilustrado pela Figura \ref{fig:lar4}(b) as forças de reação exercídas sobre as patas do quadrúpede geram um momento diferente de zero levando o robô à instabilidade. Este momento irá causar erros nos ângulos de rolagem e arfagem assim como em suas velocidades. Dessa forma, o sistema de controle pode ser modelado como um sistema com mola amortecido na forma de
 
-\begin{eqnarray}
-\tau_{\phi} = k_{p,x}\Delta\phi + k_{d,x}\Delta\dot{\phi},\\
-\tau_{\theta} = -(k_{p,y}\Delta\theta + k_{d,y}\Delta\dot{\theta}),
-\end{eqnarray}
+\begin{align}
+\tau_{\phi} &= k_{p,x}\Delta\phi + k_{d,x}\Delta\dot{\phi}, \text{\space e}\\
+\tau_{\theta} &= -(k_{p,y}\Delta\theta + k_{d,y}\Delta\dot{\theta}),
+\end{align}
 
 \noindent de modo que $\tau_{\phi}$ e $\tau_{\theta}$ são os torques que devem ser aplicados para corrigir, respectivamente, os ângulos de rolagem e arfagem, $\Delta \phi$ e $\Delta \theta$ são os erros associados ao movimento de rolagem e arfagem, respectivamente, ou seja, o quanto eles diferem da situação de estabilidade. Por fim, $k_{p,x}$, $k_{p,y}$, $k_{d,x}$ e $k_{d,y}$ são ganhos.
 
@@ -558,9 +558,9 @@ Dessa forma, $c$ representa o vetor que sai do ponto de contato com o solo até o
 
 O sistema de controle deve, para estes fins, levar $c_x$ (a componente de $c$ na direção x) para zero ou fazer com que o ângulo $\phi$ seja $90^o$. Dessa forma, podemos pensar na entrada do sistema como a junta $q_2$ e a saída podendo ser $c_x$ ou $\phi$. Portanto, o ganho associado a este sistema seria dado por
 
-\begin{eqnarray}
-G_v = \frac{\Delta \dot{c}_x}{\Delta \dot{q}_2},  \\ G_{\omega} = \frac{\Delta \dot{\phi}}{\Delta \dot{q}_2},
-\end{eqnarray}
+\begin{align}
+G_v &= \frac{\Delta \dot{c}_x}{\Delta \dot{q}_2},  \\ G_{\omega} &= \frac{\Delta \dot{\phi}}{\Delta \dot{q}_2}, \text{\space e}
+\end{align}
 
 \noindent em que $G_v$ é denominado de ganho de velocidade linear e $G_{\omega}$ é denominado de ganho de velocidade angular. O símbolo $\Delta$ indica uma variação tipo degrau da subsequente variável.
 
@@ -670,10 +670,10 @@ y_{i,p} = f_{roll,i,p} + f_{pitch,i,p} + f_{COM,i,p} + f_{force,i,p} + f_{touch,
 
 Para este estudo, as respostas mais relevantes são as dos ângulos de rolagem e arfagem e são dadas por
 
-\begin{eqnarray}
-f_{roll,i,p} = k_{roll}f_i(\phi_{roll})\label{empirico1},  \\
-f_{pitch,i,p} = k_{pitch}f_i(\phi_{pitch}) \label{empirico2},
-\end{eqnarray}
+\begin{align}
+f_{roll,i,p} &= k_{roll}f_i(\phi_{roll})\label{empirico1}, \text{\space e}  \\
+f_{pitch,i,p} &= k_{pitch}f_i(\phi_{pitch}) \label{empirico2},
+\end{align}
 
 \noindent de modo que $k_{roll}$ e $k_{pitch}$ são ganhos estáticos que definem a velocidade de convergência da resposta à situação de equilíbrio, $\phi_{roll}$ e $\phi_{pitch}$ são os ângulos medidos de rolagem e arfagem, respectivamente, e $f_i$ é uma função linear utilizada para eliminar o ruído do sensor e pode ser positiva ou negativa, dependendo da contribuição da junta para aquela variável.
 
