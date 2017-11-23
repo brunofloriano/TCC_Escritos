@@ -20,20 +20,8 @@ $P$ & Vetor de posição entre pata e COG & [m]\\
 $V$	& Tensão & [V] \\
 $T$	& Tempo & [s] \\
 $f$	& Frequência & [Hz]\\
+$s$	& Frequência complexa & [rad/s]\\
 
-\end{tabular}
-
-\subsection*{Símbolos Gregos}
-
-\begin{tabular}{p{0.1\textwidth}p{0.63\textwidth}>{\PreserveBacklash\raggedleft}p{0.15\textwidth}}
-$\theta$	& Ângulo de rolagem, arfagem ou de algum motor & 	[$^o$]\\
-$\omega$	& Velocidade angular de rolagem, arfagem ou de algum motor	& [rad/s]\\
-
-\end{tabular}
-
-\subsection*{Grupos Adimensionais}
-
-\begin{tabular}{p{0.1\textwidth}p{0.80\textwidth}}
 $B$ &	Valor quantizado de uma quantidade \\
 $u$ & Função degrau \\
 $q$	& Resposta de uma junta \\
@@ -43,9 +31,27 @@ $r$	& Valor de referência\\
 $m$	& Valor medido\\
 $k$	& Numero de períodos de amostragem decorridos\\
 $G$	& Função de transferência\\
-$A$ & Valores de entradas e saídas do filtro
+$A$ & Valores de entradas e saídas do filtro / Magnitude do ganho quando diferente de zero\\
+$D$	& Distúrbio no domínio s\\
+$H$	& Função de transferência\\
+\end{tabular}
+
+\subsection*{Símbolos Gregos}
+
+\begin{tabular}{p{0.1\textwidth}p{0.63\textwidth}>{\PreserveBacklash\raggedleft}p{0.15\textwidth}}
+$\theta$	& Ângulo de rolagem, arfagem ou de algum motor & 	[$^o$]\\
+$\omega$	& Velocidade angular de rolagem, arfagem ou de algum motor	& [rad/s]\\
+$\epsilon$	& Variação da projeção vertical do COG em relação ao seu valor em repouso\\
+$\Theta$	& Ângulo no domínio s (ou de Laplace)	&	[$^o$]\\
+$\tau$		& Tempo de acomodação & [s]
 
 \end{tabular}
+
+%\subsection*{Grupos Adimensionais}
+
+%\begin{tabular}{p{0.1\textwidth}p{0.80\textwidth}}
+
+%\end{tabular}
 
 \subsection*{Subscritos}
 
@@ -74,14 +80,22 @@ $r$		& Valor de referência\\
 $c$		& Frequência de corte\\
 $filtro$	& Referente ao filtro\\
 $out$	& Saída do filtro\\
-$in$	& Entrada do filtro
+$in$	& Entrada do filtro\\
+$up$	& Referente a uma junta do tipo não-joelho\\
+$down$	& Referente a uma junta do tipo joelho\\
+$j$		& Referente ao sentido j\\
+$k$		& Amplitude do distúrbio\\
+$d$		& Referente ao distúrbio\\
+$p$		& Referente à posição desejada em regime permanente
+
 \end{tabular}
 
 \subsection*{Sobrescritos}
 
 \begin{tabular}{p{0.1\textwidth}p{0.80\textwidth}}
 $\cdot$	& Variação temporal \\
-$-$	& Valor médio
+$\ast$	& Valor desejado em regime permanente\\
+$\ddot{}$	& Dupla variação temporal \\
 \end{tabular}
 
 \subsection*{Siglas}
