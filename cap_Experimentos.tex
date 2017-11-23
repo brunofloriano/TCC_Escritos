@@ -582,7 +582,7 @@ Estes dois fatores (lentidão de resposta e movimento cadenciado) pode ser explic
 Dessa forma, tal marcha, implementada como foi originalmente concebida, não está adequada aos parâmetros do sistema proposto.
 
 \section{Conclusões}
-O controle de estabilidade proposto no capítulo \ref{CapDesenvolvimento} foi pensado com base em uma análise empírica, isto é, composta de testes reais na plataforma e da construção de um controlador de forma simultânea aos experimentos. Isto se reflete, desde a concepção inicial do projeto, na determinação dos ganhos $K_i$, proposta para ser realizada empiricamente com base nas respostas reais dos motores durante a correção de um distúrbio
+O controle de estabilidade proposto no capítulo \ref{CapDesenvolvimento} foi pensado com base em uma análise empírica, isto é, composta de testes reais na plataforma e da construção de um controlador de forma simultânea aos experimentos. Isto se reflete, desde a concepção inicial do projeto, na determinação dos ganhos $K_i$, proposta para ser realizada empiricamente com base nas respostas reais dos motores durante a correção de um distúrbio.
 
 No entanto, a abordagem inicial teve que sofrer algumas modificações para se adequar ao cenário encontrado no quadrúpede. Devido especialmente à limitação do torque no modo velocidade, foi necessária a mudança para o modo posição, mas mantendo a concepção de que a velocidade de cada junta seria, basicamente, a velocidade do distúrbio vezes $K_i$. Com o novo modo de operação, capaz de sustentar o robô nas condições de repouso, foi possível aplicar testes com o controlador proposto e, concomitantemente, adequar os ganhos $K_i$ até que se observasse a melhor resposta às perturbações.
 
