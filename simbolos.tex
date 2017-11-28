@@ -8,32 +8,26 @@
 
 \begin{tabular}{p{0.1\textwidth}p{0.63\textwidth}>{\PreserveBacklash\raggedleft}p{0.15\textwidth}}
 $S$	& Margem de estabilidade 	& [m]\\
-$m$ & Massa	&  [kg]\\
-$g$ & Aceleração da gravidade	&  [m/s$^2$]\\
-$h$	& Altura	& [m]\\
-$F$	& Força	& [N]\\
-$M$	& Momento	& [N$\cdot$m]\\
-$E$ & Energia   & [J]\\
-$I$ & Momento de Inércia & [kg$\cdot$ m$^2$]\\
-$P$ & Vetor de posição entre pata e COG & [m]\\
-
-$V$	& Tensão & [V] \\
-$T$	& Tempo & [s] \\
-$f$	& Frequência & [Hz]\\
-$s$	& Frequência complexa & [rad/s]\\
-
 $B$ &	Valor quantizado de uma quantidade \\
 $u$ & Função degrau \\
+$V$	& Tensão & [V] \\
+$T$	& Tempo & [s] \\
 $q$	& Resposta de uma junta \\
 $K$	& Ganho\\
 $d$	& Valor do distúrbio\\
 $r$	& Valor de referência\\
 $m$	& Valor medido\\
 $k$	& Numero de períodos de amostragem decorridos\\
+$f$	& Frequência & [Hz]\\
+$s$	& Frequência complexa & [rad/s]\\
+
 $G$	& Função de transferência\\
 $A$ & Valores de entradas e saídas do filtro / Magnitude do ganho quando diferente de zero\\
 $D$	& Distúrbio no domínio s\\
 $H$	& Função de transferência\\
+$x$	& Função genérica do tempo\\
+$P$	& Amplitude da posição desejada em regime permanente & [$^o$]\\
+
 \end{tabular}
 
 \subsection*{Símbolos Gregos}
@@ -41,9 +35,14 @@ $H$	& Função de transferência\\
 \begin{tabular}{p{0.1\textwidth}p{0.63\textwidth}>{\PreserveBacklash\raggedleft}p{0.15\textwidth}}
 $\theta$	& Ângulo de rolagem, arfagem ou de algum motor & 	[$^o$]\\
 $\omega$	& Velocidade angular de rolagem, arfagem ou de algum motor	& [rad/s]\\
-$\epsilon$	& Variação da projeção vertical do COG em relação ao seu valor em repouso\\
+$\epsilon$	& Variação normalizada da projeção vertical do COG em relação ao seu valor em repouso\\
 $\Theta$	& Ângulo no domínio s (ou de Laplace)	&	[$^o$]\\
-$\tau$		& Tempo de acomodação & [s]
+$\tau$		& Constante de tempo & [s]\\
+$\alpha$	& Constante\\
+$\beta$	& Constante\\
+$\gamma$	& Constante\\
+$\eta$	& Constante\\
+$\lambda$	& Constante\\
 
 \end{tabular}
 
@@ -56,22 +55,12 @@ $\tau$		& Tempo de acomodação & [s]
 \subsection*{Subscritos}
 
 \begin{tabular}{p{0.1\textwidth}p{0.80\textwidth}}
-$R$	& direita - \textit{Right} / Resultante \\
-$L$	& esquerda - \textit{Left} \\
-$F$	& frente - \textit{Front} \\
-$B$	& traseira - \textit{Back} \\
 $SM$	& Margem de estabilidade estática - \textit{Static stability margin} \\
-$LSM$	& Margem de estabilidade longitudinal - \textit{Longitudinal stability margin} \\
-$CLSM$	& Margem de estabilidade longitudinal de caranguejo - \textit{Crab longitudinal stability margin} \\
-$ESM$	& Margem de estabilidade por energia - \textit{Energy stability margin} \\
-$NESM$	& Margem de estabilidade por energia normalizada - \textit{Normalized energy stability margin} \\
-$DSM$	& Margem de estabilidade dinâmica - \textit{Dynamic stability margin} \\
-$i$		& Identificação numérica da pata / Identificação numérica da junta \\
-$NDESM$	& Margem normalizada de estabilidade dinâmica por energia- \textit{Normalized dynamic stability margin} \\
+$i$		& Identificação numérica da junta \\
 
 $\theta$ & Quantidade referente a ângulos \\
-$\omega$ & Quantidade referente a velocidades angulares \\
 $max$	& máximo \\
+$\omega$ & Quantidade referente a velocidades angulares \\
 $roll$	& Referente à rolagem \\
 $pitch$	& Referente à arfagem \\
 $am$	& amostragem \\
@@ -81,12 +70,16 @@ $c$		& Frequência de corte\\
 $filtro$	& Referente ao filtro\\
 $out$	& Saída do filtro\\
 $in$	& Entrada do filtro\\
+$R$	& direita - \textit{Right} \\
+$L$	& esquerda - \textit{Left} \\
+$F$	& frente - \textit{Front} \\
+$B$	& traseira - \textit{Back} \\
 $up$	& Referente a uma junta do tipo não-joelho\\
 $down$	& Referente a uma junta do tipo joelho\\
 $j$		& Referente ao sentido j\\
-$k$		& Amplitude do distúrbio\\
-$d$		& Referente ao distúrbio\\
-$p$		& Referente à posição desejada em regime permanente
+$k$		& Referente à amplitude do distúrbio\\
+$d$		& Referente à resposta ao distúrbio\\
+$p$		& Referente à resposta desejada em regime permanente
 
 \end{tabular}
 
@@ -101,7 +94,6 @@ $\ddot{}$	& Dupla variação temporal \\
 \subsection*{Siglas}
 
 \begin{tabular}{p{0.1\textwidth}p{0.80\textwidth}}
-ABNT	& Associação Brasileira de Normas Técnicas \\
 UnB		& Univeridade de Brasília \\
 LARA	& Laboratório de Automação e Robótica \\
 CPU		& Unidade Central de Processamento - \textit{Central Processing Unit} \\
