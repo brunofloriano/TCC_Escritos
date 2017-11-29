@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  28 NOV 2017 21:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  28 NOV 2017 23:22
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -772,31 +772,31 @@ Package pdftex.def Info: Figuras/Balanco3.png used on input line 350.
 <Figuras/LAR.png, id=156, 359.3425pt x 88.33pt>
 File: Figuras/LAR.png Graphic file (type png)
  <use Figuras/LAR.png>
-Package pdftex.def Info: Figuras/LAR.png used on input line 362.
+Package pdftex.def Info: Figuras/LAR.png used on input line 363.
 (pdftex.def)             Requested size: 325.043pt x 79.90463pt.
  [20 <./Figuras/Balanco2.png (PNG copy)> <./Figuras/Balanco3.png (PNG copy)>]
 <Figuras/LAR2.png, id=160, 365.365pt x 108.405pt>
 File: Figuras/LAR2.png Graphic file (type png)
  <use Figuras/LAR2.png>
-Package pdftex.def Info: Figuras/LAR2.png used on input line 371.
+Package pdftex.def Info: Figuras/LAR2.png used on input line 372.
 (pdftex.def)             Requested size: 325.043pt x 96.44539pt.
 
 <Figuras/LAR3.png, id=161, 355.82938pt x 116.93687pt>
 File: Figuras/LAR3.png Graphic file (type png)
  <use Figuras/LAR3.png>
-Package pdftex.def Info: Figuras/LAR3.png used on input line 397.
+Package pdftex.def Info: Figuras/LAR3.png used on input line 398.
 (pdftex.def)             Requested size: 325.043pt x 106.82309pt.
 
 <Figuras/LAR4a.png, id=162, 371.3875pt x 266.9975pt>
 File: Figuras/LAR4a.png Graphic file (type png)
  <use Figuras/LAR4a.png>
-Package pdftex.def Info: Figuras/LAR4a.png used on input line 406.
+Package pdftex.def Info: Figuras/LAR4a.png used on input line 407.
 (pdftex.def)             Requested size: 162.52504pt x 116.84369pt.
 
 <Figuras/LAR4b.png, id=163, 373.89688pt x 278.03876pt>
 File: Figuras/LAR4b.png Graphic file (type png)
  <use Figuras/LAR4b.png>
-Package pdftex.def Info: Figuras/LAR4b.png used on input line 406.
+Package pdftex.def Info: Figuras/LAR4b.png used on input line 407.
 (pdftex.def)             Requested size: 148.59514pt x 110.49654pt.
 
 [21 <./Figuras/LAR.png (PNG copy)> <./Figuras/LAR2.png (PNG copy)>] [22 <./Figu
@@ -805,35 +805,35 @@ ras/LAR3.png (PNG copy)> <./Figuras/LAR4a.png (PNG copy)> <./Figuras/LAR4b.png
 File: Figuras/LAR5.png Graphic file (type png)
 
 <use Figuras/LAR5.png>
-Package pdftex.def Info: Figuras/LAR5.png used on input line 432.
+Package pdftex.def Info: Figuras/LAR5.png used on input line 433.
 (pdftex.def)             Requested size: 232.17459pt x 240.5032pt.
  [23 <./Figuras/LAR5.png (PNG copy)>] [24] [25] [26]
 <Figuras/ganho1.jpg, id=187, 246.9225pt x 243.40938pt>
 File: Figuras/ganho1.jpg Graphic file (type jpg)
 
 <use Figuras/ganho1.jpg>
-Package pdftex.def Info: Figuras/ganho1.jpg used on input line 569.
+Package pdftex.def Info: Figuras/ganho1.jpg used on input line 570.
 (pdftex.def)             Requested size: 232.17459pt x 228.86797pt.
  [27 <./Figuras/ganho1.jpg>]
 <Figuras/quadrupededof.jpg, id=191, 314.67563pt x 282.55562pt>
 File: Figuras/quadrupededof.jpg Graphic file (type jpg)
 
 <use Figuras/quadrupededof.jpg>
-Package pdftex.def Info: Figuras/quadrupededof.jpg used on input line 591.
+Package pdftex.def Info: Figuras/quadrupededof.jpg used on input line 592.
 (pdftex.def)             Requested size: 232.17459pt x 208.47565pt.
 
 <Figuras/realimentacao.jpg, id=192, 277.53688pt x 111.41624pt>
 File: Figuras/realimentacao.jpg Graphic file (type jpg)
 
 <use Figuras/realimentacao.jpg>
-Package pdftex.def Info: Figuras/realimentacao.jpg used on input line 600.
+Package pdftex.def Info: Figuras/realimentacao.jpg used on input line 601.
 (pdftex.def)             Requested size: 371.48076pt x 149.13208pt.
 
 <Figuras/pernaredundante.jpg, id=193, 242.40562pt x 178.16562pt>
 File: Figuras/pernaredundante.jpg Graphic file (type jpg)
 
 <use Figuras/pernaredundante.jpg>
-Package pdftex.def Info: Figuras/pernaredundante.jpg used on input line 609.
+Package pdftex.def Info: Figuras/pernaredundante.jpg used on input line 610.
 (pdftex.def)             Requested size: 232.17459pt x 170.65372pt.
  [28 <./Figuras/quadrupededof.jpg>] [29 <./Figuras/realimentacao.jpg>] [30 <./F
 iguras/pernaredundante.jpg>]
@@ -841,7 +841,7 @@ iguras/pernaredundante.jpg>]
 File: Figuras/respostassensoriais.jpg Graphic file (type jpg)
 
 <use Figuras/respostassensoriais.jpg>
-Package pdftex.def Info: Figuras/respostassensoriais.jpg used on input line 658
+Package pdftex.def Info: Figuras/respostassensoriais.jpg used on input line 659
 .
 (pdftex.def)             Requested size: 325.043pt x 121.34781pt.
  [31 <./Figuras/respostassensoriais.jpg>]) [32]
@@ -1445,7 +1445,7 @@ ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (98 pages, 10546694 bytes).
+Output written on relatorio.pdf (98 pages, 10546657 bytes).
 PDF statistics:
  1259 PDF objects out of 1440 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

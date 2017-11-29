@@ -19,11 +19,11 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Modelo SLIP (Fonte: \cite {article:li:2014})}}{17}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Modelo para controle de arfagem e rolagem (Fonte: \cite {article:li:2014})}}{18}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Modelo de quadrúpede apoiado em pernas diagonais (Fonte: \cite {article:meng:2015})}}{19}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Modelo das relações de ângulo entre perna e corpo (Fonte: \cite {article:meng:2015})}}{20}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Estrutura do sistema de controle (Fonte: \cite {article:meng:2015})}}{20}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Esboço das relações de ângulo entre perna e corpo (Fonte: \cite {article:meng:2015})}}{20}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Estrutura do sistema de controle em malha fechada no espaço de estados (Fonte: \cite {article:meng:2015})}}{20}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Sincronia em marcha quadrúpede (Fonte: \cite {article:won:2009})}}{21}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Representação da Dessincronização das Pernas (Fonte: \cite {article:won:2009})}}{21}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Diagrama de Blocos do Sistema de Controle (Fonte: \cite {article:won:2009})}}{22}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Diagrama de blocos do sistema de controle de equilíbrio e trajetória (Fonte: \cite {article:won:2009})}}{22}
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Parâmetros de um quadrúpede em instabilidade (Fonte: \cite {article:won:2009})}}{22}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistemas de coordenadas e ângulos adotados}}}{22}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forças e momentos atuantes no quadrúpede}}}{22}

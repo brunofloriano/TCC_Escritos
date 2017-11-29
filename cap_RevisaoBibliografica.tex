@@ -214,7 +214,7 @@ Nos quadrúpedes, a coordenação de pares de pernas pode ser feita em três diferen
 Por conseguinte, utilizando o conceito de pernas virtuais, podemos estender a equação (\ref{eq:onelegged}) para o movimento de quadrupedes que, por sua vez, possuem duas pernas virtuais e pode se mover em duas dimensões, obtendo, dessa forma as expressões
 
 \begin{align}
-x_{f,d} &= \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}), \text{\space e} \\
+x_{f,d} &= \frac{\dot{x}T_S}{2} + k_{\dot{x}}(\dot{x}-\dot{x_d}), \\
 y_{f,d} &= \frac{\dot{y}T_S}{2} + k_{\dot{y}}(\dot{y}-\dot{y_d}),
 \end{align}
 
@@ -223,7 +223,7 @@ y_{f,d} &= \frac{\dot{y}T_S}{2} + k_{\dot{y}}(\dot{y}-\dot{y_d}),
 Para controlar a postura do corpo, o sistema atua nos ângulos de rolagem e arfagem aplicando torques sobre os quadris virtuais durante o período de suporte usando servos lineares, através das expressões
 
 \begin{align}
-u_x &= -k_{p,x}(\phi_P-\phi_{P,d}) - k_{v,x}(\dot{\phi_P}) - k_{f,x}(f_x), \text{\space e}\\
+u_x &= -k_{p,x}(\phi_P-\phi_{P,d}) - k_{v,x}(\dot{\phi_P}) - k_{f,x}(f_x), \\
 u_y &= -k_{p,y}(\phi_R-\phi_{R,d}) - k_{v,y}(\dot{\phi_R}) - k_{f,y}(f_y),
 \end{align}
 
@@ -240,10 +240,10 @@ Este modelo já foi utilizado na modelagem de robôs quadrúpedes de diversas manei
 	\label{fig:slip}
 \end{figure}
 
-Assim como em \cite{article:raibert:1986} o modelo proposto em \cite{article:li:2014} utiliza o conceito de pernas virtuais para implementar uma marcha de trote (pernas diagonais se movimentando em pares) atuando, virtualmente, como um bípede. Neste caso, o modelo dinâmico utilizado, baseado no modelo SLIP, pode ser descrito através das equações
+Assim como em \cite{article:raibert:1986} o modelo proposto em \cite{article:li:2014} utiliza o conceito de pernas virtuais para implementar uma marcha de trote (pernas diagonais se movimentando em pares) atuando, virtualmente, como um bípede. Neste caso, o modelo dinâmico utilizado, baseado no modelo SLIP, pode ser descrito por:
 
 \begin{align}
-M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} &= -Mg\cos\theta, \text{\space e} \\
+M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} &= -Mg\cos\theta, \\
 \frac{\mathrm d}{\mathrm d t} \left(Mr^2 \dot{\theta} \right) &= Mgr\sin\theta,
 \end{align}
 
@@ -259,7 +259,7 @@ M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} &= -Mg\cos\theta, \text{\space e} \\
 Por sua vez, o algoritmo de controle utilizado para regular a corrida e o salto é uma variação do modelo de Raibert e é dado como
 
 \begin{align} 
-\theta_s &= \arcsin(\frac{v_xT_s}{2l_0}) + k_p(v_x-v_{xt}) + k_i\sum_{step}(v_x-v_{xt}) \label{eq:slip2}, \text{\space e}\\
+\theta_s &= \arcsin(\frac{v_xT_s}{2l_0}) + k_p(v_x-v_{xt}) + k_i\sum_{step}(v_x-v_{xt}) \label{eq:slip2}, \\
 l_u &= l_{u0} + C(v_z-v_{zt}) \label{eq:slip3},
 \end{align}
 
@@ -313,7 +313,7 @@ Em um quadrúpede apoiado em suas pernas diagonais podemos assumir que as pernas 
 Se $\theta_{corpo}$ é o ângulo de arfagem, $\theta_{FS}$ e $\theta_{HS}$ são, respectivamente, os ângulos da perna dianteira e traseira e todos podem ser medidos através de sensores, podemos definir uma relação com a forma
 
 \begin{align}
-\theta_F &= \theta_{FS} - \theta_{corpo}, \text{\space e}\\
+\theta_F &= \theta_{FS} - \theta_{corpo}, \\
 \theta_H &= \theta_{HS} - \theta_{corpo},
 \end{align}
 
@@ -340,7 +340,7 @@ Dessa forma, o controle de balanço para este modelo será realizado com base na s
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Balanco2}
-	\caption{Modelo das relações de ângulo entre perna e corpo (Fonte: \cite{article:meng:2015})}
+	\caption{Esboço das relações de ângulo entre perna e corpo (Fonte: \cite{article:meng:2015})}
 	\label{fig:balanco2}
 \end{figure}
 
@@ -348,7 +348,8 @@ Dessa forma, o controle de balanço para este modelo será realizado com base na s
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Balanco3}
-	\caption{Estrutura do sistema de controle (Fonte: \cite{article:meng:2015})}
+	\caption{Estrutura do sistema de controle em malha fechada no espaço de
+		estados (Fonte: \cite{article:meng:2015})}
 	\label{fig:balanco3}
 \end{figure}
 
@@ -364,7 +365,7 @@ Em uma marcha quadrúpede do tipo trote os membros diagonalmente dispostos se mov
 	\label{fig:lar}
 \end{figure}
 
-No entanto, durante a ação real do robô, pode haver um desacordo entre os pares de pernas de modo que as patas não se encontrem com o solo ao mesmo tempo como pode ser exemplificado pela Figura \ref{fig:lar2}. Onde $t_{td}$ é o tempo que um par de pernas fica dessincronizado para tocar o solo e $t_{lo}$ é o tempo de desacordo para um par de pernas sair do chão.
+No entanto, durante a ação real do robô, pode haver um desacordo entre os pares de pernas de modo que as patas não se encontrem com o solo ao mesmo tempo como pode ser exemplificado pela Figura \ref{fig:lar2}, em que $t_{td}$ é o tempo que um par de pernas fica dessincronizado para tocar o solo e $t_{lo}$ é o tempo de desacordo para um par de pernas sair do chão.
 
 \begin{figure} [b]
 	\centering
@@ -395,7 +396,7 @@ O sistema de controle, dessa forma, pode ser implementado conforme o diagrama de
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/LAR3}
-	\caption{Diagrama de Blocos do Sistema de Controle (Fonte: \cite{article:won:2009})}
+	\caption{Diagrama de blocos do sistema de controle de equilíbrio e trajetória (Fonte: \cite{article:won:2009})}
 	\label{fig:lar3}
 \end{figure}
 
@@ -411,7 +412,7 @@ O sistema de controle, dessa forma, pode ser implementado conforme o diagrama de
 Adotando o sistema de coordenadas e ângulos conforme o mostrado na Figura \ref{fig:lar4}(a) podemos estabelecer as relações necessárias para os cálculos da dinâmica a ser controlada. A ideia do controle é redistribuir os torques aplicados de modo que o robô possa recuperar a postura corporal quando sofre um momento de instabilidade. Conforme ilustrado pela Figura \ref{fig:lar4}(b) as forças de reação exercídas sobre as patas do quadrúpede geram um momento diferente de zero levando o robô à instabilidade. Este momento irá causar erros nos ângulos de rolagem e arfagem assim como em suas velocidades. Dessa forma, o sistema de controle pode ser modelado como um sistema com mola amortecido na forma de
 
 \begin{align}
-\tau_{\phi} &= k_{p,x}\Delta\phi + k_{d,x}\Delta\dot{\phi}, \text{\space e}\\
+\tau_{\phi} &= k_{p,x}\Delta\phi + k_{d,x}\Delta\dot{\phi}, \\
 \tau_{\theta} &= -(k_{p,y}\Delta\theta + k_{d,y}\Delta\dot{\theta}),
 \end{align}
 
@@ -559,7 +560,7 @@ Dessa forma, $c$ representa o vetor que sai do ponto de contato com o solo até o
 O sistema de controle deve, para estes fins, levar $c_x$ (a componente de $c$ na direção x) para zero ou fazer com que o ângulo $\phi$ seja $90^o$. Dessa forma, podemos pensar na entrada do sistema como a junta $q_2$ e a saída podendo ser $c_x$ ou $\phi$. Portanto, o ganho associado a este sistema seria dado por
 
 \begin{align}
-G_v &= \frac{\Delta \dot{c}_x}{\Delta \dot{q}_2},  \\ G_{\omega} &= \frac{\Delta \dot{\phi}}{\Delta \dot{q}_2}, \text{\space e}
+G_v &= \frac{\Delta \dot{c}_x}{\Delta \dot{q}_2},  \\ G_{\omega} &= \frac{\Delta \dot{\phi}}{\Delta \dot{q}_2},
 \end{align}
 
 \noindent em que $G_v$ é denominado de ganho de velocidade linear e $G_{\omega}$ é denominado de ganho de velocidade angular. O símbolo $\Delta$ indica uma variação tipo degrau da subsequente variável.
@@ -671,7 +672,7 @@ y_{i,p} = f_{roll,i,p} + f_{pitch,i,p} + f_{COM,i,p} + f_{force,i,p} + f_{touch,
 Para este estudo, as respostas mais relevantes são as dos ângulos de rolagem e arfagem e são dadas por
 
 \begin{align}
-f_{roll,i,p} &= k_{roll}f_i(\phi_{roll})\label{empirico1}, \text{\space e}  \\
+f_{roll,i,p} &= k_{roll}f_i(\phi_{roll})\label{empirico1}, \\
 f_{pitch,i,p} &= k_{pitch}f_i(\phi_{pitch}) \label{empirico2},
 \end{align}
 
