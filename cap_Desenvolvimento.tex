@@ -25,7 +25,7 @@ O robô quadrúpede possui um total de 12 motores, sendo 3 em cada pata, como pode
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/robo1}
-	\caption{Representação gráfica da plataforma quadrúpede (Fonte: \cite{tcc:porphirio:2017})}
+	\caption{Representação gráfica da plataforma quadrúpede do LARA (Fonte: \cite{tcc:porphirio:2017})}
 	\label{fig:robo1}
 \end{figure}
 
@@ -124,7 +124,7 @@ O \emph{gDataLogger} foi acoplado ao código desenvolvido para o recolhimento e a
 
 \begin{figure} [h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Figuras/Arquitetura}
+	\includegraphics[width=0.8\textwidth]{Figuras/Arquitetura}
 	\caption{Arquitetura do Sistema Embarcado (Fonte: \cite{tcc:porphirio:2017})}
 	\label{fig:arquitetura}
 \end{figure}
@@ -169,14 +169,14 @@ d_{roll/pitch}(t) = r_{roll/pitch}(t) - m_{roll/pitch}(t),
 q_i(t) = K_i(r_{roll/pitch}(t) - m_{roll/pitch}(t)).
 \end{eqnarray}
 
-\noindent O sistema básico acima descrito pode ser melhor visualizado pela Figura \ref{fig:diagrama1}.
+%\noindent O sistema básico acima descrito pode ser melhor visualizado pela Figura \ref{fig:diagrama1}.
 
-\begin{figure} [!b]
-	\centering
-	\includegraphics[width=0.6\textwidth]{Figuras/Diagrama1}
-	\caption{Diagrama de Blocos do Sistema Básico}
-	\label{fig:diagrama1}
-\end{figure}
+%\begin{figure} [!b]
+%	\centering
+%	\includegraphics[width=0.6\textwidth]{Figuras/Diagrama1}
+%	\caption{Diagrama de Blocos do Sistema Básico}
+%	\label{fig:diagrama1}
+%\end{figure}
 
 
 \subsection{Abordagem Inicial}
@@ -271,18 +271,18 @@ Com o sistema de controle de equilíbrio definido e as juntas capazes de sustenta
 
 Com a finalidade de auxiliar a determinação destes ganhos, utilizamos a simetria do robô para a agrupar os motores que devem responder de maneira simultânea e no mesmo sentido, como ilustrado nas Figuras \ref{fig:sincronia_roll} e \ref{fig:sincronia_pitch}. Isto permitirá que o ganho de vários motores possam ter a mesma resposta e, consequentemente, o mesmo $K_i$.
 
-No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos em patas da direita e patas da esquerda, como na Fig. \ref{fig:sincronia_roll}. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem (motores 1 e 10, em amarelo) terão um ganho $K_i = K_{L}$ enquanto os que são referentes às patas da direita (motores 4 e 7, em verde) obedecerão à relação $K_i = K_{R}$, respondendo ao mesmo tempo e no mesmo sentido.
+No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos em patas da direita e patas da esquerda, como na Fig. \ref{fig:sincronia_roll}. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem (motores 1 e 10, com linhas verticais) terão um ganho $K_i = K_{L}$ enquanto os que são referentes às patas da direita (motores 4 e 7, com linhas horizontais) obedecerão à relação $K_i = K_{R}$, respondendo ao mesmo tempo e no mesmo sentido.
 
 
-Da mesma forma, a correção do movimento de arfagem, como pode ser observado na Fig. \ref{fig:sincronia_pitch}(a), pode ser feita com as patas da frente (motores 8, 9, 11 e 12, em laranja), com um ganho $K_{F}$, ou com as patas de trás (motores 2, 3, 5 e 6, em roxo), com um ganho $K_{B}$\footnotemark.
+Da mesma forma, a correção do movimento de arfagem, como pode ser observado na Fig. \ref{fig:sincronia_pitch}(a), pode ser feita com as patas da frente (motores 8, 9, 11 e 12, com linhas horizontais), com um ganho $K_{F}$, ou com as patas de trás (motores 2, 3, 5 e 6, com linhas verticais), com um ganho $K_{B}$\footnotemark.
 
 \footnotetext{No presente trabalho foram utilizados os subíndices R, L, B e F para indicar, respectivamente, os sentidos da direita (Right), esquerda (Left), para trás (Back) e para frente (Front).}
 
-No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho e motores de cima (ou não-joelho). Aos motores do tipo joelho, ilustrados pela Fig. \ref{fig:sincronia_pitch}(b) com a cor azul, serão atribuídos um ganho $K_{down}$, e aos motores de cima (em vermelho), um ganho $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{F}K_{up}$.
+No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho e motores de cima (ou não-joelho). Aos motores do tipo joelho, ilustrados pela Fig. \ref{fig:sincronia_pitch}(b) com linhas verticais, serão atribuídos um ganho $K_{down}$, e aos motores de cima (com linhas horizontais), um ganho $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{F}K_{up}$.
 
 \begin{figure} [t]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Figuras/robo4}
+	\includegraphics[width=0.7\textwidth]{Figuras/robo4b}
 	\caption{Motores de rolagem em sincronia}
 	\label{fig:sincronia_roll}
 \end{figure}
@@ -290,8 +290,8 @@ No entanto, há uma diferença para o caso da arfagem uma vez que os motores que f
 \begin{figure}[b]
 	\centering
 	\mbox{
-		\subfigure[Sincronia por patas]{\includegraphics[width=0.4\textwidth]{Figuras/robo5}}\quad\quad
-		\subfigure[Sincronia pelo tipo de junta]{\includegraphics[width=0.4\textwidth]{Figuras/robo3}}}
+		\subfigure[Sincronia por patas]{\includegraphics[width=0.4\textwidth]{Figuras/robo5b}}\quad\quad
+		\subfigure[Sincronia pelo tipo de junta]{\includegraphics[width=0.4\textwidth]{Figuras/robo3b}}}
 	\caption{Motores de arfagem em sincronia}
 	\label{fig:sincronia_pitch}
 \end{figure}
@@ -317,12 +317,12 @@ A definição do valor de cada uma dessas componentes será feita de forma empírica
 
 A análise seguinte que deve ser observada com relação aos ganhos se relaciona com a resposta desejada para cada grupo de patas em conformidade com o sentido de movimentação do robô. Observando a Figura \ref{fig:quedas}, podemos analisar os movimentos de rolagem e arfagem e, assim, determinar o sentido mais adequado para a movimentação das patas. Nesta imagem, apresenta-se os casos em que, partindo da condição de repouso, o robô é empurrado para a direita (Fig. \ref{fig:quedas}(a)) e para frente (Fig. \ref{fig:quedas}(b)).
 
-\begin{figure}[t]
+\begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Queda para a direita]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_direita}}\quad\quad
 		\subfigure[Queda para frente]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_frente}}}
-	\caption{Centro de Gravidade durante o distúrbio}
+	\caption{Movimento do Centro de Gravidade durante o distúrbio}
 	\label{fig:quedas}
 \end{figure}
 
@@ -352,14 +352,14 @@ Como será melhor abordado no capítulo \ref{CapExperimentos}, os testes empíricos
 
 \subsection{Juntas do Tipo Joelho}
 
-As juntas do tipo joelho diferem das outras no que diz respeito ao seu sentido de deslocamento. Em tal caso, percebeu-se, que o mais adequado para estas juntas é que sigam o movimento contrário ao distúrbio. Isso ocorre porque, ao seguir este sentido, a junta do joelho orienta a pata a aterrissar na vertical. Podemos visualizar melhor os possíveis cenários de orientação desta junta durante a aterrissagem através da Figura \ref{fig:aterrissagem}.
+As juntas do tipo joelho, diferem das outras no que diz respeito ao seu sentido de deslocamento (que se dá no plano longitudinal). Em tal caso, percebeu-se, que o mais adequado para estas juntas é que sigam o movimento contrário ao distúrbio. Isso ocorre porque, ao seguir este sentido, a junta do joelho orienta a pata a aterrissar na vertical. Podemos visualizar melhor os possíveis cenários de orientação desta junta durante a aterrissagem através da Figura \ref{fig:aterrissagem}.
 
 A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem correção de distúrbio, como referência. A Fig. \ref{fig:aterrissagem}(b), por sua vez, apresenta o caso em que a junta do joelho não muda sua configuração durante a correção do distúrbio, ocasionando em uma aterrissagem diagonal. Dessa forma, a pata fica suscetível a deslizar horizontalmente, sob influência do peso do robô. Já a Fig. \ref{fig:aterrissagem}(c) indica a configuração aproximada da pata quando o joelho se move em oposição ao distúrbio. É possível notar que a pata tem uma possibilidade mínima de deslizamento neste caso, devido à sua aterrissagem vertical. Por fim, na Fig. \ref{fig:aterrissagem}(d), é possível visualizar a posição da pata quando o joelho se desloca no sentido do distúrbio. Neste cenário, a pata também pode sofrer o deslizamento horizontal, cedendo ao peso do robô ocasionando em sua queda.
 
 \begin{figure} [b]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Aterrissagem}
-	\caption{Configurações das juntas tipo joelho durante a aterrissagem}
+	\caption{Configurações das juntas tipo joelho no plano longitudinal durante a aterrissagem}
 	\label{fig:aterrissagem}
 \end{figure}
 

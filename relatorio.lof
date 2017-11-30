@@ -4,20 +4,20 @@
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Robô quadrúpede HyQ}}{3}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Robô quadrúpede de entretenimento AIBO da Sony}}{4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Polígonos de Suporte de um robô quadrúpede (Fonte: \cite {article:mcghee:1968})}}{8}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Polígonos de suporte de um robô quadrúpede durante sua caminhada (Fonte: \cite {article:mcghee:1968})}}{8}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uma pata sem contato com o solo}}}{8}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Todas as pernas no sobre o solo com patas próximas}}}{8}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Todas as pernas no sobre o solo com patas afastadas}}}{8}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Margens de Estabilidade Longitudinal e de Caranguejo (Fonte: \cite {book})}}{9}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Robô prestes a tombar (Fonte: \cite {book})}}{10}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Forças e momentos atuantes em um robô prestes a tombar (Fonte: \cite {book})}}{10}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Esquemático dos parâmetros geométricos durante o tombo (Fonte: \cite {book})}}{12}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Robô de uma perna}}{13}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces \emph {CG Print} de um robô de uma perna (Fonte: \cite {article:raibert:1986})}}{14}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Perna Virtual (Fonte: \cite {article:raibert:1986})}}{14}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Representação de uma Perna Virtual (Fonte: \cite {article:raibert:1986})}}{14}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Pernas virtuais para cada marcha (Fonte: \cite {article:raibert:1986})}}{15}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Vistas do quadrúpede com 6 graus de liberdade (Fonte: \cite {article:li:2014})}}{16}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Modelo SLIP (Fonte: \cite {article:li:2014})}}{17}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Modelo para controle de arfagem e rolagem (Fonte: \cite {article:li:2014})}}{18}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Modelo de forças e torques para controle de arfagem e rolagem (Fonte: \cite {article:li:2014})}}{18}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Modelo de quadrúpede apoiado em pernas diagonais (Fonte: \cite {article:meng:2015})}}{19}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Esboço das relações de ângulo entre perna e corpo (Fonte: \cite {article:meng:2015})}}{20}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Estrutura do sistema de controle em malha fechada no espaço de estados (Fonte: \cite {article:meng:2015})}}{20}
@@ -34,26 +34,25 @@
 \contentsline {figure}{\numberline {2.23}{\ignorespaces Modelo geométrico de uma perna com 4 graus de liberdade (Fonte: \cite {article:runbin:2013})}}{30}
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Medições Empíricas e suas Respectivas Respostas (Fonte: \cite {article:sousa:2010})}}{31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Representação gráfica da plataforma quadrúpede (Fonte: \cite {tcc:porphirio:2017})}}{34}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Representação gráfica da plataforma quadrúpede do LARA (Fonte: \cite {tcc:porphirio:2017})}}{34}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Motor Rx-28 da Dynamixel (Fonte: \cite {tcc:porphirio:2017})}}{35}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Configurações do Modo Posição}}{36}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Orientações detectáveis pelo acelerômetro}}{37}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulo de Rolagem}}}{37}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulo de Arfagem}}}{37}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Arquitetura do Sistema Embarcado (Fonte: \cite {tcc:porphirio:2017})}}{38}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de Blocos do Sistema Básico}}{40}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade}}{41}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade com Filtro}}{42}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de Blocos do Sistema no Modo Posição}}{43}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Motores de rolagem em sincronia}}{44}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Motores de arfagem em sincronia}}{44}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade}}{41}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade com Filtro}}{42}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de Blocos do Sistema no Modo Posição}}{43}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Motores de rolagem em sincronia}}{44}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Motores de arfagem em sincronia}}{44}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sincronia por patas}}}{44}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sincronia pelo tipo de junta}}}{44}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Centro de Gravidade durante o distúrbio}}{45}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Movimento do Centro de Gravidade durante o distúrbio}}{45}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Queda para a direita}}}{45}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Queda para frente}}}{45}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Configurações das juntas tipo joelho durante a aterrissagem}}{47}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Diagrama de Blocos com Paralelismo}}{48}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Configurações das juntas tipo joelho no plano longitudinal durante a aterrissagem}}{47}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Diagrama de Blocos com Paralelismo}}{48}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Ângulos de Rolagem e Arfagem medidos com o robô parado}}{54}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Velocidades antes e depois da filtragem}}{55}

@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {3.5.3}Torque no Modo Velocidade}{42}
 \contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{42}
 \contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{42}
-\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{44}
+\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{45}
 \contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{46}
 \contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{47}
 \contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{51}
