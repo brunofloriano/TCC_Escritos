@@ -34,7 +34,7 @@ A identificação numérica (de 1 a 12) de cada motor pode ser organizada de acordo
 \subsection{Motores}
 Os motores utilizados na plataforma são do modelo RX-28 da DYNAMIXEL como o da Figura \ref{fig:motor} \cite{tcc:santos:2016}. Este motor, conforme indicado em seu manual\footnote{http://support.robotis.com/en/product/actuator/dynamixel/rx\_series/rx-28.htm\#Actuator\_Address\_06}, possui dois modos de operação: o modo posição (\emph{joint mode}) e o modo velocidade (\emph{wheel mode}).
 
-O modo posição possibilita a determinação da posição ângular de cada junta através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 9 bits (ou 1024 níveis de quantização) para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever a posição angular desejada com uma resolução de aproximadamente $0.2933^o$. Portanto, a relação entre a posição desejada, em graus, e o valor quantizado que deve ser escrito na memória é
+O modo posição possibilita a determinação da posição ângular de cada junta através da escrita dos bytes 30 e 31 da memória de cada motor. Como pode ser observado na Figura \ref{fig:modoposicao}, dispõem-se de 9 bits (ou 1024 níveis de quantização) para representar ângulos de $0^o$ até $300^o$ (há uma zona inválida entre $300^o$ e $360^o$). Dessa forma, pode-se escrever a posição angular desejada com uma resolução de aproximadamente $0,2933^o$. Portanto, a relação entre a posição desejada, em graus, e o valor quantizado que deve ser escrito na memória é
 
 \begin{table}[h]
 	\caption{Identificação dos motores}
@@ -63,7 +63,7 @@ O modo posição possibilita a determinação da posição ângular de cada junta atrav
 \newpage
 
 \begin{eqnarray}
-B_{\theta} = \frac{1023}{300}\theta_i = 3.41\theta_i ,
+B_{\theta} = \frac{1023}{300}\theta_i = 3,41\theta_i ,
 \end{eqnarray}
 
 \begin{figure} [t]
@@ -76,13 +76,13 @@ B_{\theta} = \frac{1023}{300}\theta_i = 3.41\theta_i ,
 
 \noindent em que $B_{\theta}$ é o valor quantizado que deve ser enviado em formato binário para a memória e $\theta_i$ é o ângulo desejado para o i-ésimo motor, em graus.
 
-O modo velocidade, por outro lado, permite a escrita da velocidade que o motor irá aplicar à sua respectiva junta. Neste modo, 10 bits são utilizados para escrever a velocidade, sendo o bit mais significativo utilizado para a determinação do sentido de deslocamento (0 para anti-horário e 1 para horário) e os outros 9 para a determinação do módulo da velocidade. Ao contrário do modo posição, o valor máximo de velocidade não é fixo, mas varia conforme a tensão aplicada no motor. Segundo o manual\footnote{http://www.crustcrawler.com/motors/RX28/docs/RX28\_Manual.pdf}, quando aplicados 16V, a velocidade máxima que pode ser atingida é de 79.4 rpm. Portanto, a velocidade máxima pode ser determinada por 
+O modo velocidade, por outro lado, permite a escrita da velocidade que o motor irá aplicar à sua respectiva junta. Neste modo, 10 bits são utilizados para escrever a velocidade, sendo o bit mais significativo utilizado para a determinação do sentido de deslocamento (0 para anti-horário e 1 para horário) e os outros 9 para a determinação do módulo da velocidade. Ao contrário do modo posição, o valor máximo de velocidade não é fixo, mas varia conforme a tensão aplicada no motor. Segundo o manual\footnote{http://www.crustcrawler.com/motors/RX28/docs/RX28\_Manual.pdf}, quando aplicados 16V, a velocidade máxima que pode ser atingida é de 79,4 rpm. Portanto, a velocidade máxima pode ser determinada por 
 
 \begin{eqnarray}
-\omega_{max} = V\frac{79.4}{16},
+\omega_{max} = V\frac{79,4}{16},
 \end{eqnarray}
 
-\noindent em que $\omega_{max}$ é a velocidade máxima, em rpm,  que pode ser aplicada a cada motor e $V$ é a sua respectiva tensão. Os motores, na configuração atual da plataforma, trabalha com um nível de tensão de 13.3 V e, portanto, permitem uma velocidade de até 66 rpm, ou 6.91 rad/s. Dessa forma, se $\omega_i$ é a velocidade desejada do i-ésimo motor, em rad/s, o valor quantizado $B_{\omega}$ que deve ser enviado à memória (nos bytes 32 e 33) do motor é
+\noindent em que $\omega_{max}$ é a velocidade máxima, em rpm,  que pode ser aplicada a cada motor e $V$ é a sua respectiva tensão. Os motores, na configuração atual da plataforma, trabalha com um nível de tensão de 13,3 V e, portanto, permitem uma velocidade de até 66 rpm, ou 6,91 rad/s. Dessa forma, se $\omega_i$ é a velocidade desejada do i-ésimo motor, em rad/s, o valor quantizado $B_{\omega}$ que deve ser enviado à memória (nos bytes 32 e 33) do motor é
 
 \begin{figure} [t]
 	\centering
@@ -92,10 +92,10 @@ O modo velocidade, por outro lado, permite a escrita da velocidade que o motor i
 \end{figure}
 
 \begin{eqnarray} \label{eq:velocidade_quant}
-B_{\omega} = \frac{1023}{6.91}|\omega_i| + 1024u(-\omega_i) = 148|\omega_i| + 1024u(-\omega_i),
+B_{\omega} = \frac{1023}{6,91}|\omega_i| + 1024u(-\omega_i) = 148|\omega_i| + 1024u(-\omega_i),
 \end{eqnarray}
 
-\noindent em que u é a função degrau. Ou seja, no caso da equação \ref{eq:velocidade_quant}, se $\omega_i$ for maior que 0 (sentido anti-horário) então o décimo bit de $B_{\omega}$ será igual a zero e se $\omega_i$ for menor que zero (sentido horário), então adicionar-se-á 1024 ao valor que define o módulo, de forma que o décimo bit seja configurado como 1. O caso em que $\omega_i$ é igual a zero não afeta a análise da função degrau uma vez que, se os 9 bit menos significativos forem 0 o motor não irá gerar qualquer movimento, independentemente do valor do décimo bit. 
+\noindent em que u é a função degrau. Ou seja, no caso da equação (\ref{eq:velocidade_quant}), se $\omega_i$ for maior que 0 (sentido anti-horário) então o décimo bit de $B_{\omega}$ será igual a zero e se $\omega_i$ for menor que zero (sentido horário), então adicionar-se-á 1024 ao valor que define o módulo, de forma que o décimo bit seja configurado como 1. O caso em que $\omega_i$ é igual a zero não afeta a análise da função degrau uma vez que, se os 9 bit menos significativos forem 0 o motor não irá gerar qualquer movimento, independentemente do valor do décimo bit. 
 
 Segundo o manual, para definir qual o modo de operação será utilizado, deve-se alterar os ângulos limites de cada motor, permitindo ou não que o movimento seja limitado. Dessa forma, para selecionar o modo velocidade, os ângulos mínimo e máximo devem ser ambos iguais a zero. Consequentemente, o sistema identifica que não deve haver restrição de movimento. Já para selecionar o modo posição, nenhum dos dois pode ser zero, havendo, dessa maneira, uma restrição do movimento. Para garantir a maior abrangência do movimento de cada motor no modo posição, pode-se definir o ângulo mínimo como 1 (valor quantizado) e o ângulo máximo como 1023. A definição dos ângulos mínimo e máximo pode ser realizada através dos bytes de 6 a 9 da memória.
 
@@ -138,9 +138,9 @@ Para lidar com tal sistema como um sistema real, implementou-se o controle de es
 
 Desta forma, a implementação do controle de estabilidade como uma thread periódica permite que este não seja influenciado por outros processos, de modo que o tempo de resposta para a correção dos distúrbios fique em limiares aceitáveis para que não haja falhas. No código desenvolvido, a função \emph{main}, depois de configurar todos os parâmetros necessários, cria um timer com $T_{am}$ segundos de periodicidade que, por sua vez, chama a thread de controle sempre que o tempo de amostragem é atingido. Asssim, dois processos acontecem simultaneamente: a função \emph{main}, que determina as condições de parada do código e escreve informações na tela, e a função de controle que lê os dados do acelerômetro, calcula as devidas respostas e as envia para os motores.
 
-O valor de $T_{am}$ foi, a princípio, estipulado como 0.1 segundos. Porém, percebeu-se através de diversos testes, e com auxílio do gDataLogger para a medição do tempo, que a leitura da própria função de controle (linha a linha do código) durava cerca de 35 a 40 ms. Este tempo representa aproximadamente 40\% do tempo de amostragem proposto sendo, dessa forma, uma valor bastante elevado e que pode prejudicar a dinâmica do sistema em tempo real. Por este motivo, estabeleceu-se que a leitura do código não deveria exceder em 20\% o tempo de amostragem.
+O valor de $T_{am}$ foi, a princípio, estipulado como 0,1 segundos. Porém, percebeu-se através de diversos testes, e com auxílio do gDataLogger para a medição do tempo, que a leitura da própria função de controle (linha a linha do código) durava cerca de 35 a 40 ms. Este tempo representa aproximadamente 40\% do tempo de amostragem proposto sendo, dessa forma, uma valor bastante elevado e que pode prejudicar a dinâmica do sistema em tempo real. Por este motivo, estabeleceu-se que a leitura do código não deveria exceder em 20\% o tempo de amostragem.
 
-Após vários testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-los. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0.2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
+Após vários testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-los. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0,2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
 
 \section{Controle de Estabilidade}
 O princípio do controle de estabilidade adotado pelo presente trabalho se baseia, em grande parte, no trabalho desenvolvido em \cite{article:raibert:0000} e em \cite{article:sousa:2010}. O princípio básico deste controle consiste na utilização de sensores para a aquisição das informações do estado atual do robô e a subsequente aplicação de respostas aos motores baseadas nestes dados. Mais especificamente, a resposta de cada motor i (em que i varia entre 1 e 12) será dada pela multiplicação do distúrbio detectado pelos sensores por um ganho $K_i$ obtido empiricamente para cada junta. 
@@ -228,10 +228,10 @@ A_{out}[k] = \frac{1}{1+T_{am}2\pi f_c}A_{out}[k-1] + \frac{T_{am}2\pi f_c}{1+T_
 
 \noindent em que $A_{out}$ é a saída do filtro e $A_{in}$ é a sua entrada.
 
-Como a frequência de amostragem $f_{am} = \frac{1}{T_{am}} = 5Hz$, é razoável estipular a frequência de corte do filtro com o valor de 1Hz. Como $T_{am} = 0.2$ e $f_c = 1$ a equação \ref{eq:filtro} resulta em
+Como a frequência de amostragem $f_{am} = \frac{1}{T_{am}} = 5Hz$, é razoável estipular a frequência de corte do filtro com o valor de 1Hz. Como $T_{am} = 0,2$ e $f_c = 1$ a equação (\ref{eq:filtro}) resulta em
 
 \begin{eqnarray} \label{eq:filtro2}
-A_{out}[k] = 0.4431A_{out}[k-1] + 0.5569A_{in}[k].
+A_{out}[k] = 0,4431A_{out}[k-1] + 0,5569A_{in}[k].
 \end{eqnarray}
 
 O diagrama de blocos com filtro pode ser visualizado na Figura \ref{fig:diagrama3}.
@@ -309,7 +309,7 @@ K_{9/12} &= K_{F}K_{down}.
 
 \noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$, ganhos dos motores m e n, respectivamente, são iguais ao valor do outro lado da igualdade.
 
-Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1.1 para a devida correção.
+Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1,1 para a devida correção.
 
 A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais na plataforma, com distúrbios em cada direção estudada, e será melhor detalhada no capítulo \ref{CapExperimentos}.
 
@@ -348,7 +348,7 @@ A_j & \text{se $\omega_{roll/pitch}$ for no sentido j}, \\
 
 \noindent Isto é, se a velocidade detectada ocorrer no sentido j (em que j pode ser igual a R, L, F ou B, dependendo do sentido da queda do robô), o ganho referente a este sentido será diferente de zero e igual ao ganho de resposta, $A_j$, a ser caracterizado empiricamente. Caso não seja detectado nenhum distúrbio no sentido j o ganho referente àquela direção será igual a zero.
 
-Como será melhor abordado no capítulo \ref{CapExperimentos}, os testes empíricos realizados na plataforma, com  aplicação de distúrbios, indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1.5 para todos os sentidos.
+Como será melhor abordado no capítulo \ref{CapExperimentos}, os testes empíricos realizados na plataforma, com  aplicação de distúrbios, indicaram que o valor de $A_j$ mais adequado para o controle de estabilidade é igual a 1,5 para todos os sentidos.
 
 \subsection{Juntas do Tipo Joelho}
 
