@@ -28,7 +28,7 @@ O teste é feito com o robô parado, sustentado por uma caixa que impede as patas 
 
 \begin{figure} [!b]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Figuras/Angulos_ruido}
+	\includegraphics[width=0.6\textwidth]{Figuras/Angulos_ruidob}
 	\caption{Ângulos de Rolagem e Arfagem medidos com o robô parado}
 	\label{fig:angulos_ruido}
 \end{figure}
@@ -61,8 +61,8 @@ Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se 
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_roll}}\quad\quad
-		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_pitch}}}
+		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_rollb}}\quad\quad
+		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_pitchb}}}
 	\caption{Velocidades antes e depois da filtragem}
 	\label{fig:velocidades_medidas}
 \end{figure}
@@ -121,7 +121,7 @@ Podemos visualizar a posição inicial do robô na Figura 	\ref{fig:roboreal2}.
 Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais encontradas anteriormente. Em seguida, a plataforma é posicionada sobre o solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado, para fins de comparação, tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação (\ref{eq:controle_velocidade_discreto}), como para o controle adaptado para o modo posição, determinado pela equação (\ref{eq:controle_posicao_discreto}), que será abordado mais adiante.
 
 
-O resultado obtido no modo velocidade pode ser visualizado pela Figura \ref{fig:teste_sustentacao}. Na Fig. \ref{fig:teste_sustentacao}(a) são mostrados os ângulos de rolagem e arfagem medidos. Já a Fig. \ref{fig:teste_sustentacao}(b) apresenta, em vermelho, a velocidade de rolagem e, de amarelo, a velocidade dos motores utilizados para corrigir o distúrbio nesta direção (i.e. motores 1, 4, 7 e 10). Analogamente, a Fig. \ref{fig:teste_sustentacao}(c) contém a velocidade de arfagem e dos respectivos motores que a corrigem.
+O resultado obtido no modo velocidade pode ser visualizado pela Figura \ref{fig:teste_sustentacao}. Na Fig. \ref{fig:teste_sustentacao}(a) são mostrados os ângulos de rolagem e arfagem medidos. Já a Fig. \ref{fig:teste_sustentacao}(b) apresenta, em linha contínua, a velocidade de rolagem e, em linha traço e ponto, a velocidade dos motores utilizados para corrigir o distúrbio nesta direção (i.e. motores 1, 4, 7 e 10). Analogamente, a Fig. \ref{fig:teste_sustentacao}(c) contém a velocidade de arfagem e dos respectivos motores que a corrigem.
 
 Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que se devem apenas à alocação do robô sobre o solo. A partir deste momento, nenhum distúrbio externo foi aplicado ao robô. Ainda assim, é possível observar, na Fig. \ref{fig:teste_sustentacao}(a), que o robô sofre uma queda, a partir de aproximadamente 8 segundos, quando o ângulo de arfagem caiu para -18.3 graus.
 
@@ -136,15 +136,15 @@ Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que 
 \begin{figure}[b]
 	%\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade1}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade2}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade3}}}
-	\caption{Teste de Sustentação do Robô}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade1b}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade2b}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_velocidade3b}}}
+	\caption{Teste de Sustentação do Robô no Modo Velocidade}
 	\label{fig:teste_sustentacao}
 \end{figure}
 
 
-Para analisar o ocorrido podemos verificar a Fig. \ref{fig:teste_sustentacao}(c), representando a direção em que houve a queda (i.e arfagem). Nela, as linhas em amarelo, representando as velocidades dos motores, começam a aumentar (em módulo) alguns segundos antes da queda brusca. Este é um indicador de que as juntas começaram a ceder inicialmente de forma lenta e foram aumentando sua velocidade até que o robô não foi mais capaz de se sustentar, gerando a queda.
+Para analisar o ocorrido podemos verificar a Fig. \ref{fig:teste_sustentacao}(c), representando a direção em que houve a queda (i.e arfagem). Nela, as linhas traço e ponto, representando as velocidades dos motores, começam a aumentar (em módulo) alguns segundos antes da queda brusca. Este é um indicador de que as juntas começaram a ceder inicialmente de forma lenta e foram aumentando sua velocidade até que o robô não foi mais capaz de se sustentar, gerando a queda.
 
 Podemos, para melhor visualização, separar a resposta de um desses motores, como é feito na Figura \ref{fig:motor_queda}. Nesta imagem, isolou-se a resposta, em módulo, do motor 11 (utilizado para corrigir a arfagem em uma junta do tipo não joelho). Constata-se que a velocidade do motor começou a aumentar cerca de 2 segundos antes da queda do robô, atingindo o seu ápice por volta de 8.4 segundos.
 
@@ -177,9 +177,9 @@ Os dados obtidos para tal teste podem ser analisados pela Figura \ref{fig:teste_
 \begin{figure}[b]
 	%\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao1}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao2}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao3}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao1b}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao2b}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Modo_posicao3b}}}
 	\caption{Teste de Sustentação do Robô no Modo Posição}
 	\label{fig:teste_sustentacao_posicao}
 \end{figure}
@@ -232,15 +232,15 @@ Inicialmente, foi realizado tal ensaio com o distúrbio apenas para a direita, ou
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_1}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_2}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_1b}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_2b}}}
 	\caption{Teste de Queda para a direita com $K_{R} = 1$}
 	\label{fig:queda_roll_1}
 \end{figure}
 
 Podemos observar neste dados, que diversos distúrbios foram aplicados em intervalos de aproximadamente 2 segundos entre eles, com uma amplitude, em módulo, de até 0.85 rad/s. Em grande parte das respostas subsequentes, percebe-se que o ângulo de rolagem volta ao seu valor inicial assim como a velocidade volta a ser de 0 rad/s, indicando a estabilidade. No entanto, o último distúrbio verificado causa a instabilidade do robô, como pode ser visto na Fig. \ref{fig:queda_roll_1}(a). Neste caso, o ângulo de rolagem cai para aproximadamente $30^o$, indicando a queda do robô.
 
-Além disso, a Fig. \ref{fig:queda_roll_1}(b) indica que as velocidades dos motores (em amarelo) estavam bem reduzidas neste experimento e, portanto, quase não responderam ao distúrbio. Dessa forma, pode-se concluir que a estabilização dos primeiros distúrbios não teve relação com a resposta dos motores, mas sim com a própria geometria de distribuição das patas e da magnitude do distúrbio, insuficiente para fazê-lo cair. Apenas a última perturbação imposta na plataforma teve amplitude suficiente para fazê-lo tombar e, como as respostas dos motores estavam em patamares insuficientes, a queda do robô ocorreu.
+Além disso, a Fig. \ref{fig:queda_roll_1}(b) indica que as velocidades dos motores (em linhas tipo traço e ponto) estavam bem reduzidas neste experimento e, portanto, quase não responderam ao distúrbio. Dessa forma, pode-se concluir que a estabilização dos primeiros distúrbios não teve relação com a resposta dos motores, mas sim com a própria geometria de distribuição das patas e da magnitude do distúrbio, insuficiente para fazê-lo cair. Apenas a última perturbação imposta na plataforma teve amplitude suficiente para fazê-lo tombar e, como as respostas dos motores estavam em patamares insuficientes, a queda do robô ocorreu.
 
 Portanto, o ganho de $K_{R}$ foi insuficiente para corrigir o distúrbio, indicando uma necessidade de aumentar tal valor para que o controle possa responder adequadamente a tal. O próximo valor a ser testado neste mesmo experimento é de $K_{R} = 1.5$. Os dados referentes a este valor se encontram na Figura \ref{fig:queda_roll_2}.
 
@@ -248,9 +248,9 @@ Portanto, o ganho de $K_{R}$ foi insuficiente para corrigir o distúrbio, indican
 \begin{figure}[t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_3}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_4}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_5}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_3b}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_4b}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Roll_R_5b}}}
 	\caption{Teste de Queda para a direita com $K_{R} = 1.5$}
 	\label{fig:queda_roll_2}
 \end{figure}
@@ -283,9 +283,9 @@ Os resultados obtidos neste experimento são ilustrados na Figura \ref{fig:queda_
 \begin{figure}[b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_1}}\quad\quad
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_2}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_3}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_1b}}\quad\quad
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_2b}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Pitch_F_3b}}}
 	\caption{Teste de Queda para a frente com $K_{F} = 1.5$}
 	\label{fig:queda_pitch1}
 \end{figure}
@@ -299,9 +299,9 @@ Por fim, é apresentado um último experimento com o controlador proposto. Neste t
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Todos1}}\quad\quad
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Todos2}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Todos3}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Todos1b}}\quad\quad
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Todos2b}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Todos3b}}}
 	\caption{Teste de Queda em todos os sentidos}
 	\label{fig:queda_todos}
 \end{figure}
@@ -399,10 +399,10 @@ Com o parâmetro $\tau_d$ determinado pode-se realizar os testes para a obtenção 
 			& \multicolumn{2}{|c|}{Tempo de Acomodação} & \multicolumn{2}{|c|}{Magnitude de Oscilação} \\
 			\hline
 			$\tau_d$	& Rolagem & Arfagem & Rolagem & Arfagem \\ \hline
-			0.01 & 8.4 & 3.6 & 0.729 & 0.109\\
-			0.05 & 5.2 & 1.8 & 0.249 & 0.436\\
-			0.1 & 6.4 & 2.8 & 0.999 & 0.250\\
-			0.3 & 10 & 10.2 & 0.412 & 0.814\\ \hline
+			0,01 & 8,4 & 3,6 & 0,729 & 0,109\\
+			0,05 & 5,2 & 1,8 & 0,249 & 0,436\\
+			0,1 & 6,4 & 2,8 & 0,999 & 0,250\\
+			0,3 & 10 & 10,2 & 0,412 & 0,814\\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -412,13 +412,13 @@ Como anteriormente, a posição desejada é configurada para a posição inicial de f
 
 A análise das respostas será feita com base no tempo de acomodação, uma vez que não foram observadas oscilações significativas nas juntas que pudessem gerar adversidades. O tempo de acomodação é aqui definido como o maior tempo entre o início do movimento de alguma junta e o instante em que sua posição entra e se mantém, por 2 segundos, na faixa de mais ou menos 2\% do seu valor inicial.
 
-O primeiro valor a ser testado foi de $\tau_p = 0.1$ e a resposta obtida é ilustrada na Figura \ref{fig:taup_0.1}. Na Fig. \ref{fig:taup_0.1}(a) apresenta-se os ângulos dos quatro motores de correção da rolagem sendo, em amarelo, os da esquerda e em azul, os da direita. Na Fig. \ref{fig:taup_0.1}(b), são ilustrados os ângulos dos 8 motores de rolagem sendo, em amarelo os correspondentes da frente, e em azul, os de trás.
+O primeiro valor a ser testado foi de $\tau_p = 0.1$ e a resposta obtida é ilustrada na Figura \ref{fig:taup_0.1}. Na Fig. \ref{fig:taup_0.1}(a) apresenta-se os ângulos dos quatro motores de correção da rolagem sendo, em linha tipo traço e ponto, os da esquerda e, em linha contínua, os da direita. Na Fig. \ref{fig:taup_0.1}(b), são ilustrados os ângulos dos 8 motores de rolagem sendo, em linha traço e ponto os correspondentes da frente, e em linha contínua, os de trás.
 
 \begin{figure}[t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_01R}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_01P}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_01Rb}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_01Pb}}}
 	\caption{Teste de Queda com $\tau_p = 0.1$}
 	\label{fig:taup_0.1}
 \end{figure}
@@ -430,8 +430,8 @@ Para $\tau_p = 0.3$ obteve-se o resultado da Figura \ref{fig:taup_0.3}. Neste ca
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_03R}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_03P}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_03Rb}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_03Pb}}}
 	\caption{Teste de Queda com $\tau_p = 0.3$}
 	\label{fig:taup_0.3}
 \end{figure}
@@ -441,8 +441,8 @@ Para $\tau_p = 0.5$, as respostas dos motores podem ser visualizadas através da 
 \begin{figure}[t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_05R}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_05P}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_05Rb}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_05Pb}}}
 	\caption{Teste de Queda com $\tau_p = 0.5$}
 	\label{fig:taup_0.5}
 \end{figure}
@@ -452,8 +452,8 @@ Por fim, para $\tau_p = 0.7$ obteve-se a resposta indicada pela Figura \ref{fig:
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_07R}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_07P}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_07Rb}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/taup_07Pb}}}
 	\caption{Teste de Queda com $\tau_p = 0.7$}
 	\label{fig:taup_0.7}
 \end{figure}
@@ -485,10 +485,10 @@ Da mesma forma, é possível notar que, mesmo que a perturbação tenha sido realiza
 			& \multicolumn{2}{|c|}{Tempo de Acomodação} \\
 			\hline
 			$\tau_d$	& Rolagem & Arfagem \\ \hline
-			0.1 & 2.9 & 8.8 \\
-			0.3 & 2.8 & 3 \\
-			0.5 & 2.5 & 9.1\\
-			0.7 & 6.7 & 6.2 \\ \hline
+			0,1 & 2,9 & 8,8 \\
+			0,3 & 2,8 & 3 \\
+			0,5 & 2,5 & 9,1\\
+			0,7 & 6,7 & 6,2 \\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -496,8 +496,8 @@ Da mesma forma, é possível notar que, mesmo que a perturbação tenha sido realiza
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_direita}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_direita2}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_direitab}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_direita2b}}}
 	\caption{Teste de Queda para a direita com Paralelismo}
 	\label{fig:queda_final_direita}
 \end{figure}
@@ -511,8 +511,8 @@ O mesmo procedimento foi realizado com os distúrbios para a esquerda, resultando
 \begin{figure}[t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerda}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerda2}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerdab}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_esquerda2b}}}
 	\caption{Teste de Queda para a esquerda com Paralelismo}
 	\label{fig:queda_final_esquerda}
 \end{figure}
@@ -523,8 +523,8 @@ Já para a direção de arfagem realizou-se, primeiramente, o teste com o distúrbio
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_frente1}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_frente2}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_frente1b}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_frente2b}}}
 	\caption{Teste de Queda para frente com Paralelismo}
 	\label{fig:queda_final_frente}
 \end{figure}
@@ -538,8 +538,8 @@ Para perturbações para trás do robô, obtivemos os resultados ilustrados na Figur
 \begin{figure}[t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_tras1}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_tras2}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_tras1b}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/final_tras2b}}}
 	\caption{Teste de Queda para a trás com Paralelismo}
 	\label{fig:queda_final_tras}
 \end{figure}
@@ -549,8 +549,8 @@ Por fim, realizou-se um experimento com distúrbios aplicados em diagonal, para p
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Diagonal1}}\quad\quad
-		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Diagonal2}}}
+		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Diagonal1b}}\quad\quad
+		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.3\textwidth]{Figuras/Queda_Diagonal2b}}}
 	\caption{Teste de Queda para na diagonal com Paralelismo}
 	\label{fig:queda_final_diagonal}
 \end{figure}
@@ -568,7 +568,7 @@ O resultado obtido pode ser verificado na Figura \ref{fig:marcha1}. Nela, são mo
 
 \begin{figure} [t]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Figuras/marcha1}
+	\includegraphics[width=0.5\textwidth]{Figuras/marcha1b}
 	\caption{Teste de marcha no sistema com paralelismo}
 	\label{fig:marcha1}
 \end{figure}
