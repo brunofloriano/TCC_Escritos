@@ -58,21 +58,21 @@
 \contentsline {subsection}{\numberline {4.2.1}Medição}{53}
 \contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{55}
 \contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{56}
-\contentsline {section}{\numberline {4.3}Modo Posição}{59}
+\contentsline {section}{\numberline {4.3}Modo Posição}{58}
 \contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{59}
 \contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{59}
 \contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{61}
-\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{64}
-\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{65}
-\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{66}
-\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{66}
-\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{69}
-\contentsline {subsection}{\numberline {4.4.2}Testes finais}{70}
-\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{73}
-\contentsline {section}{\numberline {4.5}Conclusões}{75}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{77}
-\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{78}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{79}
-\contentsline {chapter}{{Anexos}}{81}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{82}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{83}
+\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{65}
+\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{67}
+\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{67}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{68}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{70}
+\contentsline {subsection}{\numberline {4.4.2}Testes finais}{72}
+\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{76}
+\contentsline {section}{\numberline {4.5}Conclusões}{78}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{79}
+\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{80}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{81}
+\contentsline {chapter}{{Anexos}}{83}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{84}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{85}
