@@ -29,7 +29,7 @@ O teste é feito com o robô parado, sustentado por uma caixa que impede as patas 
 \begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/Angulos_ruidob}
-	\caption{Ângulos de Rolagem e Arfagem medidos com o robô parado}
+	\caption{Ângulos de rolagem e arfagem medidos com o robô parado}
 	\label{fig:angulos_ruido}
 \end{figure}
 
@@ -39,15 +39,15 @@ Podemos observar que o valor médio das duas quantidades é diferente de zero, ape
 
 Após a medição, os ângulos são derivados e, em seguida, passados por um filtro passa-baixa, especificado pela equação (\ref{eq:filtro}). As velocidades resultantes após a derivação e após a filtragem podem ser visualizadas na Figura \ref{fig:velocidades_medidas}. Para poder analisar o efeito do filtro sobre a velocidade calculada, montou-se a Tabela \ref{TabVelocidades}. Nela foram organizados os valores mínimo, máximo e médio das velocidades assim como sua amplitude, ou seja, a diferença entre o máximo e o mínimo atingidos.
 
-Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruído decaiu 45,7\% para a medição da velocidade de rolagem e 52,5\% para a arfagem. Isso indica que o efeito do filtro sob a medição da velocidade se mostrou adequado para as necessidades para as quais ele foi desenvolvido. Isto é, ele é capaz de amenizar a ação do ruído em altas frequências.
+Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruído decaiu 45,7\% para a medição da velocidade de rolagem e 52,5\% para a arfagem. Isso indica que o efeito do filtro sobre a medição da velocidade se mostrou adequado para as necessidades para as quais ele foi desenvolvido. Isto é, ele é capaz de amenizar a ação do ruído em altas frequências.
 
-Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-4}$ e $10^{-5}$ e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de $10^{0}$ e $10^{1}$ rad/s.
+Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-3}$ e $10^{-4}$ graus/s e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de 50 a 500 graus/s.
 
 \begin{table}[t]
 	\caption{Ângulos mínimo, máximo e médio medidos}
 	\label{TabAngulos}
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
+		\begin{tabular}{c|c|c|c}
 			\hline
 			\textbf{Orientação} & \textbf{Valor mínimo (graus)} & \textbf{Valor máximo (graus)} & \textbf{Valor médio (graus)} \\
 			\hline
@@ -61,8 +61,8 @@ Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se 
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_rollb}}\quad\quad
-		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.5\textwidth]{Figuras/Filtro_pitchb}}}
+		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.65\textwidth]{Figuras/Filtro_rolld}}}\quad\quad
+		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.65\textwidth]{Figuras/Filtro_pitchc}}
 	\caption{Velocidades antes e depois da filtragem}
 	\label{fig:velocidades_medidas}
 \end{figure}
@@ -79,12 +79,12 @@ Para obter tal posição realizou-se um breve procedimento em que os motores foram
 	\begin{center}
 		\begin{tabular}{c|c|c|c|c}
 			\hline
-			\textbf{Orientação} & \textbf{Mínimo (rad/s)} & \textbf{Máximo (rad/s)} & \textbf{Amplitude (rad/s)} & \textbf{Média (rad/s)} \\
+			\textbf{Orientação} & \textbf{Mínimo ($^o$/s)} & \textbf{Máximo ($^o$/s)} & \textbf{Amplitude ($^o$/s)} & \textbf{Média ($^o$/s)} \\
 			\hline
-			Rolagem & -0,0581 & 0,1172 & 0,1753 & $7,0738\cdot10^{-4}$\\
-			Rolagem filtrada & -0,0299 & 0,0952 & 0,0653 & $7,0598\cdot10^{-4}$\\
-			Arfagem & -0,0399 & 0,0409 & 0,0808 & $8,3171\cdot10^{-5}$\\
-			Arfagem filtrada & -0,0184 & 0,0384 & 0,02 & $2,9474\cdot10^{-5}$\\ \hline
+			Rolagem & -3,3289 & 6,7151 & 10,0440 & 0,0405\\
+			Rolagem filtrada & -1,7131 & 5,4546 & 3,7414 & 0,0404\\
+			Arfagem & -2,2861 & 2,3434 & 4,6295 & $4,7653\cdot10^{-3}$\\
+			Arfagem filtrada & -1,0542 & 2,2002 & 1,1459 & $1,6887\cdot10^{-3}$\\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -93,7 +93,7 @@ Para obter tal posição realizou-se um breve procedimento em que os motores foram
 	\caption{Posição Inicial dos Motores}
 	\label{TabPosicaoInicial}
 	\begin{center}
-		\begin{tabular}{|c|c|c|}
+		\begin{tabular}{c|c|c}
 			\hline
 			\textbf{Motor} & \textbf{Ângulo inicial (valor quantizado)} & \textbf{Ângulo inicial (graus)} \\
 			\hline
@@ -126,7 +126,7 @@ O resultado obtido no modo velocidade pode ser visualizado pela Figura \ref{fig:
 Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que se devem apenas à alocação do robô sobre o solo. A partir deste momento, nenhum distúrbio externo foi aplicado ao robô. Ainda assim, é possível observar, na Fig. \ref{fig:teste_sustentacao}(a), que o robô sofre uma queda, a partir de aproximadamente 8 segundos, quando o ângulo de arfagem caiu para -18,3 graus.
 
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/robo_real2}
 	\caption{Robô na sua posição inicial}
@@ -140,9 +140,9 @@ Podemos, para melhor visualização, separar a resposta de um desses motores, como
 \begin{figure}[!t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.4\textwidth]{Figuras/Modo_velocidade1b}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Modo_velocidade2b}}}
-	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Modo_velocidade3b}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade1b}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade2b}}}
+	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade3b}}
 	\caption{Teste de Sustentação do Robô no Modo Velocidade}
 	\label{fig:teste_sustentacao}
 \end{figure}
@@ -156,19 +156,19 @@ Podemos, para melhor visualização, separar a resposta de um desses motores, como
 
 
 
-Como não houve distúrbios externos e a resposta dos motores havia sido configurada para 0 rad/s, conclui-se que os motores não apresentam torque suficiente no modo velocidade para mantê-la como tal e, consequentemente, deixam as juntas suscetíveis a serem movimentadas. O resultado disso foi o peso do robô movimentar as juntas até o ponto em que este não foi capaz de se sustentar mais.
+Como não houve distúrbios externos e a resposta dos motores havia sido configurada para 0 graus/s, conclui-se que os motores não apresentam torque suficiente no modo velocidade para mantê-la como tal e, consequentemente, deixam as juntas suscetíveis a serem movimentadas. O resultado disso foi o peso do robô movimentar as juntas até o ponto em que este não foi capaz de se sustentar mais.
 
 No entanto, não foi encontrado o motivo pelo qual os motores apresentam um torque limitado no modo velocidade. Pode-se salientar que os motores foram configurados para apresentarem o torque máximo possível. Para tal, os bytes 14 e 15 da memória de cada motor definem o torque máximo permitido e, os bytes 34 e 35, o limite de torque que se deseja implementar. Nos dois casos foram aplicados os maiores valores possíveis para garantir que não houvesse limitações de torque. Ainda assim, os testes no modo velocidade apresentaram as limitações verificadas anteriormente.
 
 A hipótese formulada para tal limitação é que o modo velocidade foi desenvolvido pelos fabricantes dos motores para ser utilizado em rodas ou outros elementos que giram constantemente por várias revoluções por minuto. Enquanto isso, o modo posição teria sido desenvolvido para aplicações em articulações e juntas, como é o caso do quadrúpede, uma vez que a determinação (e fixação) das posições desejadas implica em uma resolução de movimento mais adequada para tais finalidades. Por isso, este modo apresentaria um torque mais elevado para manter as posições fixas enquanto, em rodas e afins, esta imobilização não se faz necessária.
 
-Como será visto na próxima seção, o modo posição apresenta um torque bastante elevado quando comparado ao modo velocidade. Neste caso, ao determinar uma posição para o motor (assim como configuramos uma velocidade de 0 rad/s no modo velocidade) este fixa tal localização e não cede facilmente a movimentos externos que tendam a mover a junta para uma posição diferente. Portanto, é mais vantajoso que trabalhemos no modo posição para que o robô possa se sustentar sozinho.
+Como será visto na próxima seção, o modo posição apresenta um torque bastante elevado quando comparado ao modo velocidade. Neste caso, ao determinar uma posição para o motor (assim como configuramos uma velocidade de 0 graus/s no modo velocidade) este fixa tal localização e não cede facilmente a movimentos externos que tendam a mover a junta para uma posição diferente. Portanto, é mais vantajoso que trabalhemos no modo posição para que o robô possa se sustentar sozinho.
 
 \section{Modo Posição}
 Com o modo posição, podemos utilizar os motores de forma mais adequada para que o robô se sustente e corrija os distúrbios aos quais está suscetível. Da mesma forma que no modo velocidade, nesta seção abordar-se-á os resultados atingidos com os experimentos no modo posição analisando o que necessita de modificação e, principalmente, obtendo os dados empíricos para a determinação das constantes de controle.
 
 \subsection{Teste de Sustentação}
-Assim como foi realizado na seção \ref{sec:sustentacao_velocidade}, neste experimento realizou-se o teste de sustentação, com o robô em pé, parado, sem aplicação de distúrbios externos e com a velocidade dos motores configurada para zero. A diferença entre o presente experimento e o item mencionado é que para manter a velocidade de 0 rad/s em cada motor no modo posição, o sistema configura sua localização sempre com o mesmo valor enquanto, anteriormente, a própria velocidade era determinada.
+Assim como foi realizado na seção \ref{sec:sustentacao_velocidade}, neste experimento realizou-se o teste de sustentação, com o robô em pé, parado, sem aplicação de distúrbios externos e com a velocidade dos motores configurada para zero. A diferença entre o presente experimento e o item mencionado é que para manter a velocidade de 0 graus/s em cada motor no modo posição, o sistema configura sua localização sempre com o mesmo valor enquanto, anteriormente, a própria velocidade era determinada.
 
 Os dados obtidos para tal teste podem ser analisados pela Figura \ref{fig:teste_sustentacao_posicao}. Podemos observar que o experimento foi possível de ser realizado por mais tempo que anteriormente pois não houve a queda do robô. Dessa forma, as figuras apresentadas apresentam apenas ruído, uma vez que não houve distúrbios externos e nem movimento da juntas.
 
@@ -182,9 +182,9 @@ As constantes $K_{up}$ e $K_{down}$, no escopo de correção do movimento de arfag
 \begin{figure}[!t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.4	\textwidth]{Figuras/Modo_posicao1b}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Modo_posicao2b}}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Modo_posicao3b}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao1b}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao2b}}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao3b}}
 	\caption{Teste de Sustentação do Robô no Modo Posição}
 	\label{fig:teste_sustentacao_posicao}
 \end{figure}
@@ -212,7 +212,7 @@ Desejando diminuir este movimento, sugeriu-se $K_{down} = -0,4$ reduzindo em mai
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Kdown04}
-	\caption{Postura após distúrbio com $K_{down} = -0.4$}
+	\caption{Postura após distúrbio com $K_{down} = -0,4$}
 	\label{fig:kdown04}
 \end{figure}
 

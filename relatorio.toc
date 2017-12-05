@@ -46,33 +46,33 @@
 \contentsline {subsection}{\numberline {3.5.2}Filtro}{41}
 \contentsline {subsection}{\numberline {3.5.3}Torque no Modo Velocidade}{42}
 \contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{42}
-\contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{42}
-\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{45}
-\contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{46}
+\contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{43}
+\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{44}
+\contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{47}
 \contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{47}
 \contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{51}
-\contentsline {section}{\numberline {3.7}Conclusão}{52}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{53}
-\contentsline {section}{\numberline {4.1}Introdução}{53}
-\contentsline {section}{\numberline {4.2}Modo Velocidade}{53}
-\contentsline {subsection}{\numberline {4.2.1}Medição}{53}
-\contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{55}
-\contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{56}
-\contentsline {section}{\numberline {4.3}Modo Posição}{58}
-\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{59}
-\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{59}
-\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{61}
-\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{65}
-\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{67}
-\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{67}
-\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{68}
-\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{70}
-\contentsline {subsection}{\numberline {4.4.2}Testes finais}{72}
-\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{76}
-\contentsline {section}{\numberline {4.5}Conclusões}{78}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{79}
-\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{80}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{81}
-\contentsline {chapter}{{Anexos}}{83}
-\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{84}
-\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{85}
+\contentsline {section}{\numberline {3.7}Conclusão}{53}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{54}
+\contentsline {section}{\numberline {4.1}Introdução}{54}
+\contentsline {section}{\numberline {4.2}Modo Velocidade}{54}
+\contentsline {subsection}{\numberline {4.2.1}Medição}{54}
+\contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{57}
+\contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{58}
+\contentsline {section}{\numberline {4.3}Modo Posição}{60}
+\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{61}
+\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{61}
+\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{63}
+\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{66}
+\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{68}
+\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{69}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{69}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{72}
+\contentsline {subsection}{\numberline {4.4.2}Testes finais}{73}
+\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{78}
+\contentsline {section}{\numberline {4.5}Conclusões}{79}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{81}
+\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{82}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{83}
+\contentsline {chapter}{{Anexos}}{85}
+\contentsline {chapter}{\numberline {I}Diagramas Esquemáticos}{86}
+\contentsline {chapter}{\numberline {II}Descrição do conteúdo do CD}{87}

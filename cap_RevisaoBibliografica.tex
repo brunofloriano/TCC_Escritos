@@ -285,7 +285,7 @@ J\ddot{\beta} = -k_{p\beta}(\beta-\beta_d) - k_{d\beta}\dot{\beta},
 \noindent de modo que $k_{p\beta}$ é a rigidez da mola equivalente, $k_{d\beta}$ é o amortecimento e $\beta_d$ é o ângulo desejado. Este configura um sistema de segunda ordem e é dado pela função de transferência
 
 \begin{eqnarray}
-\frac{\beta(s)}{\beta_d(s)} = \frac{\omega_n}{s^2+2\xi\omega_n s+\omega_n^2} = \frac{2k_{p\beta}/J}{s^2+2k_{d\beta}s/J + 2k_{p\beta}/J},
+\frac{\beta(s)}{\beta_d(s)} = \frac{\omega_n^2}{s^2+2\xi\omega_n s+\omega_n^2} = \frac{2k_{p\beta}/J}{s^2+2k_{d\beta}s/J + 2k_{p\beta}/J},
 \end{eqnarray}
 
 \noindent sendo que $\xi$ é a razão de amortecimento e $\omega_n$ é a frequência natural do sistema de segunda ordem.
@@ -395,7 +395,7 @@ O sistema de controle, dessa forma, pode ser implementado conforme o diagrama de
 
 \begin{figure} [t]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Figuras/LAR3}
+	\includegraphics[width=0.85\textwidth]{Figuras/LAR3}
 	\caption{Diagrama de blocos do sistema de controle de equilíbrio e trajetória (Fonte: \cite{article:won:2009})}
 	\label{fig:lar3}
 \end{figure}
@@ -656,8 +656,8 @@ O controle de postura proposto se baseia na integração de diversos aspectos sens
 
 \begin{figure} [b]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Figuras/respostassensoriais}
-	\caption{Medições Empíricas e suas Respectivas Respostas (Fonte: \cite{article:sousa:2010})}
+	\includegraphics[width=0.7\textwidth]{Figuras/respostassensoriais2}
+	\caption{Medições Empíricas e suas Respectivas Respostas (Adaptado de \cite{article:sousa:2010})}
 	\label{fig:respostassensoriais}
 \end{figure}
 

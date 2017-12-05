@@ -115,7 +115,7 @@ Tais ângulos possibilitam caracterizar a orientação do robô no espaço, indicando
 	\label{fig:angulos}
 \end{figure}
 
-O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código desenvolvido em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} mostra o esquemático do sistema embarcado acima descrito.
+O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código desenvolvido em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} ilustra o sistema embarcado acima descrito.
 
 \section{gDataLogger}
 O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo Borges para que os dados adquiridos durante o processo (como os ângulos de rolagem e arfagem, a posição dos motores e etc) sejam armazenados em um arquivo com extensão .mat para a posterior leitura através do software \emph{Matlab}.
@@ -238,7 +238,7 @@ O diagrama de blocos com filtro pode ser visualizado na Figura \ref{fig:diagrama
 
 \begin{figure} [b]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama3}
+	\includegraphics[width=1\textwidth]{Figuras/Diagrama3}
 	\caption{Diagrama de Blocos do Sistema no Modo Velocidade com Filtro}
 	\label{fig:diagrama3}
 \end{figure}
@@ -260,7 +260,7 @@ Dessa forma, o diagrama de blocos correspondente a esta nova estrutura adiciona 
 
 \begin{figure} [t]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama4}
+	\includegraphics[width=1.1\textwidth]{Figuras/Diagrama4}
 	\caption{Diagrama de Blocos do Sistema no Modo Posição}
 	\label{fig:diagrama4}
 \end{figure}
@@ -287,15 +287,6 @@ No entanto, há uma diferença para o caso da arfagem uma vez que os motores que f
 	\label{fig:sincronia_roll}
 \end{figure}
 
-\begin{figure}[b]
-	\centering
-	\mbox{
-		\subfigure[Sincronia por patas]{\includegraphics[width=0.4\textwidth]{Figuras/robo5b}}\quad\quad
-		\subfigure[Sincronia pelo tipo de junta]{\includegraphics[width=0.4\textwidth]{Figuras/robo3b}}}
-	\caption{Motores de arfagem em sincronia}
-	\label{fig:sincronia_pitch}
-\end{figure}
-
 Assim, observando a Tabela \ref{TabIdMotores}, podemos determinar cada $K_i$:
 
 \begin{align} \label{eq:ganhos}
@@ -314,6 +305,15 @@ Para que cada par de motores acima agrupados possa seguir o movimento no mesmo s
 A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais na plataforma, com distúrbios em cada direção estudada, e será melhor detalhada no capítulo \ref{CapExperimentos}.
 
 \subsection{Sentido de Movimentação das Patas} \label{sentido_movimentacao}
+
+\begin{figure}[!t]
+	\centering
+	\mbox{
+		\subfigure[Sincronia por patas]{\includegraphics[width=0.7\textwidth]{Figuras/robo5b}}}\quad\quad
+	\subfigure[Sincronia pelo tipo de junta]{\includegraphics[width=0.7\textwidth]{Figuras/robo3b}}
+	\caption{Motores de arfagem em sincronia}
+	\label{fig:sincronia_pitch}
+\end{figure}
 
 A análise seguinte que deve ser observada com relação aos ganhos se relaciona com a resposta desejada para cada grupo de patas em conformidade com o sentido de movimentação do robô. Observando a Figura \ref{fig:quedas}, podemos analisar os movimentos de rolagem e arfagem e, assim, determinar o sentido mais adequado para a movimentação das patas. Nesta imagem, apresenta-se os casos em que, partindo da condição de repouso, o robô é empurrado para a direita (Fig. \ref{fig:quedas}(a)) e para frente (Fig. \ref{fig:quedas}(b)).
 
@@ -480,7 +480,7 @@ b[k] = d[k]\left(\gamma + \eta \right) + d[k-1]\left(-2 \gamma - \eta \right) + 
 \lambda &= \frac{\tau_d}{T_{am}}.
 \end{align}
 
-Portanto, o ângulo $\theta_i[k]$ que deverá ser enviado para cada motor i no instante k é dado por
+Portanto, o ângulo $\theta_i[k]$ que deverá ser enviado para o i-ésimo motor no instante k é dado por
 
 \begin{eqnarray}
 \theta_i[k] = \frac{b[k] - \theta_i[k-1]\left(-2 \alpha- \beta \right) - \theta_i[k-2]\alpha}{\alpha + \beta + 1}.
@@ -495,7 +495,15 @@ K_d = K_i T_{am}.
 Como já mencionado anteriormente, as constantes $\tau_d$ e $\tau_p$ serão determinada empiricamente através de testes reais na plataforma. Tais experimentos determinarão o tempo mais adequado de resposta para a correção de equilíbrio e para que o robô atinja a resposta em regime permanente. Uma vez que estes valores estiverem estipulados, todos os parâmetros da equação (\ref{eq:coeficientes}) estarão devidamente determinados.
 
 \section{Estrutura Geral do Código}
-Podemos, então, condensar as principais informações descritas nas seções anteriores para resumir a estrutura básica do código desenvolvido para o controle de estabilidade. O código foi escrito em C++ e possui as funções \emph{main} e controle como os processos principais.
+Podemos, então, condensar as principais informações descritas nas seções anteriores para resumir a estrutura básica do código desenvolvido para o controle de estabilidade. O código foi escrito em C++ e possui as funções \emph{main} e controle como os processos principais. A Figura \ref{fig:diagramaprograma} mostra o digrama montado para ilustrar a estrutura geral do código.
+
+\begin{figure} [!t]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figuras/DiagramaPrograma}
+	\caption{Diagrama do código desenvolvido}
+	\label{fig:diagramaprograma}
+\end{figure}
+
 
 A função \emph{main}, em um primeiro momento, faz todas as inicializações necessárias. Isto inclui abrir a comunicação com os motores e com o \emph{Arduino}, declarar as variáveis que serão alocadas no gDataLogger para aquisição de dados, ativar o modo posição dos motores, declarar a posição inicial e enviá-la para os motores. Em seguida, ela espera alguma tecla ser pressionada para seguir os próximos passos.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  30 NOV 2017 22:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  5 DEC 2017 11:42
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -564,6 +564,10 @@ e 103.
 
 {C:/Users/bruno/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figs/capa
 _fundo-eps-converted-to.pdf>]
+Underfull \hbox (badness 1968) in paragraph at lines 104--104
+[]|\T1/cmr/m/n/10 Prof. Ale-xan-dre Ri-cardo So-a-res Ro-ma-riz,
+ []
+
 [1
 
 ] [1
@@ -785,7 +789,7 @@ Package pdftex.def Info: Figuras/LAR2.png used on input line 372.
 File: Figuras/LAR3.png Graphic file (type png)
  <use Figuras/LAR3.png>
 Package pdftex.def Info: Figuras/LAR3.png used on input line 398.
-(pdftex.def)             Requested size: 325.043pt x 106.82309pt.
+(pdftex.def)             Requested size: 394.69963pt x 129.71579pt.
 
 <Figuras/LAR4a.png, id=159, 371.3875pt x 266.9975pt>
 File: Figuras/LAR4a.png Graphic file (type png)
@@ -837,14 +841,14 @@ Package pdftex.def Info: Figuras/pernaredundante.jpg used on input line 610.
 (pdftex.def)             Requested size: 232.17459pt x 170.65372pt.
  [28 <./Figuras/quadrupededof.jpg>] [29 <./Figuras/realimentacao.jpg>] [30 <./F
 iguras/pernaredundante.jpg>]
-<Figuras/respostassensoriais.jpg, id=201, 297.11pt x 110.91437pt>
-File: Figuras/respostassensoriais.jpg Graphic file (type jpg)
+<Figuras/respostassensoriais2.jpg, id=201, 297.11pt x 110.91437pt>
+File: Figuras/respostassensoriais2.jpg Graphic file (type jpg)
 
-<use Figuras/respostassensoriais.jpg>
-Package pdftex.def Info: Figuras/respostassensoriais.jpg used on input line 659
-.
+<use Figuras/respostassensoriais2.jpg>
+Package pdftex.def Info: Figuras/respostassensoriais2.jpg used on input line 65
+9.
 (pdftex.def)             Requested size: 325.043pt x 121.34781pt.
- [31 <./Figuras/respostassensoriais.jpg>]) [32]
+ [31 <./Figuras/respostassensoriais2.jpg>]) [32]
 \openout2 = `cap_Desenvolvimento.aux'.
 
  (cap_Desenvolvimento.tex
@@ -911,481 +915,519 @@ File: Figuras/Diagrama3.png Graphic file (type png)
 
 <use Figuras/Diagrama3.png>
 Package pdftex.def Info: Figuras/Diagrama3.png used on input line 241.
-(pdftex.def)             Requested size: 325.043pt x 79.11472pt.
+(pdftex.def)             Requested size: 464.34918pt x 113.01831pt.
  [41 <./Figuras/Diagrama2.png>]
 <Figuras/Diagrama4.png, id=248, 2152.04pt x 361.35pt>
 File: Figuras/Diagrama4.png Graphic file (type png)
 
 <use Figuras/Diagrama4.png>
 Package pdftex.def Info: Figuras/Diagrama4.png used on input line 263.
-(pdftex.def)             Requested size: 325.043pt x 54.57509pt.
- [42 <./Figuras/Diagrama3.png>]
-<Figuras/robo4b.png, id=254, 306.64563pt x 158.5925pt>
+(pdftex.def)             Requested size: 510.78693pt x 85.76637pt.
+
+Overfull \hbox (46.43774pt too wide) in paragraph at lines 263--264
+ [][] 
+ []
+
+[42 <./Figuras/Diagrama3.png>]
+<Figuras/robo4b.png, id=253, 306.64563pt x 158.5925pt>
 File: Figuras/robo4b.png Graphic file (type png)
 
 <use Figuras/robo4b.png>
 Package pdftex.def Info: Figuras/robo4b.png used on input line 285.
 (pdftex.def)             Requested size: 325.043pt x 168.1169pt.
-
-<Figuras/robo5b.png, id=255, 298.61563pt x 166.6225pt>
+ [43 <./Figuras/Diagrama4.png>]
+<Figuras/robo5b.png, id=259, 298.61563pt x 166.6225pt>
 File: Figuras/robo5b.png Graphic file (type png)
 
 <use Figuras/robo5b.png>
-Package pdftex.def Info: Figuras/robo5b.png used on input line 294.
-(pdftex.def)             Requested size: 185.73683pt x 103.63794pt.
+Package pdftex.def Info: Figuras/robo5b.png used on input line 312.
+(pdftex.def)             Requested size: 325.043pt x 181.38101pt.
 
-<Figuras/robo3b.png, id=256, 294.09875pt x 165.61874pt>
+<Figuras/robo3b.png, id=260, 294.09875pt x 165.61874pt>
 File: Figuras/robo3b.png Graphic file (type png)
 
 <use Figuras/robo3b.png>
-Package pdftex.def Info: Figuras/robo3b.png used on input line 294.
-(pdftex.def)             Requested size: 185.73683pt x 104.5956pt.
- [43 <./Figuras/Diagrama4.png>] [44 <./Figuras/robo4b.png> <./Figuras/robo5b.pn
-g> <./Figuras/robo3b.png>]
-<Figuras/Robo_direita.png, id=267, 487.8225pt x 271.0125pt>
+Package pdftex.def Info: Figuras/robo3b.png used on input line 313.
+(pdftex.def)             Requested size: 325.043pt x 183.04546pt.
+
+<Figuras/Robo_direita.png, id=261, 487.8225pt x 271.0125pt>
 File: Figuras/Robo_direita.png Graphic file (type png)
 
 <use Figuras/Robo_direita.png>
 Package pdftex.def Info: Figuras/Robo_direita.png used on input line 324.
 (pdftex.def)             Requested size: 185.73683pt x 103.18845pt.
 
-<Figuras/Robo_frente.png, id=268, 376.40625pt x 183.18437pt>
+<Figuras/Robo_frente.png, id=262, 376.40625pt x 183.18437pt>
 File: Figuras/Robo_frente.png Graphic file (type png)
 
 <use Figuras/Robo_frente.png>
 Package pdftex.def Info: Figuras/Robo_frente.png used on input line 324.
 (pdftex.def)             Requested size: 185.73683pt x 90.39282pt.
- [45 <./Figuras/Robo_direita.png> <./Figuras/Robo_frente.png>] <Figuras/Aterris
-sagem.png, id=273, 822.07124pt x 360.34625pt>
+ [44 <./Figuras/robo4b.png>] [45 <./Figuras/robo5b.png> <./Figuras/robo3b.png> 
+<./Figuras/Robo_direita.png> <./Figuras/Robo_frente.png>] [46] <Figuras/Aterris
+sagem.png, id=276, 822.07124pt x 360.34625pt>
 File: Figuras/Aterrissagem.png Graphic file (type png)
 
 <use Figuras/Aterrissagem.png>
 Package pdftex.def Info: Figuras/Aterrissagem.png used on input line 361.
 (pdftex.def)             Requested size: 325.043pt x 142.47542pt.
- [46] [47 <./Figuras/Aterrissagem.png>]
+ [47 <./Figuras/Aterrissagem.png>]
 <Figuras/Diagrama5.png, id=281, 1001.7425pt x 584.1825pt>
 File: Figuras/Diagrama5.png Graphic file (type png)
 
 <use Figuras/Diagrama5.png>
 Package pdftex.def Info: Figuras/Diagrama5.png used on input line 387.
 (pdftex.def)             Requested size: 325.043pt x 189.55399pt.
- [48 <./Figuras/Diagrama5.png>] [49] [50] [51])
-[52]
+ [48 <./Figuras/Diagrama5.png>] [49] [50] [51]
+<Figuras/DiagramaPrograma.jpg, id=296, 943.27406pt x 1042.64531pt>
+File: Figuras/DiagramaPrograma.jpg Graphic file (type jpg)
+
+<use Figuras/DiagramaPrograma.jpg>
+Package pdftex.def Info: Figuras/DiagramaPrograma.jpg used on input line 502.
+(pdftex.def)             Requested size: 325.043pt x 359.28346pt.
+ [52 <./Figuras/DiagramaPrograma.jpg>])
+[53]
 \openout2 = `cap_Experimentos.aux'.
 
  (cap_Experimentos.tex
 Cap\'{\i }tulo 4.
-[53
+[54
 
 
 
-] <Figuras/Angulos_ruidob.jpg, id=303, 562.1pt x 421.575pt>
+] <Figuras/Angulos_ruidob.jpg, id=307, 421.575pt x 316.18124pt>
 File: Figuras/Angulos_ruidob.jpg Graphic file (type jpg)
 
 <use Figuras/Angulos_ruidob.jpg>
 Package pdftex.def Info: Figuras/Angulos_ruidob.jpg used on input line 31.
-(pdftex.def)             Requested size: 278.61234pt x 208.96008pt.
- [54 <./Figuras/Angulos_ruidob.jpg>]
-<Figuras/Filtro_rollb.jpg, id=307, 562.1pt x 421.575pt>
-File: Figuras/Filtro_rollb.jpg Graphic file (type jpg)
+(pdftex.def)             Requested size: 278.61234pt x 208.9649pt.
+ [55 <./Figuras/Angulos_ruidob.jpg>]
+Package epstopdf Info: Source file: <Figuras/Filtro_rolld.eps>
+(epstopdf)                    date: 2017-12-05 11:14:46
+(epstopdf)                    size: 103505 bytes
+(epstopdf)             Output file: <Figuras/Filtro_rolld-eps-converted-to.pdf>
 
-<use Figuras/Filtro_rollb.jpg>
-Package pdftex.def Info: Figuras/Filtro_rollb.jpg used on input line 65.
-(pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
+(epstopdf)                    date: 2017-12-05 11:15:03
+(epstopdf)                    size: 5988 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figuras/Filtro_rolld-eps-co
+nverted-to.pdf Figuras/Filtro_rolld.eps>
+(epstopdf)             \includegraphics on input line 64.
+Package epstopdf Info: Output file is already uptodate.
 
-<Figuras/Filtro_pitchb.jpg, id=308, 562.1pt x 421.575pt>
-File: Figuras/Filtro_pitchb.jpg Graphic file (type jpg)
+<Figuras/Filtro_rolld-eps-converted-to.pdf, id=311, 421.575pt x 316.18124pt>
+File: Figuras/Filtro_rolld-eps-converted-to.pdf Graphic file (type pdf)
 
-<use Figuras/Filtro_pitchb.jpg>
-Package pdftex.def Info: Figuras/Filtro_pitchb.jpg used on input line 65.
-(pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
+<use Figuras/Filtro_rolld-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/Filtro_rolld-eps-converted-to.pdf used on inpu
+t line 64.
+(pdftex.def)             Requested size: 301.82413pt x 226.37181pt.
+Package epstopdf Info: Source file: <Figuras/Filtro_pitchc.eps>
+(epstopdf)                    date: 2017-12-05 11:14:24
+(epstopdf)                    size: 105142 bytes
+(epstopdf)             Output file: <Figuras/Filtro_pitchc-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2017-12-05 11:15:04
+(epstopdf)                    size: 6179 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figuras/Filtro_pitchc-eps-c
+onverted-to.pdf Figuras/Filtro_pitchc.eps>
+(epstopdf)             \includegraphics on input line 65.
+Package epstopdf Info: Output file is already uptodate.
 
-Overfull \hbox (25.4063pt too wide) in paragraph at lines 65--66
- [][] 
- []
+<Figuras/Filtro_pitchc-eps-converted-to.pdf, id=312, 421.575pt x 316.18124pt>
+File: Figuras/Filtro_pitchc-eps-converted-to.pdf Graphic file (type pdf)
 
-
-Overfull \hbox (29.10141pt too wide) in paragraph at lines 80--89
- [] 
- []
-
-[55 <./Figuras/Filtro_rollb.jpg> <./Figuras/Filtro_pitchb.jpg>] [56]
-<Figuras/robo_real2.png, id=315, 497.86pt x 341.77687pt>
+<use Figuras/Filtro_pitchc-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/Filtro_pitchc-eps-converted-to.pdf used on inp
+ut line 65.
+(pdftex.def)             Requested size: 301.82413pt x 226.37181pt.
+ [56 <./Figuras/Filtro_rolld-eps-converted-to.pdf> <./Figuras/Filtro_pitchc-eps
+-converted-to.pdf>] [57]
+<Figuras/robo_real2.png, id=333, 497.86pt x 341.77687pt>
 File: Figuras/robo_real2.png Graphic file (type png)
 
 <use Figuras/robo_real2.png>
 Package pdftex.def Info: Figuras/robo_real2.png used on input line 131.
 (pdftex.def)             Requested size: 278.61234pt x 191.26857pt.
-
-<Figuras/Modo_velocidade1b.jpg, id=316, 562.1pt x 421.575pt>
+ [58 <./Figuras/robo_real2.png>]
+<Figuras/Modo_velocidade1b.jpg, id=337, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade1b.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade1b.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade1b.jpg used on input line 144.
-(pdftex.def)             Requested size: 185.73683pt x 139.3003pt.
+(pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
 
-<Figuras/Modo_velocidade2b.jpg, id=317, 281.05pt x 210.7875pt>
+<Figuras/Modo_velocidade2b.jpg, id=338, 281.05pt x 210.7875pt>
 File: Figuras/Modo_velocidade2b.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade2b.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade2b.jpg used on input line 144.
-(pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
+(pdftex.def)             Requested size: 232.17459pt x 174.13019pt.
 
-<Figuras/Modo_velocidade3b.jpg, id=318, 281.05pt x 210.7875pt>
+<Figuras/Modo_velocidade3b.jpg, id=339, 281.05pt x 210.7875pt>
 File: Figuras/Modo_velocidade3b.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade3b.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade3b.jpg used on input line 145.
-(pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
+(pdftex.def)             Requested size: 232.17459pt x 174.13019pt.
 
-<Figuras/Modo_velocidade4.jpg, id=319, 562.1pt x 421.575pt>
+Overfull \hbox (25.4063pt too wide) in paragraph at lines 144--146
+ [][] 
+ []
+
+<Figuras/Modo_velocidade4.jpg, id=340, 562.1pt x 421.575pt>
 File: Figuras/Modo_velocidade4.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_velocidade4.jpg>
 Package pdftex.def Info: Figuras/Modo_velocidade4.jpg used on input line 152.
 (pdftex.def)             Requested size: 278.61234pt x 208.96008pt.
- [57 <./Figuras/robo_real2.png>] [58 <./Figuras/Modo_velocidade1b.jpg> <./Figur
-as/Modo_velocidade2b.jpg> <./Figuras/Modo_velocidade3b.jpg>] <Figuras/Modo_posi
-cao1b.jpg, id=326, 562.1pt x 421.575pt>
+ [59 <./Figuras/Modo_velocidade1b.jpg> <./Figuras/Modo_velocidade2b.jpg> <./Fig
+uras/Modo_velocidade3b.jpg>] [60 <./Figuras/Modo_velocidade4.jpg>]
+<Figuras/Modo_posicao1b.jpg, id=348, 562.1pt x 421.575pt>
 File: Figuras/Modo_posicao1b.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_posicao1b.jpg>
 Package pdftex.def Info: Figuras/Modo_posicao1b.jpg used on input line 186.
-(pdftex.def)             Requested size: 185.73683pt x 139.3003pt.
+(pdftex.def)             Requested size: 232.17459pt x 174.12697pt.
 
-<Figuras/Modo_posicao2b.jpg, id=327, 281.05pt x 210.7875pt>
+<Figuras/Modo_posicao2b.jpg, id=349, 281.05pt x 210.7875pt>
 File: Figuras/Modo_posicao2b.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_posicao2b.jpg>
 Package pdftex.def Info: Figuras/Modo_posicao2b.jpg used on input line 186.
-(pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
+(pdftex.def)             Requested size: 232.17459pt x 174.13019pt.
 
-<Figuras/Modo_posicao3b.jpg, id=328, 281.05pt x 210.7875pt>
+<Figuras/Modo_posicao3b.jpg, id=350, 281.05pt x 210.7875pt>
 File: Figuras/Modo_posicao3b.jpg Graphic file (type jpg)
 
 <use Figuras/Modo_posicao3b.jpg>
 Package pdftex.def Info: Figuras/Modo_posicao3b.jpg used on input line 187.
-(pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
- [59 <./Figuras/Modo_velocidade4.jpg>] [60 <./Figuras/Modo_posicao1b.jpg> <./Fi
-guras/Modo_posicao2b.jpg> <./Figuras/Modo_posicao3b.jpg>] <Figuras/Kdown10.png,
- id=336, 1339.0025pt x 752.8125pt>
+(pdftex.def)             Requested size: 232.17459pt x 174.13019pt.
+
+Overfull \hbox (25.4063pt too wide) in paragraph at lines 186--188
+ [][] 
+ []
+
+[61] <Figuras/Kdown10.png, id=354, 1339.0025pt x 752.8125pt>
 File: Figuras/Kdown10.png Graphic file (type png)
 
 <use Figuras/Kdown10.png>
 Package pdftex.def Info: Figuras/Kdown10.png used on input line 203.
 (pdftex.def)             Requested size: 278.61234pt x 156.63644pt.
 
-<Figuras/Kdown04.png, id=337, 1339.0025pt x 752.8125pt>
+<Figuras/Kdown04.png, id=355, 1339.0025pt x 752.8125pt>
 File: Figuras/Kdown04.png Graphic file (type png)
 
 <use Figuras/Kdown04.png>
 Package pdftex.def Info: Figuras/Kdown04.png used on input line 214.
 (pdftex.def)             Requested size: 325.043pt x 182.74634pt.
- [61 <./Figuras/Kdown10.png>]
-<Figuras/Queda_Roll_R_1b.jpg, id=341, 562.1pt x 421.575pt>
+ [62 <./Figuras/Modo_posicao1b.jpg> <./Figuras/Modo_posicao2b.jpg> <./Figuras/M
+odo_posicao3b.jpg>]
+<Figuras/Queda_Roll_R_1b.jpg, id=359, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_1b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_1b.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_1b.jpg used on input line 235.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/Queda_Roll_R_2b.jpg, id=342, 281.05pt x 210.7875pt>
+<Figuras/Queda_Roll_R_2b.jpg, id=360, 281.05pt x 210.7875pt>
 File: Figuras/Queda_Roll_R_2b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_2b.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_2b.jpg used on input line 235.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
- [62 <./Figuras/Kdown04.png> <./Figuras/Queda_Roll_R_1b.jpg> <./Figuras/Queda_R
-oll_R_2b.jpg>]
-<Figuras/Queda_Roll_R_3b.jpg, id=346, 562.1pt x 421.575pt>
+ [63 <./Figuras/Kdown10.png>]
+<Figuras/Queda_Roll_R_3b.jpg, id=364, 562.1pt x 421.575pt>
 File: Figuras/Queda_Roll_R_3b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_3b.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_3b.jpg used on input line 251.
 (pdftex.def)             Requested size: 185.73683pt x 139.3003pt.
 
-<Figuras/Queda_Roll_R_4b.jpg, id=347, 281.05pt x 210.7875pt>
+<Figuras/Queda_Roll_R_4b.jpg, id=365, 281.05pt x 210.7875pt>
 File: Figuras/Queda_Roll_R_4b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_4b.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_4b.jpg used on input line 251.
 (pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
 
-<Figuras/Queda_Roll_R_5b.jpg, id=348, 281.05pt x 210.7875pt>
+<Figuras/Queda_Roll_R_5b.jpg, id=366, 281.05pt x 210.7875pt>
 File: Figuras/Queda_Roll_R_5b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Roll_R_5b.jpg>
 Package pdftex.def Info: Figuras/Queda_Roll_R_5b.jpg used on input line 252.
 (pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
- [63 <./Figuras/Queda_Roll_R_3b.jpg> <./Figuras/Queda_Roll_R_4b.jpg> <./Figuras
-/Queda_Roll_R_5b.jpg>]
-<Figuras/robo_real1.png, id=352, 501.37312pt x 368.37625pt>
+ [64 <./Figuras/Kdown04.png> <./Figuras/Queda_Roll_R_1b.jpg> <./Figuras/Queda_R
+oll_R_2b.jpg>] [65 <./Figuras/Queda_Roll_R_3b.jpg> <./Figuras/Queda_Roll_R_4b.j
+pg> <./Figuras/Queda_Roll_R_5b.jpg>]
+<Figuras/robo_real1.png, id=374, 501.37312pt x 368.37625pt>
 File: Figuras/robo_real1.png Graphic file (type png)
 
 <use Figuras/robo_real1.png>
 Package pdftex.def Info: Figuras/robo_real1.png used on input line 265.
 (pdftex.def)             Requested size: 278.61234pt x 204.71541pt.
 
-<Figuras/Queda_Pitch_F_1b.jpg, id=353, 562.1pt x 421.575pt>
+<Figuras/Queda_Pitch_F_1b.jpg, id=375, 562.1pt x 421.575pt>
 File: Figuras/Queda_Pitch_F_1b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Pitch_F_1b.jpg>
 Package pdftex.def Info: Figuras/Queda_Pitch_F_1b.jpg used on input line 280.
 (pdftex.def)             Requested size: 185.73683pt x 139.3003pt.
 
-<Figuras/Queda_Pitch_F_2b.jpg, id=354, 281.05pt x 210.7875pt>
+<Figuras/Queda_Pitch_F_2b.jpg, id=376, 281.05pt x 210.7875pt>
 File: Figuras/Queda_Pitch_F_2b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Pitch_F_2b.jpg>
 Package pdftex.def Info: Figuras/Queda_Pitch_F_2b.jpg used on input line 280.
 (pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
 
-<Figuras/Queda_Pitch_F_3b.jpg, id=355, 281.05pt x 210.7875pt>
+<Figuras/Queda_Pitch_F_3b.jpg, id=377, 281.05pt x 210.7875pt>
 File: Figuras/Queda_Pitch_F_3b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Pitch_F_3b.jpg>
 Package pdftex.def Info: Figuras/Queda_Pitch_F_3b.jpg used on input line 281.
 (pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
- [64 <./Figuras/robo_real1.png>] [65 <./Figuras/Queda_Pitch_F_1b.jpg> <./Figura
-s/Queda_Pitch_F_2b.jpg> <./Figuras/Queda_Pitch_F_3b.jpg>] <Figuras/Queda_Todos1
-b.jpg, id=363, 562.1pt x 421.575pt>
+ [66 <./Figuras/robo_real1.png>]
+<Figuras/Queda_Todos1b.jpg, id=381, 562.1pt x 421.575pt>
 File: Figuras/Queda_Todos1b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Todos1b.jpg>
 Package pdftex.def Info: Figuras/Queda_Todos1b.jpg used on input line 302.
 (pdftex.def)             Requested size: 185.73683pt x 139.3003pt.
 
-<Figuras/Queda_Todos2b.jpg, id=364, 281.05pt x 210.7875pt>
+<Figuras/Queda_Todos2b.jpg, id=382, 281.05pt x 210.7875pt>
 File: Figuras/Queda_Todos2b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Todos2b.jpg>
 Package pdftex.def Info: Figuras/Queda_Todos2b.jpg used on input line 302.
 (pdftex.def)             Requested size: 185.73683pt x 139.30351pt.
 
-<Figuras/Queda_Todos3b.jpg, id=365, 278.54062pt x 210.7875pt>
+<Figuras/Queda_Todos3b.jpg, id=383, 278.54062pt x 210.7875pt>
 File: Figuras/Queda_Todos3b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Todos3b.jpg>
 Package pdftex.def Info: Figuras/Queda_Todos3b.jpg used on input line 303.
 (pdftex.def)             Requested size: 185.73683pt x 140.5611pt.
- [66 <./Figuras/Queda_Todos1b.jpg> <./Figuras/Queda_Todos2b.jpg> <./Figuras/Que
-da_Todos3b.jpg>] [67]
-<Figuras/taud_001R.jpg, id=372, 562.1pt x 421.575pt>
+ [67 <./Figuras/Queda_Pitch_F_1b.jpg> <./Figuras/Queda_Pitch_F_2b.jpg> <./Figur
+as/Queda_Pitch_F_3b.jpg>] [68 <./Figuras/Queda_Todos1b.jpg> <./Figuras/Queda_To
+dos2b.jpg> <./Figuras/Queda_Todos3b.jpg>]
+<Figuras/taud_001R.jpg, id=390, 562.1pt x 421.575pt>
 File: Figuras/taud_001R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_001R.jpg>
 Package pdftex.def Info: Figuras/taud_001R.jpg used on input line 337.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/taud_001F.jpg, id=373, 562.1pt x 421.575pt>
+<Figuras/taud_001F.jpg, id=391, 562.1pt x 421.575pt>
 File: Figuras/taud_001F.jpg Graphic file (type jpg)
 
 <use Figuras/taud_001F.jpg>
 Package pdftex.def Info: Figuras/taud_001F.jpg used on input line 337.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
- [68 <./Figuras/taud_001R.jpg> <./Figuras/taud_001F.jpg>] <Figuras/taud_005_R.j
-pg, id=377, 562.1pt x 421.575pt>
+ [69]
+<Figuras/taud_005_R.jpg, id=395, 562.1pt x 421.575pt>
 File: Figuras/taud_005_R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_005_R.jpg>
 Package pdftex.def Info: Figuras/taud_005_R.jpg used on input line 352.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/taud_005_P.jpg, id=378, 562.1pt x 421.575pt>
+<Figuras/taud_005_P.jpg, id=396, 562.1pt x 421.575pt>
 File: Figuras/taud_005_P.jpg Graphic file (type jpg)
 
 <use Figuras/taud_005_P.jpg>
 Package pdftex.def Info: Figuras/taud_005_P.jpg used on input line 352.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/taud_010_R.jpg, id=379, 562.1pt x 421.575pt>
+<Figuras/taud_010_R.jpg, id=397, 562.1pt x 421.575pt>
 File: Figuras/taud_010_R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_010_R.jpg>
 Package pdftex.def Info: Figuras/taud_010_R.jpg used on input line 367.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/taud_010_P.jpg, id=380, 562.1pt x 421.575pt>
+<Figuras/taud_010_P.jpg, id=398, 562.1pt x 421.575pt>
 File: Figuras/taud_010_P.jpg Graphic file (type jpg)
 
 <use Figuras/taud_010_P.jpg>
 Package pdftex.def Info: Figuras/taud_010_P.jpg used on input line 367.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/taud_030_R.jpg, id=381, 562.1pt x 421.575pt>
+<Figuras/taud_030_R.jpg, id=399, 562.1pt x 421.575pt>
 File: Figuras/taud_030_R.jpg Graphic file (type jpg)
 
 <use Figuras/taud_030_R.jpg>
 Package pdftex.def Info: Figuras/taud_030_R.jpg used on input line 378.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
 
-<Figuras/taud_030_P.jpg, id=382, 562.1pt x 421.575pt>
+<Figuras/taud_030_P.jpg, id=400, 562.1pt x 421.575pt>
 File: Figuras/taud_030_P.jpg Graphic file (type jpg)
 
 <use Figuras/taud_030_P.jpg>
 Package pdftex.def Info: Figuras/taud_030_P.jpg used on input line 378.
 (pdftex.def)             Requested size: 208.9557pt x 156.71362pt.
- [69 <./Figuras/taud_005_R.jpg> <./Figuras/taud_005_P.jpg> <./Figuras/taud_010_
-R.jpg> <./Figuras/taud_010_P.jpg>] [70 <./Figuras/taud_030_R.jpg> <./Figuras/ta
-ud_030_P.jpg>]
-<Figuras/taup_01Rb.jpg, id=389, 281.05pt x 210.7875pt>
+ [70 <./Figuras/taud_001R.jpg> <./Figuras/taud_001F.jpg>] [71 <./Figuras/taud_0
+05_R.jpg> <./Figuras/taud_005_P.jpg> <./Figuras/taud_010_R.jpg> <./Figuras/taud
+_010_P.jpg>] [72 <./Figuras/taud_030_R.jpg> <./Figuras/taud_030_P.jpg>] <Figura
+s/taup_01Rb.jpg, id=411, 281.05pt x 210.7875pt>
 File: Figuras/taup_01Rb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_01Rb.jpg>
 Package pdftex.def Info: Figuras/taup_01Rb.jpg used on input line 419.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
 
-<Figuras/taup_01Pb.jpg, id=390, 281.05pt x 210.7875pt>
+<Figuras/taup_01Pb.jpg, id=412, 281.05pt x 210.7875pt>
 File: Figuras/taup_01Pb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_01Pb.jpg>
 Package pdftex.def Info: Figuras/taup_01Pb.jpg used on input line 419.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
 
-<Figuras/taup_03Rb.jpg, id=391, 297.11pt x 217.81375pt>
+<Figuras/taup_03Rb.jpg, id=413, 297.11pt x 217.81375pt>
 File: Figuras/taup_03Rb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_03Rb.jpg>
 Package pdftex.def Info: Figuras/taup_03Rb.jpg used on input line 432.
 (pdftex.def)             Requested size: 208.9557pt x 153.1931pt.
 
-<Figuras/taup_03Pb.jpg, id=392, 281.05pt x 210.7875pt>
+<Figuras/taup_03Pb.jpg, id=414, 281.05pt x 210.7875pt>
 File: Figuras/taup_03Pb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_03Pb.jpg>
 Package pdftex.def Info: Figuras/taup_03Pb.jpg used on input line 432.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
 
-<Figuras/taup_05Rb.jpg, id=393, 281.05pt x 210.7875pt>
+<Figuras/taup_05Rb.jpg, id=415, 281.05pt x 210.7875pt>
 File: Figuras/taup_05Rb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_05Rb.jpg>
 Package pdftex.def Info: Figuras/taup_05Rb.jpg used on input line 443.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
 
-<Figuras/taup_05Pb.jpg, id=394, 295.1025pt x 218.31563pt>
+<Figuras/taup_05Pb.jpg, id=416, 295.1025pt x 218.31563pt>
 File: Figuras/taup_05Pb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_05Pb.jpg>
 Package pdftex.def Info: Figuras/taup_05Pb.jpg used on input line 443.
 (pdftex.def)             Requested size: 208.9557pt x 154.58876pt.
- [71 <./Figuras/taup_01Rb.jpg> <./Figuras/taup_01Pb.jpg>] <Figuras/taup_07Rb.jp
-g, id=399, 281.05pt x 210.7875pt>
+
+<Figuras/taup_07Rb.jpg, id=417, 281.05pt x 210.7875pt>
 File: Figuras/taup_07Rb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_07Rb.jpg>
 Package pdftex.def Info: Figuras/taup_07Rb.jpg used on input line 454.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
 
-<Figuras/taup_07Pb.jpg, id=400, 281.05pt x 210.7875pt>
+<Figuras/taup_07Pb.jpg, id=418, 281.05pt x 210.7875pt>
 File: Figuras/taup_07Pb.jpg Graphic file (type jpg)
 
 <use Figuras/taup_07Pb.jpg>
 Package pdftex.def Info: Figuras/taup_07Pb.jpg used on input line 454.
 (pdftex.def)             Requested size: 208.9557pt x 156.71684pt.
- [72 <./Figuras/taup_03Rb.jpg> <./Figuras/taup_03Pb.jpg> <./Figuras/taup_05Rb.j
-pg> <./Figuras/taup_05Pb.jpg>]
-<Figuras/final_direitab.jpg, id=404, 304.13625pt x 217.81375pt>
+ [73 <./Figuras/taup_01Rb.jpg> <./Figuras/taup_01Pb.jpg>] [74 <./Figuras/taup_0
+3Rb.jpg> <./Figuras/taup_03Pb.jpg> <./Figuras/taup_05Rb.jpg> <./Figuras/taup_05
+Pb.jpg>]
+<Figuras/final_direitab.jpg, id=425, 304.13625pt x 217.81375pt>
 File: Figuras/final_direitab.jpg Graphic file (type jpg)
 
 <use Figuras/final_direitab.jpg>
 Package pdftex.def Info: Figuras/final_direitab.jpg used on input line 498.
 (pdftex.def)             Requested size: 208.9557pt x 149.65019pt.
 
-<Figuras/final_direita2b.jpg, id=405, 301.125pt x 213.29688pt>
+<Figuras/final_direita2b.jpg, id=426, 301.125pt x 213.29688pt>
 File: Figuras/final_direita2b.jpg Graphic file (type jpg)
 
 <use Figuras/final_direita2b.jpg>
 Package pdftex.def Info: Figuras/final_direita2b.jpg used on input line 498.
 (pdftex.def)             Requested size: 208.9557pt x 148.01468pt.
- [73 <./Figuras/taup_07Rb.jpg> <./Figuras/taup_07Pb.jpg>] <Figuras/final_esquer
-dab.jpg, id=409, 316.18124pt x 218.8175pt>
+ [75 <./Figuras/taup_07Rb.jpg> <./Figuras/taup_07Pb.jpg> <./Figuras/final_direi
+tab.jpg> <./Figuras/final_direita2b.jpg>]
+<Figuras/final_esquerdab.jpg, id=430, 316.18124pt x 218.8175pt>
 File: Figuras/final_esquerdab.jpg Graphic file (type jpg)
 
 <use Figuras/final_esquerdab.jpg>
 Package pdftex.def Info: Figuras/final_esquerdab.jpg used on input line 513.
 (pdftex.def)             Requested size: 208.9557pt x 144.61363pt.
 
-<Figuras/final_esquerda2b.jpg, id=410, 320.19624pt x 214.30063pt>
+<Figuras/final_esquerda2b.jpg, id=431, 320.19624pt x 214.30063pt>
 File: Figuras/final_esquerda2b.jpg Graphic file (type jpg)
 
 <use Figuras/final_esquerda2b.jpg>
 Package pdftex.def Info: Figuras/final_esquerda2b.jpg used on input line 513.
 (pdftex.def)             Requested size: 208.9557pt x 139.8529pt.
- [74 <./Figuras/final_direitab.jpg> <./Figuras/final_direita2b.jpg> <./Figuras/
-final_esquerdab.jpg> <./Figuras/final_esquerda2b.jpg>] <Figuras/final_frente1b.
-jpg, id=414, 317.68687pt x 212.795pt>
+
+<Figuras/final_frente1b.jpg, id=432, 317.68687pt x 212.795pt>
 File: Figuras/final_frente1b.jpg Graphic file (type jpg)
 
 <use Figuras/final_frente1b.jpg>
 Package pdftex.def Info: Figuras/final_frente1b.jpg used on input line 525.
 (pdftex.def)             Requested size: 208.9557pt x 139.9678pt.
 
-<Figuras/final_frente2b.jpg, id=415, 305.64188pt x 211.28937pt>
+<Figuras/final_frente2b.jpg, id=433, 305.64188pt x 211.28937pt>
 File: Figuras/final_frente2b.jpg Graphic file (type jpg)
 
 <use Figuras/final_frente2b.jpg>
 Package pdftex.def Info: Figuras/final_frente2b.jpg used on input line 525.
 (pdftex.def)             Requested size: 208.9557pt x 144.44862pt.
-
-<Figuras/final_tras1b.jpg, id=416, 319.69438pt x 213.29688pt>
+ [76 <./Figuras/final_esquerdab.jpg> <./Figuras/final_esquerda2b.jpg> <./Figura
+s/final_frente1b.jpg> <./Figuras/final_frente2b.jpg>] <Figuras/final_tras1b.jpg
+, id=437, 319.69438pt x 213.29688pt>
 File: Figuras/final_tras1b.jpg Graphic file (type jpg)
 
 <use Figuras/final_tras1b.jpg>
 Package pdftex.def Info: Figuras/final_tras1b.jpg used on input line 540.
 (pdftex.def)             Requested size: 208.9557pt x 139.41266pt.
 
-<Figuras/final_tras2b.jpg, id=417, 320.69812pt x 213.29688pt>
+<Figuras/final_tras2b.jpg, id=438, 320.69812pt x 213.29688pt>
 File: Figuras/final_tras2b.jpg Graphic file (type jpg)
 
 <use Figuras/final_tras2b.jpg>
 Package pdftex.def Info: Figuras/final_tras2b.jpg used on input line 540.
 (pdftex.def)             Requested size: 208.9557pt x 138.9798pt.
 
-<Figuras/Queda_Diagonal1b.jpg, id=418, 304.63812pt x 211.79124pt>
+<Figuras/Queda_Diagonal1b.jpg, id=439, 304.63812pt x 211.79124pt>
 File: Figuras/Queda_Diagonal1b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Diagonal1b.jpg>
 Package pdftex.def Info: Figuras/Queda_Diagonal1b.jpg used on input line 551.
 (pdftex.def)             Requested size: 208.9557pt x 145.27649pt.
 
-<Figuras/Queda_Diagonal2b.jpg, id=419, 317.68687pt x 214.8025pt>
+<Figuras/Queda_Diagonal2b.jpg, id=440, 317.68687pt x 214.8025pt>
 File: Figuras/Queda_Diagonal2b.jpg Graphic file (type jpg)
 
 <use Figuras/Queda_Diagonal2b.jpg>
 Package pdftex.def Info: Figuras/Queda_Diagonal2b.jpg used on input line 551.
 (pdftex.def)             Requested size: 208.9557pt x 141.28827pt.
- [75 <./Figuras/final_frente1b.jpg> <./Figuras/final_frente2b.jpg>]
-<Figuras/marcha1b.jpg, id=423, 332.24126pt x 215.80624pt>
+ [77 <./Figuras/final_tras1b.jpg> <./Figuras/final_tras2b.jpg> <./Figuras/Queda
+_Diagonal1b.jpg> <./Figuras/Queda_Diagonal2b.jpg>] <Figuras/marcha1b.jpg, id=44
+5, 332.24126pt x 215.80624pt>
 File: Figuras/marcha1b.jpg Graphic file (type jpg)
 
 <use Figuras/marcha1b.jpg>
 Package pdftex.def Info: Figuras/marcha1b.jpg used on input line 569.
 (pdftex.def)             Requested size: 325.043pt x 211.14291pt.
- [76 <./Figuras/final_tras1b.jpg> <./Figuras/final_tras2b.jpg> <./Figuras/Queda
-_Diagonal1b.jpg> <./Figuras/Queda_Diagonal2b.jpg>]
-[77 <./Figuras/marcha1b.jpg>]) [78]
+ [78 <./Figuras/marcha1b.jpg>] [79]) [80]
 \openout2 = `cap_Conclusoes.aux'.
 
- (cap_Conclusoes.tex
+
+(cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-[79
+[81
 
 
 
-]) [80] (relatorio.bbl [81
+]) [82] (relatorio.bbl [83
 
 
-]) [82]
+]) [84]
 \c@noAnexo=\count118
- [83
+ [85
 
 ]
 \openout2 = `anexo_Esquematicos.aux'.
 
  (anexo_Esquematicos.tex
 ANEXO I.
-) [84
+) [86
 
 
 ]
@@ -1393,7 +1435,7 @@ ANEXO I.
 
  (anexo_CD.tex
 ANEXO II.
-) [85
+) [87
 
 
 
@@ -1405,10 +1447,10 @@ ANEXO II.
 (cap_RevisaoBibliografica.aux) (cap_Desenvolvimento.aux) (cap_Experimentos.aux)
 (cap_Conclusoes.aux) (anexo_Esquematicos.aux) (anexo_CD.aux)) ) 
 Here is how much of TeX's memory you used:
- 6215 strings out of 493334
- 89234 string characters out of 3139252
- 158970 words of memory out of 3000000
- 9403 multiletter control sequences out of 15000+200000
+ 6234 strings out of 493334
+ 89645 string characters out of 3139252
+ 158982 words of memory out of 3000000
+ 9411 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,993b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1446,9 +1488,9 @@ ts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (99 pages, 11110672 bytes).
+Output written on relatorio.pdf (101 pages, 11233787 bytes).
 PDF statistics:
- 1260 PDF objects out of 1440 (max. 8388607)
+ 1286 PDF objects out of 1440 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 496 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 501 words of extra memory for PDF output out of 10000 (max. 10000000)
 
