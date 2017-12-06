@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  6 DEC 2017 09:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.3)  6 DEC 2017 10:38
 entering extended mode
 **./relatorio.tex
 (relatorio.tex
@@ -1515,28 +1515,36 @@ File: Figuras/marcha1b.jpg Graphic file (type jpg)
 Package pdftex.def Info: Figuras/marcha1b.jpg used on input line 576.
 (pdftex.def)             Requested size: 325.043pt x 211.14291pt.
  [80 <./Figuras/Queda_Diagonal1b.jpg> <./Figuras/Queda_Diagonal2b.jpg>] [81 <./
-Figuras/marcha1b.jpg>]) [82]
+Figuras/marcha1b.jpg>]
+<Figuras/sequencia.png, id=505, 1297.84875pt x 528.97626pt>
+File: Figuras/sequencia.png Graphic file (type png)
+
+<use Figuras/sequencia.png>
+Package pdftex.def Info: Figuras/sequencia.png used on input line 596.
+(pdftex.def)             Requested size: 464.34918pt x 189.25285pt.
+ [82 <./Figuras/sequencia.png>]) [83]
 \openout2 = `cap_Conclusoes.aux'.
 
- (cap_Conclusoes.tex
+
+(cap_Conclusoes.tex
 Cap\'{\i }tulo 5.
-[83
+[84
 
 
 
-]) [84] (relatorio.bbl [85
+]) [85] (relatorio.bbl [86
 
 
-]) [86]
+]) [87]
 \c@noAnexo=\count118
- [87
+ [88
 
 ]
 \openout2 = `anexo_CD.aux'.
 
  (anexo_CD.tex
 ANEXO I.
-) [88
+) [89
 
 
 ]
@@ -1547,10 +1555,10 @@ ANEXO I.
 (cap_RevisaoBibliografica.aux) (cap_Desenvolvimento.aux) (cap_Experimentos.aux)
 (cap_Conclusoes.aux) (anexo_CD.aux)) ) 
 Here is how much of TeX's memory you used:
- 6232 strings out of 493334
- 90116 string characters out of 3139252
- 158586 words of memory out of 3000000
- 9415 multiletter control sequences out of 15000+200000
+ 6238 strings out of 493334
+ 90247 string characters out of 3139252
+ 158598 words of memory out of 3000000
+ 9420 multiletter control sequences out of 15000+200000
  28409 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,14n,43p,993b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1588,9 +1596,9 @@ m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on relatorio.pdf (101 pages, 11272059 bytes).
+Output written on relatorio.pdf (102 pages, 15494652 bytes).
 PDF statistics:
- 1327 PDF objects out of 1440 (max. 8388607)
+ 1334 PDF objects out of 1440 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 506 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 511 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -580,7 +580,7 @@ O resultado obtido pode ser verificado na Figura \ref{fig:marcha1}. Nela, são mo
 
 Percebe-se, no entanto, que o tempo de duração do ciclo de uma junta (o tempo entre um pico e outro, por exemplo) pode chegar a 8 segundos. Esta duração é muito elevada para a plataforma trabalhada, uma vez que um tempo desta magnitude pode gerar instabilidades. Uma perna, por exemplo, pode ficar muito tempo sem contato com o solo, diminuindo a margem de estabilidade e, possivelmente, gerando a queda do robô.
 
-Além disso, percebeu-se, durante o experimento, que o movimento das juntas ocorria de forma muito cadenciada, isto é, não se deu de maneira contínua. Do contrário, a locomoção das juntas ocorreu de forma brusca entre um ponto de amostragem e outro.
+Além disso, percebeu-se, durante o experimento, que o movimento das juntas ocorria de forma muito cadenciada, isto é, não se deu de maneira contínua. Do contrário, a locomoção das juntas ocorreu de forma brusca entre um ponto de amostragem e outro. O comportamento da marcha pode ser visualizado na Figura \ref{fig:sequencia}, adquirida através de 9 segundos de gravação do experimento descrito. Percebe-se que o movimento das patas não está em acordo com a marcha de deslocamento proposta em \cite{tcc:porphirio:2017}. Dessa forma, o sistema com paralelismo afeta diretamente a marcha implementada.
 
 Estes dois fatores (lentidão de resposta e movimento cadenciado) podem ser explicados pelo tempo de amostragem adotado neste trabalho. Quando desenvolvido em \cite{tcc:porphirio:2017}, a marcha utilizada não foi implementada com um período específico de amostragem, como no sistema desenvolvido. Como mencionado anteriormente, a marcha está contida em um arquivo e o tempo entre uma movimentação e outra era antes definido apenas pelo tempo do processamento para realizar tal leitura.
 
@@ -590,6 +590,13 @@ Dessa forma, tal marcha, implementada como foi originalmente concebida, não está
 
 \section{Conclusões}
 O controle de estabilidade proposto no capítulo \ref{CapDesenvolvimento} foi pensado com base em uma análise empírica, isto é, composta de testes reais na plataforma e da construção de um controlador de forma simultânea aos experimentos. Isto se reflete, desde a concepção inicial do projeto, na determinação dos ganhos $K_i$, proposta para ser realizada empiricamente com base nas respostas reais dos motores durante a correção de um distúrbio.
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=1\textwidth]{Figuras/sequencia}
+	\caption{Marcha do robô adicionada ao sistema com paralelismo}
+	\label{fig:sequencia}
+\end{figure}
 
 No entanto, a abordagem inicial teve que sofrer algumas modificações para se adequar ao cenário encontrado no quadrúpede. Devido especialmente à limitação do torque no modo velocidade, foi necessária a mudança para o modo posição, mas mantendo a concepção de que a velocidade de cada junta seria, basicamente, a velocidade do distúrbio vezes $K_i$. Com o novo modo de operação, capaz de sustentar o robô nas condições de repouso, foi possível aplicar testes com o controlador proposto e, concomitantemente, adequar os ganhos $K_i$ até que se observasse a melhor resposta às perturbações.
 
