@@ -115,7 +115,9 @@ Tais ângulos possibilitam caracterizar a orientação do robô no espaço, indicando
 	\label{fig:angulos}
 \end{figure}
 
-O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código desenvolvido em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} ilustra o sistema embarcado acima descrito.
+O \emph{Raspberry Pi}, por sua vez, é a CPU do sistema, recebendo as medições através da conexão com o \emph{Arduino}, calculando a resposta desejada para cada instante de tempo e enviando as instruções para os motores, além de tratar os dados, salvá-los, definir as threads periódicas de controle, escrever as informações na tela e etc. Essas funções são definidas em código desenvolvido em C++, sendo utilizadas as bibliotecas da \emph{Dynamixel} para escrita e leitura da memória de cada motor. A interação do usuário com o \emph{Raspberry Pi} é feita via SSH, utilizando o software \emph{PuTTY}. A Figura \ref{fig:arquitetura} ilustra as conexões do sistema embarcado acima descrito.
+
+Podemos visualizar o sistema embarcado da plataforma, visto de cima, através da Figura \ref{fig:sistemaembarcado}. À esquerda da imagem está o \emph{Arduino} enquanto o \emph{Raspberry Pi} encontra-se ao centro.
 
 \section{gDataLogger}
 O \emph{gDataLogger} é um código em C desenvolvido pelo professor Geovany Araújo Borges para que os dados adquiridos durante o processo (como os ângulos de rolagem e arfagem, a posição dos motores e etc) sejam armazenados em um arquivo com extensão .mat para a posterior leitura através do software \emph{Matlab}.
@@ -139,6 +141,13 @@ Para lidar com tal sistema como um sistema real, implementou-se o controle de es
 Desta forma, a implementação do controle de estabilidade como uma thread periódica permite que este não seja influenciado por outros processos, de modo que o tempo de resposta para a correção dos distúrbios fique em limiares aceitáveis para que não haja falhas. No código desenvolvido, a função \emph{main}, depois de configurar todos os parâmetros necessários, cria um timer com $T_{am}$ segundos de periodicidade que, por sua vez, chama a thread de controle sempre que o tempo de amostragem é atingido. Asssim, dois processos acontecem simultaneamente: a função \emph{main}, que determina as condições de parada do código e escreve informações na tela, e a função de controle que lê os dados do acelerômetro, calcula as devidas respostas e as envia para os motores.
 
 O valor de $T_{am}$ foi, a princípio, estipulado como 0,1 segundos. Porém, percebeu-se através de diversos testes, e com auxílio do gDataLogger para a medição do tempo, que a leitura da própria função de controle (linha a linha do código) durava cerca de 35 a 40 ms. Este tempo representa aproximadamente 40\% do tempo de amostragem proposto sendo, dessa forma, uma valor bastante elevado e que pode prejudicar a dinâmica do sistema em tempo real. Por este motivo, estabeleceu-se que a leitura do código não deveria exceder em 20\% o tempo de amostragem.
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/sistemaembarcado}
+	\caption{Vista de cima do sistema embarcado}
+	\label{fig:sistemaembarcado}
+\end{figure}
 
 Após vários testes para tentar diminuir o tempo de leitura do código, descobriu-se que este tempo elevado ocorre devido às leituras e escritas na memória dos motores, utilizadas para obter os seus valores de posição e velocidade assim como aplicá-los. Uma vez que estas funções são essenciais para o desenvolvimento do projeto e, portanto, não podem ser eliminadas, decidiu-se por aumentar o tempo de amostragem $T_{am}$ para 0,2 segundos. Neste caso, o tempo de leitura do código passa a ser aproximadamente 20\% de $T_{am}$ e, assim, um valor aceitável para o sistema em tempo real.
 
@@ -258,7 +267,7 @@ Uma vez decidido pelo uso do modo posição dos motores ao invés do modo velocidad
 
 Dessa forma, o diagrama de blocos correspondente a esta nova estrutura adiciona um integrador ao final, como mostra a Figura \ref{fig:diagrama4}.
 
-\begin{figure} [t]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=1.1\textwidth]{Figuras/Diagrama4}
 	\caption{Diagrama de Blocos do Sistema no Modo Posição}
@@ -274,15 +283,13 @@ Com a finalidade de auxiliar a determinação destes ganhos, utilizamos a simetria
 No caso da correção do movimento de rolagem, por exemplo, podemos dividir os grupos em patas da direita e patas da esquerda, como na Fig. \ref{fig:sincronia_roll}. Neste caso, os motores referentes às patas da esquerda que corrigem a rolagem (motores 1 e 10, com linhas verticais) terão um ganho $K_i = K_{L}$ enquanto os que são referentes às patas da direita (motores 4 e 7, com linhas horizontais) obedecerão à relação $K_i = K_{R}$, respondendo ao mesmo tempo e no mesmo sentido.
 
 
-Da mesma forma, a correção do movimento de arfagem, como pode ser observado na Fig. \ref{fig:sincronia_pitch}(a), pode ser feita com as patas da frente (motores 8, 9, 11 e 12, com linhas horizontais), com um ganho $K_{F}$, ou com as patas de trás (motores 2, 3, 5 e 6, com linhas verticais), com um ganho $K_{B}$\footnotemark.
-
-\footnotetext{No presente trabalho foram utilizados os subíndices R, L, B e F para indicar, respectivamente, os sentidos da direita (Right), esquerda (Left), para trás (Back) e para frente (Front).}
+Da mesma forma, a correção do movimento de arfagem, como pode ser observado na Fig. \ref{fig:sincronia_pitch}(a), pode ser feita com as patas da frente (motores 8, 9, 11 e 12, com linhas horizontais), com um ganho $K_{F}$, ou com as patas de trás (motores 2, 3, 5 e 6, com linhas verticais), com um ganho $K_{B}$\footnote{No presente trabalho foram utilizados os subíndices R, L, B e F para indicar, respectivamente, os sentidos da direita (Right), esquerda (Left), para trás (Back) e para frente (Front).}.
 
 No entanto, há uma diferença para o caso da arfagem uma vez que os motores que fazem a correção neste sentido podem, ainda, ser divididos em motores de joelho e motores de cima (ou não-joelho). Aos motores do tipo joelho, ilustrados pela Fig. \ref{fig:sincronia_pitch}(b) com linhas verticais, serão atribuídos um ganho $K_{down}$, e aos motores de cima (com linhas horizontais), um ganho $K_{up}$. Dessa forma, o ganho referente aos motores que corrigem o movimento de arfagem terá duas componentes, uma indicando a localização da pata (na frente ou atrás) e outra indicando se a junta é ou não um joelho. O ganho será dado, portanto, pela multiplicação das duas componentes. Por exemplo, um motor da frente que não esteja em uma junta do tipo joelho, terá o ganho dado por $K_i = K_{F}K_{up}$.
 
 \begin{figure} [t]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Figuras/robo4b}
+	\includegraphics[width=0.9\textwidth]{Figuras/robo4b}
 	\caption{Motores de rolagem em sincronia}
 	\label{fig:sincronia_roll}
 \end{figure}
@@ -300,13 +307,7 @@ K_{9/12} &= K_{F}K_{down}.
 
 \noindent Nesta equação, a representação $K_{m/n}$ indica que ambos $K_m$ e $K_n$, ganhos dos motores m e n, respectivamente, são iguais ao valor do outro lado da igualdade.
 
-Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1,1 para a devida correção.
-
-A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais na plataforma, com distúrbios em cada direção estudada, e será melhor detalhada no capítulo \ref{CapExperimentos}.
-
-\subsection{Sentido de Movimentação das Patas} \label{sentido_movimentacao}
-
-\begin{figure}[!t]
+\begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Sincronia por patas]{\includegraphics[width=0.7\textwidth]{Figuras/robo5b}}}\quad\quad
@@ -314,6 +315,14 @@ A definição do valor de cada uma dessas componentes será feita de forma empírica
 	\caption{Motores de arfagem em sincronia}
 	\label{fig:sincronia_pitch}
 \end{figure}
+
+Para que cada par de motores acima agrupados possa seguir o movimento no mesmo sentido alguns valores de $K_i$ devem ser corrigidos com um sinal de negativo, uma vez que alguns motores foram montados em configurações contrárias. Tais motores são: 5, 6, 8 e 9. O motor 7, por sua vez, apresenta um amortecimento levemente maior em relação ao seu par e, portanto, foi multiplicado por 1,1 para a devida correção.
+
+A definição do valor de cada uma dessas componentes será feita de forma empírica através de testes reais na plataforma, com distúrbios em cada direção estudada, e será melhor detalhada no capítulo \ref{CapExperimentos}.
+
+\subsection{Sentido de Movimentação das Patas} \label{sentido_movimentacao}
+
+
 
 A análise seguinte que deve ser observada com relação aos ganhos se relaciona com a resposta desejada para cada grupo de patas em conformidade com o sentido de movimentação do robô. Observando a Figura \ref{fig:quedas}, podemos analisar os movimentos de rolagem e arfagem e, assim, determinar o sentido mais adequado para a movimentação das patas. Nesta imagem, apresenta-se os casos em que, partindo da condição de repouso, o robô é empurrado para a direita (Fig. \ref{fig:quedas}(a)) e para frente (Fig. \ref{fig:quedas}(b)).
 
@@ -356,7 +365,7 @@ As juntas do tipo joelho, diferem das outras no que diz respeito ao seu sentido 
 
 A Fig. \ref{fig:aterrissagem}(a) mostra a pata em condição de sustentação, sem correção de distúrbio, como referência. A Fig. \ref{fig:aterrissagem}(b), por sua vez, apresenta o caso em que a junta do joelho não muda sua configuração durante a correção do distúrbio, ocasionando em uma aterrissagem diagonal. Dessa forma, a pata fica suscetível a deslizar horizontalmente, sob influência do peso do robô. Já a Fig. \ref{fig:aterrissagem}(c) indica a configuração aproximada da pata quando o joelho se move em oposição ao distúrbio. É possível notar que a pata tem uma possibilidade mínima de deslizamento neste caso, devido à sua aterrissagem vertical. Por fim, na Fig. \ref{fig:aterrissagem}(d), é possível visualizar a posição da pata quando o joelho se desloca no sentido do distúrbio. Neste cenário, a pata também pode sofrer o deslizamento horizontal, cedendo ao peso do robô ocasionando em sua queda.
 
-\begin{figure} [b]
+\begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Aterrissagem}
 	\caption{Configurações das juntas tipo joelho no plano longitudinal durante a aterrissagem}

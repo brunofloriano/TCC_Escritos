@@ -42,36 +42,36 @@
 \contentsline {section}{\numberline {3.3}gDataLogger}{38}
 \contentsline {section}{\numberline {3.4}Thread Periódica}{38}
 \contentsline {section}{\numberline {3.5}Controle de Estabilidade}{40}
-\contentsline {subsection}{\numberline {3.5.1}Abordagem Inicial}{41}
-\contentsline {subsection}{\numberline {3.5.2}Filtro}{42}
+\contentsline {subsection}{\numberline {3.5.1}Abordagem Inicial}{42}
+\contentsline {subsection}{\numberline {3.5.2}Filtro}{43}
 \contentsline {subsection}{\numberline {3.5.3}Torque no Modo Velocidade}{43}
-\contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{43}
+\contentsline {subsection}{\numberline {3.5.4}Controle de Estabilidade no Modo Posição}{44}
 \contentsline {subsection}{\numberline {3.5.5}Determinação dos Ganhos $K_i$}{44}
-\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{45}
+\contentsline {subsection}{\numberline {3.5.6}Sentido de Movimentação das Patas}{47}
 \contentsline {subsection}{\numberline {3.5.7}Juntas do Tipo Joelho}{48}
-\contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{48}
-\contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{52}
+\contentsline {subsection}{\numberline {3.5.8}Paralelismo com a Posição Desejada}{49}
+\contentsline {section}{\numberline {3.6}Estrutura Geral do Código}{53}
 \contentsline {section}{\numberline {3.7}Conclusão}{54}
-\contentsline {chapter}{\numberline {4}Resultados Experimentais}{55}
-\contentsline {section}{\numberline {4.1}Introdução}{55}
-\contentsline {section}{\numberline {4.2}Modo Velocidade}{55}
-\contentsline {subsection}{\numberline {4.2.1}Medição}{55}
-\contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{57}
-\contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{58}
-\contentsline {section}{\numberline {4.3}Modo Posição}{61}
-\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{62}
-\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{62}
-\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{64}
-\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{68}
-\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{71}
-\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{71}
-\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{71}
-\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{74}
-\contentsline {subsection}{\numberline {4.4.2}Testes finais}{76}
-\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{80}
-\contentsline {section}{\numberline {4.5}Conclusões}{82}
-\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{84}
-\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{85}
-\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{86}
-\contentsline {chapter}{{Anexos}}{88}
-\contentsline {chapter}{\numberline {I}Descrição do conteúdo do CD}{89}
+\contentsline {chapter}{\numberline {4}Resultados Experimentais}{56}
+\contentsline {section}{\numberline {4.1}Introdução}{56}
+\contentsline {section}{\numberline {4.2}Modo Velocidade}{56}
+\contentsline {subsection}{\numberline {4.2.1}Medição}{56}
+\contentsline {subsection}{\numberline {4.2.2}Posição Inicial}{58}
+\contentsline {subsection}{\numberline {4.2.3}Teste de Sustentação}{59}
+\contentsline {section}{\numberline {4.3}Modo Posição}{62}
+\contentsline {subsection}{\numberline {4.3.1}Teste de Sustentação}{63}
+\contentsline {subsection}{\numberline {4.3.2}Determinação das constantes $K_{up}$ e $K_{down}$}{63}
+\contentsline {subsection}{\numberline {4.3.3}Determinação das constantes de rolagem $K_{R}$ e $K_{L}$}{65}
+\contentsline {subsection}{\numberline {4.3.4}Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}{69}
+\contentsline {section}{\numberline {4.4}Paralelismo com a Posição Desejada}{72}
+\contentsline {subsection}{\numberline {4.4.1}Determinação das constantes $\tau _d$ e $\tau _p$}{72}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Determinação de $\tau _d$}{72}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Determinação de $\tau _p$}{75}
+\contentsline {subsection}{\numberline {4.4.2}Testes finais}{77}
+\contentsline {subsection}{\numberline {4.4.3}Aplicação de Marchas}{81}
+\contentsline {section}{\numberline {4.5}Conclusões}{83}
+\contentsline {chapter}{\numberline {5}Conclus\~{o}es}{85}
+\contentsline {section}{\numberline {5.1}Sugestões de trabalhos futuros}{86}
+\contentsline {chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}{87}
+\contentsline {chapter}{{Anexos}}{89}
+\contentsline {chapter}{\numberline {I}Descrição do conteúdo do CD}{90}
