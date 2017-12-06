@@ -46,18 +46,20 @@ Porém, para que um robô quadrúpede possa desenvolver as aplicações acima mencion
 
 Justamente pela importância da análise de estabilidade em robôs quadrúpedes que seu estudo começou logo em 1968 com os trabalhos de McGhee e Frank \cite{article:mcghee:1968} sobre estabilidade estática e vêm se estendendo até os dias atuais com novos modelos e experimentos para análise de como robôs quadrúpedes podem se manter estáveis ainda que em alta velocidade ou em terrenos irregulares.
 
-\section{Motivação}%Definição do problema}
-%Aqui o problema é definido.
-
-Desde 2005, alunos e professores de Engenharia Elétrica e de Engenharia Mecatrônica da Universidade de Brasília (UnB) vêm desenvolvendo e aprimorando uma plataforma quadrúpede no Laboratório de Robótica e Automação (LARA). Desde então, várias abordagens já foram trabalhadas na plataforma, passando por diversas modificações em seus componentes \cite{tcc:santos:2016}. Contudo, pouco foi trabalhada a questão referente ao controle de estabilidade do robô.
-
-Como mencionado anteriormente, o controle de estabilidade em uma plataforma tal qual o quadrúpede é de grande importância para que esta seja utilizada em aplicações reais. Isto se dá pois, em condições reais de aplicação, o robô pode se deparar com vários obstáculos que o impeçam ou dificultem sua locomoção, ou mesmo que o faça tombar. Desta forma, o controle de equilíbrio é fundamental para aplicações reais.
+Desde 2005, alunos e professores de Engenharia Elétrica e de Engenharia Mecatrônica da Universidade de Brasília (UnB) vêm desenvolvendo e aprimorando uma plataforma quadrúpede no Laboratório de Robótica e Automação (LARA). Desde então, várias abordagens já foram trabalhadas na plataforma, passando por diversas modificações em seus componentes \cite{tcc:santos:2016}. A Figura \ref{fig:quadrupedelara} mostra o estado da plataforma após suas últimas atualizações antes de ser utilizada neste trabalho.
 
 O robô quadrúpede construído no LARA teve trabalhos de reestruturação nos últimos anos, em que foram adicionados novos componentes como acelerômetro, placas de \emph{Arduino} e \emph{Raspberry Pi}, sensores de força e novos motores para as juntas. Além disso, o último trabalho nele desenvolvido adicionou quatro diferentes estilos de marchas de locomoção, baseados em algoritmos genéticos \cite{tcc:porphirio:2017}.
 
+\section{Motivação}%Definição do problema}
+%Aqui o problema é definido.
+
+%Contudo, pouco foi trabalhada a questão referente ao controle de estabilidade do robô.
+
+Como mencionado anteriormente, o controle de estabilidade em uma plataforma tal qual o quadrúpede é de grande importância para que esta seja utilizada em aplicações reais. Isto se dá pois, em condições reais de aplicação, o robô pode se deparar com vários obstáculos que o impeçam ou dificultem sua locomoção, ou mesmo que o faça tombar. Desta forma, o controle de equilíbrio é fundamental para aplicações reais.
+
 \footnotetext{http://new.semini.ch/research/hyq-robot/}
 
-No entanto, não foi trabalhado, até então, o controle de equilíbrio de tal plataforma. Uma vez que este controle é de fundamental importância para a utilização da plataforma em ambientes reais, suscetíveis a distúrbios e irregularidades, o presente trabalho busca desenvolver e implementar um sistema que permita que o robô se estabilize frente a tais perturbações. Além disso, a reestruturação realizada em trabalhos anteriores a este possibilitou que o controle aqui desenvolvido fosse implementado de forma mais significativa. Em especial a adição do acelerômetro e de motores mais robustos foram essenciais para o trabalho aqui desenvolvido.
+No entanto, não foi trabalhado, até então, o controle de equilíbrio da plataforma do LARA. Uma vez que este controle é de fundamental importância para a utilização da plataforma em ambientes reais, suscetíveis a distúrbios e irregularidades, o presente trabalho busca desenvolver e implementar um sistema que permita que o robô se estabilize frente a tais perturbações. Além disso, a reestruturação realizada em trabalhos anteriores a este possibilitou que o controle aqui desenvolvido fosse implementado de forma mais significativa. Em especial a adição do acelerômetro e de motores mais robustos foram essenciais para este trabalho.
 
 Portanto, este trabalho foi concebido com o intuito de desenvolver e implementar um controle de estabilidade que permita que o robô corrija possíveis perturbações seja durante a sua marcha, seja enquanto esteja parado.
 
@@ -90,6 +92,14 @@ Dessa forma, o desenvolvimento, concomitante com os experimentos reais no robô, 
 %No entanto, ao realizar experimentos para efetivamente fazer a integração com as marchas desenvolvidas em trabalhos anteriores, não obtivemos resultados positivos. O motivo disto, em grande parte, se deu pelo tempo de amostragem utilizado no controlador, incompatível, a princípio, com a marcha desenvolvida.
 
 Além disso, adaptou-se o controle proposto para que o robô volte a uma determinada posição desejada, após o fim da correção do distúrbio. Isso permite que, após a estabilidade ser alcançada, o robô se mantenha em uma mesma posição de sustentação ou mesmo que a marcha de locomoção se mantenha constante. O que determina qual cenário será aplicado em regime permanente é a posição desejada (referência) a cada instante de tempo.
+
+\begin{figure} [t]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figuras/quadrupedeLARA}
+	\caption{Plataforma quadrúpede do LARA (Fonte: \cite{tcc:porphirio:2017})}
+	\label{fig:quadrupedelara}
+\end{figure}
+
 
 Tal sistema foi implementado inicialmente considerando a posição desejada como a posição inicial. Dessa forma, ao final de cada distúrbio o robô volta à postura inicialmente adotada e assim se mantêm parado. Os experimentos neste cenário foram bem sucedidos pois o robô foi capaz de voltar adequadamente à posição inicial após o distúrbio.
 

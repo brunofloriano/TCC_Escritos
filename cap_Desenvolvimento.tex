@@ -151,7 +151,7 @@ Para a implementação do controle desejado, o sensoriamento será feito através do
 q_i(t) = \pm K_id_{roll/pitch}(t),
 \end{eqnarray}
 
-\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho que será determinado empiricamente para cada junta e $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro\footnote{A notação $x_{roll/pitch}$, que será utilizada neste trabalho, indica que o termo pode ser substituído por $x_{roll}$ ou $x_{pitch}$ dependendo do motor em questão. Por exemplo, o motor 1 corrige o movimento de rolagem então os termos $x_{roll/pitch}$ serão substituídos por $x_{roll}$.}.
+\noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho adimensional que será determinado empiricamente para cada junta e $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro\footnote{A notação $x_{roll/pitch}$, que será utilizada neste trabalho, indica que o termo pode ser substituído por $x_{roll}$ ou $x_{pitch}$ dependendo do motor em questão. Por exemplo, o motor 1 corrige o movimento de rolagem então os termos $x_{roll/pitch}$ serão substituídos por $x_{roll}$.}.
 
 O sinal de $q_i(t)$ será determinado empiricamente de modo que a resposta da i-ésima junta seja tal que gere um movimento final no robô que se oponha ao movimento gerado pelo distúrbio. Por exemplo, se o acelerômetro detecta uma queda para à esquerda do robô, as juntas responsáveis pela rolagem devem se movimentar no sentido tal que o robô sofra um movimento para a direita.
 
