@@ -41,9 +41,14 @@ Após a medição, os ângulos são derivados e, em seguida, passados por um filtro p
 
 Dessa forma, podemos observar que, com a inclusão do filtro, a amplitude do ruído decaiu 45,7\% para a medição da velocidade de rolagem e 52,5\% para a arfagem. Isso indica que o efeito do filtro sobre a medição da velocidade se mostrou adequado para as necessidades para as quais ele foi desenvolvido. Isto é, ele é capaz de amenizar a ação do ruído em altas frequências.
 
-Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-3}$ e $10^{-4}$ graus/s e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de 50 a 500 graus/s.
 
-\begin{table}[t]
+Além disso, podemos analisar a variância das medidas com e sem filtragem para identificar o comportamento do filtro. No caso da velocidade de rolagem, encontrou-se uma variância de $2,2851 graus^2/s^2$  antes do filtro, e de $0,5087 graus^2/s^2$ após a filtragem. Da mesma forma, a velocidade de arfagem apresentou uma variância de $0,9466 graus^2/s^2$ antes do filtro, e de $0,1968 graus^2/s^2$. Em ambos os casos, a variância diminui do caso não filtrado para o caso com filtro, indicando uma redução do ruído ao redor do valor de referência, conforme desejado. 
+
+Além disso, verifica-se que o filtro não foi responsável pela ocorrência de qualquer instabilidade na medição ou mesmo de atrasos de fase, ocorrências possíveis no caso da escolha da frequência de corte. Portanto, podemos concluir que o filtro implementado corresponde às necessidades do sistema desenvolvido.
+
+Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se na ordem de $10^{-2}$ e $10^{-3}$ graus/s e, dessa forma, reduzidos o bastante para serem considerados próximos de zero. Como será visto mais adiante, um distúrbio no sentido de rolagem, por exemplo, permanece na ordem de 50 graus/s.
+
+\begin{table}[!t]
 	\caption{Ângulos mínimo, máximo e médio medidos}
 	\label{TabAngulos}
 	\begin{center}
@@ -57,23 +62,28 @@ Por fim, pode-se observar que o valor médio das velocidades obtidas encontra-se 
 	\end{center}
 \end{table}
 
-
-\begin{figure}[!b]
-	\centering
-	\mbox{
-		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.65\textwidth]{Figuras/Filtro_rolld}}}\quad\quad
-		\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.65\textwidth]{Figuras/Filtro_pitchc}}
-	\caption{Velocidades antes e depois da filtragem}
-	\label{fig:velocidades_medidas}
-\end{figure}
-
 \subsection{Posição Inicial}
 Um dos elementos fundamentais nos experimentos que serão realizados é que o robô inicie cada procedimento em uma posição inicial adequada. Determinou-se que tal disposição consistia nas patas perpendiculares à base do robô, sustentando-o através de um arranjo retangular.
 
 Para obter tal posição realizou-se um breve procedimento em que os motores foram desprovidos de qualquer resposta (para tal, configurou-se o torque limite de todos os motores como zero) e, então, cada motor foi manualmente rearranjado de modo que as quatro patas ficassem perpendicular ao plano da base do robô. Em seguida, foi feita a leitura da posição de todos os motores. Essas leituras podem ser visualizadas na Tabela \ref{TabPosicaoInicial}.
 
+\begin{figure}[!t]
+	\centering
+	\mbox{
+		\subfigure[Velocidade de Rolagem]{\includegraphics[width=0.65\textwidth]{Figuras/Filtro_rolld}}}\quad\quad
+	\subfigure[Velocidade de Arfagem]{\includegraphics[width=0.65\textwidth]{Figuras/Filtro_pitchc}}
+	\caption{Velocidades antes e depois da filtragem}
+	\label{fig:velocidades_medidas}
+\end{figure}
 
-\begin{table}[t]
+Com estes valores, foi possível adicionar na função \emph{main} do código, comandos que, na inicialização do procedimento, coloquem cada motor na sua posição inicial. Para fazer isso no modo velocidade, criou-se as funções para acionar cada modo de operação (posição ou velocidade). Portanto, ao iniciar o código, a \emph{main} aciona o modo posição, aloca cada junta na sua posição inicial e, em seguida, retorna ao modo velocidade para acionar o controle. Quando trabalharmos no modo posição, mais a frente, não será necessário retornar ao modo velocidade.
+
+Podemos visualizar a posição inicial do robô na Figura 	\ref{fig:roboreal2}.
+
+\subsection{Teste de Sustentação} \label{sec:sustentacao_velocidade}
+Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais encontradas anteriormente. Em seguida, a plataforma é posicionada sobre o solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado, para fins de comparação, tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação (\ref{eq:controle_velocidade_discreto}), como para o controle adaptado para o modo posição, determinado pela equação (\ref{eq:controle_posicao_discreto}), que será abordado mais adiante.
+
+\begin{table}[!t]
 	\caption{Velocidades mínima, máxima, média e sua amplitude}
 	\label{TabVelocidades}
 	\begin{center}
@@ -113,25 +123,18 @@ Para obter tal posição realizou-se um breve procedimento em que os motores foram
 	\end{center}
 \end{table}
 
-Com estes valores, foi possível adicionar na função \emph{main} do código, comandos que, na inicialização do procedimento, coloquem cada motor na sua posição inicial. Para fazer isso no modo velocidade, criou-se as funções para acionar cada modo de operação (posição ou velocidade). Portanto, ao iniciar o código, a \emph{main} aciona o modo posição, aloca cada junta na sua posição inicial e, em seguida, retorna ao modo velocidade para acionar o controle. Quando trabalharmos no modo posição, mais a frente, não será necessário retornar ao modo velocidade.
-
-Podemos visualizar a posição inicial do robô na Figura 	\ref{fig:roboreal2}.
-
-\subsection{Teste de Sustentação} \label{sec:sustentacao_velocidade}
-Com as medições realizadas, os procedimentos seguintes envolvem o robô parado, sustentado pelas suas próprias patas e sem a aplicação de nenhum distúrbio externo. Para tal, o sistema implementado, inicialmente, impõe as posições iniciais encontradas anteriormente. Em seguida, a plataforma é posicionada sobre o solo e nenhum distúrbio (e.g. empurrão) é aplicado. Este experimento foi realizado, para fins de comparação, tanto para o controle desenvolvido para o modo velocidade, caracterizado pela equação (\ref{eq:controle_velocidade_discreto}), como para o controle adaptado para o modo posição, determinado pela equação (\ref{eq:controle_posicao_discreto}), que será abordado mais adiante.
-
-
 O resultado obtido no modo velocidade pode ser visualizado pela Figura \ref{fig:teste_sustentacao}. Na Fig. \ref{fig:teste_sustentacao}(a) são mostrados os ângulos de rolagem e arfagem medidos. Já a Fig. \ref{fig:teste_sustentacao}(b) apresenta, em linha contínua, a velocidade de rolagem e, em linha traço e ponto, a velocidade dos motores utilizados para corrigir o distúrbio nesta direção (i.e. motores 1, 4, 7 e 10). Analogamente, a Fig. \ref{fig:teste_sustentacao}(c) contém a velocidade de arfagem e dos respectivos motores que a corrigem.
 
 Podemos notar uma grande movimentação entre os instantes 1 e 3 segundos mas que se devem apenas à alocação do robô sobre o solo. A partir deste momento, nenhum distúrbio externo foi aplicado ao robô. Ainda assim, é possível observar, na Fig. \ref{fig:teste_sustentacao}(a), que o robô sofre uma queda, a partir de aproximadamente 8 segundos, quando o ângulo de arfagem caiu para -18,3 graus.
 
 
-\begin{figure} [!b]
+\begin{figure} [!t]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/robo_real2}
 	\caption{Robô na sua posição inicial}
 	\label{fig:roboreal2}
 \end{figure}
+
 
 Para analisar o ocorrido podemos verificar a Fig. \ref{fig:teste_sustentacao}(c), representando a direção em que houve a queda (i.e arfagem). Nela, as linhas traço e ponto, representando as velocidades dos motores, começam a aumentar (em módulo) alguns segundos antes da queda brusca. Este é um indicador de que as juntas começaram a ceder inicialmente de forma lenta e foram aumentando sua velocidade até que o robô não foi mais capaz de se sustentar, gerando a queda.
 
@@ -140,16 +143,17 @@ Podemos, para melhor visualização, separar a resposta de um desses motores, como
 \begin{figure}[!t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade1b}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade2b}}}
-	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade3b}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade1c}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade2c}}}
+	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_velocidade3c}}
 	\caption{Teste de Sustentação do Robô no Modo Velocidade}
 	\label{fig:teste_sustentacao}
 \end{figure}
 
+
 \begin{figure} [t]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Figuras/Modo_velocidade4}
+	\includegraphics[width=0.6\textwidth]{Figuras/Modo_velocidade4c}
 	\caption{Velocidade do Motor 11}
 	\label{fig:motor_queda}
 \end{figure}
@@ -163,6 +167,16 @@ No entanto, não foi encontrado o motivo pelo qual os motores apresentam um torqu
 A hipótese formulada para tal limitação é que o modo velocidade foi desenvolvido pelos fabricantes dos motores para ser utilizado em rodas ou outros elementos que giram constantemente por várias revoluções por minuto. Enquanto isso, o modo posição teria sido desenvolvido para aplicações em articulações e juntas, como é o caso do quadrúpede, uma vez que a determinação (e fixação) das posições desejadas implica em uma resolução de movimento mais adequada para tais finalidades. Por isso, este modo apresentaria um torque mais elevado para manter as posições fixas enquanto, em rodas e afins, esta imobilização não se faz necessária.
 
 Como será visto na próxima seção, o modo posição apresenta um torque bastante elevado quando comparado ao modo velocidade. Neste caso, ao determinar uma posição para o motor (assim como configuramos uma velocidade de 0 graus/s no modo velocidade) este fixa tal localização e não cede facilmente a movimentos externos que tendam a mover a junta para uma posição diferente. Portanto, é mais vantajoso que trabalhemos no modo posição para que o robô possa se sustentar sozinho.
+
+\begin{figure}[t]
+	\centering
+	\mbox{
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao1c}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao2c}}}
+	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao3c}}
+	\caption{Teste de Sustentação do Robô no Modo Posição}
+	\label{fig:teste_sustentacao_posicao}
+\end{figure}
 
 \section{Modo Posição}
 Com o modo posição, podemos utilizar os motores de forma mais adequada para que o robô se sustente e corrija os distúrbios aos quais está suscetível. Da mesma forma que no modo velocidade, nesta seção abordar-se-á os resultados atingidos com os experimentos no modo posição analisando o que necessita de modificação e, principalmente, obtendo os dados empíricos para a determinação das constantes de controle.
@@ -179,15 +193,7 @@ Desta maneira, comparando com os dados obtidos na seção \ref{sec:sustentacao_vel
 \subsection{Determinação das constantes $K_{up}$ e $K_{down}$}
 As constantes $K_{up}$ e $K_{down}$, no escopo de correção do movimento de arfagem, tem a finalidade de diferenciar as respostas dos motores de juntas do tipo joelho (com o ganho $K_{down}$) das demais ($K_{up}$). Como mencionado na seção \ref{sec:ganhos}, cada um deses motores terá, ainda, uma segunda componente que será a responsável pelo movimento de correção em si (i.e. $K_B$ e $K_F$). Dessa forma, $K_{up}$ e $K_{down}$ são apenas ponderações da resposta para a diferenciação das juntas do tipo joelho.
 
-\begin{figure}[!t]
-	\centering
-	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao1b}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao2b}}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Modo_posicao3b}}
-	\caption{Teste de Sustentação do Robô no Modo Posição}
-	\label{fig:teste_sustentacao_posicao}
-\end{figure}
+
 
 Por esse motivo e para simplificação, considerou-se, inicialmente, que $K_{up} = 1$. Assim, podemos determinar empiricamente o ganho $K_{down}$ em conformidade com o movimento do motor de cima, para que o deslocamento da pata no sentido sagital seja tal que esta aterrisse da forma mais vertical possível como mostrado na Fig. \ref{fig:aterrissagem}(c). Assim, a correção da estabilidade do robô será determinada unicamente pelos ganhos $K_F$ e $K_B$, abordados mais adiante.
 
@@ -198,7 +204,7 @@ Os testes foram realizados com os valores das constantes $K_F$ e $K_B$ iguais a 
 
 O primeiro valor testado para $K_{down}$ foi de -1. Cabe lembrar que o valor negativo de $K_{down}$ se justifica pelo movimento contrário desejado para as juntas tipo joelho em relação ao imposto pelos motores de cima. Dessa forma a pata pode aterrissar de forma vertical. Ao final do distúrbio aplicado com este valor, observou-se que a postura da plataforma se encontrava conforme a Figura \ref{fig:kdown10}.
 
-\begin{figure} [b]
+\begin{figure} [!b]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Figuras/Kdown10}
 	\caption{Postura após distúrbio com $K_{down} = -1$}
@@ -228,28 +234,28 @@ Como abordado na seção \ref{sentido_movimentacao} e condensado na equação (\ref{
 
 Inicialmente, foi realizado tal ensaio com o distúrbio apenas para a direita, ou seja, foram aplicados empurrões na direção que pudesse fazer o robô tombar para a direita. O valor de $K_{R}$ foi inicialmente configurado para 1 e as respostas obtidas com este valor podem ser observadas na Figura \ref{fig:queda_roll_1}.
 
-\begin{figure}[!b]
+\begin{figure}[!t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.45\textwidth]{Figuras/Queda_Roll_R_1b}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/Queda_Roll_R_2b}}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.65\textwidth]{Figuras/Queda_Roll_R_1c}}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.6\textwidth]{Figuras/Queda_Roll_R_2c}}
 	\caption{Teste de Queda para a direita com $K_{R} = 1$}
 	\label{fig:queda_roll_1}
 \end{figure}
 
-Podemos observar neste dados, que diversos distúrbios foram aplicados em intervalos de aproximadamente 2 segundos entre eles, com uma amplitude, em módulo, de até 0,85 rad/s. Em grande parte das respostas subsequentes, percebe-se que o ângulo de rolagem volta ao seu valor inicial assim como a velocidade volta a ser de 0 rad/s, indicando a estabilidade. No entanto, o último distúrbio verificado causa a instabilidade do robô, como pode ser visto na Fig. \ref{fig:queda_roll_1}(a). Neste caso, o ângulo de rolagem cai para aproximadamente $30^o$, indicando a queda do robô.
+Podemos observar neste dados, que diversos distúrbios foram aplicados em intervalos de aproximadamente 2 segundos entre eles, com uma amplitude, em módulo, de até 40 graus/s. Em grande parte das respostas subsequentes, percebe-se que o ângulo de rolagem volta ao seu valor inicial assim como a velocidade volta a ser de 0 graus/s, indicando a estabilidade. No entanto, o último distúrbio verificado causa a instabilidade do robô, como pode ser visto na Fig. \ref{fig:queda_roll_1}(a). Neste caso, o ângulo de rolagem cai para aproximadamente $30^o$, indicando a queda do robô.
 
 Além disso, a Fig. \ref{fig:queda_roll_1}(b) indica que as velocidades dos motores (em linhas tipo traço e ponto) estavam bem reduzidas neste experimento e, portanto, quase não responderam ao distúrbio. Dessa forma, pode-se concluir que a estabilização dos primeiros distúrbios não teve relação com a resposta dos motores, mas sim com a própria geometria de distribuição das patas e da magnitude do distúrbio, insuficiente para fazê-lo cair. Apenas a última perturbação imposta na plataforma teve amplitude suficiente para fazê-lo tombar e, como as respostas dos motores estavam em patamares insuficientes, a queda do robô ocorreu.
 
 Portanto, o ganho de $K_{R}$ foi insuficiente para corrigir o distúrbio, indicando uma necessidade de aumentar tal valor para que o controle possa responder adequadamente a tal. O próximo valor a ser testado neste mesmo experimento é de $K_{R} = 1,5$. Os dados referentes a este valor se encontram na Figura \ref{fig:queda_roll_2}.
 
 
-\begin{figure}[!b]
+\begin{figure}[!t]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Roll_R_3b}}\quad\quad
-		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Roll_R_4b}}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Roll_R_5b}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Roll_R_3c}}\quad\quad
+		\subfigure[Velocidade de Rolagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Roll_R_4c}}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Roll_R_5c}}
 	\caption{Teste de Queda para a direita com $K_{R} = 1,5$}
 	\label{fig:queda_roll_2}
 \end{figure}
@@ -260,12 +266,6 @@ Em uma análise mais detalhada da Fig. \ref{fig:queda_roll_2}(a), constata-se que
 
 Podemos observar melhor este fenômeno através da Figura \ref{fig:roboreal1}, que ilustra o momento ao final do experimento, em que o robô já se estabilizou mas manteve a posição fixa ao invés de voltar à posição inicial. É perceptível que o robô tem as patas dispostas para os lados enquanto sua posição inicial é com as quatro patas perpendiculares à base.
 
-\begin{figure} [!b]
-	\centering
-	\includegraphics[width=0.6\textwidth]{Figuras/robo_real1}
-	\caption{Posição do robô após a correção do distúrbio}
-	\label{fig:roboreal1}
-\end{figure}
 
 Por fim, podemos notar na Fig. \ref{fig:queda_roll_2}(c), que o distúrbio aplicado não teve componentes apenas no movimento de rolagem conforme desejado, mas também foi aplicado na direção de arfagem. No entanto, este movimento não influenciou a análise da rolagem, uma vez que não gerou a queda do robô e o movimento de rolagem pode ser caracterizado de forma independente.
 
@@ -273,21 +273,29 @@ Devido à simetria da plataforma e do fato de estarmos utilizando os mesmos motor
 
 \subsection{Determinação dos ganhos de arfagem $K_{B}$ e $K_{F}$}
 
-\begin{figure}[!b]
+\begin{figure} [!t]
 	\centering
-	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Pitch_F_1b}}\quad\quad
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Pitch_F_2b}}}
-	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Pitch_F_3b}}
-	\caption{Teste de Queda para a frente com $K_{F} = 1,5$}
-	\label{fig:queda_pitch1}
+	\includegraphics[width=0.6\textwidth]{Figuras/robo_real1}
+	\caption{Posição do robô após a correção do distúrbio}
+	\label{fig:roboreal1}
 \end{figure}
+	
 
 Para determinar os ganhos $K_{B}$ e $K_{F}$ seguiu-se os mesmos procedimentos descritos anteriormente para o caso da rolagem. Isto é, o robô será posicionado sobre o chão na posição inicial e, após a ativação do sistema de controle, serão aplicadas perturbações para frente e para trás do robô. Em seguida, os dados serão analisados para verificar a necessidade de aumentar os ganhos, caso a resposta esteja muito lenta, ou diminuí-lo em caso de uma sensibilidade muito elevada nas respostas dos motores.
 
 O primeiro teste foi feito para a aquisição de $K_{F}$. Apesar das dimensões longitudinais do robô serem maiores do que suas extensões transversais (o robô tem base retangular), é razoável admitir inicialmente tal ganho como 1,5, valor este que garantiu uma resposta adequada no movimento de rolagem. Alterações finas podem ser requeridas caso o experimento com este valor não seja conveniente, mas assume-se que esta quantia deva ter uma ordem de grandeza semelhante à necessária para a estabilização do distúrbio da arfagem.
 
 Os resultados obtidos neste experimento são ilustrados na Figura \ref{fig:queda_pitch1}. Podemos observar na Fig. \ref{fig:queda_pitch1}(c) que os motores responderam bem aos distúrbios impostos, com uma magnitude levemente maior que as próprias perturbações. Na Fig \ref{fig:queda_pitch1}(a), por sua vez, podemos observar que o experimento termina com os valores dos ângulos não tão próximos de zero, como se esperaria para um posição horizontal da base do robô (os valores finais são cerca de 6 graus na arfagem e 1 grau na rolagem). Contudo, isto indica apenas que, após a correção do distúrbio, o robô permaneceu na posição do final do movimento, não havendo o retorno à sua posição inicial. Neste caso, não houve queda do robô, caso em que tais ângulos estariam na faixa de pelo menos 15 graus.
+
+\begin{figure}[!t]
+	\centering
+	\mbox{
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Pitch_F_1c}}\quad\quad
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Pitch_F_2c}}}
+	\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Pitch_F_3c}}
+	\caption{Teste de Queda para a frente com $K_{F} = 1,5$}
+	\label{fig:queda_pitch1}
+\end{figure}
 
 O distúrbio foi, dessa forma, corrigido e a plataforma se manteve equilibrada conforme desejado. A resposta dos motores durante a correção se mostrou, então, conveniente para os propósitos deste trabalho e, assim, firmou-se que $K_F = 1,5$ sem a necessidade de alteração.
 
@@ -298,9 +306,9 @@ Por fim, é apresentado um último experimento com o controlador proposto. Neste t
 \begin{figure}[!b]
 	\centering
 	\mbox{
-		\subfigure[Ângulos medidos]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Todos1b}}\quad\quad
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Todos2b}}}
-		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.4\textwidth]{Figuras/Queda_Todos3b}}
+		\subfigure[Ângulos medidos]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Todos1c}}\quad\quad
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Todos2c}}}
+		\subfigure[Velocidade de Arfagem e dos seus motores]{\includegraphics[width=0.5\textwidth]{Figuras/Queda_Todos3c}}
 	\caption{Teste de Queda em todos os sentidos}
 	\label{fig:queda_todos}
 \end{figure}
@@ -324,18 +332,18 @@ Para determinar empiricamente tais constantes, realizou-se diversos testes com d
 
 \subsubsection{Determinação de $\tau_d$}
 
-Como a correção ao distúrbio é mais crítica do que a resposta em regime permanente, começou-se com os teste para determinar $\tau_d$. Para tal, configurou-se $\tau_p$ como igual a 1. Nestes testes foram impostas perturbações tanto na rolagem quanto no arfagem, e a análise a ser feita deve ser com relação ao comportamento destes ângulos frente à resposta de correção dos motores.
+Como a correção ao distúrbio é mais crítica do que a resposta em regime permanente, começou-se com os teste para determinar $\tau_d$. Para tal, configurou-se $\tau_p$ como igual a 1s. Nestes testes foram impostas perturbações tanto na rolagem quanto no arfagem, e a análise a ser feita deve ser com relação ao comportamento destes ângulos frente à resposta de correção dos motores.
 
-Como $\tau_d$ representa a resposta ao distúrbio, é razoável pensar que ele deve assumir valores mais reduzidos, uma vez que o distúrbio deve ser corrigido mais rapidamente do que a posição deve convergir à desejada. Dessa forma, os valores testados para $\tau_d$ foram 0,01, 0,05, 0,1 e 0,3.
+Como $\tau_d$ representa a resposta ao distúrbio, é razoável pensar que ele deve assumir valores mais reduzidos, uma vez que o distúrbio deve ser corrigido mais rapidamente do que a posição deve convergir à desejada. Dessa forma, os valores testados para $\tau_d$ foram 0,01, 0,05, 0,1 e 0,3 segundos.
 
-Para $\tau_d = 0,01$, obtivemos as respostas da Figura \ref{fig:taud_0.01}. Os dados para esta concepção do controlador são fornecidos em posição, ao invés de velocidade, e por esse motivo tem um formato diferente dos anteriores. Na Fig. \ref{fig:taud_0.01}(a) é apresentado o sinal de distúrbio na direção de rolagem enquanto a Fig. \ref{fig:taud_0.01}(b) ilustra a arfagem. Na determinação de $\tau_d$ omitiremos os dados referentes às posições dos motores para auxiliar na visualização dos gráficos e na análise dos resultados, uma vez que esta será feita com base nas características da correção do distúrbio.
+Para $\tau_d = 0,01s$, obtivemos as respostas da Figura \ref{fig:taud_0.01}. Os dados para esta concepção do controlador são fornecidos em posição, ao invés de velocidade, e por esse motivo tem um formato diferente dos anteriores. Na Fig. \ref{fig:taud_0.01}(a) é apresentado o sinal de distúrbio na direção de rolagem enquanto a Fig. \ref{fig:taud_0.01}(b) ilustra a arfagem. Na determinação de $\tau_d$ omitiremos os dados referentes às posições dos motores para auxiliar na visualização dos gráficos e na análise dos resultados, uma vez que esta será feita com base nas características da correção do distúrbio.
 
 \begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_001R}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_001F}}}
-	\caption{Teste de Queda com $\tau_d = 0,01$}
+	\caption{Teste de Queda com $\tau_d = 0,01s$}
 	\label{fig:taud_0.01}
 \end{figure}
 
@@ -343,40 +351,40 @@ Neste caso os dados de rolagem e arfagem foram obtidos em procedimentos distinto
 
 Além disso, percebe-se uma oscilação duradoura do distúrbio de rolagem, que permanece por 5 segundo em patamares iguais a aproximadamente 1/3 do valor máximo da perturbação. A arfagem, por sua vez, não apresenta muita oscilação, caindo para o valor de referência como um sistema super-amortecido.
 
-Para $\tau_d = 0,05$, obteve-se as respostas ilustradas na Figura \ref{fig:taud_0.05}. Estes resultados apontam para uma característica mais amena de resposta. Na Fig. \ref{fig:taud_0.05}(a), observa-se que o maior distúrbio aplicado na rolagem é corrigido em aproximadamente 5 segundos e com uma oscilação pequena quando comparada com o valor máximo, uma vez que a oscilação se dá com uma magnitude menor que 1/4 da perturbação máxima. Outro distúrbio menor aplicado posteriormente é corrigido em 3,5 segundos com uma mínima oscilação.
+Para $\tau_d = 0,05s$, obteve-se as respostas ilustradas na Figura \ref{fig:taud_0.05}. Estes resultados apontam para uma característica mais amena de resposta. Na Fig. \ref{fig:taud_0.05}(a), observa-se que o maior distúrbio aplicado na rolagem é corrigido em aproximadamente 5 segundos e com uma oscilação pequena quando comparada com o valor máximo, uma vez que a oscilação se dá com uma magnitude menor que 1/4 da perturbação máxima. Outro distúrbio menor aplicado posteriormente é corrigido em 3,5 segundos com uma mínima oscilação.
 
-\begin{figure}[!t]
+\begin{figure}[t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_005_R}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_005_P}}}
-	\caption{Teste de Queda com $\tau_d = 0,05$}
+	\caption{Teste de Queda com $\tau_d = 0,05s$}
 	\label{fig:taud_0.05}
 \end{figure}
 
 Da mesma forma, na arfagem observada na Fig. \ref{fig:taud_0.05}(b), a maior perturbação detectada é corrigida em 1,8 segundos com uma oscilação um pouco maior, mas que decai rapidamente.
 
-Portanto, as respostas obtidas para $\tau_d = 0,05$ se mostraram bastante satisfatórias, com um tempo de resposta adequado para a correção do distúrbio e sem a presença de oscilações muito elevadas que possam prejudicar a marcha do robô.
+Portanto, as respostas obtidas para $\tau_d = 0,05s$ se mostraram bastante satisfatórias, com um tempo de resposta adequado para a correção do distúrbio e sem a presença de oscilações muito elevadas que possam prejudicar a marcha do robô.
 
-Para $\tau_d = 0,1$ a resposta obtida é dada pela Figura \ref{fig:taud_0.1}. Neste caso, nota-se que o distúrbio na rolagem sofre oscilações que perduram por aproximadamente 6 segundos sem serem amortecidas. Na arfagem, a perturbação passa a ser corrigida em 2,5 segundos.
+Para $\tau_d = 0,1s$ a resposta obtida é dada pela Figura \ref{fig:taud_0.1}. Neste caso, nota-se que o distúrbio na rolagem sofre oscilações que perduram por aproximadamente 6 segundos sem serem amortecidas. Na arfagem, a perturbação passa a ser corrigida em 2,5 segundos.
 
 \begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_010_R}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_010_P}}}
-	\caption{Teste de Queda com $\tau_d = 0,1$}
+	\caption{Teste de Queda com $\tau_d = 0,1s$}
 	\label{fig:taud_0.1}
 \end{figure}
 
-Por fim, para $\tau_d = 0,3$, obtivemos os dados ilustrados na Figura \ref{fig:taud_0.3}. Neste caso, nota-se que a correção do distúrbio na rolagem (Fig. \ref{fig:taud_0.3}(a)) se prolonga por aproximadamente 10 segundos enquanto a arfagem também alcança este número, como pode ser visto na Fig. \ref{fig:taud_0.3}(b)
+Por fim, para $\tau_d = 0,3s$, obtivemos os dados ilustrados na Figura \ref{fig:taud_0.3}. Neste caso, nota-se que a correção do distúrbio na rolagem (Fig. \ref{fig:taud_0.3}(a)) se prolonga por aproximadamente 10 segundos enquanto a arfagem também alcança este número, como pode ser visto na Fig. \ref{fig:taud_0.3}(b)
 
 \begin{figure}[!t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_030_R}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taud_030_P}}}
-	\caption{Teste de Queda com $\tau_d = 0,3$}
+	\caption{Teste de Queda com $\tau_d = 0,3s$}
 	\label{fig:taud_0.3}
 \end{figure}
 
@@ -384,20 +392,20 @@ Para condensar as informações aqui apresentadas, construiu-se a Tabela \ref{Tabt
 	
 Observa-se que, de modo geral, a direção de rolagem sofre com mais oscilações. Isto pode ser explicado pelo comprimento reduzido da base do robô nesta dimensão (menor lado do retângulo) o que gera uma margem de estabilidade estática menor.
 
-Podemos observar pela tabela, que o valor de $\tau_d$ que gera um menor tempo de acomodação, tanto na rolagem quanto na arfagem é 0,05 segundos. Além disso, este valor também gera o melhor comprometimento entre a magnitude de oscilação de rolagem e de arfagem uma vez que apresenta o menor valor da primeira e o segundo menor valor da segunda. Portanto $\tau_d = 0,05$.
+Podemos observar pela tabela, que o valor de $\tau_d$ que gera um menor tempo de acomodação, tanto na rolagem quanto na arfagem é 0,05 segundos. Além disso, este valor também gera o melhor comprometimento entre a magnitude de oscilação de rolagem e de arfagem uma vez que apresenta o menor valor da primeira e o segundo menor valor da segunda. Portanto $\tau_d = 0,05s$.
 
 \subsubsection{Determinação de $\tau_p$}
-Com o parâmetro $\tau_d$ determinado pode-se realizar os testes para a obtenção de $\tau_p$. Este foi utilizado até então como igual a 1 para que fosse determinado o tempo de resposta ao distúrbio. Agora, testaremos o mesmo cenário, i.e. a resposta da plataforma a perturbações na direção de rolagem e de arfagem, para determinar o valor de $\tau_p$ mais adequado para que as posições de cada junta voltem à posição desejada.
+Com o parâmetro $\tau_d$ determinado pode-se realizar os testes para a obtenção de $\tau_p$. Este foi utilizado até então como igual a 1s para que fosse determinado o tempo de resposta ao distúrbio. Agora, testaremos o mesmo cenário, i.e. a resposta da plataforma a perturbações na direção de rolagem e de arfagem, para determinar o valor de $\tau_p$ mais adequado para que as posições de cada junta voltem à posição desejada.
 
-\begin{table}[t]
+\begin{table}[!b]
 	\caption{Tempo de Acomodação e Magnitude de Oscilação em testes de $\tau_d$}
 	\label{Tabtaud}
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}
 			\hline
-			& \multicolumn{2}{|c|}{Tempo de Acomodação} & \multicolumn{2}{|c|}{Magnitude de Oscilação} \\
+			& \multicolumn{2}{|c|}{Tempo de Acomodação (s)} & \multicolumn{2}{|c|}{Magnitude de Oscilação ($^o$)} \\
 			\hline
-			$\tau_d$	& Rolagem & Arfagem & Rolagem & Arfagem \\ \hline
+			$\tau_d$ (s)	& Rolagem & Arfagem & Rolagem & Arfagem \\ \hline
 			0,01 & 8,4 & 3,6 & 0,729 & 0,109\\
 			0,05 & 5,2 & 1,8 & 0,249 & 0,436\\
 			0,1 & 6,4 & 2,8 & 0,999 & 0,250\\
@@ -406,74 +414,57 @@ Com o parâmetro $\tau_d$ determinado pode-se realizar os testes para a obtenção 
 	\end{center}
 \end{table}
 
-Como anteriormente, a posição desejada é configurada para a posição inicial de forma que o robô fique parado em regime permanente. Uma vez que a constante $\tau_d$ já foi determinada, utilizaremos tal valor para a realização dos testes. Os valores de $\tau_p$ a serem testados são: 0,1, 0,3, 0,5 e 0,7. Estes valores foram escolhidos pois a resposta em regime permanente não necessita ser tão rápida quanto a correção do distúrbio. 
+Como anteriormente, a posição desejada é configurada para a posição inicial de forma que o robô fique parado em regime permanente. Uma vez que a constante $\tau_d$ já foi determinada, utilizaremos tal valor para a realização dos testes. Os valores de $\tau_p$ a serem testados são: 0,1, 0,3, 0,5 e 0,7 segundos. Estes valores foram escolhidos pois a resposta em regime permanente não necessita ser tão rápida quanto a correção do distúrbio. 
 
 A análise das respostas será feita com base no tempo de acomodação, uma vez que não foram observadas oscilações significativas nas juntas que pudessem gerar adversidades. O tempo de acomodação é aqui definido como o maior tempo entre o início do movimento de alguma junta e o instante em que sua posição entra e se mantém, por 2 segundos, na faixa de mais ou menos 2\% do seu valor inicial.
 
-O primeiro valor a ser testado foi de $\tau_p = 0,1$ e a resposta obtida é ilustrada na Figura \ref{fig:taup_0.1}. Na Fig. \ref{fig:taup_0.1}(a) apresenta-se os ângulos dos quatro motores de correção da rolagem sendo, em linha tipo traço e ponto, os da esquerda e, em linha contínua, os da direita. Na Fig. \ref{fig:taup_0.1}(b), são ilustrados os ângulos dos 8 motores de rolagem sendo, em linha traço e ponto os correspondentes da frente, e em linha contínua, os de trás.
+O primeiro valor a ser testado foi de $\tau_p = 0,1s$ e a resposta obtida é ilustrada na Figura \ref{fig:taup_0.1}. Na Fig. \ref{fig:taup_0.1}(a) apresenta-se os ângulos dos quatro motores de correção da rolagem sendo, em linha tipo traço e ponto, os da esquerda e, em linha contínua, os da direita. Na Fig. \ref{fig:taup_0.1}(b), são ilustrados os ângulos dos 8 motores de rolagem sendo, em linha traço e ponto os correspondentes da frente, e em linha contínua, os de trás.
 
 \begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_01Rb}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_01Pb}}}
-	\caption{Teste de Queda com $\tau_p = 0,1$}
+	\caption{Teste de Queda com $\tau_p = 0,1s$}
 	\label{fig:taup_0.1}
 \end{figure}
 
 Observando a resposta da rolagem, notamos que o maior valor do tempo de acomodação foi de 2,9 segundos enquanto, na arfagem, este valor foi de 8,8 segundos.
 
-Para $\tau_p = 0,3$ obteve-se o resultado da Figura \ref{fig:taup_0.3}. Neste caso, podemos observar uma resposta, na rolagem, de 2,8 segundos para que o sistema volta à posição inicial. Já na arfagem este valor é de 3 segundos.
+Para $\tau_p = 0,3s$ obteve-se o resultado da Figura \ref{fig:taup_0.3}. Neste caso, podemos observar uma resposta, na rolagem, de 2,8 segundos para que o sistema volta à posição inicial. Já na arfagem este valor é de 3 segundos.
 
-\begin{figure}[!t]
+\begin{figure}[t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_03Rb}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_03Pb}}}
-	\caption{Teste de Queda com $\tau_p = 0,3$}
+	\caption{Teste de Queda com $\tau_p = 0,3s$}
 	\label{fig:taup_0.3}
 \end{figure}
 
-Para $\tau_p = 0,5$, as respostas dos motores podem ser visualizadas através da Figura \ref{fig:taup_0.5}. Nela, percebemos que o valor de maior tempo de resposta na direção da rolagem foi de 2,5 segundos. No entanto, para a arfagem percebeu-se que tal valor chegou a 9,1 segundos.
+Para $\tau_p = 0,5s$, as respostas dos motores podem ser visualizadas através da Figura \ref{fig:taup_0.5}. Nela, percebemos que o valor de maior tempo de resposta na direção da rolagem foi de 2,5 segundos. No entanto, para a arfagem percebeu-se que tal valor chegou a 9,1 segundos.
 
 \begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_05Rb}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_05Pb}}}
-	\caption{Teste de Queda com $\tau_p = 0,5$}
+	\caption{Teste de Queda com $\tau_p = 0,5s$}
 	\label{fig:taup_0.5}
 \end{figure}
 
-Por fim, para $\tau_p = 0,7$ obteve-se a resposta indicada pela Figura \ref{fig:taup_0.7}. Neste caso, o tempo de acomodação da resposta à rolagem foi de 6,7 segundos enquanto da arfagem foi de 6,2 segundos.
+Por fim, para $\tau_p = 0,7s$ obteve-se a resposta indicada pela Figura \ref{fig:taup_0.7}. Neste caso, o tempo de acomodação da resposta à rolagem foi de 6,7 segundos enquanto da arfagem foi de 6,2 segundos.
 
 \begin{figure}[t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_07Rb}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/taup_07Pb}}}
-	\caption{Teste de Queda com $\tau_p = 0,7$}
+	\caption{Teste de Queda com $\tau_p = 0,7s$}
 	\label{fig:taup_0.7}
 \end{figure}
 
-Portanto, podemos condensar as informações obtidas acima na Tabela \ref{Tabtaup}. Analisando os valores comparativamente, nota-se que o cenário com melhor comprometimento entre as resposta de rolagem e arfagem é $\tau_p = 0,3$. Este valor apresenta o menor tempo de acomodação da arfagem e segundo menor da rolagem. Dessa forma, o robô apresenta uma resposta adequada ao desejado, retornando à posição inicial rapidamente. Portanto, $\tau_p = 0,3$.
-
-\begin{table}[!b]
-	\caption{Tempo de Acomodação em testes de $\tau_p$}
-	\label{Tabtaup}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			& \multicolumn{2}{|c|}{Tempo de Acomodação} \\
-			\hline
-			$\tau_d$	& Rolagem & Arfagem \\ \hline
-			0,1 & 2,9 & 8,8 \\
-			0,3 & 2,8 & 3 \\
-			0,5 & 2,5 & 9,1\\
-			0,7 & 6,7 & 6,2 \\ \hline
-		\end{tabular}
-	\end{center}
-\end{table}
+Portanto, podemos condensar as informações obtidas acima na Tabela \ref{Tabtaup}. Analisando os valores comparativamente, nota-se que o cenário com melhor comprometimento entre as resposta de rolagem e arfagem é $\tau_p = 0,3s$. Este valor apresenta o menor tempo de acomodação da arfagem e segundo menor da rolagem. Dessa forma, o robô apresenta uma resposta adequada ao desejado, retornando à posição inicial rapidamente. Portanto, $\tau_p = 0,3s$.
 
 
 \subsection{Testes finais}
@@ -484,10 +475,26 @@ Desta maneira, foram aplicados distúrbios para os quatro sentidos individualment
 
 O primeiro teste foi realizado na direção de rolagem, para a direita. Os dados referentes a este caso são ilustrados na Figura \ref{fig:queda_final_direita}.
 
+\begin{table}[!b]
+	\caption{Tempo de Acomodação em testes de $\tau_p$}
+	\label{Tabtaup}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			& \multicolumn{2}{|c|}{Tempo de Acomodação (s)} \\
+			\hline
+			$\tau_p$ (s)	& Rolagem & Arfagem \\ \hline
+			0,1 & 2,9 & 8,8 \\
+			0,3 & 2,8 & 3 \\
+			0,5 & 2,5 & 9,1\\
+			0,7 & 6,7 & 6,2 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 A Fig. \ref{fig:queda_final_direita}(a) apresenta, em amarelo, a posição dos motores que corrigem a rolagem da esquerda, em azul, os da direita e, em vermelho, o distúrbio lido pelo acelerômetro, em graus. A Fig. \ref{fig:queda_final_direita}(b), por sua vez, retrata o comportamento do ângulo de arfagem, em vermelho, e dos motores a ele relacionado, sendo em amarelo os motores da frente e em azul, os de trás.
 
-Nesta imagem, podemos observar que todos os motores respondem de forma bem sincronizada à perturbação, de forma que os dois motores da direita apresentam uma curva de resposta muito similar, assim como os da esquerda também estão em sintonia. 
+Neste gráfico, podemos observar que todos os motores respondem de forma bem sincronizada à perturbação, de forma que os dois motores da direita apresentam uma curva de resposta muito similar, assim como os da esquerda também estão em sintonia. 
 
 Da mesma forma, é possível notar que, mesmo que a perturbação tenha sido realizada para a direita, os dois lados apresentaram alguma resposta. Isto se deve ao fato de que o movimento criado pelo distúrbio gera uma oscilação no robô, isto é, este é inicialmente lançado para a direita, mas após a correção pelas patas neste sentido, a plataforma tende a se movimentar para a esquerda e assim por diante até que o movimento seja amortecido pelo controlador. É possível observar essa oscilação através da linha vermelha da Fig. \ref{fig:queda_final_direita}(a) representando o distúrbio oscilante.
 
@@ -518,7 +525,7 @@ O mesmo procedimento foi realizado com os distúrbios para a esquerda, resultando
 
 Já para a direção de arfagem realizou-se, primeiramente, o teste com o distúrbio para a frente, resultando nos dados apresentados pela Figura \ref{fig:queda_final_frente}. A Fig. \ref{fig:queda_final_frente}(b) apresenta, em amarelo, as posições das juntas da parte da frente do robô que corrigem a arfagem. A curva em azul representa os motores de trás e, em vermelho, o distúrbio apresentado.
 
-\begin{figure}[!b]
+\begin{figure}[!t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_frente1b}}\quad\quad
@@ -533,7 +540,7 @@ As respostas dos movimentos de rolagem, na Fig. \ref{fig:queda_final_frente}(a),
 
 Para perturbações para trás do robô, obtivemos os resultados ilustrados na Figura \ref{fig:queda_final_tras}. Novamente percebemos a semelhança com o caso anteriorer devido à oscilação do movimento na direção da arfagem. Assim, os motores tem um comportamento bem similar, de modo a amortecer tal oscilação até que o valor de referência (0 graus) seja atingido e o robô, estabilizado.
 
-\begin{figure}[t]
+\begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_tras1b}}\quad\quad
@@ -544,7 +551,7 @@ Para perturbações para trás do robô, obtivemos os resultados ilustrados na Figur
 
 Por fim, realizou-se um experimento com distúrbios aplicados em diagonal, para poder analisar a resposta conjunta da direção da rolagem e da arfagem. As respostas obtidas podem ser visualizadas pela Figura \ref{fig:queda_final_diagonal}.
 
-\begin{figure}[!b]
+\begin{figure}[!t]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/Queda_Diagonal1b}}\quad\quad
