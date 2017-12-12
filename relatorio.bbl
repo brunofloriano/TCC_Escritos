@@ -10,6 +10,12 @@
 {RAIBERT, M. et al. Bigdog, the rough-terrain quaduped robot.
 \emph{Boston Dynamics}.}
 
+\bibitem{tcc:porphirio:2017}
+\abntrefinfo{Porphirio e Santana}{PORPHIRIO; SANTANA}{2017}
+{PORPHIRIO, C. de F.; SANTANA, P. H.~M. Gera\c{c}\~{a}o de marchas para a
+  plataforma quadr\'{u}pede utilizando algoritmo gen\'{e}tico.
+Junho 2017.}
+
 \bibitem{article:mcghee:1968}
 \abntrefinfo{McGhee e Frank}{MCGHEE; FRANK}{1968}
 {MCGHEE, R.~B.; FRANK, A.~A. On the stability properties of quadruped creeping
@@ -65,12 +71,6 @@
   quadruped robot: an attractor-based dynamics.
 \emph{IEEE/RSJ International Conference on Intelligent Robots and Systems}, p.
   5329--5334, Outubro 2010.}
-
-\bibitem{tcc:porphirio:2017}
-\abntrefinfo{Porphirio e Santana}{PORPHIRIO; SANTANA}{2017}
-{PORPHIRIO, C. de F.; SANTANA, P. H.~M. Gera\c{c}\~{a}o de marchas para a
-  plataforma quadr\'{u}pede utilizando algoritmo gen\'{e}tico.
-Junho 2017.}
 
 \bibitem{article:semini:2011}
 \abntrefinfo{Semini et al.}{SEMINI et al.}{2011}

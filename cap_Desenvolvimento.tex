@@ -87,7 +87,7 @@ O modo velocidade, por outro lado, permite a escrita da velocidade que o motor i
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Figuras/modoposicao}
-	\caption[Configurações do Modo Posição]{Configurações do Modo Posição (Fonte: \footnotemark)}	
+	\caption[Configurações do Modo Posição]{Configurações do Modo Posição (Adaptado de \footnotemark)}	
 	\label{fig:modoposicao}
 \end{figure}
 
@@ -109,8 +109,8 @@ Tais ângulos possibilitam caracterizar a orientação do robô no espaço, indicando
 \begin{figure}[tb]
 	\centering
 	\mbox{
-		\subfigure[Ângulo de Rolagem]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_rolagem}}\quad\quad
-		\subfigure[Ângulo de Arfagem]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_arfagem}}}
+		\subfigure[Vista frontal]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_rolagem}}\quad\quad
+		\subfigure[Vista lateral]{\includegraphics[width=0.4\textwidth]{Figuras/Robo_arfagem}}}
 	\caption{Orientações detectáveis pelo acelerômetro}
 	\label{fig:angulos}
 \end{figure}
@@ -158,6 +158,7 @@ Para a implementação do controle desejado, o sensoriamento será feito através do
 
 \begin{eqnarray} \label{eq:des_inicial}
 q_i(t) = \pm K_id_{roll/pitch}(t),
+%\omega_i(t) = K_id_{roll/pitch}(t)
 \end{eqnarray}
 
 \noindent em que $q_i$ é a resposta do i-ésimo motor (sua posição ou velocidade), $K_i$ é  um ganho adimensional que será determinado empiricamente para cada junta e $d_{roll/pitch}$ é o distúrbio detectado pelo acelerômetro\footnote{A notação $x_{roll/pitch}$, que será utilizada neste trabalho, indica que o termo pode ser substituído por $x_{roll}$ ou $x_{pitch}$ dependendo do motor em questão. Por exemplo, o motor 1 corrige o movimento de rolagem então os termos $x_{roll/pitch}$ serão substituídos por $x_{roll}$.}.

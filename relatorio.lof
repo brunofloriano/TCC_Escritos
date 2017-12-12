@@ -5,33 +5,33 @@
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Robô quadrúpede de entretenimento AIBO da Sony}}{4}
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Plataforma quadrúpede do LARA (Fonte: \cite {tcc:porphirio:2017})}}{5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Polígonos de suporte de um robô quadrúpede durante sua caminhada (Fonte: \cite {article:mcghee:1968})}}{9}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Polígonos de suporte de um robô quadrúpede durante sua caminhada (Adaptado de \cite {article:mcghee:1968})}}{9}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uma pata sem contato com o solo}}}{9}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Todas as pernas no sobre o solo com patas próximas}}}{9}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Todas as pernas no sobre o solo com patas afastadas}}}{9}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Margens de Estabilidade Longitudinal e de Caranguejo (Fonte: \cite {book})}}{10}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Margens de Estabilidade Longitudinal e de Caranguejo (Adaptado de \cite {book})}}{10}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Forças e momentos atuantes em um robô prestes a tombar (Fonte: \cite {book})}}{11}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Esquemático dos parâmetros geométricos durante o tombo (Fonte: \cite {book})}}{13}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Esquemático dos parâmetros geométricos durante o tombo (Adaptado de \cite {book})}}{13}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Robô de uma perna}}{14}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces \emph {CG Print} de um robô de uma perna (Fonte: \cite {article:raibert:1986})}}{15}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Representação de uma Perna Virtual (Fonte: \cite {article:raibert:1986})}}{15}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Pernas virtuais para cada marcha (Fonte: \cite {article:raibert:1986})}}{16}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Vistas do quadrúpede com 6 graus de liberdade (Fonte: \cite {article:li:2014})}}{17}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Pernas virtuais para cada marcha (Adaptado de \cite {article:raibert:1986})}}{16}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Vistas do quadrúpede com 6 graus de liberdade (Adaptado de \cite {article:li:2014})}}{17}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Modelo SLIP (Fonte: \cite {article:li:2014})}}{18}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Modelo de forças e torques para controle de arfagem e rolagem (Fonte: \cite {article:li:2014})}}{19}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Modelo de quadrúpede apoiado em pernas diagonais (Fonte: \cite {article:meng:2015})}}{20}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Modelo de quadrúpede apoiado em pernas diagonais (Adaptado de \cite {article:meng:2015})}}{20}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Esboço das relações de ângulo entre perna e corpo (Fonte: \cite {article:meng:2015})}}{21}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Estrutura do sistema de controle em malha fechada no espaço de estados (Fonte: \cite {article:meng:2015})}}{21}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Sincronia em marcha quadrúpede (Fonte: \cite {article:won:2009})}}{22}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Representação da Dessincronização das Pernas (Fonte: \cite {article:won:2009})}}{22}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Diagrama de blocos do sistema de controle de equilíbrio e trajetória (Fonte: \cite {article:won:2009})}}{23}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Parâmetros de um quadrúpede em instabilidade (Fonte: \cite {article:won:2009})}}{23}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Diagrama de blocos do sistema de controle de equilíbrio e trajetória (Adaptado de \cite {article:won:2009})}}{23}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Parâmetros de um quadrúpede em instabilidade (Adaptado de \cite {article:won:2009})}}{23}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sistemas de coordenadas e ângulos adotados}}}{23}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forças e momentos atuantes no quadrúpede}}}{23}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Algoritmo para controle de estabilidade utilizando o LAR (Fonte: \cite {article:won:2009})}}{24}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Algoritmo para controle de estabilidade utilizando o LAR (Adaptado de \cite {article:won:2009})}}{24}
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Modelo utilizado por Featherstone (Fonte: \cite {article:featherstone:2016})}}{28}
 \contentsline {figure}{\numberline {2.21}{\ignorespaces Quadrúpede com total de 16 graus de liberdade (Fonte: \cite {article:runbin:2013})}}{29}
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Sistema de realimentação para controle de marcha e de postura (Fonte: \cite {article:runbin:2013})}}{30}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Sistema de realimentação para controle de marcha e de postura (Adaptado de \cite {article:runbin:2013})}}{30}
 \contentsline {figure}{\numberline {2.23}{\ignorespaces Modelo geométrico de uma perna com 4 graus de liberdade (Fonte: \cite {article:runbin:2013})}}{31}
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Medições Empíricas e suas Respectivas Respostas (Adaptado de \cite {article:sousa:2010})}}{32}
 \addvspace {10\p@ }
@@ -39,8 +39,8 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Motor Rx-28 da Dynamixel (Fonte: \cite {tcc:porphirio:2017})}}{36}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Configurações do Modo Posição}}{37}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Orientações detectáveis pelo acelerômetro}}{38}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulo de Rolagem}}}{38}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulo de Arfagem}}}{38}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Vista frontal}}}{38}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Vista lateral}}}{38}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Arquitetura do Sistema Embarcado (Fonte: \cite {tcc:porphirio:2017})}}{39}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Vista de cima do sistema embarcado}}{40}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de Blocos do Sistema no Modo Velocidade}}{42}
