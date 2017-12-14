@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {2.1}Introdução}{7}
 \contentsline {section}{\numberline {2.2}Estabilidade Estática}{7}
 \contentsline {subsection}{\numberline {2.2.1}Métodos Geométricos}{8}
-\contentsline {subsection}{\numberline {2.2.2}Métodos Energéticos}{9}
+\contentsline {subsection}{\numberline {2.2.2}Métodos Energéticos}{8}
 \contentsline {section}{\numberline {2.3}Estabilidade Dinâmica}{10}
 \contentsline {subsection}{\numberline {2.3.1}Método do Centro de Pressão}{10}
 \contentsline {subsection}{\numberline {2.3.2}Margem de Estabilidade Dinâmica}{11}
@@ -23,11 +23,11 @@
 \contentsline {subsection}{\numberline {2.4.3}Pernas Virtuais}{15}
 \contentsline {subsection}{\numberline {2.4.4}Exemplo de Aplicação}{16}
 \contentsline {section}{\numberline {2.5}Controle de Balanço Dinâmico}{19}
-\contentsline {section}{\numberline {2.6}Razão de Aterrissagem em Acordo}{21}
+\contentsline {section}{\numberline {2.6}Taxa de Concordância de Aterrissagem}{21}
 \contentsline {subsection}{\numberline {2.6.1}Controle e Planejamento de Marcha}{22}
 \contentsline {section}{\numberline {2.7}Modelo Cinemático e Cinemático Inverso}{24}
 \contentsline {subsection}{\numberline {2.7.1}Modelo Geométrico}{25}
-\contentsline {subsubsection}{\numberline {2.7.1.1}Tranformação Homogênia}{25}
+\contentsline {subsubsection}{\numberline {2.7.1.1}Transformação Homogênea}{25}
 \contentsline {subsubsection}{\numberline {2.7.1.2}Modelo Geométrico em Robôs Manipuladores}{26}
 \contentsline {subsection}{\numberline {2.7.2}Modelo Cinemático}{26}
 \contentsline {subsection}{\numberline {2.7.3}Modelo Cinemático Inverso}{27}
@@ -40,7 +40,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Motores}{35}
 \contentsline {subsection}{\numberline {3.2.2}Sistema Embarcado}{37}
 \contentsline {section}{\numberline {3.3}gDataLogger}{38}
-\contentsline {section}{\numberline {3.4}Thread Periódica}{38}
+\contentsline {section}{\numberline {3.4}\textit {Thread} Periódica}{38}
 \contentsline {section}{\numberline {3.5}Controle de Estabilidade}{40}
 \contentsline {subsection}{\numberline {3.5.1}Abordagem Inicial}{42}
 \contentsline {subsection}{\numberline {3.5.2}Filtro}{43}

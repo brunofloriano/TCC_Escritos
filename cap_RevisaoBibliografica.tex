@@ -12,7 +12,7 @@ Como mencionado no Capítulo \ref{CapIntro}, os estudos de estabilidade em robôs 
 
 Desde então, diversos métodos de controle de estabilidade tem sido trabalhados na construção de robôs	quadrúpedes, desde modelos cinemáticos, utilizando apenas as posições e velocidades do robô, até modelos dinâmicos mais complexos, que analisam as forças e momentos atuantes sobre ele.
 
-Neste capítulo, apresentaremos os principais trabalhos já desenvolvidos nesta área que foram encontrados na literatura. Selecionou-se os trabalhos que se mostraram mais relevantes para o projeto concebido para ser implementado no robô do LARA, incluindo artigos com desenvolvimentos similares ou com uma abordagens teóricas pertinentes para serem estudadas sobre assunto.
+Neste capítulo, apresentaremos os principais trabalhos já desenvolvidos nesta área que foram encontrados na literatura. Selecionou-se os trabalhos que se mostraram mais relevantes para o projeto concebido para ser implementado no robô do LARA, incluindo artigos com desenvolvimentos similares ou com abordagens teóricas pertinentes para serem estudadas sobre assunto.
 
 Além disso, selecionou-se trabalhos que, apesar de não serem utilizados diretamente neste projeto, demonstram a situação passada e atual do estado da arte do controle de equilíbrio de robôs quadrúpedes.
  	
@@ -23,7 +23,7 @@ Além disso, selecionou-se trabalhos que, apesar de não serem utilizados diretame
 
 A estabilidade estática tem como principal característica a independência de fatores dinâmicos, isto é, ela não considera a atuação de forças externas, com exceção da gravidade, de momentos resultantes ou de componentes inerciais. Porém, conforme o robô aumenta sua velocidade os efeitos dinâmicos sobre o mesmo passam a ficar cada vez mais relevantes, de forma que a estabilidade estática não garante o equilíbrio da máquina. Da mesma forma, o aumento de carga sobre o robô ou a presença de superfícies irregulares ou inclinadas tornam este tipo de controle mais ineficiente.
 
-Contudo, estudar a estabilidade estática ainda é de suma importância no controle de equilíbrio de quadrúpedes, seja para o melhor entendimento de todo o escopo deste estudo, seja pra aplicações restritas onde a aplicação da estabilidade estática seja suficiente para cumprir os requisitos propostos.
+Contudo, estudar a estabilidade estática ainda é de suma importância no controle de equilíbrio de quadrúpedes, seja para o melhor entendimento de todo o escopo deste estudo, seja para aplicações restritas em que a estabilidade estática é suficiente para cumprir os requisitos propostos.
 
 \subsection{Métodos Geométricos}
 
@@ -43,8 +43,8 @@ Posteriormente, novas difinições foram feitas para a margem de estabilidade está
 	\centering
 	\mbox{
 		\subfigure[Uma pata sem contato com o solo]{\includegraphics[width=0.35\textwidth]{Figuras/Poligono1}}\quad\quad
-		\subfigure[Todas as pernas no sobre o solo com patas próximas]{\includegraphics[width=0.4\textwidth]{Figuras/Poligono2}}}
-	\subfigure[Todas as pernas no sobre o solo com patas afastadas]{\includegraphics[width=0.45\textwidth]{Figuras/Poligono3}
+		\subfigure[Todas as pernas sobre o solo com patas próximas]{\includegraphics[width=0.4\textwidth]{Figuras/Poligono2}}}
+	\subfigure[Todas as pernas sobre o solo com patas afastadas]{\includegraphics[width=0.45\textwidth]{Figuras/Poligono3}
 	}
 	\caption{Polígonos de suporte de um robô quadrúpede durante sua caminhada (Adaptado de \cite{article:mcghee:1968})}
 	\label{fig:poligonos}
@@ -71,7 +71,7 @@ S_{ESM}  = \min_{i}^{n_s}(mgh_i),
 
 \noindent em que $m$ é a massa do robô, $g$ é a gravidade, $i$ denota qual segmento do polígono de suporte é considerado, $n_s$ é o número de pernas de suporte e $h_i$ é a variação da altura do COG durante o tombamento.
 
-É interessante notar que, como este método ainda trata-se de estabilidade estática, apenas a gravidade é considerada e, por isso, para este caso, a energia potencial é a única componente energética que contribuiria para o tombamento do robô.
+É interessante notar que, como este método ainda trata de estabilidade estática, apenas a gravidade é considerada e, por isso, para este caso, a energia potencial é a única componente energética que contribuiria para o tombamento do robô.
 
 Em 1998, Hirose \emph{et al.} definiram a Margem de Estabilidade por Energia Normalizada ($S_{NESM}$) como a $S_{ESM}$ normalizada com o peso do robô, de forma que a unidade mantenha-se igual à proposta pelos métodos geométricos (unidade de comprimento) \cite{book}. Por conseguinte, a margem normalizada pode escrita como
 
@@ -83,13 +83,13 @@ A $S_{NESM}$ tem se mostrado como a mais eficiente medida de margem de estabilid
 
 \section{Estabilidade Dinâmica}
 
-O estudo da estabilidade dinâmica tem como propósito a modelagem de situações mais concretas existentes em aplicações reais. Desta maneira, a inclusão de efeitos inerciais, forças e momentos externos ao estudo de estabilidade permite ao sistema de locomoção trabalhar com velocidades maiores, em terrenos mais irregulares e com condições mais adversas.
+A estabilidade dinâmica, diferentemente da estática, é caracterizada por incluir os efeitos dinâmicos que atuam sobre o robô, tais como as ações de forças resultantes e torques. O estudo da estabilidade dinâmica tem como propósito a modelagem de situações mais concretas existentes em aplicações reais. Desta maneira, a inclusão de efeitos inerciais, forças e momentos externos ao estudo de estabilidade permite ao sistema de locomoção trabalhar com velocidades maiores, em terrenos mais irregulares e com condições mais adversas.
 
 \subsection{Método do Centro de Pressão}
 
-Analogamente ao método geométrico da projeção do centro de gravidade definido para a estabilidade estática, Orin definiu em 1976 o método do Centro de Pressão (COP) \cite{book}. Neste método, define-se como dinamicamente estável o robô cuja projeção do centro de gravidade (COG) ao longo da direção da força resultante agindo sobre o COG se encontra dentro do polígono de suporte. Da mesma maneira que no caso estático, a margem de estabilidade será a menor distância desta projeção e qualquer uma das bordas do polígono.
+Analogamente ao método geométrico da projeção do centro de gravidade definido para a estabilidade estática, Orin definiu em 1976 o método do Centro de Pressão (COP) \cite{book}. Neste método, define-se como dinamicamente estável o robô cuja projeção do centro de gravidade (COG) ao longo da direção da força resultante agindo sobre o COG encontra-se dentro do polígono de suporte. Da mesma maneira que no caso estático, a margem de estabilidade será a menor distância desta projeção e qualquer uma das bordas do polígono.
 
-Esta definição foi modificada posteriormente assim como a sua nomenclatura. Kang \emph{et al.}, em 1997, renomeou o COP como Centro de Massa Efetiva (EMC) e o definiu como o ponto no plano em que o momento resultante é nulo. Esta definição é similar à definição de Ponto de Momento Zero (ZMP) utilizado em robôs bípedes \cite{book}.
+Esta definição foi modificada posteriormente assim como a sua nomenclatura. Kang \emph{et al.}, em 1997, renomearam o COP como Centro de Massa Efetiva (EMC) e o definiram como o ponto no plano em que o momento resultante é nulo. Esta definição é similar à definição de Ponto de Momento Zero (ZMP) utilizado em robôs bípedes \cite{book}.
 
 \subsection{Margem de Estabilidade Dinâmica}
 
@@ -189,11 +189,13 @@ Obtido $x_f$, uma transformação cinemática calcula o ângulo que a junta deve for
 
 Considerando um robô com mais de uma pata, podemos definir Marcha de uma Pata (\emph{One foot gait}) como uma marcha em que apenas uma perna oferece suporte por vez de modo que as fases de suporte e de voo ocorrem de forma alternada entre elas. Para o caso de quadrúpedes, por exemplo, tal alternância é utilizada de forma que a perna atualmente em contato com o solo proporcione o impulso vertical para manter o movimento enquanto sua respectiva dobradiça providencia o torque para correção da postura. Concomitantemente, a pata em voo se prepara para aterrissar no local adequado à velocidade desejada. Dessa forma, o sistema estaria provendo as três partes do controle.
 
-O problema que surge com esta configuração é que as pernas devem estar muito próximas do ponto neutro, o que, além de dificultar o design do robô, pode causar interferências de uma perna com outra. A solução adotada por Raibert \emph{et al.}, foi de utilizar o conceito de pernas virtuais.
+O problema que surge com esta configuração é que as pernas devem estar muito próximas do ponto neutro, o que, além de dificultar o projeto do robô, pode causar interferências de uma perna com outra. A solução adotada por Raibert \emph{et al.}, foi de utilizar o conceito de pernas virtuais.
 
 \subsection{Pernas Virtuais}
 
-O conceito de pernas virtuais trata-se da coordenação de pares de pernas funcionando ao mesmo tempo, de forma que pode-se representar tal par como uma única perna equivalente. O par de pernas e a perna virtual, por definição, exercem a mesma força e momento sobre o corpo, portanto, ambas as configurações geram os mesmos efeitos sobre este. A Figura \ref{fig:pernasvirtuais} demonstra a representação de um par de pernas em uma perna virtual.
+%O conceito de pernas virtuais trata-se da
+
+Podemos definir pernas virtuais como a coordenação de pares de pernas funcionando ao mesmo tempo, de forma que pode-se representar tal par como uma única perna equivalente. O par de pernas e a perna virtual, por definição, exercem a mesma força e momento sobre o corpo, portanto, ambas as configurações geram os mesmos efeitos sobre este. A Figura \ref{fig:pernasvirtuais} demonstra a representação de um par de pernas em uma perna virtual.
 
 \begin{figure} [b]
 	\centering
@@ -247,7 +249,7 @@ M\ddot{r} + K(r-r_0) - Mr\dot{\theta^2} &= -Mg\cos\theta, \\
 \frac{\mathrm d}{\mathrm d t} \left(Mr^2 \dot{\theta} \right) &= Mgr\sin\theta,
 \end{align}
 
-\noindent em que $M$ é a massa do corpo, $K$ é o coeficiente elástico da mola, $r$ é o comprimento da perna, $r_0$ é o comprimento inicial da perna, $\theta$ é o ângulo em relação ao plano vertical, $g$ é a gravidade e $\dot{\theta}$ é a velocidade angular da perna. O modelo utilizando para determinação de tais parâmetros pode ser visto na Figura \ref{fig:slip2}.
+\noindent em que $M$ é a massa do corpo, $K$ é o coeficiente elástico da mola, $r$ é o comprimento da perna, $r_0$ é o comprimento inicial da perna, $\theta$ é o ângulo em relação ao plano vertical, $g$ é a gravidade e $\dot{\theta}$ é a velocidade angular da perna. O modelo utilizado para determinação de tais parâmetros pode ser visto na Figura \ref{fig:slip2}.
 
 \begin{figure} [t]
 	\centering
@@ -301,7 +303,7 @@ J\ddot{\beta} = -k_{p\beta}(\beta-\beta_d) - k_{d\beta}\dot{\beta},
 \section{Controle de Balanço Dinâmico}
 Em 2015, Meng \emph{et al.} realizaram um estudo para analisar o balanceamento de um robô quadrúpede quando este se encontra apoiado em duas pernas diagonais \cite{article:meng:2015}. Analisando robôs previamente construídos os autores deste estudo compreenderam que, para que estes veículos permanecessem estáveis, eles tinham que manter o movimento (como no desenvolvimento de Raibert) ou estaticamente sobre as quatro patas. Com isso em mente, foi proposto um modelo de controle dinâmico para este tipo de equilíbrio.
 
-Em um quadrúpede apoiado em suas pernas diagonais podemos assumir que as pernas sem contato com o solo fazem parte do corpo, facilitando a compreensão e desenvolvimento das equações. Dessa forma, o modelo utilizado tem o formato presente da Figura \ref{fig:balanco1}
+Em um quadrúpede apoiado em suas pernas diagonais podemos supor que as pernas sem contato com o solo fazem parte do corpo, facilitando a compreensão e desenvolvimento das equações. Dessa forma, o modelo utilizado tem o formato presente da Figura \ref{fig:balanco1}
 
 \begin{figure} [t]
 	\centering
@@ -353,8 +355,8 @@ Dessa forma, o controle de balanço para este modelo será realizado com base na s
 	\label{fig:balanco3}
 \end{figure}
 
-\section{Razão de Aterrissagem em Acordo}
-Uma forma alternativa de mensurar a estabilidade dinâmica em robôs quadrúpedes foi proposta em 2009 por Won \emph{et al.}, denominada Razão de Aterrissagem em Acordo (\emph{Landing Accordance Ration - LAR}) \cite{article:won:2009}.
+\section{Taxa de Concordância de Aterrissagem}
+Uma forma alternativa de mensurar a estabilidade dinâmica em robôs quadrúpedes foi proposta em 2009 por Won \emph{et al.}, denominada Taxa de Concordância de Aterrissagem (\emph{Landing Accordance Ration - LAR}) \cite{article:won:2009}.
 
 Em uma marcha quadrúpede do tipo trote os membros diagonalmente dispostos se movem em pares, idealmente em sincronia, como pode ser exemplificado graficamente pela Figura \ref{fig:lar}. Nela, LF e RF referem-se, respectivamente, às pernas esquerda e direita da frente enquanto que LH e RH referem-se, respectivamente, às pernas esquerda e direita da parte traseira do robô. O gráfico mostra quais pernas estão em contato com o solo em função do tempo.
 
@@ -374,7 +376,7 @@ No entanto, durante a ação real do robô, pode haver um desacordo entre os pares 
 	\label{fig:lar2}
 \end{figure}
 
-Dessa forma, sabendo que em marchas tipo trote estáveis a aterrissagem deve ser bem sincronizada definiu-se a Razão de Aterrissagem em Acordo (LAR) como
+Dessa forma, sabendo que em marchas tipo trote estáveis a aterrissagem deve ser bem sincronizada definiu-se a Taxa de Concordância de Aterrissagem (LAR) como
 
 \begin{eqnarray}
 \lambda = \frac{t - t_{td}}{t},
@@ -437,7 +439,7 @@ Por fim, um algoritmo é criado utilizando a medição do LAR para determinar a tra
 
 \section{Modelo Cinemático e Cinemático Inverso}
 
-O modelo cinemático e cinemático inverso são formas de relacionar as velocidades das juntas de cada perna com a posição da pata, o chamado efetuador final (\emph{end effector}) \cite{tcc:souto:2007}. Nestes modelos não são considerados forças nem momentos e são bastante úteis para o controle de quadrúpedes, uma vez que, podendo relacionar juntas com efetuadores finais, podemos controlar de forma precisa a posição dos atuadores rotacionais para gerar a posição de pata desejada. No entanto, para compreender estes modelos, deve-se, primeiramente analisar o modelo geométrico.
+O modelo cinemático e cinemático inverso são formas de relacionar as velocidades das juntas de cada perna com a posição da pata, o chamado efetuador final (\emph{end effector}) \cite{tcc:souto:2007}. Estes modelos não consideram forças nem momentos e são bastante úteis para o controle de quadrúpedes, uma vez que, podendo relacionar juntas com efetuadores finais, podemos controlar de forma precisa a posição dos atuadores rotacionais para gerar a posição de pata desejada. No entanto, para compreender estes modelos, deve-se, primeiramente analisar o modelo geométrico.
 
 \subsection{Modelo Geométrico}
 
@@ -463,7 +465,7 @@ p_0 = p_1 + d_1^0,
 
 \noindent em que $d_1^0$ é o vetor que vai da origem $O_0$ até a origem $O_1$ de cada sistema de coordenadas.
 
-\subsubsection{Tranformação Homogênia}
+\subsubsection{Transformação Homogênea}
 Um ponto $p = \begin{bmatrix}
 p_x & p_y & p_z
 \end{bmatrix}^T$ pode ser descrito em coordenadas homogênas da seguinte forma:
@@ -499,7 +501,7 @@ Podemos utilizar, ainda, uma notação simplificada $H_i$ ($i\in \mathbb{Z}$) para
 \subsubsection{Modelo Geométrico em Robôs Manipuladores}
 O modelo geométrico consiste na aquisição das posições dos efetuadores finais (neste caso, das patas do robô) em função das variáveis das juntas.
 
-Considere que a matriz $H_m^0 (q,\lambda)$ representa uma transformação homogênea que possibilita a aquisição das posições e orientações de um efetuador com $m$ graus de liberdade em função do vetor ($q$), das varáveis de juntas e do vetor $\lambda$ composto pelas dimensões físicas do robô. Dessa forma, desconsiderando a orientação do efetuador (assume-se que esta é irrelevante para este estudo), podemos obter sua posição $\xi$, em coordenadas homogêneas, através da seguinte equação
+Considere que a matriz $H_m^0 (q,\lambda)$ representa uma transformação homogênea que possibilita a aquisição das posições e orientações de um efetuador com $m$ graus de liberdade em função do vetor ($q$), das varáveis de juntas e do vetor $\lambda$ composto pelas dimensões físicas do robô. Dessa forma, desconsiderando a orientação do efetuador (supõe-se que esta é irrelevante para este estudo), podemos obter sua posição $\xi$, em coordenadas homogêneas, através da seguinte equação
 
 \begin{eqnarray} \label{eq:geometrico}
 \xi = g(q,\lambda) = H_m^0 \begin{bmatrix}
@@ -545,15 +547,15 @@ J^T J \dot{q} = J^T \dot{\xi}, \nonumber \\
 
 \noindent Nestas relações, $J^\dagger = (J^TJ)^-1 J^T$ é a matriz pseudo-inversa de $J$. 
 
-A utilização da matriz pseudo-inversa, no entanto, pode apresentar graves problemas numéricos, especialmente caso haja singularidades em $J$. Isto decorre do fato que este sistema pode apresentar mais de uma solução, especialmente considerando casos com redundância nos graus de liberdade de um segmento (por exemplo vários atuadores em uma perna). Nestes casos, mais de uma configuração dos efetuadores acarretaria na mesma posição do efetuador final \cite{tcc:souto:2007, article:runbin:2013}. Na seção seguinte será apresentado, além de alguns exemplos de utilização dos modelos cinemático e cinemático inverso, algumas possíveis soluções para este problema.
+A utilização da matriz pseudo-inversa, no entanto, pode apresentar graves problemas numéricos, especialmente caso haja singularidades em $J$. Isto decorre do fato de que este sistema pode apresentar mais de uma solução, especialmente considerando casos com redundância nos graus de liberdade de um segmento (por exemplo vários atuadores em uma perna). Nestas situações, mais de uma configuração dos efetuadores acarretaria na mesma posição do efetuador final \cite{tcc:souto:2007, article:runbin:2013}. Na seção seguinte será apresentado, além de alguns exemplos de utilização dos modelos cinemático e cinemático inverso, algumas possíveis soluções para este problema.
 
 \subsection{Aplicações}
 
-Este modelo cinemático e cinemático inverso já foi utilizado na modelagem de robôs e esta seção destina-se a exemplificar alguns casos encontrados na literatura.
+Estes modelos, cinemático e cinemático inverso, já foram utilizados na modelagem de robôs e esta seção destina-se a exemplificar alguns casos encontrados na literatura.
 
-Em 2016, Featherstone, desenvolveu um método de equilíbrio de robôs baseado em análises de ganho e utilizou o modelo cinemático para calcular o modelo proposto \cite{article:featherstone:2016}. Segundo o autor, uma vez que o controle de equilíbrio tem como objetivo principal controlar o centro de massa mas tem como controle direto apenas os atuadores das juntas, pode-se dizer que, da perspectiva do controlador, a planta tem como entrada o movimento dos atuadores enquanto a saída é modelada como o movimento do centro de massa. Portanto, a performance deste controle pode ser mensurada através do ganho que carateriza essa relação de entrada e saída.
+Em 2016, Featherstone, desenvolveu um método de equilíbrio de robôs baseado em análises de ganho e utilizou o modelo cinemático para calcular o modelo proposto \cite{article:featherstone:2016}. Segundo o autor, uma vez que o controle de equilíbrio tem como objetivo principal controlar o centro de massa mas tem como controle direto apenas os atuadores das juntas, pode-se dizer que, da perspectiva do controlador, a planta tem como entrada o movimento dos atuadores enquanto a saída é modelada como o movimento do centro de massa. Portanto, o desempenho deste controle pode ser mensurado através do ganho que carateriza essa relação de entrada e saída.
 
-O exemplo utilizado por Featherstone tem como base o modelo da Figura \ref{fig:ganho}, que consiste de duas juntas, uma junto ao chão e uma mais acima.
+O exemplo utilizado por Featherstone tem como base o modelo da Figura \ref{fig:ganho}, que consiste de duas juntas, uma próxima ao chão e uma mais acima.
 
 Dessa forma, $c$ representa o vetor que sai do ponto de contato com o solo até o centro de massa, $\phi$ representa a direção de $c$ em relação ao solo, $q_1$ e $q_2$ são as variáveis das juntas de baixo e de cima, respectivamente, e $b$ é o vetor unitário perpendicular a $c$ na direção do aumento do ângulo $\phi$. 
 
@@ -594,7 +596,7 @@ Um exemplo da utilização do modelo cinemático inverso está nos trabalhos de RunB
 	\label{fig:quadrupededof}
 \end{figure}
 
-O controle do quadrúpede, de modo geral, pode ser dividido em duas partes: o controle de marcha e o controle de postura. O primeiro tem como objetivo principal o controle da velocidade direta do robô, de modo que suas saídas são as posições das pernas e do centro de massa. Já os objetivos do controle de postura tem como finalidade principal a resolução do modelo cinemático inverso e tem como saídas os ângulos das juntas ou seus torques. Os dois são combinados utilizando um sistema de realimentação conforme pode ser observado na Figura \ref{fig:realimentacao}. Para o trabalho realizado em \cite{article:runbin:2013} especificamente, utilizou-se os ângulos das juntas (ao invés dos torques) como saída do sistema de controle de postura.
+O controle do quadrúpede, de modo geral, pode ser dividido em duas partes: o controle de marcha e o controle de postura. O primeiro tem como objetivo principal o controle da velocidade direta do robô, de modo que suas saídas são as posições das pernas e do centro de massa. Já o controle de postura tem como finalidade principal a resolução do modelo cinemático inverso e tem como saídas os ângulos das juntas ou seus torques. Os dois são combinados utilizando um sistema de realimentação conforme pode ser observado na Figura \ref{fig:realimentacao}. Para o trabalho realizado em \cite{article:runbin:2013} especificamente, utilizaram-se os ângulos das juntas (ao invés dos torques) como saída do sistema de controle de postura.
 
 \begin{figure} [b]
 	\centering
@@ -632,9 +634,15 @@ J_{11} & J_{12} & J_{13} \\ J_{21} & J_{22} & J_{23}
 
 Nesta relação, os parâmetros da primeira linha serão iguais à derivada de $x$ com relação a $\theta_1$, $\theta_2$ e $\theta_3$, nessa ordem, e da segunda linha, iguais à derivada de $z$ com relação a $\theta_1$, $\theta_2$ e $\theta_3$, respectivamente.
 
-Uma vez obtido o Jacobiano, os autores propõem três métodos distintos para calcular os ângulos das juntas. O primeiro é o cálculo da matriz pseudo-inversa, conforme foi abordado anteriormente, culminando na equação (\ref{eq:inversa}). A diferença é que do lado direito da equação, os autores adicionam o termo $k(I-J^{\dagger}J*g)$, em que $I$ é a matriz identidade, e $g$ é uma velocidade de auto-locomoção. Este novo termo se trata da solução  da equação linear homogênea enquanto que o primeiro termo é a solução normal mínima.
+Uma vez obtido o Jacobiano, os autores propõem três métodos distintos para calcular os ângulos das juntas. O primeiro é o cálculo da matriz pseudo-inversa, conforme foi abordado anteriormente, culminando na equação (\ref{eq:inversa}). No entanto, a expressão utilizada pelos autores é modificada para
 
-O segundo método é o da Menor Norma Ponderada (\emph{Weighted least-norm - WLN}). Neste método, utilizado para minimizar a velocidade das juntas, defini-se um novo vetor de velocidade das juntas ($\dot{\theta}_W$), normalizado por uma matriz simétrica e positiva $W$. Então, realiza-se algumas transformações de modo a obter uma nova matriz Jacobiana para o novo sistema. Com isso, o resultado final será dado por
+\begin{eqnarray}
+\dot{\theta} = J^{\dagger}\dot{x} + k(I-J^{\dagger}J\cdot g),
+\end{eqnarray}
+
+\noindent em que $\theta$ é o vetor dos ângulos das juntas, $x$ é o vetor das posições dos efetuadores, $I$ é a matriz identidade e $g$ é uma velocidade de auto-locomoção. O novo termo, $k(I-J^{\dagger}J\cdot g)$, se trata da solução  da equação linear homogênea enquanto que o primeiro termo é a solução normal mínima.
+
+O segundo método é o da Menor Norma Ponderada (\emph{Weighted least-norm - WLN}). Neste método, utilizado para minimizar a velocidade das juntas, define-se um novo vetor de velocidade das juntas ($\dot{\theta}_W$), normalizado por uma matriz simétrica e positiva $W$. Então, realizam-se algumas transformações de modo a obter uma nova matriz Jacobiana para o novo sistema. Com isso, o resultado final será dado por
 
 \begin{eqnarray}
 \dot{\theta}_W = W^{-1}J^T[JW^{-1}J^T]^{-1}\xi.
@@ -648,7 +656,7 @@ Muitos dos trabalhos anteriores utilizam sistemas de realimentação para fazer co
 
 A ideia desta seção é discutir, com maior foco, sobre este controle, baseado em dados empíricos coletados.
 
-Em 2010, Sousa \emph{et al.}, desenvolveram um sistema de controle de postura baseado na leitura de diversos sensores \cite{article:sousa:2010}. Com uma topologia inspirada nas respostas biológicas de animais, os autores deste estudo propuseram um sistema de controle de postura independente do sistema de locomoção, havendo interação apenas quando necessário. O controle de postura seria construído com base em cada estímulo medido e uma resposta adequada seria produzida para corrigir aquela variável. O modelo de controle é integrado com um \emph{Central Pattern Generators (CPG)} para gerar a resposta desejada.
+Em 2010, Sousa \emph{et al.} desenvolveram um sistema de controle de postura baseado na leitura de diversos sensores \cite{article:sousa:2010}. Com uma topologia inspirada nas respostas biológicas de animais, os autores deste estudo propuseram um sistema de controle de postura independente do sistema de locomoção, havendo interação apenas quando necessário. O controle de postura seria construído com base em cada estímulo medido e uma resposta adequada seria produzida para corrigir aquela variável. O modelo de controle é integrado com um \emph{Central Pattern Generators (CPG)} para gerar a resposta desejada.
 
 A plataforma quadrúpede AIBO, da Sony (que pode ser vista na Figura \ref{fig:aibo}) é utilizada para o estudo, uma vez que esta possui um acelerômetro de três eixos e um sensor de força em cada pata.
 
@@ -679,7 +687,7 @@ f_{pitch,i,p} &= k_{pitch}f_i(\phi_{pitch}) \label{empirico2},
 \noindent de modo que $k_{roll}$ e $k_{pitch}$ são ganhos estáticos que definem a velocidade de convergência da resposta à situação de equilíbrio, $\phi_{roll}$ e $\phi_{pitch}$ são os ângulos medidos de rolagem e arfagem, respectivamente, e $f_i$ é uma função linear utilizada para eliminar o ruído do sensor e pode ser positiva ou negativa, dependendo da contribuição da junta para aquela variável.
 
 \section{Conclusão}
-Neste capítulo, foram apresentados os principais trabalhos estudados sobre o tema de controle de equilíbrio de robôs quadrúpedes. Dessa forma, foi possível apresentar o estado da arte no que concerne este assunto na literatura e poderemos, ainda, situar o presente trabalho neste cenário. Apresentou-se, também, desenvolvimentos concebidos desde o início do estudo deste tema até o cenário atual. Por esse motivo, várias abordagens diferentes foram estudadas, incluindo métodos empíricos, dinâmicos, cinemáticos e geométricos.
+Neste capítulo, foram apresentados os principais trabalhos estudados sobre o tema de controle de equilíbrio de robôs quadrúpedes. Dessa forma, foi possível apresentar o estado da arte no que concerne este assunto na literatura e poderemos, ainda, situar o presente trabalho neste cenário. Apresentaram-se, também, desenvolvimentos concebidos desde o início do estudo deste tema até o cenário atual. Por esse motivo, várias abordagens diferentes foram estudadas, incluindo métodos empíricos, dinâmicos, cinemáticos e geométricos.
 
 No entanto, o presente trabalho não abarcará todos os aspectos mencionados ao longo deste capítulo. Do contrário, apenas algumas fundamentações e implementações serão aproveitadas. A metodologia que será aplicada no desenvolvimento deste trabalho, como será melhor abordado no capítulo \ref{CapDesenvolvimento}, apresenta uma abordagem composta, principalmente, por elementos cinemáticos. Além disso, a componente empírica também terá um foco fundamental ao longo do desenvolvimento do projeto. 
 
@@ -687,7 +695,7 @@ Apesar de que o controle a ser implementado não considera fatores dinâmicos como
 
 O controle de estabilidade será realizado em grande parte com um controle de velocidades. Assim como em \cite{article:raibert:1986, article:won:2009,article:featherstone:2016}, a concepção inicial deste trabalho se baseou nas velocidades dos ângulos de rolagem e arfagem do corpo do robô para a caracterização do distúrbio gerador da instabilidade e, consequentemente, do seu uso para a determinação das respostas necessárias para a devida correção. Alguns destes trabalhos (e.g. \cite{article:raibert:1986, article:won:2009}) fazem tal correção através da aplicação de torques. Neste trabalho, porém, esta será realizada pela imposição de velocidades em cada junta, de forma proporcional à perturbação sofrida.
 
-Assim como nos trabalhos já citados e em \cite{article:sousa:2010}, a presença de ganhos relacionando às variáveis de rolagem e arfagem serão essenciais para a resposta de correção ao distúrbio. Em especial, o controle proposto neste trabalho se assemelha ao desenvolvido em \cite{article:sousa:2010}, uma vez que a velocidade de cada junta deve ser proporcional ao distúrbio por um ganho específico e empiricamente determinado. Para tal, a medição da configuração do robô através de sensores, como o acelerômetro e sensores de força, é essencial para o desenvolvimento empírico do sistema de controle. Este último aspecto segue as mesmas características dos trabalhos de \cite{article:raibert:0000}.
+Assim como nos trabalhos já citados e em \cite{article:sousa:2010}, a presença de ganhos relacionando as variáveis de rolagem e arfagem serão essenciais para a resposta de correção ao distúrbio. Em especial, o controle proposto neste trabalho se assemelha ao desenvolvido em \cite{article:sousa:2010}, uma vez que a velocidade de cada junta deve ser proporcional ao distúrbio por um ganho específico e empiricamente determinado. Para tal, a medição da configuração do robô através de sensores, como o acelerômetro e sensores de força, é essencial para o desenvolvimento empírico do sistema de controle. Este último aspecto segue as mesmas características dos trabalhos de \cite{article:raibert:0000}.
 
 Os conceitos geométricos estudados neste capítulo não serão amplamente utilizados neste trabalho. No entanto, eles serão úteis para a determinação do sentido de movimentação de cada pata frente ao movimento total do robô. A amplitude que este movimento terá, contudo, será determinado empiricamente como foi mencionado anteriormente.
 
