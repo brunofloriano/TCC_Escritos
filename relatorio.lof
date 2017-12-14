@@ -54,7 +54,7 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Queda para a direita}}}{47}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Queda para frente}}}{47}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Configurações das juntas tipo joelho no plano longitudinal durante a aterrissagem}}{49}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Diagrama de Blocos com Paralelismo}}{50}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Diagrama de blocos para adição da posição desejada}}{50}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Diagrama do código desenvolvido}}{54}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Ângulos de rolagem e arfagem medidos com o robô parado}}{57}
@@ -113,22 +113,22 @@
 \contentsline {figure}{\numberline {4.21}{\ignorespaces Teste de Queda com $\tau _p = 0,7s$}}{78}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{78}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{78}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Teste de Queda para a direita com Paralelismo}}{79}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Teste de Queda para a direita com adição da posição desejada}}{79}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{79}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{79}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Teste de Queda para a esquerda com Paralelismo}}{79}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Teste de Queda para a esquerda com adição da posição desejada}}{79}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{79}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{79}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Teste de Queda para frente com Paralelismo}}{80}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Teste de Queda para frente com adição da posição desejada}}{80}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{80}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{80}
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Teste de Queda para a trás com Paralelismo}}{80}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Teste de Queda para a trás com adição da posição desejada}}{80}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{80}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{80}
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Teste de Queda para na diagonal com Paralelismo}}{81}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Teste de Queda para a diagonal com adição da posição desejada}}{81}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Ângulos de Rolagem e dos seus motores}}}{81}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ângulos de Arfagem e dos seus motores}}}{81}
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Teste de marcha no sistema com paralelismo}}{82}
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Marcha do robô adicionada ao sistema com paralelismo}}{83}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Teste de marcha no sistema com adição da posição desejada}}{82}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Marcha do robô adicionada ao sistema de controle de equilíbrio}}{83}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

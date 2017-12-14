@@ -13,7 +13,7 @@
 
 Como foi abordado no Capítulo \ref{CapDesenvolvimento}, o desenvolvimento do projeto sofreu modificações com relação à concepção inicial do controle de estabilidade. As principais mudanças, assim como a determinação dos coeficientes de resposta dos motores, foram baseadas em testes reais na plataforma, que serão mostrados e analisados neste capítulo.
 
-Os experimentos consistiram na execução do programa elaborado para cada etapa do desenvolvimento do controle com o robô nos seguintes cenários: sustentado por uma caixa, sem contato das patas com o solo; com o robô em pé se sustentando, mas sem nenhum distúrbio e, por fim, sendo empurrado para a esquerda, direita, para frente ou para trás.
+Os experimentos consistiram na execução do programa elaborado para cada etapa do desenvolvimento do controle com o robô nos seguintes cenários: sustentado por um suporte, sem contato das patas com o solo; com o robô em pé se sustentando, mas sem nenhum distúrbio e, por fim, sendo empurrado para a esquerda, direita, para frente ou para trás.
 
 Após cada experimento, os dados eram recolhidos e analisados através do software \emph{Matlab}. Os gráficos que serão apresentados neste capítulo foram obtidos por tal programa.
 
@@ -24,7 +24,7 @@ A primeira abordagem do controle de estabilidade foi a utilização dos motores no
 O primeiro elemento a ser testado é a medição dos ângulos pelo acelerômetro. Além disso, pode-se obter a velocidade dos ângulos de rolagem e arfagem através da derivação e observar os efeitos do filtro passa-baixa desenvolvido.
 
 
-O teste é feito com o robô parado, sustentado por uma caixa que impede as patas de entrarem em contato com o solo, sem a adição de qualquer distúrbio e com a resposta dos motores desativada. Dessa forma, é possível observar o ruído produzido durante a medição, uma vez que os dados de velocidade, em um cenário ideal, deveriam ser iguais a zero e os ângulos, sempre constantes. Podemos observar a medição destes na Figura \ref{fig:angulos_ruido}.
+O teste é feito com o robô parado, sustentado por um suporte que impede as patas de entrarem em contato com o solo, sem a adição de qualquer distúrbio e com a resposta dos motores desativada. Dessa forma, é possível observar o ruído produzido durante a medição, uma vez que os dados de velocidade, em um cenário ideal, deveriam ser iguais a zero e os ângulos, sempre constantes. Podemos observar a medição destes na Figura \ref{fig:angulos_ruido}.
 
 \begin{figure} [!b]
 	\centering
@@ -184,14 +184,14 @@ Com o modo posição, podemos utilizar os motores de forma mais adequada para que 
 \subsection{Teste de Sustentação}
 Assim como foi realizado na seção \ref{sec:sustentacao_velocidade}, neste experimento realizou-se o teste de sustentação, com o robô em pé, parado, sem aplicação de distúrbios externos e com a velocidade dos motores configurada para zero. A diferença entre o presente experimento e o item mencionado é que para manter a velocidade de 0 graus/s em cada motor no modo posição, o sistema configura sua localização sempre com o mesmo valor enquanto, anteriormente, a própria velocidade era determinada.
 
-Os dados obtidos para tal teste podem ser analisados pela Figura \ref{fig:teste_sustentacao_posicao}. Podemos observar que o experimento foi possível de ser realizado por mais tempo que anteriormente pois não houve a queda do robô. Dessa forma, as figuras apresentadas apresentam apenas ruído, uma vez que não houve distúrbios externos e nem movimento da juntas.
+Os dados obtidos para tal teste podem ser analisados pela Figura \ref{fig:teste_sustentacao_posicao}. Podemos observar que o experimento foi possível de ser realizado por mais tempo que anteriormente pois não houve a queda do robô. Dessa forma, tais figuras apresentam apenas ruído, uma vez que não houve distúrbios externos e nem movimento da juntas.
 
 
 
 Desta maneira, comparando com os dados obtidos na seção \ref{sec:sustentacao_velocidade}, podemos concluir que a sustentação no modo posição é mais adequada para a plataforma do que no modo velocidade, uma vez que possibilita que o robô fique em pé parado.
 
 \subsection{Determinação das constantes $K_{up}$ e $K_{down}$}
-As constantes $K_{up}$ e $K_{down}$, no escopo de correção do movimento de arfagem, tem a finalidade de diferenciar as respostas dos motores de juntas do tipo joelho (com o ganho $K_{down}$) das demais ($K_{up}$). Como mencionado na seção \ref{sec:ganhos}, cada um deses motores terá, ainda, uma segunda componente que será a responsável pelo movimento de correção em si (i.e. $K_B$ e $K_F$). Dessa forma, $K_{up}$ e $K_{down}$ são apenas ponderações da resposta para a diferenciação das juntas do tipo joelho.
+As constantes $K_{up}$ e $K_{down}$, no escopo de correção do movimento de arfagem, têm a finalidade de diferenciar as respostas dos motores de juntas do tipo joelho (com o ganho $K_{down}$) das demais ($K_{up}$). Como mencionado na seção \ref{sec:ganhos}, cada um deses motores terá, ainda, uma segunda componente que será a responsável pelo movimento de correção em si (i.e. $K_B$ e $K_F$). Dessa forma, $K_{up}$ e $K_{down}$ são apenas ponderações da resposta para a diferenciação das juntas do tipo joelho.
 
 
 
@@ -260,7 +260,7 @@ Portanto, o ganho de $K_{R}$ foi insuficiente para corrigir o distúrbio, indican
 	\label{fig:queda_roll_2}
 \end{figure}
 
-Neste caso, foram aplicados dois distúrbios maiores em aproximadamente 7,5 e em 15 segundos e um menor em 6 segundos. Nota-se, na Fig. \ref{fig:queda_roll_2}(b), que as respostas dos motores se encontram bem mais significativas do que no experimento anterior. Nesta situação, o ângulo de rolagem chega em valores de até $15^o$ (Fig. \ref{fig:queda_roll_2}(a)) e retornam à sua posição inicial e velocidade zero. Isto foi possível devido à ação de resposta dos motores, que se deslocaram com uma velocidade suficiente para corrigir a perturbação e impedir a queda do robô. Assim, pode-se estabelecer que o valor de 1,5 foi bastante adequado para a correção da estabilidade no sentido de rolagem para direita.
+Neste caso, foram aplicados dois distúrbios maiores em aproximadamente 7,5 e em 15 segundos e um menor em 6 segundos. Nota-se, na Fig. \ref{fig:queda_roll_2}(b), que as respostas dos motores se encontram bem mais significativas do que no experimento anterior. Nesta situação, o ângulo de rolagem chega em valores de até $15^o$ (Fig. \ref{fig:queda_roll_2}(a)) e retorna à sua posição inicial e velocidade zero. Isto foi possível devido à ação de resposta dos motores, que se deslocaram com uma velocidade suficiente para corrigir a perturbação e impedir a queda do robô. Assim, pode-se estabelecer que o valor de 1,5 foi bastante adequado para a correção da estabilidade no sentido de rolagem para direita.
 
 Em uma análise mais detalhada da Fig. \ref{fig:queda_roll_2}(a), constata-se que, ao final do último distúrbio, os ângulos de rolagem e arfagem se acomodam em valores ligeiramente diferente do valor inicial. Isto é uma consequência do controle de estabilidade ter sido desenvolvido, até o presente experimento, sem a consideração do retorno à posição inicial. Deste modo, as patas, após corrigirem a perturbação, continuam na mesma posição que terminaram o movimento de correção. Em outras palavras, a posição de cada pata em regime permanente é dada pela posição que ela atinge ao final do deslocamento de correção. Isto faz com que os ângulos de rolagem e arfagem possam se acomodar em valores distintos do inicial.
 
@@ -283,7 +283,7 @@ Devido à simetria da plataforma e do fato de estarmos utilizando os mesmos motor
 
 Para determinar os ganhos $K_{B}$ e $K_{F}$ seguiu-se os mesmos procedimentos descritos anteriormente para o caso da rolagem. Isto é, o robô será posicionado sobre o chão na posição inicial e, após a ativação do sistema de controle, serão aplicadas perturbações para frente e para trás do robô. Em seguida, os dados serão analisados para verificar a necessidade de aumentar os ganhos, caso a resposta esteja muito lenta, ou diminuí-lo em caso de uma sensibilidade muito elevada nas respostas dos motores.
 
-O primeiro teste foi feito para a aquisição de $K_{F}$. Apesar das dimensões longitudinais do robô serem maiores do que suas extensões transversais (o robô tem base retangular), é razoável admitir inicialmente tal ganho como 1,5, valor este que garantiu uma resposta adequada no movimento de rolagem. Alterações finas podem ser requeridas caso o experimento com este valor não seja conveniente, mas assume-se que esta quantia deva ter uma ordem de grandeza semelhante à necessária para a estabilização do distúrbio da arfagem.
+O primeiro teste foi feito para a aquisição de $K_{F}$. Apesar das dimensões longitudinais do robô serem maiores do que suas extensões transversais (o robô tem base retangular), é razoável admitir inicialmente tal ganho como 1,5, valor este que garantiu uma resposta adequada no movimento de rolagem. Alterações finas podem ser requeridas caso o experimento com este valor não seja conveniente, mas supõe-se que esta quantia deva ter uma ordem de grandeza semelhante à necessária para a estabilização do distúrbio da arfagem.
 
 Os resultados obtidos neste experimento são ilustrados na Figura \ref{fig:queda_pitch1}. Podemos observar na Fig. \ref{fig:queda_pitch1}(c) que os motores responderam bem aos distúrbios impostos, com uma magnitude levemente maior que as próprias perturbações. Na Fig \ref{fig:queda_pitch1}(a), por sua vez, podemos observar que o experimento termina com os valores dos ângulos não tão próximos de zero, como se esperaria para um posição horizontal da base do robô (os valores finais são cerca de 6 graus na arfagem e 1 grau na rolagem). Contudo, isto indica apenas que, após a correção do distúrbio, o robô permaneceu na posição do final do movimento, não havendo o retorno à sua posição inicial. Neste caso, não houve queda do robô, caso em que tais ângulos estariam na faixa de pelo menos 15 graus.
 
@@ -318,15 +318,15 @@ Podemos observar que, ao final do experimento, o robô manteve-se equilibrado, se
 Como já observado anteriormente, nota-se que os ângulos finais de rolagem e arfagem não estão próximos de zero indicando uma leve inclinação causada pela postura do robô ao final do experimento. Como não há qualquer controle implementado, neste caso, que o faça voltar para uma certa posição, esta é determinada pela última postura aplicada para corrigir o distúrbio. Portanto, há ainda a necessidade de se implementar um sistema que faça a plataforma retornar a um valor desejado após o distúrbio.
 
 
-\section{Paralelismo com a Posição Desejada}
+\section{Associação do controle de equilíbrio com uma posição desejada}
 Na seção anterior determinou-se todas as constantes de velocidade $K_i$ e, com isso, foi possível obter um controle de estabilidade satisfatório que corrigia o movimento do robô face a um distúrbio externo aplicado. No entanto, conforme foi mencionado, uma vez que o robô retornava à condição de estabilidade, as patas não voltavam à posição inicial. Este comportamento não é adequado considerando o cenário em que o robô se estabiliza ao mesmo tempo que mantém uma marcha constante. Neste caso, é desejado que, uma vez corrigido o distúrbio, o robô continue a se movimentar normalmente.
 
-Com isso em mente, foi proposto e implementado o controle com paralelismo como explicado na seção \ref{sec:paralelismo}. Esta seção, por sua vez, realizará os testes do controle proposto. Em um primeiro momento, o controlador foi testado com a posição desejada para cada motor em regime permanente configurada para a posição inicial. Desta forma, espera-se que robô seja capaz de corrigir o distúrbio e voltar para a posição inicial, permanecendo parado a partir daí. Se os testes forem bem sucedidos, adicionar-se-á a marcha desenvolvida em \cite{tcc:porphirio:2017} para determinar a posição em regime permanente.
+Com isso em mente, foi proposto e implementado o controle de equilíbrio em associação com uma posição desejada como explicado na seção \ref{sec:paralelismo}. Esta seção, por sua vez, realizará os testes do controle proposto. Em um primeiro momento, o controlador foi testado com a posição desejada para cada motor em regime permanente configurada para a posição inicial. Desta forma, espera-se que robô seja capaz de corrigir o distúrbio e voltar para a posição inicial, permanecendo parado a partir daí. Se os testes forem bem sucedidos, adicionar-se-á a marcha desenvolvida em \cite{tcc:porphirio:2017} para determinar a posição em regime permanente.
 
 \subsection{Determinação das constantes $\tau_d$ e $\tau_p$}
-Na nova concepção do controle de estabilidade, com paralelismo, duas novas constantes surgiram para serem determinadas, isto é, $\tau_d$ e $\tau_p$. A primeira é a constante de tempo da resposta ao distúrbio do controle de equilíbrio enquanto a segunda é a constante de tempo para que cada junta retorne à posição desejada. Estas constantes também serão determinadas empiricamente através de testes na plataforma.
+Na nova concepção do controle de estabilidade, em associação com uma posição desejada, duas novas constantes surgiram para serem determinadas, isto é, $\tau_d$ e $\tau_p$. A primeira é a constante de tempo da resposta ao distúrbio do controle de equilíbrio enquanto a segunda é a constante de tempo para que cada junta retorne à posição desejada. Estas constantes também serão determinadas empiricamente através de testes na plataforma.
 
-Tais valores não podem ser muito elevados, caso contrário, a resposta do sistema será muito lenta, prejudicando a resposta ao distúrbio (no caso de $\tau_d$) e o retorno à posição desejada assim como as possíveis marchas a ela relacionada (no caso de $\tau_p$). Da mesma forma, não deseja-se que tais valores sejam muito reduzidos pois a resposta poderia ser muito repentina, gerando mais instabilidade e oscilações. Por esse motivo, é preciso observar o comportamento do sistema a diversos valores para, então, configurar tais constantes com a quantidade mais adequada.
+Tais valores não podem ser muito elevados, caso contrário, a resposta do sistema será muito lenta, prejudicando a resposta ao distúrbio (no caso de $\tau_d$) e o retorno à posição desejada assim como as possíveis marchas a ela relacionada (no caso de $\tau_p$). Da mesma forma, não se deseja que tais valores sejam muito reduzidos pois a resposta poderia ser muito repentina, gerando mais instabilidade e oscilações. Por esse motivo, é preciso observar o comportamento do sistema a diversos valores para, então, configurar tais constantes com a quantidade mais adequada.
 
 Para determinar empiricamente tais constantes, realizou-se diversos testes com distúrbios na plataforma, como nos testes anteriores, para diferentes valores de $\tau_d$ e $\tau_p$. A determinação de qual valor é mais adequado foi, então, baseado no tempo para as respostas retornarem aos patamares de referência e a oscilação da resposta (considerando o pior caso).
 
@@ -469,7 +469,7 @@ Portanto, podemos condensar as informações obtidas acima na Tabela \ref{Tabtaup}
 
 \subsection{Testes finais}
 
-Com todos os $K_i$ determinados assim como todas as constantes de tempo $\tau_d$ e $\tau_p$, o controle de equilíbrio com paralelismo se encontra completo. Dessa forma, é possível testar perturbações em todas as direções e sentidos da plataforma e espera-se que a correção seja realizada de forma adequada, assim como a retorno à posição inicial.
+Com todos os $K_i$ determinados assim como todas as constantes de tempo $\tau_d$ e $\tau_p$, o controle de equilíbrio em associação com uma posição desejada se encontra completo. Dessa forma, é possível testar perturbações em todas as direções e sentidos da plataforma e espera-se que a correção seja realizada de forma adequada, assim como a retorno à posição inicial.
 
 Desta maneira, foram aplicados distúrbios para os quatro sentidos individualmente e analisados os resultados advindos destes procedimentos. Ao final será realizado um último teste com distúrbios aplicados em diagonal de modo a obter uma resposta conjunta da rolagem e da arfagem.
 
@@ -503,11 +503,11 @@ Da mesma forma, é possível notar que, mesmo que a perturbação tenha sido realiza
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_direitab}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_direita2b}}}
-	\caption{Teste de Queda para a direita com Paralelismo}
+	\caption{Teste de Queda para a direita com adição da posição desejada}
 	\label{fig:queda_final_direita}
 \end{figure}
 
-Após a correção do distúrbio e o fim da oscilação do robô, notamos que as juntas voltam à posição inicial. Conforme havia sido concebido, o controle com paralelismo foi capaz não apenas de corrigir o distúrbio externo, como também de retornar à posição desejada para o regime permanente.
+Após a correção do distúrbio e o fim da oscilação do robô, notamos que as juntas voltam à posição inicial. Conforme havia sido concebido, o controle com adição da posição desejada foi capaz não apenas de corrigir o distúrbio externo, como também de retornar à posição desejada para o regime permanente.
 
 Neste experimento, quase não houve movimentação na direção da arfagem, com exceção de uma pequena perturbação por volta dos 16 segundos, provavelmente consequência de uma irregularidade no momento da aplicação do distúrbio, mas que não foi significativa para causar influência no experimento.
 
@@ -518,7 +518,7 @@ O mesmo procedimento foi realizado com os distúrbios para a esquerda, resultando
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_esquerdab}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_esquerda2b}}}
-	\caption{Teste de Queda para a esquerda com Paralelismo}
+	\caption{Teste de Queda para a esquerda com adição da posição desejada}
 	\label{fig:queda_final_esquerda}
 \end{figure}
 
@@ -530,7 +530,7 @@ Já para a direção de arfagem realizou-se, primeiramente, o teste com o distúrbio
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_frente1b}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_frente2b}}}
-	\caption{Teste de Queda para frente com Paralelismo}
+	\caption{Teste de Queda para frente com adição da posição desejada}
 	\label{fig:queda_final_frente}
 \end{figure}
 
@@ -538,14 +538,14 @@ A análise da curva do distúrbio, em vermelho, evidencia mais a oscilação do movi
 
 As respostas dos movimentos de rolagem, na Fig. \ref{fig:queda_final_frente}(a), são inferiores em magnitude e, portanto, não influenciaram neste procedimento.
 
-Para perturbações para trás do robô, obtivemos os resultados ilustrados na Figura \ref{fig:queda_final_tras}. Novamente percebemos a semelhança com o caso anteriorer devido à oscilação do movimento na direção da arfagem. Assim, os motores tem um comportamento bem similar, de modo a amortecer tal oscilação até que o valor de referência (0 graus) seja atingido e o robô, estabilizado.
+Para perturbações para trás do robô, obtivemos os resultados ilustrados na Figura \ref{fig:queda_final_tras}. Novamente percebemos a semelhança com o caso anteriorer devido à oscilação do movimento na direção da arfagem. Assim, os motores têm um comportamento bem similar, de modo a amortecer tal oscilação até que o valor de referência (0 graus) seja atingido e o robô, estabilizado.
 
 \begin{figure}[!b]
 	\centering
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_tras1b}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/final_tras2b}}}
-	\caption{Teste de Queda para a trás com Paralelismo}
+	\caption{Teste de Queda para a trás com adição da posição desejada}
 	\label{fig:queda_final_tras}
 \end{figure}
 
@@ -556,7 +556,7 @@ Por fim, realizou-se um experimento com distúrbios aplicados em diagonal, para p
 	\mbox{
 		\subfigure[Ângulos de Rolagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/Queda_Diagonal1b}}\quad\quad
 		\subfigure[Ângulos de Arfagem e dos seus motores]{\includegraphics[width=0.45\textwidth]{Figuras/Queda_Diagonal2b}}}
-	\caption{Teste de Queda para na diagonal com Paralelismo}
+	\caption{Teste de Queda para a diagonal com adição da posição desejada}
 	\label{fig:queda_final_diagonal}
 \end{figure}
 
@@ -574,13 +574,13 @@ O resultado obtido pode ser verificado na Figura \ref{fig:marcha1}. Nela, são mo
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/marcha1b}
-	\caption{Teste de marcha no sistema com paralelismo}
+	\caption{Teste de marcha no sistema com adição da posição desejada}
 	\label{fig:marcha1}
 \end{figure}
 
 Percebe-se, no entanto, que o tempo de duração do ciclo de uma junta (o tempo entre um pico e outro, por exemplo) pode chegar a 8 segundos. Esta duração é muito elevada para a plataforma trabalhada, uma vez que um tempo desta magnitude pode gerar instabilidades. Uma perna, por exemplo, pode ficar muito tempo sem contato com o solo, diminuindo a margem de estabilidade e, possivelmente, gerando a queda do robô.
 
-Além disso, percebeu-se, durante o experimento, que o movimento das juntas ocorria de forma muito cadenciada, isto é, não se deu de maneira contínua. Do contrário, a locomoção das juntas ocorreu de forma brusca entre um ponto de amostragem e outro. O comportamento da marcha pode ser visualizado na Figura \ref{fig:sequencia}, adquirida através de 9 segundos de gravação do experimento descrito. Percebe-se que o movimento das patas não está em acordo com a marcha de deslocamento proposta em \cite{tcc:porphirio:2017}. Dessa forma, o sistema com paralelismo afeta diretamente a marcha implementada.
+Além disso, percebeu-se, durante o experimento, que o movimento das juntas ocorria de forma muito cadenciada, isto é, não se deu de maneira contínua. Do contrário, a locomoção das juntas ocorreu de forma brusca entre um ponto de amostragem e outro. O comportamento da marcha pode ser visualizado na Figura \ref{fig:sequencia}, adquirida através de 9 segundos de gravação do experimento descrito. Percebe-se que o movimento das patas não está em acordo com a marcha de deslocamento proposta em \cite{tcc:porphirio:2017}. Dessa forma, o sistema com adição da posição desejada afeta diretamente a marcha implementada.
 
 Estes dois fatores (lentidão de resposta e movimento cadenciado) podem ser explicados pelo tempo de amostragem adotado neste trabalho. Quando desenvolvido em \cite{tcc:porphirio:2017}, a marcha utilizada não foi implementada com um período específico de amostragem, como no sistema desenvolvido. Como mencionado anteriormente, a marcha está contida em um arquivo e o tempo entre uma movimentação e outra era antes definido apenas pelo tempo do processamento para realizar tal leitura.
 
@@ -594,15 +594,15 @@ O controle de estabilidade proposto no capítulo \ref{CapDesenvolvimento} foi pen
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=1\textwidth]{Figuras/sequencia}
-	\caption{Marcha do robô adicionada ao sistema com paralelismo}
+	\caption{Marcha do robô adicionada ao sistema de controle de equilíbrio}
 	\label{fig:sequencia}
 \end{figure}
 
 No entanto, a abordagem inicial teve que sofrer algumas modificações para se adequar ao cenário encontrado no quadrúpede. Devido especialmente à limitação do torque no modo velocidade, foi necessária a mudança para o modo posição, mas mantendo a concepção de que a velocidade de cada junta seria, basicamente, a velocidade do distúrbio vezes $K_i$. Com o novo modo de operação, capaz de sustentar o robô nas condições de repouso, foi possível aplicar testes com o controlador proposto e, concomitantemente, adequar os ganhos $K_i$ até que se observasse a melhor resposta às perturbações.
 
-Descobertos os valores dos ganhos que melhor corrigem os distúrbios, estávamos em posse de um controlador efetivamente capaz de manter a plataforma equilibrada a perturbações externas. No entanto, ainda era necessário aliar o controle proposto ao desenvolvimento de marchas para que o robô conseguisse se equilibrar durante a caminhada sem prejudicar a mesma. Para tal foi proposto o sistema com paralelismo.
+Descobertos os valores dos ganhos que melhor corrigem os distúrbios, estávamos em posse de um controlador efetivamente capaz de manter a plataforma equilibrada a perturbações externas. No entanto, ainda era necessário aliar o controle proposto ao desenvolvimento de marchas para que o robô conseguisse se equilibrar durante a caminhada sem prejudicar a mesma. Para tal foi proposto o sistema com adição da posição desejada.
 
-Com o controlador em paralelo desenvolvido, foi possível realizar os testes que determinassem os valores adequados de $\tau_d$ e $\tau_p$ que resultassem em um tempo de resposta condizente com os distúrbios sofridos. Dessa forma, foi possível adequar os tempos de resposta para atingir o regime permanente e para responder ao distúrbio.
+Com o controlador desenvolvido com esta associação, foi possível realizar os testes que determinassem os valores adequados de $\tau_d$ e $\tau_p$ que resultassem em um tempo de resposta condizente com os distúrbios sofridos. Dessa forma, foi possível adequar os tempos de resposta para atingir o regime permanente e para responder ao distúrbio.
 
 Por fim, foi possível realizar os testes finais de verificação do controle de equilíbrio, avaliando a sua capacidade de responder aos distúrbios de forma efetiva, em todas as direções e retornar à posição inicial desejada. O alinhamento com as marchas desenvolvidas em \cite{tcc:porphirio:2017}, no entanto, não foi possível de ser realizado, uma vez que as marchas se encontravam muito lentas com o tempo de amostragem proposto. Contudo, ressalta-se que esta possibilidade não foi descartada e será incluída como sugestão para trabalhos futuros no capítulo seguinte.
 

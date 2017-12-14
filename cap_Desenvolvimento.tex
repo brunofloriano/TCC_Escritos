@@ -377,25 +377,25 @@ Dessa forma, a diferenciação entre juntas do tipo joelho e não-joelho é utilizad
 
 %Este movimento do joelho de cada pata não exige um deslocamento elevado quando comparado com as demais juntas. Por isso, determinou-se através dos testes, a serem descritos nos resultados, que o valor mais adequado para $K_{down}$ é -0.4 quando $K_{up}$ é normalizado com valor unitário. Este valor possibilita que os joelhos se movimentem o suficiente para garantir uma aterrissagem sem deslizamentos quando o robô sofre um distúrbio de arfagem.
 
-\subsection{Paralelismo com a Posição Desejada} \label{sec:paralelismo}
+\subsection{Associação do controle de equilíbrio com uma posição desejada} \label{sec:paralelismo}
 Determinados os ganhos $K_i$ de todos os motores, o controle de estabilidade está apto a corrigir os distúrbios, conforme será melhor abordado no capítulo \ref{CapExperimentos}. No entanto, o controle proposto até aqui, caracterizado pela equação (\ref{eq:controle_posicao_discreto}), aplica uma determinada posição $\theta_i$ em cada junta e não a modifica mais até a ocorrência de um novo distúrbio. Isto resulta na permanência do robô na posição de correção, mesmo após o fim da perturbação.
 
 A ação mais adequada para o quadrúpede é de, após a correção do distúrbio, cada junta voltar a uma posição desejada para o regime permanente. Dessa forma, se o robô estiver parado, deseja-se que ele volte à posição inicial após a correção. Da mesma maneira, caso a plataforma esteja em processo de marcha, ela deve continuar sua movimentação normalmente após a estabilidade ser alcançada.
 
-À vista disso, podemos remodelar o controle de equilíbrio com um novo diagrama de blocos, como o da Figura \ref{fig:diagrama5}. Podemos notar que, neste novo modelo, a posição desejada para cada junta é a soma de duas componentes: uma determinada pelo controle de estabilidade $G_1(s)$, que tem como entrada o distúrbio detectado pelo acelerômetro e a outra, determinada pela posição desejada em regime permanente $\theta_i^{\ast}$. Esta será definida pelo geração de marchas da plataforma mas, inicialmente, será dada apenas pela posição inicial das juntas para que o robô permaneça parado.
+À vista disso, podemos remodelar o controle de equilíbrio com um novo diagrama de blocos, como o da Figura \ref{fig:diagrama5}. É possível notar que, neste novo modelo, a posição desejada para cada junta é a soma de duas componentes: uma determinada pelo controle de estabilidade $G_1(s)$, que tem como entrada o distúrbio detectado pelo acelerômetro e a outra, determinada pela posição desejada em regime permanente $\theta_i^{\ast}$. Esta será definida pela geração de marchas da plataforma mas, inicialmente, será dada apenas pela posição inicial das juntas para que o robô permaneça parado.
 
-Nesta remodelação, consideraremos $d_{roll/pitch}$ agora como o erro da posição angular dos ângulos de rolagem e arfagem detectados pelo acelerômetro, e não mais suas velocidades. Consequentemente
+Nesta remodelação, consideraremos $d_{roll/pitch}$ agora como o erro da posição angular dos ângulos de rolagem e arfagem detectados pelo acelerômetro e não mais suas velocidades. Consequentemente
 
 \begin{eqnarray}
 d_{roll/pitch}(t) = \theta_{r}(t) - \theta_{roll/pitch}(t),
 \end{eqnarray}
 
-\noindent em que $\theta_r$ é o ângulo de referência para rolagem e arfagem. Como deseja-se a estabilidade do robô, considerar-se-á $\theta_{r} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
+\noindent em que $\theta_r$ é o ângulo de referência para rolagem e arfagem. Como se deseja a estabilidade do robô, considerar-se-á $\theta_{r} = 0$. Ou seja, o controle será a feito de modo a manter os ângulos de rolagem e arfagem próximos ou iguais a zero. Logo
 
 \begin{figure} [t]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Figuras/Diagrama5}
-	\caption{Diagrama de Blocos com Paralelismo}
+	\caption{Diagrama de blocos para adição da posição desejada}
 	\label{fig:diagrama5}
 \end{figure}
 
@@ -505,7 +505,7 @@ K_d = K_i T_{am}.
 Como já mencionado anteriormente, as constantes $\tau_d$ e $\tau_p$ serão determinada empiricamente através de testes reais na plataforma. Tais experimentos determinarão o tempo mais adequado de resposta para a correção de equilíbrio e para que o robô atinja a resposta em regime permanente. Uma vez que estes valores estiverem estipulados, todos os parâmetros da equação (\ref{eq:coeficientes}) estarão devidamente determinados.
 
 \section{Estrutura Geral do Código}
-Podemos, então, condensar as principais informações descritas nas seções anteriores para resumir a estrutura básica do código desenvolvido para o controle de estabilidade. O código foi escrito em C++ e possui as funções \emph{main} e controle como os processos principais. A Figura \ref{fig:diagramaprograma} mostra o digrama montado para ilustrar a estrutura geral do código.
+Podemos, então, condensar as principais informações descritas nas seções anteriores para resumir a estrutura básica do código desenvolvido para o controle de estabilidade. O código foi escrito em C++ e possui as funções \emph{main} e \textit{controle} como os processos principais. A Figura \ref{fig:diagramaprograma} mostra o diagrama montado para ilustrar a estrutura geral do código.
 
 \begin{figure} [!t]
 	\centering
@@ -517,18 +517,18 @@ Podemos, então, condensar as principais informações descritas nas seções anterio
 
 A função \emph{main}, em um primeiro momento, faz todas as inicializações necessárias. Isto inclui abrir a comunicação com os motores e com o \emph{Arduino}, declarar as variáveis que serão alocadas no gDataLogger para aquisição de dados, ativar o modo posição dos motores, declarar a posição inicial e enviá-la para os motores. Em seguida, ela espera alguma tecla ser pressionada para seguir os próximos passos.
 
-Uma vez detectada resposta do teclado, a função \emph{main} cria um timer com tempo de amostragem $T_{am}$ que é configurado para chamar a função de controle sempre $T_{am}$ segundos forem decorridos. Com isso, a \textit{thread} de controle é criada e a função \emph{main}, a partir de então, permanece em um loop apenas para verificar se a condição de parada foi satisfeita (neste caso a condição de parada é um novo toque em qualquer tecla) e atualizar o gDataLogger.
+Uma vez detectada resposta do teclado, a função \emph{main} cria um \textit{timer} com tempo de amostragem $T_{am}$ que é configurado para chamar a função de controle sempre que $T_{am}$ segundos tiverem decorrido. Com isso, a \textit{thread} de controle é criada e a função \emph{main}, a partir de então, permanece em um \textit{loop} apenas para verificar se a condição de parada foi satisfeita (neste caso a condição de parada é um novo toque em qualquer tecla) e atualizar o gDataLogger.
 
-Se detectada a condição de parada, a função \emph{main} para o timer, fecha o gDataLogger e a conexão com o \emph{Arduino}, libera os motores e, se configurado, exporta os dados para um diretório no site \emph{GitHub}, onde os dados podem ser acessados.
+Se detectada a condição de parada, a função \emph{main} para o \textit{timer}, fecha o gDataLogger e a conexão com o \emph{Arduino}, libera os motores e, se configurado, exporta os dados para um diretório no site \emph{GitHub}, onde os dados podem ser acessados.
 
-Já a função de controle, a cada vez que é chamada, começa com a medição dos dados do acelerômetro. Em seguida ela passa os dados pelo filtro e calcula os ganhos $K_i$ com base nos dados obtidos. Posteriormente, ela passa os dados para o controlador que, após os devidos cálculos, retorna a posição desejada para a i-ésima junta que, então, é mandada para seu respectivo motor. Por fim, os dados são atualizados para serem utilizados na próxima vez que a função for chamada. Para tal a maioria das variáveis são definidas como variáveis globais, assim elas podem ser armazenadas enquanto a \textit{thread} não é chamada novamente.
+Já a função de controle, cada vez que é chamada, começa com a medição dos dados do acelerômetro. Em seguida ela passa os dados pelo filtro e calcula os ganhos $K_i$ com base nos dados obtidos. Posteriormente, ela passa os dados para o controlador que, após os devidos cálculos, retorna a posição desejada para a i-ésima junta que, então, é enviada para seu respectivo motor. Por fim, os dados são atualizados para serem utilizados na próxima vez que a função for chamada. Para tal a maioria das variáveis são definidas como variáveis globais, assim elas podem ser armazenadas enquanto a \textit{thread} não é chamada novamente.
 
 \section{Conclusão}
 O controle de estabilidade do quadrúpede sofreu modificações com relação à proposta inicial. No entanto, o princípio fundamental desta abordagem foi mantida ao longo do desenvolvimento do trabalho, sempre buscando a melhor resposta da plataforma através dos testes reais na mesma.
 
 A princípio, o controle foi pensado no modo velocidade, em que cada junta responderia com uma velocidade proporcional à do distúrbio. A constante de proporcionalidade $K_i$ seria determinada empiricamente para cada motor. No entanto, a limitação do torque foi fundamental para reconsiderar este modo de operação.
 
-Neste sentido, o uso do modo posição se mostrou bastante adequado para a finalidade do controle, uma vez que os motores apresentavam um torque bastante elevado para sustentar o peso do robô. Dessa forma, com uma leve modificação, a adição de um integrador, foi possível manter a abordagem inicial de resposta dos motores no modo posição. Assim, o controle se mostrou efetivo para o controle de equilíbrio e os ganhos $K_i$ puderam ser determinados.
+Neste sentido, o uso do modo posição se mostrou bastante adequado para a finalidade do controle, uma vez que os motores apresentavam um torque bastante elevado para sustentar o peso do robô. Dessa forma, com uma leve modificação, a adição de um integrador, foi possível manter a abordagem inicial de resposta dos motores no modo posição. Assim, o sistema implementado se mostrou efetivo para o controle de equilíbrio e os ganhos $K_i$ puderam ser determinados.
 
 Por fim, fez-se necessário integrar a resposta de correção da estabilidade com a posição desejada do robô, seja para manter sua marcha ou para mantê-lo na mesma posição inicial. Para tal, utilizou-se de dois controladores, um para lidar com o distúrbio e outro para tratar da resposta desejada em regime permanente. A resposta de cada motor seria dada, portanto, pela soma de cada uma dessas componentes.
 
